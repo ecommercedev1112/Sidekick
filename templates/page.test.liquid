@@ -1,0 +1,166 @@
+
+{% comment %}
+    
+
+
+<div style="padding-top: 200px;" class="text-refijetDarkGray bg-refijetGray">
+    <div class="container-size">
+        <div class="w-full md:w-10/12 m-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 pt-12 pb-6">
+                <div class="col-span-1 bg-white py-6 md:py-10 md:px-10 border-2 border-gray-500">
+                    <div class="grid-cols-1 grid gap-8  pb-2">
+                        <div class="col-span-6">
+                            <div class="py-2 px-4 rounded-md">
+                                <form id="loanCalculatorForm">
+                                    <div>
+                                        <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+                                            <!-- Balance Left on Loan -->
+                                            <div class="col-span-12">
+                                                <label class="block my-2 font-bold text-sm">Balance Left on Loan</label>
+                                                <div class="relative">
+                                                    <input type="text" id="loanBalanceInput" class="w-full rounded-sm p-2 border pl-10"/>
+                                                </div>
+                                            </div>
+                                            <!-- Current Monthly Payment -->
+                                            <div class="col-span-12">
+                                                <label class="block my-2 font-bold text-sm">Current Monthly Payment</label>
+                                                <div class="relative">
+                                                    <input type="text" id="currentMonthlyPaymentInput" class="w-full rounded-sm p-2 border pl-10"/>
+                                                </div>
+                                            </div>
+                                            <!-- Current Interest Rate -->
+                                            <div class="col-span-12 md:col-span-6">
+                                                <label class="block my-2 font-bold text-sm">Current Interest Rate</label>
+                                                <div class="relative">
+                                                    <input type="text" id="currentInterestRateInput" class="w-full rounded-sm p-2 border pr-8"/>
+                                                </div>
+                                            </div>
+                                            <!-- Desired Interest Rate -->
+                                            <div class="col-span-12 md:col-span-6">
+                                                <label class="block my-2 font-bold text-sm">Desired Interest Rate</label>
+                                                <div class="relative">
+                                                    <input type="text" id="desiredInterestRateInput" class="w-full rounded-sm p-2 border pr-8"/>
+                                                </div>
+                                            </div>
+                                            <!-- Remaining Loan Term -->
+                                            <div class="col-span-12 md:col-span-6">
+                                                <label class="block my-2 font-bold text-sm">Remaining Loan Term</label>
+                                                <div class="relative">
+                                                    <input type="text" id="remainingTermMonthsInput" class="w-full rounded-sm p-2 border pr-16"/>
+                                                </div>
+                                            </div>
+                                            <!-- New Loan Term -->
+                                            <div class="col-span-12 md:col-span-6">
+                                                <label class="block my-2 font-bold text-sm">New Loan Term</label>
+                                                <div class="relative">
+                                                    <input type="text" id="newTermMonthsInput" class="w-full rounded-sm p-2 border pr-16"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="my-4">
+                                        <button class="text-lg py-2 px-4 cursor-pointer w-full bg-refijetLightBlue text-white rounded-md shadow-[4px_4px_9px_rgba(0,0,0,.25)] transition-all hover:bg-[#328acb] hover:border-[#328acb] hover:shadow-none font-semibold">Calculate Saving</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Results Display -->
+                <div class="col-span-1  bg-refijetLightBlue text-white">
+                    <div class="px-14 py-10">
+                        <h3 class="text-4xl font-bold">Your Estimated New Monthly Payment:</h3>
+                        <h2 id="newMonthlyPaymentDisplay" class="text-center text-6xl font-bold my-12">$0.00</h2>
+                        <hr/>
+                        <p class="mt-6">
+                            Your monthly savings could be as high as
+                            <i><b id="monthlySavingsDisplay">$0.00</b></i>!
+                        </p>
+                        <p>
+                            That's a total savings on your interest of
+                            <i><b id="totalInterestSavingsDisplay">$0.00</b></i>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="pb-14">***This calculator is a tool for estimating the monthly loan payment at different sample interest rates. The interest rate you input is not a promise or indicator of the actual interest rate for which you may qualify when applying for a refinance loan with RefiJet.</p>
+    </div>
+</div>
+
+
+<script>
+    function loanRefinanceCalculator(loanBalance, currentMonthlyPayment, currentInterestRate, desiredInterestRate, remainingTermMonths, newTermMonths) {
+    // Convert annual rates to monthly and from percentage to decimal
+    const currentMonthlyRate = currentInterestRate / 12 / 100;
+    const desiredMonthlyRate = desiredInterestRate / 12 / 100;
+    
+    // Calculate current total payment for the remaining term
+    const totalPaymentCurrent = currentMonthlyPayment * remainingTermMonths;
+    
+    // Calculate new monthly payment with the desired rate and new term
+    let newMonthlyPayment;
+    if (desiredMonthlyRate > 0) {
+        newMonthlyPayment = loanBalance * (desiredMonthlyRate * Math.pow(1 + desiredMonthlyRate, newTermMonths)) / (Math.pow(1 + desiredMonthlyRate, newTermMonths) - 1);
+    } else {
+        // If the desired rate is 0%, calculation simplifies to loan balance divided by term
+        newMonthlyPayment = loanBalance / newTermMonths;
+    }
+    
+    // Calculate total payments for new and current loans
+    const totalPaymentNew = newMonthlyPayment * newTermMonths;
+    
+    // Calculate savings
+    const monthlySavings = currentMonthlyPayment - newMonthlyPayment;
+    const totalInterestSavings = totalPaymentCurrent - totalPaymentNew;
+    
+    return {
+        newMonthlyPayment: newMonthlyPayment.toFixed(2),
+        monthlySavings: monthlySavings.toFixed(2),
+        totalInterestSavings: totalInterestSavings.toFixed(2)
+    };
+}
+
+// Example usage (you would replace these values with those from the form inputs)
+const loanBalance = 20000; // Balance left on loan
+const currentMonthlyPayment = 600; // Current monthly payment
+const currentInterestRate = 5; // Current interest rate in percentage
+const desiredInterestRate = 3.5; // Desired interest rate in percentage
+const remainingTermMonths = 36; // Remaining loan term in months
+const newTermMonths = 36; // New loan term in months
+
+const result = loanRefinanceCalculator(loanBalance, currentMonthlyPayment, currentInterestRate, desiredInterestRate, remainingTermMonths, newTermMonths);
+console.log(result);
+
+
+
+
+
+
+
+document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+    
+    // Get values from inputs (you'll need to add proper selectors for your inputs)
+    const loanBalance = document.querySelector('#loanBalanceInput').value;
+    const currentMonthlyPayment = document.querySelector('#currentMonthlyPaymentInput').value;
+    const currentInterestRate = document.querySelector('#currentInterestRateInput').value;
+    const desiredInterestRate = document.querySelector('#desiredInterestRateInput').value;
+    const remainingTermMonths = document.querySelector('#remainingTermMonthsInput').value;
+    const newTermMonths = document.querySelector('#newTermMonthsInput').value;
+
+    // Calculate results
+    const result = loanRefinanceCalculator(parseFloat(loanBalance), parseFloat(currentMonthlyPayment), parseFloat(currentInterestRate), parseFloat(desiredInterestRate), parseInt(remainingTermMonths), parseInt(newTermMonths));
+
+    // Update the DOM with the results (you'll need to add IDs or other selectors to your result elements)
+    document.querySelector('#newMonthlyPaymentDisplay').textContent = `$ ${result.newMonthlyPayment}`;
+    document.querySelector('#monthlySavingsDisplay').textContent = `$ ${result.monthlySavings}`;
+    document.querySelector('#totalInterestSavingsDisplay').textContent = `$ ${result.totalInterestSavings}`;
+});
+
+
+
+</script>
+
+
+{% endcomment %}

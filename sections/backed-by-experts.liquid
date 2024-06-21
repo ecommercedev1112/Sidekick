@@ -1,0 +1,104 @@
+<style>
+  .jc-disclaimer-wrapper-products {
+    overflow: hidden;
+}
+
+.left-container {
+    position: relative;
+
+}
+
+.left-container img {
+ width: 100%;
+    max-width: 618px;
+    position: absolute;
+    top: 0px;
+    right: 0;
+    transform: translate3d(0,0,0); /* Enhances performance by promoting the element to its own layer */
+}
+.jc-disclaimer-wrapper-products p {
+  line-height: 39px;
+  font-weight: 400;
+}
+/* Additional styles for other elements if needed */
+
+</style>
+
+<div class="jc-disclaimer-wrapper-products pink">
+    <div class="wrapper-outter padded left">
+
+
+    <div class="left-container hidden-tablet">
+      <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Relief_Expert_Strip_Image_2.png?v=1706573129" alt="">
+    </div>
+
+    <div class="right-container">
+
+            <div class="heading-wrapper margin-b-80">
+                <h1 class="max-360 h1-new" style="">Backed by Experts</h1>
+
+                <p class="p-smaller" >Lorem ipsum dolor sit amet, consectetur tge adipiscing elit, sed do eiusmod tempor incid ut labore et dolore magna aliqua dolore. </p>
+            </div>
+
+            <img class="show-tablet" src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Relief_Expert_Strip_Image_2_89c90738-c65b-4518-9c81-00780a3268a8.png?v=1707527489" alt="">
+            <div class="green-half-pill">
+              
+            <div class="pill-text-wrapper">
+
+              <p class="expert-heading" >Recommended by Dr. Figma</p>
+              <p class="" >“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”</p>
+              </div>
+              <div class="green-pill-inner hidden-tablet"></div>
+              <div class="green-pill-inner-rounded hidden-tablet"></div>
+              </div>
+    </div>
+
+
+    </div>
+    <div class="slider-indicators"></div> 
+</div>
+{% comment %}
+<script>
+document.addEventListener("scroll", function() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    var img = document.querySelector('.left-container img');
+    if (img) {
+        var imgRect = img.getBoundingClientRect();
+        var imgTop = imgRect.top + scrollTop;
+        var imgHeight = img.offsetHeight;
+        var windowHeight = window.innerHeight;
+
+        if (scrollTop + windowHeight > imgTop && imgTop + imgHeight > scrollTop) {
+            // Image is in the viewport
+            var offset = scrollTop + windowHeight - imgTop;
+            img.style.transform = 'translate3d(0,' + offset * 0.2 + 'px, 0)'; // Adjust the multiplier (0.3) as needed
+        } else {
+            img.style.transform = 'translate3d(0, 0, 0)';
+        }
+    }
+});
+
+
+</script>
+{% endcomment %}
+
+
+{% schema %}
+	{
+	"name": "Backed by Experts",
+	"tag": "section",
+	"class": "section",
+	"disabled_on": {
+	"groups": ["header", "footer"]
+	},
+	"settings": [
+
+	],
+	"presets": [
+	{
+	"name": "Backed by Experts"
+	}
+	]
+	}
+	{% endschema %}

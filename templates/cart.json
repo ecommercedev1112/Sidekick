@@ -1,0 +1,55 @@
+{
+  "sections": {
+    "cart-items": {
+      "type": "main-cart-items-new",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "cart-footer": {
+      "type": "main-cart-footer-new",
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {
+          }
+        },
+        "18f744d5-aebc-44a5-968a-0abb2221809b": {
+          "type": "shopify:\/\/apps\/sezzle-widget\/blocks\/widget-block\/f3a53793-e118-4764-a86b-a79bfedb0d5f",
+          "settings": {
+            "heading": "Sezzle Widget",
+            "font_size": 14,
+            "font_family": "inherit"
+          }
+        },
+        "0a7baf18-cb50-47e2-9cee-40e4a9b6cb37": {
+          "type": "shopify:\/\/apps\/sezzle-widget\/blocks\/checkout-block\/f3a53793-e118-4764-a86b-a79bfedb0d5f",
+          "settings": {
+            "heading": "Sezzle Checkout Button",
+            "template": "Checkout with %%logo%%",
+            "mode": "light",
+            "default_placement": true
+          }
+        }
+      },
+      "block_order": [
+        "subtotal",
+        "buttons",
+        "18f744d5-aebc-44a5-968a-0abb2221809b",
+        "0a7baf18-cb50-47e2-9cee-40e4a9b6cb37"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "cart-items",
+    "cart-footer"
+  ]
+}

@@ -1,0 +1,1891 @@
+{{ 'jc-custom-recharge.css' | asset_url | stylesheet_tag }}
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+{{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+{{ 'custom-product.css' | asset_url | stylesheet_tag }}
+
+
+
+<style>
+	.jc-product-page-flex-row {
+		align-items: baseline;
+	}
+
+	.product-title-link.product-item-top .image-wrapper {
+		margin-bottom: 18px;
+	}
+
+	.radio-wrapper fieldset div {
+		/*
+		align-items: baseline !important;
+		*/
+	}
+
+	.section .jc-disclaimer-wrapper-products.white {
+		padding-top: 0px;
+	}
+
+	#ProductSelect-option-1 input[type=radio] {
+		margin-right: 10px;
+		margin-top: 5px;
+	}
+
+	.jc-product-page-input-wrapper .icon-most-popular-hear {
+		margin-top: 5px;
+		left: 40%;
+	}
+
+	.reviews-link {
+		position: absolute;
+		z-index: 2;
+		right: 0;
+		left: 0;
+		top: 0;
+		bottom: 0;
+	}
+
+	@media screen and (max-width: 991px) {
+
+		.jc-product-page-flex-row {
+			align-items: stretch;
+		}
+	}
+</style>
+
+<script src="{{ 'slick.js' | asset_url }}" defer="defer"></script>
+<div class="jc-product-page-wrapper" itemscope itemtype="http://schema.org/Product"
+	id="ProductSection--{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product-template"
+	data-enable-history-state="true">
+
+	<meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+	<meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+	{% assign main_product_id = product.id %}
+	{% assign current_variant = product.selected_or_first_available_variant %}
+	{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+
+	{% assign variantDescription = current_variant.metafields.variantDescription %}
+	{% assign key = 'description' %}
+
+	{% assign variantDirections = current_variant.metafields.variantDirections %}
+	{% assign key = 'directions' %}
+
+	{% assign variantSafety = current_variant.metafields.variantSafety %}
+	{% assign key = 'safety' %}
+
+	{% assign variantIngredients = current_variant.metafields.variantIngredients %}
+	{% assign key = 'ingredients' %}
+
+	{% assign subHeading = current_variant.metafields.subHeading %}
+	{% assign key = 'heading' %}
+
+	{% assign labResults = product.metafields.labResults %}
+	{% assign key = 'url' %}
+
+	{% assign productVideo = product.metafields.productVideo %}
+	{% assign key = 'videoId' %}
+
+	{% assign productDirections = product.metafields.productDirections %}
+	{% assign key = 'directions' %}
+
+	{% assign productIngredients = product.metafields.productIngredients %}
+	{% assign key = 'ingredients' %}
+
+	{% assign productSafetyLabTest = product.metafields.productSafetyLabTest %}
+	{% assign key = 'safetyLabTest' %}
+
+	{% assign broad_spectrum = false %}
+
+	{% assign current_variant = product.selected_or_first_available_variant %}
+
+	{% comment %}
+	THC free tincture - 6683040284870
+	THC free softgel - 6683070496966
+	THC free gummies - 6841769033926
+	{% endcomment %}
+	{% if product.id == 6683040284870 or product.id == 6683070496966 or product.id == 6841769033926 or product.id ==
+	7706902626502 %}
+	{% assign broad_spectrum = true %}
+	{% endif %}
+
+
+	{% assign initialVideoUrl = 'https://www.youtube.com/embed/' %}
+	{% assign uniqueVideoId = productVideo.videoId %}
+	{% assign endVideoUrl = '?rel=0&amp;controls=1&amp;autoplay=0&amp;mute=0&amp;start=0' %}
+	{% capture fullVideoUrl %}
+	{{ initialVideoUrl | append: uniqueVideoId | append: endVideoUrl }}
+	{% endcapture %}
+
+	{% assign productDetails = product.metafields.productDetails %}
+	{% assign key = 'default' %}
+	{% assign productDetails = product.metafields.productDetails %}
+	{% assign key = 'details2' %}
+	{% assign productDetails = product.metafields.productDetails %}
+	{% assign key = 'details3' %}
+
+	{% assign bestSeller = current_variant.metafields.bestSeller.sticker %}
+	{% if product.id == 4447123537973 %}
+	{% assign jc_sticker_class = 'jc-product-page-sticker-img-alt' %}
+	{% endif %}
+
+	{% if current_variant.id == 29122588901429 %}
+	{% assign jc_test_bold = true %}
+	{% endif %}
+
+	{% comment %}
+	32310809264181 - 500mg unflavored 3-pack
+	32310782558261 - 500mg unflavored Single
+	{% endcomment %}
+
+
+	{% if current_variant.available %}
+	{% assign is_available = true %}
+	{% else %}
+	{% assign is_available = false %}
+	{% endif %}
+
+	{% assign set_pre_order = current_variant.metafields.variant_info.pre_order %}
+	{% assign pre_order_name = current_variant.metafields.variant_info.pre_order_name %}
+	{% assign pre_order_plural = current_variant.metafields.variant_info.pre_order_plural %}
+
+	{% if pre_order_plural == true %}
+	{% assign pre_order_plurality = 'are' %}
+	{% else %}
+	{% assign pre_order_plurality = 'is' %}
+	{% endif %}
+
+
+
+
+
+
+
+	{% assign isFullSpec = false %}
+	{% assign isBroadSpec = false %}
+	{% assign isPain = false %}
+	{% assign isStress = false %}
+	{% assign isSleep = false %}
+	{% assign isCBDGummy = false %}
+	{% assign isCBDCreams = false %}
+	{% assign isCBDTinctures = false %}
+	{% assign isCBDSoftgels = false %}
+	{% assign isPetProduct = false %}
+
+	{% if product.tags contains 'full-spectrum' %}
+	{% assign isFullSpec = true %}
+	{% endif %}
+
+	{% if product.tags contains 'broad-spectrum' %}
+	{% assign isBroadSpec = true %}
+	{% endif %}
+
+	{% if product.tags contains 'pain' %}
+	{% assign isPain = true %}
+	{% endif %}
+
+	{% if product.tags contains 'stress' %}
+	{% assign isStress = true %}
+	{% endif %}
+
+	{% if product.tags contains 'sleep' %}
+	{% assign isSleep = true %}
+	{% endif %}
+
+
+	{% for collection in product.collections %}
+	{% case collection.handle %}
+	{% when 'gummies' %}
+	{% assign isCBDGummy = true %}
+	{% when 'cbd-pain-creams' %}
+	{% assign isCBDCreams = true %}
+	{% when 'tinctures' %}
+	{% assign isCBDTinctures = true %}
+	{% when 'softgels' %}
+	{% assign isCBDSoftgels = true %}
+	{% when 'pet-products' %}
+	{% assign isPetProduct = true %}
+	{% endcase %}
+	{% endfor %}
+
+
+
+
+
+	<div class="jc-container-large product">
+		{% comment %}
+		<div class="jc-breadcrumb-wrapper">
+			<a href="/collections/all-products" class="jc-breadcrumb-link">All Products</a>
+			<div class="jc-breadcrumb-breaker">/</div>
+			{% for collection in product.collections limit: 2 %}
+			{% unless
+			collection.handle == 'all-products'
+			or collection.handle == 'frontpage'
+			or collection.handle == 'new-tincture-launch'
+			or collection.handle == 'holiday-deals'
+			%}
+			<a href="{{ collection.url }}" class="jc-breadcrumb-link">{{ collection.title }}</a>
+			<div class="jc-breadcrumb-breaker">/</div>
+			{% endunless %}
+			{% endfor %}
+
+
+			<span class="jc-breadcrumb-link">{{ product.title }}</span>
+		</div>
+		{% endcomment %}
+		<div class="jc-product-page-content-wrapper">
+			<div class="jc-product-page-row-outer w-row">
+				<div class="jc-product-page-col-left w-col w-col-6">
+					<div class="jc-product-page-heading-wrapper-mobile">
+
+						<div style="margin-bottom: 11px; margin-top: 31px;">
+
+							{% if product.tags contains 'for-pets' %}
+							{% render 'for-pets' %}
+							{% else %}
+							{% if broad_spectrum == true %}
+
+							{% render 'broad-spectrum' %}
+
+							{% else %}
+
+							{% render 'full-spectrum' %}
+
+
+							{% endif %}
+							{% endif %}
+						</div>
+						<div class="jc-product-page-heading">{{ product.title }}</div>
+
+
+
+
+						{% unless subHeading.heading == blank %}
+						<div class="jc-product-sub-heading">{{ subHeading.heading }}</div>
+						{% endunless %}
+
+
+						<div class="yotpo-widget-instance" data-yotpo-instance-id="523296"
+							data-yotpo-product-id="{{product.id}}" data-yotpo-cart-product-id="{{item.product.id}}"
+							data-yotpo-section-id="{{template.name}}">
+							{% comment %}
+							<a href="#reviews" class="reviews-link"></a>
+							{% endcomment %}
+						</div>
+
+
+
+
+					</div>
+
+
+
+					<div class="hero-wrapper-product">
+						<div class="hero-container-product">
+							<div class="flex-row-outer-product">
+								<div class="flex-col-outer-product-1">
+									<div class="tabs-wrapper-product">
+
+										{%comment %}
+										{%endcomment %}
+
+										<div data-current="Tab 1" id="jc-show-slider-{{variant.id}} data-easing=" ease"
+											data-duration-in="300" data-duration-out="100" class="tabs-product w-tabs">
+											<div class="tabs-menu-product w-tab-menu">
+												{% for image in product.images %}
+
+												{% capture variant_id_string %}
+												{{current_variant.id}}
+												{% endcapture %}
+
+												{% capture image_alt_string %}
+												{{image.alt}}
+												{% endcapture %}
+
+
+												{%- assign img_url = image | img_url: '1x1' | replace: '_1x1.',
+												'_{width}x.' -%}
+												<a data-image-id="{{ image.id }}" data-w-tab="Tab {{ forloop.index }}"
+													class="tab-menu-link-product w-inline-block w-tab-link {% if forloop.first == true %}w--current{% endif %}"
+													style="background-image: url({{ image | img_url: '512x' }});"></a>
+
+												{% endfor %}
+											</div>
+											<div class="tabs-content-product w-tab-content">
+
+												{% for image in product.images %}
+
+												{% capture variant_id_string %}
+												{{variant.id}}
+												{% endcapture %}
+												{% capture image_alt_string %}
+												{{image.alt}}
+												{% endcapture %}
+
+
+												<div data-w-tab="Tab {{ forloop.index }}"
+													class="w-tab-pane {% if forloop.first == true %}w--tab-active{% endif %}"
+													data-image-id="{{ image.id }}">
+													<div class="tab-inner-product">
+														<div class="tab-img-wrapper-product">
+															<div class="tab-img-inner-product"><img
+																	src="{{ image | img_url: '1500x' }}" loading="eager"
+																	alt="{{image.alt}}" class="tab-img-product"></div>
+														</div>
+													</div>
+												</div>
+												{% endfor %}
+											</div>
+										</div>
+
+
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+					{%comment%}
+					<div class="jc-product-page-img-section-wrapper">
+
+
+						<div class="jc-product-page-slider-default">
+							<div data-animation="slide" data-nav-spacing="8" data-duration="500" data-infinite="1"
+								class="jc-product-page-slider w-slider" id="jc-slider-{{current_variant.id}}">
+								<div class="w-slider-mask">
+
+									{% for image in product.images %}
+
+									{% capture variant_id_string %}
+									{{current_variant.id}}
+									{% endcapture %}
+
+									{% capture image_alt_string %}
+									{{image.alt}}
+									{% endcapture %}
+
+									{% if image_alt_string == variant_id_string %}
+									{%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+									<div class="w-slide">
+										<div class="jc-product-page-slider-inner">
+											<div class="jc-product-page-img-block">
+												{% if bestSeller == 1 and forloop.index == 1 %}
+												<img src="//cdn.shopify.com/s/files/1/0107/7431/5072/files/Best_Seller_Red-min.png"
+													class="jc-product-page-sticker-img {{jc_sticker_class}}">
+												{% endif %}
+												<img src="{{ image | img_url: '1100x1100' }}" alt="{{image.alt}}"
+													class="jc-product-page-img">
+											</div>
+										</div>
+									</div>
+									{% endif %}
+									{% endfor %}
+
+								</div>
+								<div class="jc-product-page-slider-arrow w-slider-arrow-left">
+									<div class="w-icon-slider-left"></div>
+								</div>
+								<div class="jc-product-page-slider-arrow w-slider-arrow-right">
+									<div class="w-icon-slider-right"></div>
+								</div>
+								<div class="jc-product-page-slide-nav w-slider-nav w-round"></div>
+
+							</div> <!-- jc-product-page-slider -->
+						</div> <!-- slider-default -->
+
+
+						{% for variant in product.variants %}
+						{% assign bestSellerVariant = variant.metafields.bestSeller.sticker %}
+						<div class="jc-product-page-slider-options-block" id="jc-show-slider-{{variant.id}}">
+							<div data-animation="slide" data-nav-spacing="8" data-duration="500" data-infinite="1"
+								class="jc-product-page-slider w-slider">
+								<div class="w-slider-mask">
+
+									{% for image in product.images %}
+
+									{% capture variant_id_string %}
+									{{variant.id}}
+									{% endcapture %}
+									{% capture image_alt_string %}
+									{{image.alt}}
+									{% endcapture %}
+
+									{% if image_alt_string == variant_id_string %}
+									{%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+									<div class="w-slide">
+										<div class="jc-product-page-slider-inner">
+											<div class="jc-product-page-img-block">
+												{% if bestSellerVariant == 1 and forloop.index == 1 %}
+												<img src="//cdn.shopify.com/s/files/1/0107/7431/5072/files/Best_Seller_Red-min.png"
+													class="jc-product-page-sticker-img {{jc_sticker_class}}">
+												{% endif %}
+												<img src="{{ image | img_url: '1100x1100' }}" alt="{{image.alt}}"
+													class="jc-product-page-img">
+											</div>
+										</div>
+									</div>
+
+									{% endif %}
+									{% endfor %}
+
+								</div>
+								<div class="jc-product-page-slider-arrow w-slider-arrow-left">
+									<div class="w-icon-slider-left"></div>
+								</div>
+								<div class="jc-product-page-slider-arrow w-slider-arrow-right">
+									<div class="w-icon-slider-right"></div>
+								</div>
+								<div class="jc-product-page-slide-nav w-slider-nav w-round"></div>
+
+							</div> <!-- jc-product-page-slider -->
+						</div> <!-- slider-options-block -->
+
+						{% endfor %}
+
+
+					</div>
+				</div>
+
+
+				{%endcomment%}
+
+				<div class="jc-product-page-img-section-wrapper hidden">
+
+					<div class="jc-product-page-slider-default">
+						<div data-animation="slide" data-nav-spacing="8" data-duration="500" data-infinite="1"
+							class="jc-product-page-slider w-slider" id="jc-slider-{{current_variant.id}}">
+							<div class="w-slider-mask">
+
+
+
+
+								{%comment%} ----------------- Create 1 Slider and multiple Slides for each Image
+								------------ {%endcomment%}
+								{% for image in product.images %}
+
+								{% capture variant_id_string %}
+								{{current_variant.id}}
+								{% endcapture %}
+
+								{% capture image_alt_string %}
+								{{image.alt}}
+								{% endcapture %}
+
+
+								{% if image_alt_string == variant_id_string %}
+								{%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+								<div class="w-slide">
+									<div class="jc-product-page-slider-inner">
+										<div class="jc-product-page-img-block">
+											{% if bestSeller == 1 and forloop.index == 1 %}
+											<img src="//cdn.shopify.com/s/files/1/0107/7431/5072/files/Best_Seller_Red-min.png"
+												class="jc-product-page-sticker-img {{jc_sticker_class}}">
+											{% endif %}
+											<img src="{{ image | img_url: '1100x1100' }}" alt="{{image.alt}}"
+												class="jc-product-page-img">
+										</div>
+									</div>
+								</div>
+								{% endif %}
+								{% endfor %}
+
+
+								{%comment%} ----------------- Slider Arrows ------------ {%endcomment%}
+							</div>
+							<div class="jc-product-page-slider-arrow w-slider-arrow-left">
+								<div class="w-icon-slider-left"></div>
+							</div>
+							<div class="jc-product-page-slider-arrow w-slider-arrow-right">
+								<div class="w-icon-slider-right"></div>
+							</div>
+							<div class="jc-product-page-slide-nav w-slider-nav w-round"></div>
+
+						</div> <!-- jc-product-page-slider -->
+					</div> <!-- slider-default -->
+
+
+					{%comment%} ----------------- Create a seprate Slider for each product variant and fill the slides
+					with it's respective images ------------ {%endcomment%}
+					{% for variant in product.variants %}
+					{% assign bestSellerVariant = variant.metafields.bestSeller.sticker %}
+					<div class="jc-product-page-slider-options-block" id="jc-show-slider-{{variant.id}}">
+						<div data-animation="slide" data-nav-spacing="8" data-duration="500" data-infinite="1"
+							class="jc-product-page-slider w-slider">
+							<div class="w-slider-mask">
+
+								{% for image in product.images %}
+
+								{% capture variant_id_string %}
+								{{variant.id}}
+								{% endcapture %}
+								{% capture image_alt_string %}
+								{{image.alt}}
+								{% endcapture %}
+
+								{% if image_alt_string == variant_id_string %}
+								{%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+								<div class="w-slide">
+									<div class="jc-product-page-slider-inner">
+										<div class="jc-product-page-img-block">
+											{% if bestSellerVariant == 1 and forloop.index == 1 %}
+											<img src="//cdn.shopify.com/s/files/1/0107/7431/5072/files/Best_Seller_Red-min.png"
+												class="jc-product-page-sticker-img {{jc_sticker_class}}">
+											{% endif %}
+											<img src="{{ image | img_url: '1100x1100' }}" alt="{{image.alt}}"
+												class="jc-product-page-img">
+										</div>
+									</div>
+								</div>
+
+								{% endif %}
+								{% endfor %}
+
+								{%comment%} ----------------- Slider Arrows ------------ {%endcomment%}
+							</div>
+							<div class="jc-product-page-slider-arrow w-slider-arrow-left">
+								<div class="w-icon-slider-left"></div>
+							</div>
+							<div class="jc-product-page-slider-arrow w-slider-arrow-right">
+								<div class="w-icon-slider-right"></div>
+							</div>
+							<div class="jc-product-page-slide-nav w-slider-nav w-round"></div>
+
+						</div> <!-- jc-product-page-slider -->
+					</div> <!-- slider-options-block -->
+
+					{% endfor %}
+
+					{%comment%}
+					<div class="jc-product-page-btn-wrapper-alt">
+						<a href="/pages/lab-testing" class="jc-product-page-btn-alt w-button" target="_blank">View Lab
+							Results</a>
+					</div>
+					{%endcomment%}
+				</div>
+			</div>
+			<div class="jc-product-page-content-col w-col w-col-6">
+				<div class="jc-product-page-content-col-inner">
+					<div class="jc-product-page-heading-wrapper">
+						<div style="margin-bottom: 11px">
+							{% if product.tags contains 'for-pets' %}
+							{% render 'for-pets' %}
+							{% else %}
+							{% if broad_spectrum == true %}
+
+							{% render 'broad-spectrum' %}
+
+							{% else %}
+
+							{% render 'full-spectrum' %}
+
+
+							{% endif %}
+							{% endif %}
+
+						</div>
+
+						<h1 class="jc-product-page-heading">{{ product.title }}</h1>
+
+						<a herf="{{variant.url}}">
+							<div style="position: relative;" class="yotpo-widget-instance 1"
+								data-yotpo-instance-id="523296" data-yotpo-product-id="{{product.id}}"
+								data-yotpo-cart-product-id="{{item.product.id}}"
+								data-yotpo-section-id="{{template.name}}">
+								{% comment %}
+
+								<a href="#reviews" class="reviews-link"></a>
+								{% endcomment %}
+							</div>
+						</a>
+
+						{% unless subHeading.heading == blank %}
+						<h2 class="jc-product-sub-heading">{{subHeading.heading}}</h2>
+						{% endunless %}
+					</div>
+
+
+					<div class="rte jc-product-page-description-text">
+						<div class="jc-product-page-variant-default">
+							{% if variantDescription.shortDescription %}
+								<div style="display: block;" class="jc-variant-options-block">
+							{{ variantDescription.shortDescription }} <a href="#tab-section" id="description-link">Learn
+								More</a>
+								</div>
+							{% endif %}
+
+							{% if variantDescription.best_for_section_text %}
+								{% comment %}
+									
+									<br>
+								{% endcomment %}
+									<br>
+							<p><span class="best-for-text">BEST FOR </span>{% comment %}{{
+								variantDescription.best_for_section_text }}{% endcomment %}</p>
+
+
+							<div class="best-for-button-wrapper">
+								{% if product.tags contains 'multifunctional' %}
+								<button class="best-for-button active">
+									{%render 'multi-icon'%} Multifunctional
+								</button>
+								{% endif %}
+								{% if product.tags contains 'pain' %}
+								<button class="best-for-button">
+									{%render 'pain-icon'%} Pain
+								</button>
+								{% endif %}
+
+								{% if product.tags contains 'stress' %}
+								<button class="best-for-button">
+									{%render 'stress-icon'%} Stress
+								</button>
+								{% endif %}
+
+								{% if product.tags contains 'sleep' %}
+								<button class="best-for-button">
+									{%render 'sleep-icon'%} Sleep
+								</button>
+								{% endif %}
+
+							</div>
+							{% endif %}
+						</div>
+
+
+
+						{% for variant in product.variants %}
+						<div class="jc-variant-options-block" id="jc-show-variant-description-1-{{variant.id}}">
+
+							{{ variant.metafields.variantDescription.shortDescription }} <a href="#tab-section"
+								id="description-link">Learn More</a>
+
+						</div>
+
+						<div class="jc-variant-options-block" id="jc-show-variant-description-2-{{variant.id}}">
+
+							<br>
+							<p><span class="best-for-text">BEST FOR </span>{% comment %}{{
+								variantDescription.best_for_section_text }}{% endcomment %}</p>
+
+							<div class="best-for-button-wrapper">
+								{% if product.tags contains 'multifunctional' %}
+								<button class="best-for-button active">
+									{%render 'multi-icon'%} Multifunctional
+								</button>
+								{% endif %}
+								{% if product.tags contains 'pain' %}
+								<button class="best-for-button">
+									{%render 'pain-icon'%} Pain
+								</button>
+								{% endif %}
+
+								{% if product.tags contains 'stress' %}
+								<button class="best-for-button">
+									{%render 'stress-icon'%} Stress
+								</button>
+								{% endif %}
+
+								{% if product.tags contains 'sleep' %}
+								<button class="best-for-button">
+									{%render 'sleep-icon'%} Sleep
+								</button>
+								{% endif %}
+
+							</div>
+
+
+
+
+						</div>
+
+
+						{% endfor %}
+
+
+					</div>
+					{% comment %}
+					<div class="jc-product-amzn-wrapper">
+						<p class="jc-product-amzn-text"><strong>Note:</strong> This product is exclusively sold on <a
+								href="/">rrmeds.com</a> and is not available on Amazon.com. On Amazon.com, we only offer
+							complete profile omega supplements.</p>
+					</div>
+					<div class="jc-product-page-form-top-heading-wrapper">
+						<p class="jc-product-page-form-top-heading">Select a Potency & Package Below:</p>
+					</div>
+					{% endcomment %}
+					<div class="jc-product-page-form-wrapper">
+
+						<meta itemprop="priceCurrency" content="{{ shop.currency }}">
+						<link itemprop="availability"
+							href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+
+						{% capture "form_classes" %}
+						product-single__form{% if product.has_only_default_variant %}
+						product-single__form--no-variants{% endif %}
+						{%- endcapture %}
+
+						{% capture "form_id" %}AddToCartForm--{{ section.id }}{%- endcapture %}
+
+
+						{% form 'product', product, data-productid: product.id, class:form_classes, id:form_id %}
+
+						{% unless product.has_only_default_variant %}
+						{% for option in product.options_with_values %}
+
+						<div
+							class="radio-wrapper js product-form__item jc-product-page-flex-row {% if option.values.size == 1 %}one-has-potency{% endif %}">
+							<div class="jc-product-page-flex-col jc-product-page-flex-col-heading">
+								<label
+									class="jc-product-page-col-heading single-option-radio__label{% if option.name == 'Default' or option.name == 'Title' %} hidden-label{% endif %}"
+									for="ProductSelect-option-{{ forloop.index0 }}">
+									{{ option.name | escape }}
+								</label>
+
+								{% if option.name == 'Potency' %}
+								<a href="#" class="potency-btn mobile">What potency is right for you?</a>
+								{% endif %}
+							</div>
+
+
+
+							{% if option.name == 'Potency' %}
+							{% if product.variants.size > 1 %}
+							<div class="potency-warpper">
+
+								<a href="#" class="potency-btn desktop">Which potency is right for you?</a>
+
+								<div class="popup-container" id="potencyPopup" style="display: none;">
+
+									<div class="popup-content">
+
+										<span class="close-btn" onclick="closePopup()"><img
+												src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Group_978.svg?v=1718823988"
+												alt=""></span>
+
+										<div class="p-pop-up-inner">
+
+											{% comment %}
+
+											{{product.metafields.custom.potency_selection | metafield_tag}}
+											{% endcomment %}
+
+											<h2>Pick Your Potency</h2>
+
+											{% if isCBDGummy or isCBDSoftgels %}
+												{% if isFullSpec %}
+												<p>
+													<strong>30mg Regular Strength: </strong>
+													The perfect option if you are experiencing mild symptoms of physical and
+													mental discomfort or need just a little bit of help sleeping at night.
+													This strength is also a good starting point if you’re new to CBD
+													products.
+												</p>
+												<p>
+													<strong>60mg Extra Strength:</strong>
+													A step above Regular, these options are designed for people who are
+													experiencing more stubborn symptoms related to pain, stress, and
+													sleeplessness. These are our most popular products and include many
+													fan-favorites.
+												</p>
+												<p>
+													<strong>90mg Maximum Strength:</strong>
+													Suited for severe cases of pain, stress, and sleeplessness, these
+													products are formulated to give effective, lasting relief when nothing
+													else seems to work. Our strongest potencies offer unparalleled relief
+													without any harsh side effects.*
+												</p>
+												{% elsif isBroadSpec %}
+													<style>
+														.popup-container .popup-content{
+															max-height: 356px;
+														}
+													</style>
+													<p>
+														<strong>30mg Regular Strength: </strong>
+														The perfect option if you are experiencing mild symptoms of physical and
+														mental discomfort or need just a little bit of help sleeping at night.
+														This strength is also a good starting point if you’re new to CBD
+														products.
+													</p>
+													<p>
+														<strong>60mg Extra Strength:</strong>
+														A step above Regular, these options are designed for people who are
+														experiencing more stubborn symptoms related to pain, stress, and
+														sleeplessness. These are our most popular products and include many
+														fan-favorites.
+													</p>
+												{% endif %}
+											{% elsif isCBDTinctures or isCBDCreams %}
+												{% if isFullSpec %}
+												<p>
+													<strong>1000mg Regular Strength:</strong>
+													The perfect option if you are experiencing mild symptoms of physical and
+													mental discomfort or need just a little bit of help sleeping at night.
+													This strength is also a good starting point if you’re new to CBD
+													products.
+												</p>
+												<p>
+													<strong>2500mg Extra Strength:</strong>
+													A step above Regular, these options are designed for people who are
+													experiencing more stubborn symptoms related to pain, stress, and
+													sleeplessness. These are our most popular products and include many
+													fan-favorites.
+												</p>
+												<p>
+													<strong>5000mg Maximum Strength: </strong>
+													Suited for severe cases of pain, stress, and sleeplessness, these
+													products are formulated to give effective, lasting relief when nothing
+													else seems to work. Our strongest potencies offer unparalleled relief
+													without any harsh side effects.*
+												</p>
+												{% endif %}
+											{% elsif isCBDGummy %}
+												{% if isBroadSpec %}
+
+												{% endif %}
+											{% endif %}
+
+										</div>
+									</div>
+								</div>
+
+								{% style %}
+								.popup-container {
+								position: fixed;
+								width: 100%;
+								height: 100%;
+								top: 0;
+								left: 0;
+								background: rgba(0, 0, 0, 0.5);
+								display: flex;
+								justify-content: center;
+								align-items: center;
+								z-index: 9;
+								}
+
+								.popup-content {
+								background: white;
+								padding: 20px;
+								border-radius: 20px;
+								position: relative;
+								text-align: center;
+								width: 90%;
+								height: 70%;
+								max-width: 795px;
+								box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+								/*
+								max-height: 70vh;
+								*/
+								max-height: 440px;
+								margin-top: 40px;
+								overflow: auto;
+
+								}
+								.popup-content p{
+								font-size: 14px;
+								font-style: normal;
+								font-weight: 300;
+								line-height: normal;
+								margin-bottom: 23px;
+								color: #2D2926;
+								}
+								.p-pop-up-inner{
+								width: 90%;
+								max-width: 648px;
+								/*
+								min-height: 460px;
+								*/
+								margin-left: auto;
+								margin-right: auto;
+								text-align: left;
+
+								}
+								.p-pop-up-inner h2{
+								font-size: 36px;
+								font-style: normal;
+								font-weight: 700;
+								line-height: 43.2px;
+								font-family: century-old-style-std;
+								color: #004943;
+								margin-bottom: 40px;
+								text-align: center;
+
+								margin-right: auto;
+								margin-left: auto;
+								}
+								.close-btn {
+								position: absolute;
+								top: 15px;
+								right: 20px;
+								width: 19px;
+								height: 19px;
+								font-size: 24px;
+								cursor: pointer;
+								}
+								@media (max-width: 767px) {
+								.p-pop-up-inner h2{
+									margin-bottom: 26px;
+								}
+								.p-pop-up-inner {
+									width: 100%;
+									margin-left: 0px;
+									magrin-right: 0px;
+
+								}
+								.popup-content{
+									max-height: 483px;
+								}
+								.popup-container .popup-content{
+									max-height: 483px;
+								}
+								.p-pop-up-inner h2{
+									font-size: 28px;
+								}
+								}
+
+								{% endstyle %}
+
+								<script>
+									document.addEventListener('DOMContentLoaded', function () {
+										const buttons = document.querySelectorAll('.potency-btn');
+										const popup = document.getElementById('potencyPopup');
+
+										// Open popup
+										buttons.forEach(btn => {
+											btn.addEventListener('click', function (e) {
+												e.preventDefault();
+												popup.style.display = 'flex';
+											});
+										});
+
+										// Close popup when clicking on the background
+										popup.addEventListener('click', function (e) {
+											if (e.target === this) { // Checks if the clicked element is the container itself
+												popup.style.display = 'none';
+											}
+										});
+
+										// Assume there's a close button inside the popup with the class .close-btn
+										const closeButton = document.querySelector('.close-btn');
+										if (closeButton) {
+											closeButton.addEventListener('click', function () {
+												popup.style.display = 'none';
+											});
+										}
+									});
+								</script>
+								{% endif %}
+								{% endif %}
+
+								<fieldset class="single-option-radio jc-single-option-radio-fieldset"
+									name="{{ option.name | handleize }}" id="ProductSelect-option-{{ forloop.index0 }}">
+									{% assign option_index = forloop.index %}
+									{% for value in option.values %}
+									{% assign variant_label_state = true %}
+									{% if product.options.size == 1 %}
+									{% unless product.variants[forloop.index0].available %}
+									{% assign variant_label_state = false %}
+									{% endunless %}
+									{% endif %}
+									{% assign option_index_inner = forloop.index %}
+
+									{% assign jc_softgel_sold_out = false %}
+									{% if value == '30mg / 34ct' %}
+									{% assign jc_softgel_sold_out = true %}
+									{% endif %}
+
+									{%- comment -%}
+									Fresh Mint tincture = 3775015878709
+									Unflavored tincture = 4453931843637
+									{%- endcomment -%}
+
+									{% if product.id == 3775015878709 or product.id == 4453931843637 %}
+
+
+									{% unless value == "500mg" %}
+
+									<div class="jc-product-page-input-wrapper">
+										<input type="radio" {% if option.selected_value==value %} checked="checked" {%
+											endif %} {% unless variant_label_state %}{% unless jc_softgel_sold_out %}
+											disabled="disabled" {% endunless %}{% endunless %}
+											value="{{ value | escape }}" data-index="option{{ option_index }}"
+											name="{{ option.name | handleize }}"
+											class="single-option-selector__radio jc-input-index-{{ option_index_inner }}{% unless variant_label_state %} disabled{% endunless %}"
+											id="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}">
+										<label class="jc-product-page-input-label {{ option.name | handleize }}"
+											for="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}"
+											{% unless variant_label_state %} class="disabled" {% endunless %}>
+											{% assign value_option = value | escape %}
+											{% if value_option == 'Fresh Mint' %}
+											{% render 'fresh_mint' %}
+											{% elsif value_option == 'Unflavored' %}
+											{% render 'unflavored' %}
+											{% else %}
+											{{ value_option }}
+											{% endif %}
+										</label>
+										{% assign option_name = option.name | handleize %}
+										{% if option_name == 'potency' and forloop.index == 2 %}
+										{% render 'icon-most-popular-heart' %}
+										{% endif %}
+									</div>
+
+
+									{% endunless %}
+
+
+									{%else %}
+
+
+									<div class="jc-product-page-input-wrapper">
+										<input type="radio" {% if option.selected_value==value %} checked="checked" {%
+											endif %} {% unless variant_label_state %}{% unless jc_softgel_sold_out %}
+											disabled="disabled" {% endunless %}{% endunless %}
+											value="{{ value | escape }}" data-index="option{{ option_index }}"
+											name="{{ option.name | handleize }}"
+											class="single-option-selector__radio jc-input-index-{{ option_index_inner }}{% unless variant_label_state %} disabled{% endunless %}"
+											id="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}">
+										<label class="jc-product-page-input-label {{ option.name | handleize }}"
+											for="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}"
+											{% unless variant_label_state %} class="disabled" {% endunless %}>
+											{% assign value_option = value | escape %}
+											{% if value_option == 'Fresh Mint' %}
+											{% render 'fresh_mint' %}
+											{% elsif value_option == 'Unflavored' %}
+											{% render 'unflavored' %}
+											{% else %}
+											{{ value_option }}
+											{% endif %}
+										</label>
+										{% assign option_name = option.name | handleize %}
+										{% if option_name == 'potency' and forloop.index == 2 %}
+										{% render 'icon-most-popular-heart' %}
+										{% endif %}
+									</div>
+
+
+									{% endif %}
+
+
+									{% endfor %}
+
+								</fieldset>
+								{% if option.name == 'Potency' %}
+								{% if product.variants.size > 1 %}
+							</div>
+							{% endif %}
+							{% endif %}
+						</div>
+
+
+
+
+						{% endfor %}
+
+						{% endunless %}
+
+						{%comment%}
+						THC-Free Gummies 6841769033926
+						{%endcomment%}
+						{% if product.available %}
+						<div class="radio-wrapper js product-form__item jc-product-page-flex-row subscription-flex">
+							<div class="jc-product-page-flex-col jc-product-page-flex-col-heading subscription">
+								<label class="jc-product-page-col-heading single-option-radio__label purchase"
+									for="ProductSelect-option-purchase">
+									Purchase
+								</label>
+
+								{% comment %} Custom Recharge Widget {% endcomment %}
+								<div class="jc-custom-rc-container">
+									<label class="jc-custom-rc-radio jc-custom-subsave"
+										for="custom-rc-radio-subscribe-save">
+										<input type="radio" class="jc-custom-rc-radio__input" name="custom-rc-radio"
+											id="custom-rc-radio-subscribe-save" value="subsave" checked>
+										<div class="jc-custom-ra-radio-wrapper">
+											<div class="jc-custom-rc-radio__label">
+												<div class="jc-custom-rc-radio__text">
+													<h3 class="jc-custom-rc__label-heading">
+														Subscribe & Save 20%
+													</h3>
+													<p class="jc-custom-rc__label-text">
+														Free U.S. Shipping. Cancel Anytime.
+													</p>
+												</div>
+												<div class="jc-custom-rc-radio__price">
+													<div class="jc-custom-rc__price-box">
+														<span class="jc-custom-rc__compare-price">
+															{{ current_variant.price | money }}
+														</span>
+														<span class="jc-custom-rc__sale-price">
+															{{ current_variant.price | times: 0.8 | money }}
+														</span>
+													</div>
+													<div class="jc-custom-rc__save-price">
+														Save 20%
+													</div>
+												</div>
+											</div>
+											<div class="jc-custom-rc-radio__packs jc-custom-rc-radio__hidden">
+												<div class="jc-custom-rc-radio__pack-item active" data-pack="1">
+													<div class="pack-label">
+														1-PACK
+													</div>
+													<div class="pack-price">
+														<span class="jc-custom-rc__compare-price">
+															{{ current_variant.price | money }}
+														</span>
+														<span class="jc-custom-rc__sale-price">
+															{{ current_variant.price | times: 0.8 | money }}
+														</span>
+													</div>
+													<div class="jc-custom-rc__save-price">
+														Save 20%
+													</div>
+												</div>
+												<div class="jc-custom-rc-radio__pack-item" data-pack="2">
+													<div class="pack-label">
+														2-PACK
+													</div>
+													<div class="pack-price">
+														<span class="jc-custom-rc__compare-price">
+															{{ current_variant.price | times: 2 | money }}
+														</span>
+														<span class="jc-custom-rc__sale-price">
+															{{ current_variant.price | times: 2 | times: 0.8 | money }}
+														</span>
+													</div>
+													<div class="jc-custom-rc__save-price">
+														Save 20%
+													</div>
+												</div>
+												<div class="jc-custom-rc-radio__pack-item" data-pack="3">
+													<div class="pack-label">
+														3-PACK
+													</div>
+													<div class="pack-price">
+														<span class="jc-custom-rc__compare-price">
+															{{ current_variant.price | times: 3 | money }}
+														</span>
+														<span class="jc-custom-rc__sale-price">
+															{{ current_variant.price | times: 3 | times: 0.8 | money }}
+														</span>
+													</div>
+													<div class="jc-custom-rc__save-price">
+														Save 20%
+													</div>
+												</div>
+											</div>
+											<div class="jc-custom-rc-radio__plans jc-custom-rc-radio__hidden">
+												<div class="jc-custom-rc-radio__plan-label">
+													Deliver every:
+												</div>
+												<div class="jc-custom-rc-radio__plan-list">
+													<div class="jc-custom-rc-radio__plan-item active" data-plan="0">
+														30 Days
+													</div>
+													<div class="jc-custom-rc-radio__plan-item" data-plan="1">
+														60 Days
+													</div>
+													<div class="jc-custom-rc-radio__plan-item" data-plan="2">
+														90 Days
+													</div>
+												</div>
+											</div>
+											<div class="jc-custom-rc-radio__popup jc-custom-rc-radio__hidden">
+												Skip or cancel at any time. <a
+													class="jc-custom-rc-radio__popup-link">Learn More<span
+														class="jc-custom-rc-radio__popup-content">Subscribe & Save
+														delivers CBD refills automatically and on your schedule. Swap
+														products, skip orders, or cancel any time–plus enjoy free
+														shipping on U.S. orders.</span></a>
+											</div>
+										</div>
+									</label>
+									<label class="jc-custom-rc-radio jc-custom-onetime" for="custom-rc-radio-one-time">
+										<input type="radio" class="jc-custom-rc-radio__input" name="custom-rc-radio"
+											id="custom-rc-radio-one-time" value="onetime">
+										<div class="jc-custom-ra-radio-wrapper">
+											<div class="jc-custom-rc-radio__label">
+												<div class="jc-custom-rc-radio__text">
+													<h3 class="jc-custom-rc__label-heading">
+														One-Time Purchase
+													</h3>
+													<p class="jc-custom-rc__label-text">
+														Free U.S. Shipping Over $60
+													</p>
+												</div>
+												<div class="jc-custom-rc-radio__price">
+													<div class="jc-custom-rc__price-box">
+														<span class="jc-custom-rc__sale-price">
+															{{ current_variant.price | money }}
+														</span>
+													</div>
+												</div>
+											</div>
+											<div class="jc-custom-rc-radio__packs jc-custom-rc-radio__hidden">
+												<div class="jc-custom-rc-radio__pack-item no-discount" data-pack="1">
+													<div class="pack-label">
+														1 - PACK
+													</div>
+													<div class="pack-price">
+														<span class="jc-custom-rc__sale-price">
+															{{ current_variant.price | money }}
+														</span>
+													</div>
+													<div class="jc-custom-rc__save-price">
+														No Discount
+													</div>
+												</div>
+												<div class="jc-custom-rc-radio__pack-item active" data-pack="2">
+													<div class="pack-label">
+														2 - PACK
+													</div>
+													<div class="pack-price">
+														<span class="jc-custom-rc__compare-price">
+															{{ current_variant.price | times: 2 | money }}
+														</span>
+														<span class="jc-custom-rc__sale-price">
+															{{ current_variant.price | times: 2 | times: 0.9 | money }}
+														</span>
+													</div>
+													<div class="jc-custom-rc__save-price">
+														Save 10%
+													</div>
+												</div>
+												<div class="jc-custom-rc-radio__pack-item" data-pack="3">
+													<div class="pack-label">
+														3 - PACK
+													</div>
+													<div class="pack-price">
+														<span class="jc-custom-rc__compare-price">
+															{{ current_variant.price | times: 3 | money }}
+														</span>
+														<span class="jc-custom-rc__sale-price">
+															{{ current_variant.price | times: 3 | times: 0.85 | money }}
+														</span>
+													</div>
+													<div class="jc-custom-rc__save-price">
+														Save 15%
+													</div>
+												</div>
+											</div>
+										</div>
+									</label>
+								</div>
+								{% comment %} Custom Recharge Widget {% endcomment %}
+
+								<div class="rc-widget-injection-parent"></div>
+
+							</div>
+
+						</div>
+
+						{% endif %}
+
+
+						<select name="id" data-productid="{{product.id}}" id="ProductSelect"
+							class="product-single__variants no-js">
+							{% for variant in product.variants %}
+							{% if variant.available %}
+							<option {% if variant==product.selected_or_first_available_variant %} selected="selected" {%
+								endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">
+								{{ variant.title }} - {{ variant.price | money_with_currency }}
+							</option>
+							{% else %}
+							<option disabled="disabled">
+								{{ variant.title }} - {{ 'products.product.sold_out' | t }}
+							</option>
+							{% endif %}
+							{% endfor %}
+						</select>
+
+
+						<div class="quantity-and-cart-btn-wrapper">
+
+							<div
+								class="product-single__add-to-cart jc-product-page-btn-wrapper {% unless is_available and current_variant.id != 40473296928966 %}column{% endunless %}">
+
+
+
+
+
+
+
+
+								{% comment %}
+								29122871918645 - 30mg softgels
+								{% endcomment %}
+
+								{% if set_pre_order == true %}
+
+								<p
+									class="line-item-property__field jc-line-item-property__field jc-pre-order-input-wrapper">
+									<input type="hidden"
+										name="properties[_Our {{pre_order_name}} {{pre_order_plurality}} currently out of stock. Click Pre-Order below if you wish to pre-order {{pre_order_name}}. Pre-orders will ship by April 22nd, or sooner.]"
+										value="No">
+									<input id="pre-order-{{pre_order_name | handleize}}" required class="required"
+										type="checkbox"
+										name="properties[_Our {{pre_order_name}} {{pre_order_plurality}} currently out of stock. Click Pre-Order below if you wish to pre-order {{pre_order_name}}. Pre-orders will ship by April 22nd, or sooner.]"
+										value="Yes">
+									<label for="pre-order-{{pre_order_name | handleize}}">Our {{pre_order_name}}
+										{{pre_order_plurality}} currently out of stock. Click Pre-Order below if you
+										wish to pre-order {{pre_order_name}}. Pre-orders will ship by April 22nd, or
+										sooner.</label>
+								</p>
+
+
+								{% endif %}
+
+								{% if is_available and product.metafields.product_info.force_out_of_stock != true %}
+
+								{% if set_pre_order == true %}
+
+								<button type="submit" name="add" id="AddToCart--{{ section.id }}"
+									class="jc-product-page-btn w-button btn btn--add-to-cart addtocart" {% unless
+									is_available %} disabled="disabled" {% endunless %}>
+									<span class="btn__text">
+										Pre-Order
+									</span>
+									<span class="jc-add-to-cart-btn-breaker">
+										&nbsp;-&nbsp;
+									</span>
+									<div class="jc-data-price-container" data-price-container>
+										<span id="ProductPrice"
+											class="product-single__price{% if current_variant.compare_at_price > current_variant.price %} on-sale{% endif %}"
+											itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}"
+											{% unless is_available %}aria-hidden="true" {% endunless %}><span {% unless
+												is_available %}style="text-decoration:line-through;" {% endunless %}>
+												{{ current_variant.price | money }}</span>
+										</span>
+									</div>
+								</button>
+
+
+								{% else %}
+
+
+
+								<div class="jc-product-page-flex-col jc-product-page-flex-col-input">
+									<div class="jc-product-quantity-wrapper">
+										<a id="jc-quantity-btn-down" href="#" class="jc-quantity-btn">
+											<div class="jc-quantity-btn-breaker" style="background-color: #0049434d;">
+											</div>
+										</a>
+										<input type="number" id="Quantity" name="quantity" value="1" min="1"
+											class="js-quantity-selector jc-js-quantity-selector">
+										<a id="jc-quantity-btn-up" href="#" class="jc-quantity-btn">
+											<div class="jc-quantity-btn-breaker" style="background-color: #0049434d;">
+											</div>
+											<div class="jc-quantity-btn-breaker jc-quantity-btn-breaker-alt"
+												style="background-color: #0049434d;"></div>
+										</a>
+									</div>
+								</div>
+
+								<div class="subscription-btn-container">
+									<button type="submit" name="add" id="AddToCart--{{ section.id }}"
+										class="jc-hero-btn w-button btn product-btn btn--add-to-cart addtocart">
+										<span id="subscription-btn" class="btn__text">
+											Add to Cart
+										</span>
+
+									</button>
+								</div>
+
+								{% endif %}
+
+								{% else %}
+
+								<button disabled="disabled" type="submit" name="add" id="AddToCart--{{ section.id }}"
+									class="jc-hero-btn w-button btn product-btn btn--add-to-cart addtocart">
+									<span class="btn__text">
+										{{ 'products.product.sold_out' | t }}
+									</span>
+									<span class="jc-add-to-cart-btn-breaker">
+										&nbsp;-&nbsp;
+									</span>
+									<div class="jc-data-price-container" data-price-container>
+										<span id="ProductPrice"
+											class="product-single__price{% if current_variant.compare_at_price > current_variant.price %} on-sale{% endif %}"
+											itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}"
+											{% unless is_available %}aria-hidden="true" {% endunless %}><span {% unless
+												is_available %}style="text-decoration:line-through;" {% endunless %}>
+												{{ current_variant.price | money }}</span>
+										</span>
+									</div>
+								</button>
+
+
+								{% endif %}
+
+							</div>
+
+						</div>
+
+
+						<div class="jc-product-page-disclaimer-wrapper">
+							<p id="disclaimer-text" class="jc-product-page-disclaimer-text"><span>60-Day Money-Back
+									Guarantee</span><span> | </span><span>Free U.S. Shipping</span></p>
+						</div>
+
+
+
+
+
+						{% endform %}
+
+
+						<div class="doctor-wrapper">
+
+							<div class="doctor-img-wrapper">
+								<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/82ef83745454f31ce4c81664cc7951d4.jpg?v=1712168783"
+									alt="doctor-image" class="doctor-img">
+							</div>
+
+							<div class="doctor-text-wrapper">
+
+
+								{% if isPain and isCBDGummy and product.handle == 'cbd-cbg-pain-gummies' %}
+								<p>“CBD and CBG can interact with the body’s endocannabinoid system to regulate and
+									alleviate pain while reducing inflammation. R&R’s formula features botanicals like
+									Frankincense and Cat’s Claw Extract which are shown to reduce swelling and protect
+									muscles and joints.”*
+								</p>
+								{% elsif isStress and isCBDGummy and product.handle == 'cbd-cbn-cbg-de-stress-gummies'
+								%}
+								<p>“St. John’s Wort and chamomile are known to reduce stress in the body and mind. R&R’s
+									formula pairs these botanicals with cannabinoids CBG, CBN, and CBD which act upon
+									endocannabinoid receptors in the brain and throughout the body, promoting feelings
+									of relaxation and calm.”* </p>
+								{% elsif isSleep and isCBDGummy and product.handle == '25mg-cbd-5mg-cbn-sleep-gummies'
+								%}
+								<p>“CBN is an effective sleep-promoting cannabinoid, especially when paired with CBD and
+									adaptogens like Ashwagandha and L-theanine. R&R’s formula doesn’t interfere with the
+									body’s production of melatonin, so it will work synergistically to promote sleep and
+									not interfere with circadian rhythms.”* </p>
+								{% elsif isFullSpec and isCBDGummy %}
+								<p>“The beneficial effects of CBD can magnify when used with other cannabinoids and
+									phytonutrients. These formulas contain 8 minor cannabinoids and 11 terpenes to
+									generate this entourage effect which can be useful in combating pain and stress as
+									well as promoting healthy sleep cycles.”* </p>
+								{% elsif isBroadSpec and isCBDGummy %}
+								<p>“Phytonutrients such as terpenes, flavonoids, and other cannabinoids possess their
+									own healing benefits when it comes to pain, stress, and sleep issues. R&R’s THC-Free
+									formula contains 7 minor cannabinoids and 11 terpenes in addition to CBD to help
+									promote homeostasis in the body.”* </p>
+								{% elsif isFullSpec and isCBDCreams %}
+								<p>“These Creams can provide excellent topical relief for muscle strain, injury, or
+									joint inflammation. CBD interacts with endocannabinoid receptors in the skin to
+									provide fast relief. R&R’s formula includes anti-inflammatories like Arnica Montana
+									and MSM and jojoba oil to protect the skin.”* </p>
+								{% elsif product.handle == 'pet-tincture' %}
+								<p>“Like humans, pets have endocannabinoid systems that help maintain balance across a
+									number of systems related to the experience of pain and stress and play a role in
+									regulating sleep cycles. R&R’s formula is blended with naturally occurring
+									phytonutrients that augment the effects of CBD.”* </p>
+								{% elsif isBroadSpec and isCBDCreams %}
+								<p>“R&R’s formula incorporates anti-inflammatories Arnica Montana and MSM and a host of
+									cannabinoids known for analgesic effects, with the exception of THC, to provide
+									topical relief for joint pain and muscle strains.”* </p>
+								{% elsif isCBDTinctures and isFullSpec %}
+								<p>“Sublingual dosing allows CBD to bypass the digestive tract and go directly into the
+									bloodstream where it interacts more quickly with the endocannabinoid system to
+									provide relief from pain, stress, and sleep issues. This formula promotes the
+									entourage effect to magnify the benefits of CBD.”*</p>
+								{% elsif isCBDTinctures and isBroadSpec %}
+								<p>“R&R’s formulas contain terpenes, flavonoids, and minor cannabinoids (except THC)
+									known to bring health benefits in addition to CBD. These Tinctures enable sublingual
+									dosing allowing for direct absorption into the bloodstream to promptly address pain,
+									stress, and sleeplessness.”* </p>
+								{% elsif isCBDSoftgels and isFullSpec %}
+								<p>“These capsules release into the bloodstream gradually over time for long-lasting
+									relief of pain, stress, and sleeplessness. R&R’s formula, rich in terpenes,
+									flavonoids, and minor cannabinoids, promotes the entourage effect which augments the
+									benefits of CBD.”* </p>
+								{% elsif isCBDSoftgels and isBroadSpec %}
+								<p>“The time-release benefits of these Softgels make them good options for those looking
+									for long-lasting relief from pain, stress, and sleeplessness. Rich in
+									phytonutrients, R&R’s formula effectively interacts with the body’s endocannabinoid
+									system for all-natural relief.”*</p>
+								{% elsif isPetProduct and product.handle ==
+								'5mg-hemp-extract-dog-chews-chicken-flavored' %}
+								<p>“Full-Spectrum hemp extract acts upon dogs’ endocannabinoid systems to help bring
+									balance to the body. R&R’s phytonutrient-rich formula can provide pain and stress
+									relief by interacting with the ECS. These Chews are formulated with all-natural
+									ingredients that can promote all-around health.”* </p>
+								{% endif %}
+
+
+
+								<p class="doctor-name">Kimberly Langdon, MD</p>
+							</div>
+
+						</div>
+
+
+
+					</div> <!-- form wrapper -->
+
+
+
+				</div> <!-- col-inner 	-->
+			</div> <!-- w-col w-col-6 -->
+		</div> <!-- outer row-->
+
+	</div> <!--  jc-product-page-content-wrapper -->
+</div> <!-- jc-container-large -->
+</div> <!-- jc-product-page-wrapper -->
+
+{% comment %}
+<div class="tab-menu-underline product"></div>
+{% endcomment %}
+
+{% render 'logo-slider' %}
+
+{% comment %}
+<div class="product-section-grey">
+	<div class="jc-product-page-bottom-tabs-wrapper product">
+		<div data-duration-in="300" data-duration-out="100" class="jc-product-page-bottom-tabs w-tabs">
+			<div class="jc-product-page-bottom-tabs-menu w-tab-menu">
+
+				<a data-w-tab="Tab 1"
+					class="jc-product-page-bottom-tabs-menu-link w-inline-block w-tab-link w--current">
+					<h4 class="collection-link-text">Product Details</h4>
+				</a>
+
+				<a data-w-tab="Tab 2" class="jc-product-page-bottom-tabs-menu-link w-inline-block w-tab-link">
+					<h4 class="collection-link-text">Directions</h4>
+				</a>
+				<a data-w-tab="Tab 3" class="jc-product-page-bottom-tabs-menu-link w-inline-block w-tab-link">
+					<h4 class="collection-link-text">Ingredients</h4>
+				</a>
+				<a data-w-tab="Tab 4" class="jc-product-page-bottom-tabs-menu-link w-inline-block w-tab-link large">
+					<h4 class="collection-link-text">Lab Testing / Safety</h4>
+				</a>
+			</div>
+			<div class="w-tab-content">
+
+				<div data-w-tab="Tab 1" class="w-tab-pane w--tab-active">
+					<div class="jc-product-page-bottom-tabs-inner">
+
+						<div class="rte jc-product-page-description-text">
+							<div class="jc-product-page-variant-default">
+								<div class="jc-product-page-bottom-tabs-text">
+									{{ variantDescription.description }}
+								</div>
+							</div>
+
+							{% for variant in product.variants %}
+							<div class="jc-variant-options-block" id="jc-show-variant-description-{{variant.id}}">
+								{{ variant.metafields.variantDescription.description }}
+							</div>
+
+							{% endfor %}
+
+						</div>
+
+					</div>
+				</div>
+
+				<div data-w-tab="Tab 2" class="w-tab-pane">
+					<div class="jc-product-page-bottom-tabs-inner">
+
+						<div class="jc-product-page-variant-default">
+							<div class="jc-product-page-bottom-tabs-text">
+								{{ variantDirections.directions }}
+
+							</div>
+						</div>
+
+						{% for variant in product.variants %}
+						<div class="jc-variant-options-block" id="jc-show-variant-directions-{{variant.id}}">
+							<div class="jc-product-page-bottom-tabs-text">
+								{{ variant.metafields.variantDirections.directions }}
+
+							</div>
+						</div>
+
+						{% endfor %}
+
+
+						{% comment %}
+						<div class="tab-content-bottom-media-holder">
+							<div style="padding-top:56.17021276595745%" id="w-node-13bc583798e0-145ef2b7"
+								class="w-embed-youtubevideo"><iframe
+									src="https://www.youtube.com/embed/5bFsz85UzYs?rel=0&amp;controls=1&amp;autoplay=0&amp;mute=0&amp;start=0"
+									frameborder="0"
+									style="position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:auto"
+									allow="autoplay; encrypted-media" allowfullscreen=""></iframe></div>
+						</div>
+						{% endcomment %}
+
+					</div>
+				</div>
+				<div data-w-tab="Tab 3" class="w-tab-pane">
+					<div class="jc-product-page-bottom-tabs-inner">
+
+						<div class="jc-product-page-variant-default">
+							<div class="jc-product-page-bottom-tabs-text">
+								{{ variantIngredients.ingredients }}
+							</div>
+						</div>
+
+						{% for variant in product.variants %}
+						<div class="jc-variant-options-block" id="jc-show-variant-ingredients-{{variant.id}}">
+							<div class="jc-product-page-bottom-tabs-text">
+								{{ variant.metafields.variantIngredients.ingredients }}
+
+							</div>
+						</div>
+
+						{% endfor %}
+						{% comment %}
+						<div class="jc-product-amzn-wrapper">
+							<p class="jc-product-amzn-text"><strong>Note:</strong> This product is exclusively sold
+								on <a href="/">rrmeds.com</a> and is not available on Amazon.com. On Amazon.com, we only
+								offer complete profile omega supplements.</p>
+						</div>
+						{% endcomment %}
+					</div>
+				</div>
+				<div data-w-tab="Tab 4" class="w-tab-pane">
+					<div class="jc-product-page-bottom-tabs-inner">
+
+						<div class="jc-product-page-variant-default">
+							<div class="jc-product-page-bottom-tabs-text">
+								{{ variantSafety.safety }}
+								<div class="jc-medium-btn-section xl left"><a href="/pages/lab-testing"
+										class="jc-medium-btn less-padding w-button hollow product">View Lab Results</a>
+								</div>
+							</div>
+						</div>
+
+						{% for variant in product.variants %}
+						<div class="jc-variant-options-block" id="jc-show-variant-safety-{{variant.id}}">
+							<div class="jc-product-page-bottom-tabs-text">
+								{{ variant.metafields.variantSafety.safety }}
+								<div class="jc-medium-btn-section xl left"><a href="/pages/lab-testing"
+										class="jc-medium-btn less-padding w-button hollow product">View Lab Results</a>
+								</div>
+							</div>
+						</div>
+
+						{% endfor %}
+
+						{% comment %}
+						<div class="jc-product-page-btn-wrapper-alt-tabs">
+							<a href="/pages/lab-testing" class="jc-product-page-btn-alt-tabs w-button"
+								target="_blank">View Lab Results</a>
+						</div>
+
+						<div class="jc-product-amzn-wrapper" style="margin-top: 20px;">
+							<p class="jc-product-amzn-text"><strong>Note:</strong> This product is exclusively sold
+								on <a href="/">rrmeds.com</a> and is not available on Amazon.com. On Amazon.com, we only
+								offer complete profile omega supplements.</p>
+						</div>
+						{% endcomment %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endcomment %}
+
+
+{% unless product == empty %}
+<script type="application/json" id="ProductJson-{{ section.id }}">
+    {{ product | json }}
+  </script>
+{% endunless %}
+
+
+
+
+
+{% comment %}
+<div class="jc-product-bottom-reviews-wrapper">
+	<div class="jc-product-bottom-reviews-container">
+
+		{% unless product.id == 1908786266176 %}
+		{% include 'amazon-product-reviews' with 'product' %}
+		{% endunless %}
+		{% if product.id == 1908786266176 %}
+		<div id="shopify-product-reviews" data-id="{{product.id}}">
+
+			{{ product.metafields.spr.reviews }}
+
+		</div>
+		{% endif %}
+
+
+	</div>
+</div>
+{% endcomment %}
+
+
+{% comment %}
+<script type="text/javascript">
+
+	$(document).ready(function () {
+
+
+		$('.bold-ro__order-interval-container').append('<div class="jc_insert_text_product_page"><strong>SAVE 10%!</strong></div>');
+
+
+	});
+
+</script>
+{% endcomment %}
+
+
+
+
+
+
+
+
+{%- comment -%}
+<script>
+	function addClassNameListener(elemId, callback) {
+		var elem = document.getElementById(elemId);
+		var lastClassName = elem.className;
+		window.setInterval(function () {
+			var className = elem.className;
+			if (className !== lastClassName) {
+				callback();
+				lastClassName = className;
+			}
+		}, 10);
+	}
+
+
+	document.getElementById("add").onclick = function () {
+		document.getElementById("foo").className = "green";
+	}
+
+	document.getElementById("remove").onclick = function () {
+		document.getElementById("foo").className = "";
+	}
+
+	addClassNameListener("rc_widget__option", function () { console.log("changed"); });
+</script>
+{%- endcomment -%}
+
+<script>
+	const button = document.getElementById("subscription-btn");
+
+
+	button.innerHTML = "Add Subscription to Cart";
+
+
+	$('#ProductSelect-option-1').change(function () {
+
+		if ($('.rc_widget__option--onetime').hasClass('rc-option--active')) {
+			$('.jc-product-page-flex-col.subscription').addClass('true');
+			$('.jc-product-page-flex-col.subscription').removeClass('false');
+			button.innerHTML = "Add to Cart";
+
+
+		} else {
+			$('.jc-product-page-flex-col.subscription').removeClass('true');
+			$('.jc-product-page-flex-col.subscription').addClass('false');
+			button.innerHTML = "Add Subscription to Cart";
+		};
+
+	});
+	$('#ProductSelect-option-2').change(function () {
+
+		if ($('.rc_widget__option--onetime').hasClass('rc-option--active')) {
+			$('.jc-product-page-flex-col.subscription').addClass('true');
+			$('.jc-product-page-flex-col.subscription').removeClass('false');
+			button.innerHTML = "Add to Cart";
+
+
+		} else {
+			$('.jc-product-page-flex-col.subscription').removeClass('true');
+			$('.jc-product-page-flex-col.subscription').addClass('false');
+			button.innerHTML = "Add Subscription to Cart";
+		};
+
+	});
+
+
+	$('.product-single__form').click(function () {
+
+		if ($('.rc_widget__option--onetime').hasClass('rc-option--active')) {
+			$('.jc-product-page-flex-col.subscription').addClass('true');
+			$('.jc-product-page-flex-col.subscription').removeClass('false');
+			button.innerHTML = "Add to Cart";
+
+
+		} else {
+			$('.jc-product-page-flex-col.subscription').removeClass('true');
+			$('.jc-product-page-flex-col.subscription').addClass('false');
+			button.innerHTML = "Add Subscription to Cart";
+		};
+
+	});
+	$('.jc-product-page-flex-col.jc-product-page-flex-col-heading.subscription').click(function () {
+
+		if ($('.rc_widget__option--onetime').hasClass('rc-option--active')) {
+			$('.jc-product-page-flex-col.subscription').addClass('true');
+			$('.jc-product-page-flex-col.subscription').removeClass('false');
+			button.innerHTML = "Add to Cart";
+
+
+		} else {
+			$('.jc-product-page-flex-col.subscription').removeClass('true');
+			$('.jc-product-page-flex-col.subscription').addClass('false');
+			button.innerHTML = "Add Subscription to Cart";
+		};
+
+	});
+</script>
+
+
+{%assign nav_cart__quantity = cart.item_count %}
+
+
+{% comment %}
+
+{% include 'collection-product-flyout-current'%}
+{% endcomment %}
+{% include 'collection-product-flyout-pdp'%}
+
+
+
+<script src="{{ 'jc-custom-recharge.js' | asset_url }}" defer="defer"></script>
+
+{{ 'jc-custom-recharge.css' | asset_url | stylesheet_tag }}
+{{ 'collection-page.css' | asset_url | stylesheet_tag }}
+{% comment %}
+{% render 'ajaxify-cart' %}
+
+<script src="{{ 'jc-custom-recharge-new.js' | asset_url }}" defer="defer"></script>
+{% endcomment %}
+
+{% schema %}
+{
+"name": "Product Page",
+"tag": "section",
+"class": "section",
+"disabled_on": {
+"groups": ["header", "footer"]
+},
+"settings": [
+
+],
+"presets": [
+{
+"name": "Product Page"
+}
+]
+}
+{% endschema %}

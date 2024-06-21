@@ -1,0 +1,67 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product-new",
+      "settings": {
+      }
+    },
+    "how_to_use_jzLKw3": {
+      "type": "how-to-use",
+      "settings": {
+      }
+    },
+    "function_tabs_ka96f9": {
+      "type": "function-tabs",
+      "settings": {
+      }
+    },
+    "ingredients_Ah6wy4": {
+      "type": "ingredients",
+      "settings": {
+      }
+    },
+    "features_bar_yhXDHL": {
+      "type": "features-bar",
+      "settings": {
+      }
+    },
+    "google_reviews_bLnkYn": {
+      "type": "google-reviews",
+      "settings": {
+      }
+    },
+    "routine_Ta9HWM": {
+      "type": "routine",
+      "settings": {
+      }
+    },
+    "backed_by_experts_LzK6BU": {
+      "type": "backed-by-experts",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "faq_section_RrdDbB": {
+      "type": "faq-section",
+      "settings": {
+      }
+    },
+    "collection_cta_jzHmHK": {
+      "type": "collection-cta",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "how_to_use_jzLKw3",
+    "function_tabs_ka96f9",
+    "ingredients_Ah6wy4",
+    "features_bar_yhXDHL",
+    "google_reviews_bLnkYn",
+    "routine_Ta9HWM",
+    "backed_by_experts_LzK6BU",
+    "faq_section_RrdDbB",
+    "collection_cta_jzHmHK"
+  ]
+}

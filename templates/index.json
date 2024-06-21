@@ -1,0 +1,49 @@
+{
+  "sections": {
+    "home_page_TCnabr": {
+      "type": "home-page",
+      "settings": {
+      }
+    },
+    "reviews_slider_home_dBctn4": {
+      "type": "reviews-slider-home",
+      "settings": {
+      }
+    },
+    "category_cards_8hKtnt": {
+      "type": "category-cards",
+      "settings": {
+      }
+    },
+    "video_background_w9MACr": {
+      "type": "video-background",
+      "settings": {
+      }
+    },
+    "three_card_features_gCAx7p": {
+      "type": "three-card-features",
+      "settings": {
+      }
+    },
+    "backed_by_experts_green_hcLE8h": {
+      "type": "backed-by-experts-green",
+      "settings": {
+      }
+    },
+    "quiz_section_home_QHtcbf": {
+      "type": "quiz-section-home",
+      "disabled": true,
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "home_page_TCnabr",
+    "reviews_slider_home_dBctn4",
+    "category_cards_8hKtnt",
+    "video_background_w9MACr",
+    "three_card_features_gCAx7p",
+    "backed_by_experts_green_hcLE8h",
+    "quiz_section_home_QHtcbf"
+  ]
+}

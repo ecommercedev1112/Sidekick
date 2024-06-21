@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "banner": {
+      "type": "collection-products",
+      "settings": {
+      }
+    },
+    "reviews": {
+      "type": "reviews-slider",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "reviews"
+  ]
+}

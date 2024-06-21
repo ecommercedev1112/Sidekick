@@ -1,0 +1,177 @@
+
+<div class="jc-product-page-bottom-wrapper">
+    <div class="jc-container-large">
+      <div class="jc-product-page-bottom-heading-flex-row">
+
+        <h3 class="jc-section-heading medium left no-margin">Other Products</h3>
+
+		<div class="all-reviews-btn-wrapper">
+			<a href= "https://www.rrmeds.com/collections/all-products" class="jc-small-btn w-button filled">Shop All Products</a>
+		</div>
+
+      </div>
+
+      <div class="jc-product-page-bottom-flex-row">
+        {% for product in collections["all-products"].products limit:5 %}
+        
+        
+        {% if product.id == 4453931843637 or product.id == 3775015878709 %}
+        
+          {% assign jc_custom_url = '/collections/tinctures' %}
+          {% assign jc_custom_title = 'CBD Tinctures' %} 
+
+          {% elsif product.id == 4502500573237 %}
+
+          {% assign jc_custom_url = '/collections/pet-products' %}
+          {% assign jc_custom_title = 'CBD Pet Products' %} 
+
+          {% comment %}
+			thc-free tincture - 6683040284870 
+			thc-free softgel - 6683070496966
+			thc-free gummies - 6841769033926
+          {% endcomment %}
+          {% elsif product.id == 6683040284870 or product.id == 6683070496966 or product.id == 6841769033926 %}
+
+          {% assign jc_custom_url = '/collections/thc-free-products' %}
+          {% assign jc_custom_title = 'THC-Free CBD' %} 
+
+          {% else %}
+
+          {% assign jc_custom_url = product.url %}
+          {% assign jc_custom_title = product.title %}
+
+        {% endif %}
+        {% assign jc_hide_class = '' %}
+        {% if product.id == main_product_id %}
+        	{% assign jc_hide_class = 'jc-product-custom-hide' %}
+        {% endif %}
+        
+        {% if main_product_id == 4453931843637000 %} <!-- unflavored tincture -->
+          {% if product.id == 3775015878709  %} <!-- pep tincture-->
+          		{% assign jc_hide_class = 'jc-product-custom-hide-2' %}
+          {% else %}
+          		{% assign jc_hide_class = '' %}	
+          {% endif %}		
+        {% endif %}
+		
+        {% if  main_product_id == 3775058051125 %} <!-- Pet tincture-->
+          {% if product.id == 4502500573237 or product.id == 4453931843637 or product.id == 3775015878709 %}  <!-- dog chews -->
+          		{% assign jc_hide_class_2 = 'jc-product-custom-hide-2' %}
+          {% else %}
+          		{% assign jc_hide_class_2 = '' %}	
+          {% endif %}		
+        {% endif %}
+
+        {% if  main_product_id == 6683070496966 %} <!-- thc-free softgels -->
+          {% if product.id == 6683040284870 %}  <!-- thc-free tincture -->
+          		{% assign jc_hide_class_3 = 'jc-product-custom-hide-3' %}
+          {% else %}
+          		{% assign jc_hide_class_3 = '' %}	
+          {% endif %}		
+        {% endif %}
+
+		{% if  main_product_id == 6841769033926 %} <!-- thc-free gummies -->
+			{% if product.id == 6683040284870 or product.id == 6683070496966 or product.id == 6841769033926 %}  <!-- thc-free tincture -->
+					{% assign jc_hide_class_4 = 'jc-product-custom-hide-4' %}
+			{% else %}
+					{% assign jc_hide_class_4 = '' %}	
+			{% endif %}		
+		{% endif %}
+		
+        
+	
+       
+	  
+	
+       
+
+         {% if product.id == 4502500573237 %}
+         	{% assign extra_class = 'jc-product-page-bottom-flex-col-inner-2' %} 	
+         {% elsif product.id == 3775015878709  %}
+         	{% assign extra_class = 'jc-product-page-bottom-flex-col-inner-3' %} 
+     	{% elsif product.id == 4447123537973  %}
+     		{% assign extra_class = 'jc-product-page-bottom-flex-col-inner-4' %} 
+     	{% elsif product.id == 4631247323189  %}
+     		{% assign extra_class = 'jc-product-page-bottom-flex-col-inner-5' %}
+     	{% elsif product.id == 6683040284870 or product.id == 6683070496966 or product.id == 6841769033926 %}
+     		{% assign extra_class = 'jc-product-page-bottom-flex-col-inner-6' %}	 	
+         {% else %}	
+         {% assign extra_class = '' %} 		
+         {% endif %}
+
+
+        {%comment%}
+        <div class="jc-product-page-bottom-flex-col {{jc_hide_class}} {{jc_hide_class_2}} {{jc_hide_class_3}}">
+			<div class="jc-product-page-bottom-flex-col-inner {{extra_class}}">
+				<div class="jc-product-page-bottom-flex-col-overlay">
+				<div class="jc-product-page-bottom-flex-col-overlay-content-wrapper">
+					<h4 class="jc-product-page-bottom-flex-col-heading">{{jc_custom_title}}</h4>
+					<a href="{{ jc_custom_url }}" class="jc-product-page-bottom-flex-col-link-block w-inline-block">
+					<div><strong>View Product</strong></div>
+					</a>
+				</div>
+				</div>
+			</div>
+        </div>
+		{%endcomment%}
+
+		<div class="jc-product-page-bottom-flex-col product-rec {{jc_hide_class}} {{jc_hide_class_2}} {{jc_hide_class_3}} {{jc_hide_class_4}}">
+		<div class="jc-products-section-col">
+			<div class="jc-product-section-col-inner recs">
+			  <a href="{{ jc_custom_url }}" class="jc-product-section-overlay-link w-inline-block">
+			  </a>
+			  <div class="jc-product-page-bottom-flex-col-inner-2 {{extra_class}}"></div>
+				<div class="jc-product-section-bottom-wrapper">
+	
+	
+				<div class="product-title-wrapper">
+				<h4 class="jc-product-section-heading no-margin">{{ jc_custom_title }}</h4>
+	
+				{% comment %}
+				<div class="jc-product-section-text">{{ shortDescription.description }}</div>
+				{% endcomment %}
+				<div class="jc-medium-btn-section"><a href="{{ jc_custom_url }}" class="jc-small-btn product w-button">Shop Now</a></div>
+				
+				{%comment%}
+				<div class="jc-product-section-btn-wrapper">
+				  <a href="{{ jc_custom_url }}" class="jc-product-section-link-block w-inline-block" data-ix="shop-btn">
+					<p class="jc-product-section-link-text">Shop Now</p>
+					<div class="jc-btn-breaker-wrapper">
+					  <div class="jc-product-section-link-breaker"></div>
+					  <div class="jc-product-section-link-breaker-expand"></div>
+					</div>
+				  </a>
+				</div>
+				{%endcomment%}
+			  </div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+        
+        {% endfor %}
+        
+
+      </div> <!-- /jc-product-page-bottom-flex-row-->
+    </div>
+  </div>
+
+{% schema %}
+{
+  "name": "Other Products",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    
+  ],
+  "presets": [
+    {
+      "name": "Other Products"
+    }
+  ]
+}
+{% endschema %}

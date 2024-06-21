@@ -1,0 +1,1118 @@
+{
+  "current": {
+    "logo_width": 90,
+    "favicon": "shopify:\/\/shop_images\/RR_Favicon-01.png",
+    "type_header_font": "assistant_n4",
+    "heading_scale": 100,
+    "type_body_font": "assistant_n4",
+    "body_scale": 100,
+    "page_width": 1200,
+    "spacing_sections": 0,
+    "spacing_grid_horizontal": 8,
+    "spacing_grid_vertical": 8,
+    "animations_reveal_on_scroll": true,
+    "animations_hover_elements": "none",
+    "buttons_border_thickness": 1,
+    "buttons_border_opacity": 100,
+    "buttons_radius": 0,
+    "buttons_shadow_opacity": 0,
+    "buttons_shadow_horizontal_offset": 0,
+    "buttons_shadow_vertical_offset": 4,
+    "buttons_shadow_blur": 5,
+    "variant_pills_border_thickness": 1,
+    "variant_pills_border_opacity": 55,
+    "variant_pills_radius": 40,
+    "variant_pills_shadow_opacity": 0,
+    "variant_pills_shadow_horizontal_offset": 0,
+    "variant_pills_shadow_vertical_offset": 4,
+    "variant_pills_shadow_blur": 5,
+    "inputs_border_thickness": 1,
+    "inputs_border_opacity": 55,
+    "inputs_radius": 0,
+    "inputs_shadow_opacity": 0,
+    "inputs_shadow_horizontal_offset": 0,
+    "inputs_shadow_vertical_offset": 4,
+    "inputs_shadow_blur": 5,
+    "card_style": "standard",
+    "card_image_padding": 0,
+    "card_text_alignment": "left",
+    "card_color_scheme": "background-2",
+    "card_border_thickness": 0,
+    "card_border_opacity": 10,
+    "card_corner_radius": 0,
+    "card_shadow_opacity": 0,
+    "card_shadow_horizontal_offset": 0,
+    "card_shadow_vertical_offset": 4,
+    "card_shadow_blur": 5,
+    "collection_card_style": "standard",
+    "collection_card_image_padding": 0,
+    "collection_card_text_alignment": "left",
+    "collection_card_color_scheme": "background-2",
+    "collection_card_border_thickness": 0,
+    "collection_card_border_opacity": 10,
+    "collection_card_corner_radius": 0,
+    "collection_card_shadow_opacity": 0,
+    "collection_card_shadow_horizontal_offset": 0,
+    "collection_card_shadow_vertical_offset": 4,
+    "collection_card_shadow_blur": 5,
+    "blog_card_style": "standard",
+    "blog_card_image_padding": 0,
+    "blog_card_text_alignment": "left",
+    "blog_card_color_scheme": "background-2",
+    "blog_card_border_thickness": 0,
+    "blog_card_border_opacity": 10,
+    "blog_card_corner_radius": 0,
+    "blog_card_shadow_opacity": 0,
+    "blog_card_shadow_horizontal_offset": 0,
+    "blog_card_shadow_vertical_offset": 4,
+    "blog_card_shadow_blur": 5,
+    "text_boxes_border_thickness": 0,
+    "text_boxes_border_opacity": 10,
+    "text_boxes_radius": 0,
+    "text_boxes_shadow_opacity": 0,
+    "text_boxes_shadow_horizontal_offset": 0,
+    "text_boxes_shadow_vertical_offset": 4,
+    "text_boxes_shadow_blur": 5,
+    "media_border_thickness": 1,
+    "media_border_opacity": 5,
+    "media_radius": 0,
+    "media_shadow_opacity": 0,
+    "media_shadow_horizontal_offset": 0,
+    "media_shadow_vertical_offset": 4,
+    "media_shadow_blur": 5,
+    "popup_border_thickness": 1,
+    "popup_border_opacity": 10,
+    "popup_corner_radius": 0,
+    "popup_shadow_opacity": 0,
+    "popup_shadow_horizontal_offset": 0,
+    "popup_shadow_vertical_offset": 4,
+    "popup_shadow_blur": 5,
+    "drawer_border_thickness": 1,
+    "drawer_border_opacity": 10,
+    "drawer_shadow_opacity": 0,
+    "drawer_shadow_horizontal_offset": 0,
+    "drawer_shadow_vertical_offset": 4,
+    "drawer_shadow_blur": 5,
+    "badge_position": "bottom left",
+    "badge_corner_radius": 40,
+    "sale_badge_color_scheme": "accent-2",
+    "sold_out_badge_color_scheme": "inverse",
+    "brand_headline": "",
+    "brand_description": "<p><\/p>",
+    "brand_image_width": 100,
+    "social_facebook_link": "",
+    "social_instagram_link": "",
+    "social_youtube_link": "",
+    "social_tiktok_link": "",
+    "social_twitter_link": "",
+    "social_snapchat_link": "",
+    "social_pinterest_link": "",
+    "social_tumblr_link": "",
+    "social_vimeo_link": "",
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "currency_code_enabled": false,
+    "cart_type": "notification",
+    "show_vendor": false,
+    "show_cart_note": false,
+    "cart_drawer_collection": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/RR-reskin-nav_AST_R_R_Logo_0fc8889f-ca29-40ee-8755-fe4e1953d4a2.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Open Sans",
+    "checkout_body_font": "Open Sans",
+    "checkout_accent_color": "#004943",
+    "checkout_button_color": "#004943",
+    "checkout_error_color": "#e32c2b",
+    "sections": {
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "color_scheme": "background-1"
+        }
+      },
+      "main-password-footer": {
+        "type": "main-password-footer",
+        "settings": {
+          "color_scheme": "background-1"
+        }
+      },
+      "sk-mega-header": {
+        "type": "sk-mega-header",
+        "blocks": {
+          "announcement_zxkjVG": {
+            "type": "announcement",
+            "settings": {
+              "text": "<p>Bundle & Save on One-Time Orders Over $60 Save 10% On Any 2 items or 15% On 3+<\/p>",
+              "color": "#ffffff",
+              "device_target": "desktop"
+            }
+          },
+          "announcement_WWXJLM": {
+            "type": "announcement",
+            "settings": {
+              "text": "<p>Bundle & Save on One-Time Orders Over $60<\/p>",
+              "color": "",
+              "device_target": "mobile"
+            }
+          }
+        },
+        "block_order": [
+          "announcement_zxkjVG",
+          "announcement_WWXJLM"
+        ],
+        "settings": {
+        }
+      },
+      "jc-footer": {
+        "type": "jc-footer",
+        "settings": {
+        }
+      },
+      "jc-hero-section-glossary": {
+        "type": "jc-hero-section-glossary",
+        "settings": {
+          "button_text": "Shop Holiday Deals",
+          "button_url": ""
+        }
+      },
+      "jc-glossary-top-section": {
+        "type": "jc-glossary-top-section",
+        "settings": {
+          "heading_text": "R&R CBD Glossary",
+          "content_text": "<p>We put together a CBD glossary to help you understand the important terms in the ever-changing hemp industry! This glossary contains the most commonly used terms in the industry, and will be helpful if you’re a newcomer, or a hemp enthusiast.<\/p><p>Periodically, we will make additions to this list, so be sure to bookmark this page and circle back for updates.<\/p><p>If you have any questions, please feel free to contact us directly at <a href=\"mailto:contact@rrmeds.com\">contact@rrmeds.com<\/a> or text us at <strong>303-529-7695<\/strong>.<\/p>"
+        }
+      },
+      "jc-glossary-b": {
+        "type": "jc-glossary-b",
+        "blocks": {
+          "df45eae8-883e-4f77-bfdc-f8f4523d450e": {
+            "type": "text",
+            "settings": {
+              "title": "Bioavailability",
+              "definition": "<p>Refers to the degree and rate at which a compound is absorbed by the body’s circulatory system. It’s an important measurement tool because it determines the correct dosage for non-intravenously administered drugs and supplements. For drugs, supplements, and herbs administered non-intravenously, (such as through consumption, inhalation, or topical application) bioavailability designates the fraction of the ingested dose that eventually gets absorbed. This is typically expressed as a percentage, such as “95% bioavailable,” though it’s worth noting that many claims about bioavailability are unsubstantiated in the dietary supplement space.<\/p>"
+            }
+          },
+          "2ec33b42-cf47-4057-aa9f-fc258315b384": {
+            "type": "text",
+            "settings": {
+              "title": "Broad-Spectrum CBD",
+              "definition": "<p>A CBD product that contains CBD, and at least one other cannabinoid. Broad-spectrum products are produced in order to help users benefit from the entourage effect, while excluding THC completely. View our Broad-Spectrum CBD products<a href=\"https:\/\/www.rrmeds.com\/collections\/thc-free-products\"> here<\/a>.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "df45eae8-883e-4f77-bfdc-f8f4523d450e",
+          "2ec33b42-cf47-4057-aa9f-fc258315b384"
+        ],
+        "settings": {
+        }
+      },
+      "jc-glossary-c": {
+        "type": "jc-glossary-c",
+        "blocks": {
+          "2a065153-3368-4d40-8fd8-1344ebd4eb8b": {
+            "type": "text",
+            "settings": {
+              "title": "",
+              "definition": ""
+            }
+          },
+          "07a4ddc6-ee47-4c31-ad1a-013e36e7bd9d": {
+            "type": "text",
+            "settings": {
+              "title": "Cannabis",
+              "definition": "<p>Indigenous to central Asia, this flowering, herbaceous plant has been farmed throughout recorded human history. Cannabis is cultivated as both marijuana and industrial hemp; the latter is harvested for CBD supplements. Additionally, hemp fiber, hemp seed oil, and other supplements are also derived by processing different parts of the hemp plant.<\/p>"
+            }
+          },
+          "61eac378-6f5c-4d92-9a68-371f33a436fc": {
+            "type": "text",
+            "settings": {
+              "title": "Cannabinoids (aka Phytocannabinoids)",
+              "definition": "<p>A cannabinoid is one of the diverse chemical compounds that acts on the endocannabinoid system receptors found throughout the body. These molecules include the endocannabinoids produced naturally in the body and phytocannabinoids from cannabis. The two most notable cannabinoids in cannabis are THC and CBD, though recent research has made us aware of over 100 types of cannabinoids found in cannabis. Cannabinoids are also naturally present in many plants other than cannabis.<\/p>"
+            }
+          },
+          "f29023f1-b92f-4cd1-9ab6-57d0ee46cd0d": {
+            "type": "text",
+            "settings": {
+              "title": "Cannabinoid 1 (CB1) Receptor",
+              "definition": "<p>These receptors are mostly found on nerve cells in the brain, spinal cord, and in other organs.<\/p>"
+            }
+          },
+          "06e25238-df88-4feb-be0d-a7c5cefca9e0": {
+            "type": "text",
+            "settings": {
+              "title": "Cannabinoid 2 (CB2) Receptor",
+              "definition": "<p>These receptors are mostly found in our reproductive organs, immune system, and peripheral nervous system.<\/p>"
+            }
+          },
+          "f1dececc-3aec-4e6c-9d4e-9275a1a82a4a": {
+            "type": "text",
+            "settings": {
+              "title": "CBC (Cannabichromene)",
+              "definition": "<p>CBC is most frequently found in tropical cannabis varieties. The effects of CBC appear to be mediated through non-cannabinoid receptor interactions.<\/p>"
+            }
+          },
+          "ffd8ddbc-8e2e-452b-8a11-c2ed796bf696": {
+            "type": "text",
+            "settings": {
+              "title": "CBD (Cannabidiol)",
+              "definition": "<p>Also known as CBD, cannabidiol is one of the naturally occurring cannabinoids found in cannabis plants. CBD does not produce psychoactive effects on its own.<\/p>"
+            }
+          },
+          "dac18fab-b0b8-4977-b416-8a57282e6c1f": {
+            "type": "text",
+            "settings": {
+              "title": "Certificate of Analysis (CoA)",
+              "definition": "<p>A document from an accredited laboratory certifying testing of a product's characteristics. This proof of analysis exists to benefit the consumer or retailer as much as the producer; it guarantees quality assurance for all parties. Comprehensive CoA’s should also test beyond cannabinoid potency, and highlight other safety tests. Beyond cannabinoids and potency, we test for microbes, mycotoxins, solvents, terpenes, heavy metals, and pesticide presence. You can view our 3rd-party lab results <a href=\"https:\/\/www.rrmeds.com\/pages\/lab-testing\">here<\/a>.<\/p>"
+            }
+          },
+          "70f5c14f-763f-49da-94a1-4c2367898d0f": {
+            "type": "text",
+            "settings": {
+              "title": "CBG (Cannabigerol)",
+              "definition": "<p>A non-psychoactive cannabinoid, CBG’s antibacterial effects can alter the overall effects of cannabis. It acts as a low-affinity antagonist at the CB1 receptor. CBG pharmacological activity at the CB2 receptor is currently unknown.<\/p>"
+            }
+          },
+          "c447bfb2-01ba-4dd5-9b37-7c052ae6a748": {
+            "type": "text",
+            "settings": {
+              "title": "CBL (Cannabicyclol)",
+              "definition": "<p>Cannabicyclol is created through the degradation of another cannabis compound — CBC. When the cannabinoid cannabichromene (CBC) decays from light exposure, it turns into CBL. The insignificant amounts of CBL that appear in cannabis have severely limited researchers’ ability to study it, so we don’t know too much about its medical benefits.<\/p>"
+            }
+          },
+          "7e544bf3-1767-4f8b-9763-c314adfa6555": {
+            "type": "text",
+            "settings": {
+              "title": "CBN (Cannabinol)",
+              "definition": "<p>CBN is a mildly psychoactive cannabinoid that is produced from the degradation of THC. There is usually very little to no CBN in a fresh plant. CBN weakly binds to both the CB1 and CB2 receptors, with greater affinity for CB2 receptors than CB1. The effect of CBN is often described as a sedative effect.*<\/p>"
+            }
+          },
+          "4d1d819b-1aed-42c8-b956-18ed08428eab": {
+            "type": "text",
+            "settings": {
+              "title": "CO2 Extraction",
+              "definition": "<p>The carbon-dioxide extraction process uses changes in temperature and pressure to create phase changes in carbon dioxide (supercritical and subcritical), gently drawing out the plant’s beneficial components. The result is clean, safe oil with a long shelf life. “Supercritical” refers to CO<em>2<\/em> in both a liquid and gaseous state simultaneously, to ensure a high yield during extraction.<\/p>"
+            }
+          },
+          "2bfc5fab-c4e2-4ebd-8b6e-12949747a404": {
+            "type": "text",
+            "settings": {
+              "title": "",
+              "definition": ""
+            }
+          }
+        },
+        "block_order": [
+          "2a065153-3368-4d40-8fd8-1344ebd4eb8b",
+          "07a4ddc6-ee47-4c31-ad1a-013e36e7bd9d",
+          "61eac378-6f5c-4d92-9a68-371f33a436fc",
+          "f29023f1-b92f-4cd1-9ab6-57d0ee46cd0d",
+          "06e25238-df88-4feb-be0d-a7c5cefca9e0",
+          "f1dececc-3aec-4e6c-9d4e-9275a1a82a4a",
+          "ffd8ddbc-8e2e-452b-8a11-c2ed796bf696",
+          "dac18fab-b0b8-4977-b416-8a57282e6c1f",
+          "70f5c14f-763f-49da-94a1-4c2367898d0f",
+          "c447bfb2-01ba-4dd5-9b37-7c052ae6a748",
+          "7e544bf3-1767-4f8b-9763-c314adfa6555",
+          "4d1d819b-1aed-42c8-b956-18ed08428eab",
+          "2bfc5fab-c4e2-4ebd-8b6e-12949747a404"
+        ],
+        "settings": {
+        }
+      },
+      "jc-glossary-e": {
+        "type": "jc-glossary-e",
+        "blocks": {
+          "a6ebac3f-f38e-428f-b587-c9c3d14c3573": {
+            "type": "text",
+            "settings": {
+              "title": "Endocannabinoid System",
+              "definition": "<p>Also known as the ECS, the main function of this mammalian system is to maintain bodily homeostasis, or to keep the body balanced even as the environment changes. Scientists believe that cannabis is effective, in part, because the phytocannabinoids it contains mimic our naturally occurring endocannabinoids present in the body. Endocannabinoid receptors are found throughout the entire body, and this system plays a part in many of the body’s psychological and physiological processes, including appetite, stress, sleep, pain, memory, and immune function. To learn more about the Endocannabinoid System, click <a href=\"https:\/\/www.rrmeds.com\/pages\/how-hemp-works\">here<\/a>.<\/p>"
+            }
+          },
+          "33ac9496-9f12-4eb7-a46e-7ed2c9181f98": {
+            "type": "text",
+            "settings": {
+              "title": "Entourage Effect",
+              "definition": "<p>This industry term is used in conjunction with “Full Spectrum”, and it refers to all of the naturally occurring cannabinoids and phytonutrients working in harmony to produce the greatest impact possible to a user. It’s generally accepted that the more cannabinoids that are prevalent in a CBD products “profile,” the more effective that CBD product will be.<\/p>"
+            }
+          },
+          "dc90ef53-ae9f-47e9-85d7-12fe45eda5db": {
+            "type": "text",
+            "settings": {
+              "title": "Ethanol Extraction",
+              "definition": "<p>Introducing the solvent ethanol to the hemp plant in order to extract the cannabinoids and produce a more concentrated, cannabinoid rich extract.<\/p>"
+            }
+          },
+          "92efb2a5-bc87-4b2b-9093-25ddab8eb2bd": {
+            "type": "text",
+            "settings": {
+              "title": "Extraction",
+              "definition": "<p>A technique used to separate the chemical components of cannabis from the plant material. Hemp plants that are chopped down and amassed from a field before extraction are referred to as hemp “biomass.”<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "a6ebac3f-f38e-428f-b587-c9c3d14c3573",
+          "33ac9496-9f12-4eb7-a46e-7ed2c9181f98",
+          "dc90ef53-ae9f-47e9-85d7-12fe45eda5db",
+          "92efb2a5-bc87-4b2b-9093-25ddab8eb2bd"
+        ],
+        "settings": {
+        }
+      },
+      "jc-glossary-f": {
+        "type": "jc-glossary-f",
+        "blocks": {
+          "a05b35e2-dc98-4f91-abfd-7327c12b8d80": {
+            "type": "text",
+            "settings": {
+              "title": "Farm Bill - 2018",
+              "definition": "<p>The United States Congress voted at the end of December 2018 to pass the Agriculture Improvement Act of 2018, more commonly referred to as the Farm Bill. This legislation made CBD products legal to purchase in all 50 states. Under the Farm Bill, industrial hemp (of which CBD products are derived from) must contain less than 0.3% THC by concentration. Industrial hemp regulation is shared by state and federal governments. The Farm Bill also gave the FDA the authority to regulate cannabis products.<\/p>"
+            }
+          },
+          "26fe36c3-8fdf-4b80-bd6b-cc3418e90b79": {
+            "type": "text",
+            "settings": {
+              "title": "FDA",
+              "definition": "<p>The U.S. Food and Drug Administration (FDA) is a regulatory government agency with the power to regulate cannabis and cannabis-derived products since the passing of the 2018 Farm Bill.<\/p>"
+            }
+          },
+          "39660bf9-09ab-4552-be86-fb5c536c4b5e": {
+            "type": "text",
+            "settings": {
+              "title": "Flavonoids",
+              "definition": "<p>Flavonoids are a diverse group of phytonutrients (plant chemicals) found in almost all fruits and vegetables. These are power antioxidants associated with anti-inflammatory and immune system benefits.<\/p>"
+            }
+          },
+          "973f95fb-d11b-4e08-b34c-d5ff8d663aa6": {
+            "type": "text",
+            "settings": {
+              "title": "Full-Spectrum CBD",
+              "definition": "<p>This industry term refers to a hemp extract that has all of the naturally occurring terpenes, cannabinoids, flavonoids, and fatty acids found in hemp. Full-Spectrum products contain THC, as well, and contain THC up to a limit of 0.3% by concentration. This term is generally used to designate that a product does contain trace amounts of THC, and that a product is not an isolate. Basically, Full-Spectrum products ensure that a user is getting every potential benefit the plant has to offer. View our Full-Spectrum products <a href=\"https:\/\/www.rrmeds.com\/collections\/all-products\">here<\/a>.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "a05b35e2-dc98-4f91-abfd-7327c12b8d80",
+          "26fe36c3-8fdf-4b80-bd6b-cc3418e90b79",
+          "39660bf9-09ab-4552-be86-fb5c536c4b5e",
+          "973f95fb-d11b-4e08-b34c-d5ff8d663aa6"
+        ],
+        "settings": {
+        }
+      },
+      "jc-glossary-h": {
+        "type": "jc-glossary-h",
+        "blocks": {
+          "51814cfe-f0c9-44fe-bd4d-34e252714255": {
+            "type": "text",
+            "settings": {
+              "title": "Heavy Metals",
+              "definition": "<p>Products are often tested for heavy metal presence. Plants absorb minerals and metals from the soil, which can end up in final products. We test to ensure our products are free of lead and other heavy metals, like lead, arsenic, or cadmium.<\/p>"
+            }
+          },
+          "1a466e75-18ce-4840-8ec4-027a6d2560dc": {
+            "type": "text",
+            "settings": {
+              "title": "Hemp (Industrial)",
+              "definition": "<p>Hemp is an industrial cannabis plant cultivated for its fiber, edible seeds, and CBD.  While hemp is in the same family as psychoactive cannabis (marijuana), it does not induce psychoactive effects. Commercial items made from hemp fiber include medicine (CBD), paper, textiles, clothing, biodegradable plastic alternatives, and food. Cannabis is determined to be either marijuana or hemp based on its THC content. Currently, regulations state that CBD can only be derived from hemp, and it must have a THC content of 0.3% or less by concentration. If a hemp plant or product is tested to exceed this value, it will be treated as marijuana.<\/p>"
+            }
+          },
+          "cd233a2d-ebbc-4be5-8526-c3b7946102aa": {
+            "type": "text",
+            "settings": {
+              "title": "Hemp Flower",
+              "definition": "<p>CBD buds are the flowers of female hemp plants which have been specially bred to contain very high levels of CBD and low levels of THC.<\/p>"
+            }
+          },
+          "a9dca869-128a-4f81-b9a0-bb4629c462a8": {
+            "type": "text",
+            "settings": {
+              "title": "Hemp Seed Oil",
+              "definition": "<p>Derived from industrial hemp seeds, hemp seed oil is created by pressing the plant’s seeds. It has no therapeutic benefits, but is often used as a dietary supplement and a low-saturated-fat cooking oil.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "51814cfe-f0c9-44fe-bd4d-34e252714255",
+          "1a466e75-18ce-4840-8ec4-027a6d2560dc",
+          "cd233a2d-ebbc-4be5-8526-c3b7946102aa",
+          "a9dca869-128a-4f81-b9a0-bb4629c462a8"
+        ],
+        "settings": {
+        }
+      },
+      "jc-glossary-i": {
+        "type": "jc-glossary-i",
+        "blocks": {
+          "48cdb36f-5e26-4ac1-9249-2d06b2ea2cf5": {
+            "type": "text",
+            "settings": {
+              "title": "Isolate CBD",
+              "definition": "<p>These products are 99% CBD. To manufacture an isolate, everything contained in the plant matter (other cannabinoids, terpenes, flavonoids, and phytonutrients) is removed — including any traces of THC and other beneficial cannabinoids — until only a powder or crystalline form of CBD is left. This means that isolate users will not benefit from the Entourage Effect.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "48cdb36f-5e26-4ac1-9249-2d06b2ea2cf5"
+        ],
+        "settings": {
+        }
+      },
+      "jc-glossary-l": {
+        "type": "jc-glossary-l",
+        "blocks": {
+          "d93b3174-e96b-4a36-bb47-9ddf1a9c68e4": {
+            "type": "text",
+            "settings": {
+              "title": "LOD",
+              "definition": "<p>Limit of detection. These are tolerance values that indicate the lowest detectable amount of any compound being tested for. Used interchangeably with “LOQ”.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "d93b3174-e96b-4a36-bb47-9ddf1a9c68e4"
+        ],
+        "settings": {
+        }
+      },
+      "jc-glossary-m": {
+        "type": "jc-glossary-m",
+        "blocks": {
+          "38cd1894-caf1-456e-956f-4e16f6c54adc": {
+            "type": "text",
+            "settings": {
+              "title": "Marijuana",
+              "definition": "<p>Marijuana is a cannabis plant that is harvested for its euphoric, relaxing, and psychoactive properties. As opposed to hemp, the seeds and stalks of marijuana aren’t used commercially as a food source, or in the textiles industry. Instead, the plant is cultivated for its highly resinous flowers containing an abundance of THC. The THC content of marijuana is much higher than it is in hemp. Marijuana can have up to 30% THC per dry weight, compared to industrial hemp, which must have less than 0.3% THC dry weight content.<\/p>"
+            }
+          },
+          "fbf38d9e-bb89-4ddd-b73e-eca485350e31": {
+            "type": "text",
+            "settings": {
+              "title": "Microbes",
+              "definition": "<p>These are bacterial contaminants that should be tested for in any food product or supplement. We test for microbes like salmonella, E. coli, streptococcus, and more.<\/p>"
+            }
+          },
+          "130c75cc-313f-4914-ad41-e5b926fbcfb6": {
+            "type": "text",
+            "settings": {
+              "title": "Mycotoxins",
+              "definition": "<p>Mycotoxins are toxic compounds that are naturally produced by certain types of moulds and fungi. Mycotoxins can appear in food as a result of mould infection of crops before or after harvest.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "38cd1894-caf1-456e-956f-4e16f6c54adc",
+          "fbf38d9e-bb89-4ddd-b73e-eca485350e31",
+          "130c75cc-313f-4914-ad41-e5b926fbcfb6"
+        ],
+        "settings": {
+        }
+      },
+      "jc-glossary-p": {
+        "type": "jc-glossary-p",
+        "blocks": {
+          "d9b48269-da89-4f70-b64f-bdcfb4deb87a": {
+            "type": "text",
+            "settings": {
+              "title": "Pesticides",
+              "definition": "<p>Many plants are treated with harmful pesticides. We test for any presence of these to demonstrate the purity and safety of our products. In compliance with our certified organic grow process, we proudly do not find pesticide presence in our products.<\/p>"
+            }
+          },
+          "86a31632-0550-4f4b-a444-95cc1b2019ca": {
+            "type": "text",
+            "settings": {
+              "title": "Psychoactive",
+              "definition": "<p>A chemical substance that changes brain function and results in alterations in perception, mood, consciousness, cognition, or behavior.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "d9b48269-da89-4f70-b64f-bdcfb4deb87a",
+          "86a31632-0550-4f4b-a444-95cc1b2019ca"
+        ],
+        "settings": {
+        }
+      },
+      "jc-glossary-s": {
+        "type": "jc-glossary-s",
+        "blocks": {
+          "ba6b18b6-428f-4da6-b540-1429f410b8f4": {
+            "type": "text",
+            "settings": {
+              "title": "Solvents",
+              "definition": "<p>Solvents can be used to extract fats, lipids, and other compounds from hemp extract during the extraction process. We test for solvent presence in our products to ensure no values are present for solvents like acetone, kerosene, etc. Our extraction process uses an organic, food grade ethanol, which is an approved solvent as part of our certified organic extraction process.<\/p>"
+            }
+          },
+          "9ad951b7-7bfb-462a-b8d1-b043c62bd160": {
+            "type": "text",
+            "settings": {
+              "title": "Sublingual",
+              "definition": "<p>This term refers to application under the tongue and absorption by the small salivary glands beneath the tongue.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "ba6b18b6-428f-4da6-b540-1429f410b8f4",
+          "9ad951b7-7bfb-462a-b8d1-b043c62bd160"
+        ],
+        "settings": {
+        }
+      },
+      "jc-glossary-t": {
+        "type": "jc-glossary-t",
+        "blocks": {
+          "8a097ed5-af02-48a7-bb1a-984d61a2bf3f": {
+            "type": "text",
+            "settings": {
+              "title": "Terpenes",
+              "definition": "<p>Terpenes are aromatic oils that lend flavors such as berry, mint, and pine to different cannabis strains. More than 100 different terpenes have been identified in cannabis, and every cannabis strain has its own terpene profile. The effects of any given terpene may be amplified in the presence of other compounds. Terpenes are present in all plants!<\/p>"
+            }
+          },
+          "bb8c967f-3f6c-4241-a65b-d6fd0a124eaf": {
+            "type": "text",
+            "settings": {
+              "title": "THC (Tetrahydrocannabinol)",
+              "definition": "<p>This is the most notable cannabinoid found in marijuana and is responsible for psychoactive effects.<\/p>"
+            }
+          },
+          "eff9804c-02e4-4cd5-a991-72ed32820db1": {
+            "type": "text",
+            "settings": {
+              "title": "Tincture",
+              "definition": "<p>An industry term for CBD oil in a bottle with a dropper, like our <a href=\"https:\/\/www.rrmeds.com\/products\/tinctures?variant=29122588934197\">1000mg Fresh Mint Tincture<\/a>.<\/p>"
+            }
+          },
+          "c98833a4-6ec8-4456-8f93-37c326712276": {
+            "type": "text",
+            "settings": {
+              "title": "Topical",
+              "definition": "<p>A product applied to the skin, like our <a href=\"https:\/\/www.rrmeds.com\/products\/cream-2-5-fl-oz\">1000mg CBD Cream<\/a>.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "8a097ed5-af02-48a7-bb1a-984d61a2bf3f",
+          "bb8c967f-3f6c-4241-a65b-d6fd0a124eaf",
+          "eff9804c-02e4-4cd5-a991-72ed32820db1",
+          "c98833a4-6ec8-4456-8f93-37c326712276"
+        ],
+        "settings": {
+        }
+      },
+      "jc-glossary-u": {
+        "type": "jc-glossary-u",
+        "blocks": {
+          "5fff2a50-b75f-460a-9d48-02b39b5e3c0f": {
+            "type": "text",
+            "settings": {
+              "title": "USDA Certified Organic",
+              "definition": "<p>USDA certified organic foods and ingredients are grown and processed according to federal guidelines addressing, among many factors, soil quality, animal raising practices, pest and weed control, and use of additives. Organic producers rely on natural substances and physical, mechanical, or biologically based farming methods to the fullest extent possible. We use USDA Certified Organic hemp in all of our <a href=\"https:\/\/www.rrmeds.com\/collections\/all-products\">products<\/a>!<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "5fff2a50-b75f-460a-9d48-02b39b5e3c0f"
+        ],
+        "settings": {
+        }
+      },
+      "jc-glossary-w": {
+        "type": "jc-glossary-w",
+        "blocks": {
+          "cba84fc1-8537-42de-a74a-d458c21ddf46": {
+            "type": "text",
+            "settings": {
+              "title": "Winterization",
+              "definition": "<p>Before our CO<em>2<\/em> extraction process, organic, food-grade ethanol (190-proof), which is GRAS (Generally Recognized as Safe) by the FDA, is used as a solvent to remove lipids from the crude extract of hemp. The removal of these lipids allows for a higher purity of oil, as fats\/lipids can dilute the cannabinoid concentration, which lowers purity. In short, this is an added step to increase the purity and density of cannabinoids in the oil as part of the CO<em>2<\/em> extraction process, which leads to a more potent and pure end-product.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "cba84fc1-8537-42de-a74a-d458c21ddf46"
+        ],
+        "settings": {
+        }
+      },
+      "jc-footer-v2": {
+        "type": "jc-footer-v2",
+        "settings": {
+        }
+      },
+      "reviews-slider": {
+        "type": "reviews-slider",
+        "settings": {
+        }
+      },
+      "faq-section": {
+        "type": "faq-section",
+        "settings": {
+        }
+      },
+      "yotpo-reviews": {
+        "type": "yotpo-reviews",
+        "settings": {
+        }
+      },
+      "features-bar": {
+        "type": "features-bar",
+        "settings": {
+        }
+      },
+      "backed-by-experts": {
+        "type": "backed-by-experts",
+        "settings": {
+        }
+      },
+      "quiz-section": {
+        "type": "quiz-section",
+        "settings": {
+        }
+      },
+      "collection-cta": {
+        "type": "collection-cta",
+        "settings": {
+        }
+      },
+      "jc-learn-page": {
+        "type": "jc-learn-page",
+        "blocks": {
+          "text_FeRFHC": {
+            "type": "text",
+            "settings": {
+              "heading": "CBD 101",
+              "url": "shopify:\/\/pages\/cbd-101",
+              "bg_image": "shopify:\/\/shop_images\/RR-reskin-our_hemp_2_AST_oil_puddle.png"
+            }
+          },
+          "text_MTUY8f": {
+            "type": "text",
+            "settings": {
+              "heading": "How Hemp Works In The Body",
+              "url": "shopify:\/\/pages\/how-hemp-works",
+              "bg_image": "shopify:\/\/shop_images\/RR-reskin-learn_category_AST_body.jpg"
+            }
+          },
+          "text_Gzz6EY": {
+            "type": "text",
+            "settings": {
+              "heading": "Our Hemp",
+              "url": "shopify:\/\/pages\/our-hemp",
+              "bg_image": "shopify:\/\/shop_images\/RR-reskin-learn_category_AST_our_hemp.jpg"
+            }
+          },
+          "text_H6bm66": {
+            "type": "text",
+            "settings": {
+              "heading": "FAQs",
+              "url": "shopify:\/\/pages\/frequently-asked-questions",
+              "bg_image": "shopify:\/\/shop_images\/RR-reskin-learn_category_AST_faq.jpg"
+            }
+          },
+          "text_DwnYfq": {
+            "type": "text",
+            "settings": {
+              "heading": "Lab Testing",
+              "url": "shopify:\/\/pages\/lab-testing",
+              "bg_image": "shopify:\/\/shop_images\/RR-reskin-learn_category_AST_lab.jpg"
+            }
+          },
+          "text_VgRxQt": {
+            "type": "text",
+            "settings": {
+              "heading": "CBD Glossary",
+              "url": "shopify:\/\/pages\/glossary",
+              "bg_image": "shopify:\/\/shop_images\/RR-reskin-learn_category_AST_glossary.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "text_FeRFHC",
+          "text_MTUY8f",
+          "text_Gzz6EY",
+          "text_H6bm66",
+          "text_DwnYfq",
+          "text_VgRxQt"
+        ],
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ],
+    "blocks": {
+      "6471712195879653093": {
+        "type": "shopify:\/\/apps\/customer-accounts-concierge\/blocks\/social_logins\/3c495b68-652c-468d-a0ef-5bad6935d104",
+        "disabled": false,
+        "settings": {
+          "position": "below",
+          "divider": true,
+          "style": "icon_and_text",
+          "text_alignment": "center",
+          "icon_alignment": "left",
+          "icon_style": "white",
+          "border_radius": 4,
+          "spacing": 8,
+          "shadow": true,
+          "custom_css": ""
+        }
+      },
+      "11468047240823483236": {
+        "type": "shopify:\/\/apps\/sezzle-widget\/blocks\/checkout-embed\/f3a53793-e118-4764-a86b-a79bfedb0d5f",
+        "disabled": false,
+        "settings": {
+          "heading": "Sezzle Checkout Button",
+          "template": "Checkout with %%logo%%",
+          "mode": "light"
+        }
+      },
+      "12608439564960700138": {
+        "type": "shopify:\/\/apps\/sezzle-widget\/blocks\/widget-embed\/f3a53793-e118-4764-a86b-a79bfedb0d5f",
+        "disabled": false,
+        "settings": {
+          "heading": "Sezzle Widget",
+          "font_size": 14,
+          "font_family": "inherit"
+        }
+      },
+      "4918592460924562117": {
+        "type": "shopify:\/\/apps\/optimonk-popup-cro-a-b-test\/blocks\/app-embed\/0b488be1-fc0a-4fe6-8793-f2bef383dba8",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "17151115064775110295": {
+        "type": "shopify:\/\/apps\/recharge-subscriptions\/blocks\/recharge-theme\/371eed76-0b44-4869-9813-730372ea378e",
+        "disabled": false,
+        "settings": {
+          "color_brand": "#467C99",
+          "contrast_color": "#FFFFFF",
+          "color_brand_secondary": "#467C99",
+          "corners": "8px",
+          "app_background": "#f9f8f4",
+          "app_container": 1200,
+          "app_vertical_padding": 32,
+          "images_aspect_ratio": "1",
+          "cards_background": "#FFFFFF",
+          "cards_border_color": "rgba(0,0,0,0)"
+        }
+      },
+      "855628211100114053": {
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "14339172867238703359": {
+        "type": "shopify:\/\/apps\/yotpo-product-photo-reviews\/blocks\/reviews_tab\/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+        "disabled": false,
+        "settings": {
+          "product": ""
+        }
+      },
+      "6483563725576464972": {
+        "type": "shopify:\/\/apps\/yotpo-product-photo-reviews\/blocks\/shopper_journey\/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+        "disabled": false,
+        "settings": {
+          "product": ""
+        }
+      },
+      "7570552984445421165": {
+        "type": "shopify:\/\/apps\/yotpo-product-photo-reviews\/blocks\/settings\/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "10654302039939271664": {
+        "type": "shopify:\/\/apps\/gift-card-pro\/blocks\/gift-card-pro\/3b1306ce-7e99-4a1c-aa30-e9f030a737ef",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "1910501027098541543": {
+        "type": "shopify:\/\/apps\/starapps-variant-image\/blocks\/starapps-via-embed\/2a01d106-3d10-48e8-ba53-5cb971217ac4",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "8962992520437913685": {
+        "type": "shopify:\/\/apps\/yotpo-loyalty-rewards\/blocks\/loader-app-embed-block\/2f9660df-5018-4e02-9868-ee1fb88d6ccd",
+        "disabled": true,
+        "settings": {
+          "inject_modules_loader": false,
+          "inject_sdk_loader": false
+        }
+      },
+      "12046557757412368804": {
+        "type": "shopify:\/\/apps\/accounts-concierge\/blocks\/customer_account_page\/3c495b68-652c-468d-a0ef-5bad6935d104",
+        "disabled": true,
+        "settings": {
+          "style": "light",
+          "dropdownMenu": "slider",
+          "mobile_nav_offset_top": 0,
+          "shadow": true,
+          "border_radius": 4,
+          "background_color": "#ffffff",
+          "text_color": "#202202",
+          "primary_color": "#5873f9",
+          "btn_text_color": "#ffffff",
+          "max_width": 800,
+          "custom_css": ""
+        }
+      }
+    },
+    "color_schemes": {
+      "background-1": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#121212",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "background-2": {
+        "settings": {
+          "background": "#f3f3f3",
+          "background_gradient": "",
+          "text": "#121212",
+          "button": "#121212",
+          "button_label": "#f3f3f3",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "inverse": {
+        "settings": {
+          "background": "#242833",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#000000",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "accent-1": {
+        "settings": {
+          "background": "#121212",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#121212",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "accent-2": {
+        "settings": {
+          "background": "#1773b0",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#1773b0",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      }
+    }
+  },
+  "presets": {
+    "Default": {
+      "logo_width": 90,
+      "color_schemes": {
+        "background-1": {
+          "settings": {
+            "background": "#FFFFFF",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "background-2": {
+          "settings": {
+            "background": "#F3F3F3",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#F3F3F3",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "inverse": {
+          "settings": {
+            "background": "#242833",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#000000",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "accent-1": {
+          "settings": {
+            "background": "#121212",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#121212",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "accent-2": {
+          "settings": {
+            "background": "#334FB4",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#334FB4",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        }
+      },
+      "type_header_font": "assistant_n4",
+      "heading_scale": 100,
+      "type_body_font": "assistant_n4",
+      "body_scale": 100,
+      "page_width": 1200,
+      "spacing_sections": 0,
+      "spacing_grid_horizontal": 8,
+      "spacing_grid_vertical": 8,
+      "animations_reveal_on_scroll": true,
+      "animations_hover_elements": "none",
+      "buttons_border_thickness": 1,
+      "buttons_border_opacity": 100,
+      "buttons_radius": 0,
+      "buttons_shadow_opacity": 0,
+      "buttons_shadow_horizontal_offset": 0,
+      "buttons_shadow_vertical_offset": 4,
+      "buttons_shadow_blur": 5,
+      "variant_pills_border_thickness": 1,
+      "variant_pills_border_opacity": 55,
+      "variant_pills_radius": 40,
+      "variant_pills_shadow_opacity": 0,
+      "variant_pills_shadow_horizontal_offset": 0,
+      "variant_pills_shadow_vertical_offset": 4,
+      "variant_pills_shadow_blur": 5,
+      "inputs_border_thickness": 1,
+      "inputs_border_opacity": 55,
+      "inputs_radius": 0,
+      "inputs_shadow_opacity": 0,
+      "inputs_shadow_horizontal_offset": 0,
+      "inputs_shadow_vertical_offset": 4,
+      "inputs_shadow_blur": 5,
+      "card_style": "standard",
+      "card_image_padding": 0,
+      "card_text_alignment": "left",
+      "card_color_scheme": "background-2",
+      "card_border_thickness": 0,
+      "card_border_opacity": 10,
+      "card_corner_radius": 0,
+      "card_shadow_opacity": 0,
+      "card_shadow_horizontal_offset": 0,
+      "card_shadow_vertical_offset": 4,
+      "card_shadow_blur": 5,
+      "collection_card_style": "standard",
+      "collection_card_image_padding": 0,
+      "collection_card_text_alignment": "left",
+      "collection_card_color_scheme": "background-2",
+      "collection_card_border_thickness": 0,
+      "collection_card_border_opacity": 10,
+      "collection_card_corner_radius": 0,
+      "collection_card_shadow_opacity": 0,
+      "collection_card_shadow_horizontal_offset": 0,
+      "collection_card_shadow_vertical_offset": 4,
+      "collection_card_shadow_blur": 5,
+      "blog_card_style": "standard",
+      "blog_card_image_padding": 0,
+      "blog_card_text_alignment": "left",
+      "blog_card_color_scheme": "background-2",
+      "blog_card_border_thickness": 0,
+      "blog_card_border_opacity": 10,
+      "blog_card_corner_radius": 0,
+      "blog_card_shadow_opacity": 0,
+      "blog_card_shadow_horizontal_offset": 0,
+      "blog_card_shadow_vertical_offset": 4,
+      "blog_card_shadow_blur": 5,
+      "text_boxes_border_thickness": 0,
+      "text_boxes_border_opacity": 10,
+      "text_boxes_radius": 0,
+      "text_boxes_shadow_opacity": 0,
+      "text_boxes_shadow_horizontal_offset": 0,
+      "text_boxes_shadow_vertical_offset": 4,
+      "text_boxes_shadow_blur": 5,
+      "media_border_thickness": 1,
+      "media_border_opacity": 5,
+      "media_radius": 0,
+      "media_shadow_opacity": 0,
+      "media_shadow_horizontal_offset": 0,
+      "media_shadow_vertical_offset": 4,
+      "media_shadow_blur": 5,
+      "popup_border_thickness": 1,
+      "popup_border_opacity": 10,
+      "popup_corner_radius": 0,
+      "popup_shadow_opacity": 0,
+      "popup_shadow_horizontal_offset": 0,
+      "popup_shadow_vertical_offset": 4,
+      "popup_shadow_blur": 5,
+      "drawer_border_thickness": 1,
+      "drawer_border_opacity": 10,
+      "drawer_shadow_opacity": 0,
+      "drawer_shadow_horizontal_offset": 0,
+      "drawer_shadow_vertical_offset": 4,
+      "drawer_shadow_blur": 5,
+      "badge_position": "bottom left",
+      "badge_corner_radius": 40,
+      "sale_badge_color_scheme": "accent-2",
+      "sold_out_badge_color_scheme": "inverse",
+      "brand_headline": "",
+      "brand_description": "<p><\/p>",
+      "brand_image_width": 100,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tiktok_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "predictive_search_enabled": true,
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": false,
+      "currency_code_enabled": true,
+      "cart_type": "notification",
+      "show_vendor": false,
+      "show_cart_note": false,
+      "cart_drawer_collection": "",
+      "sections": {
+        "main-password-header": {
+          "type": "main-password-header",
+          "settings": {
+            "color_scheme": "background-1"
+          }
+        },
+        "main-password-footer": {
+          "type": "main-password-footer",
+          "settings": {
+            "color_scheme": "background-1"
+          }
+        }
+      }
+    }
+  }
+}

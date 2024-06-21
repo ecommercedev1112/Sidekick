@@ -1,0 +1,34 @@
+	<!-- YOTPO CAROUSEL | collection.solution.liquid -->
+    
+    
+    <div class="yotpo yotpo-reviews-carousel new"  data-background-color="transparent"  data-mode="manual"  data-type="both"  data-review-ids="542851294, 542816226, 542799466, 542684621, 542633160, 542519671, 542431424, 542422910, 542420169"  accesskeydata-show-bottomline="1"  data-autoplay-enabled="1"  data-autoplay-speed="3000"  data-show-navigation="1">&nbsp;</div>
+    
+    {% comment %}
+    
+    <div class="yotpo-widget-instance" data-yotpo-instance-id="564022" data-yotpo-product-id="{{product.id}}" data-yotpo-cart-product-id="{{item.product.id}}"></div>
+{% endcomment %}
+    
+    <style>
+        #shopify-section-yotpo-reviews{
+            background-color: #F2F5F5;
+            padding-bottom: 120px;
+            overflow: hidden;
+        }
+        .scroller{
+            min-width: 430px;
+        }
+        .yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel .carousel-arrows{
+            bottom: -60px;
+            margin-left: -26%;
+        }
+        @media (max-width: 479px) {
+
+        .scroller{
+            min-width: auto;
+        }
+        .yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel .carousel-arrows{
+            bottom: -60px;
+            margin-left: -50%;
+        }
+        }
+    </style>

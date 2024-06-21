@@ -1,0 +1,68 @@
+
+<div class="jc-product-bottom-reviews-wrapper">
+	<div id="reviews" class="reviews-link-landing"></div>
+	<div class="jc-product-bottom-reviews-container SPD">
+
+		<style>
+			.yotpo-headline{
+				color: var(--rr-green-current-web, #004943) !important;
+				text-align: center;
+				font-size: 55px !important;
+				font-style: normal;
+				font-weight: 700 !important;
+				margin-top: 0px;
+			}
+			.reviews-link-landing{
+				position: relative;
+				top: -170px;
+			}
+			.yotpo-display-m .yotpo-main-layout .yotpo-head{
+				display: none;
+			}
+			.yotpo-main-layout.yotpo-main-reviews-widget{
+
+			}
+			@media (max-width: 767px) {
+				.reviews-link-landing{
+				top: -140px;
+			}
+			}
+		</style>
+
+
+		<h1 class="reviews-header yotpo-headline h1-new">These Transformations Can Be Yours, Too</h1>
+		<div class="yotpo-widget-instance" data-yotpo-instance-id="523295" data-yotpo-product-id="{{product.id}}" data-yotpo-name="{{ product.title | escape }}" data-yotpo-url="{{ shop.url }}{{ product.url }}" data-yotpo-image-url="{{ product.featured_image | product_img_url: "large" | prepend: "https:" | replace: '?', '%3F' | replace: '&','%26'}}" data-yotpo-price="{{ product.price | divided_by: 100.00 }}" data-yotpo-currency="{{ shop.currency }}" data-yotpo-description="{{ product.description | escape }}"></div>
+
+
+
+{% comment %}
+	
+	<div class='embedsocial-reviews' data-ref="dac7e3baa4ac8d085777aa9d4d00a3ce2bae6a00"></div><script>(function(d, s, id){var js; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/embedscript/ri.js"; d.getElementsByTagName("head")[0].appendChild(js);}(document, "script", "EmbedSocialReviewsScript"));</script>
+	<div class="all-reviews-btn-wrapper">
+		<a href="/pages/all-reviews" class="jc-medium-btn less-margin w-button" target="_blank">See All Reviews</a>
+		</div>
+	{% endcomment %}
+
+
+			
+	</div>
+</div>
+
+{% schema %}
+{
+  "name": "Reviews",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    
+  ],
+  "presets": [
+    {
+      "name": "Reviews"
+    }
+  ]
+}
+{% endschema %}

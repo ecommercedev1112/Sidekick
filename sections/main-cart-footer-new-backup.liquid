@@ -1,0 +1,227 @@
+ {{ 'component-cart.css' | asset_url | stylesheet_tag }}
+{{ 'component-totals.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+
+
+<style>
+  .white-button-w-button {
+    height: 56px;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+}
+.white-button-w-button {
+    color: #fff;
+    text-align: center;
+    border: 2px solid #004943;
+    border-radius: 50px;
+    padding: 16px 25px;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 16px;
+    width: fit-content;
+    transition: all .2s ease;
+    background-color: #004943;
+    margin-left: auto;
+    text-transform: uppercase;
+}
+.white-button-w-button:hover {
+    background-color: #002e29;
+    border: 2px solid #002e29;
+    color: #fff;
+}
+@media screen and (max-width: 749px) {
+  .white-button-w-button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+</style>
+
+<div class="page-width{% if cart == empty %} is-empty{% endif %} cart" id="main-cart-footer" data-id="{{ section.id }}">
+  <div>
+    <div class="cart__footer">
+
+
+      <div class="totals mobile">
+        <h2 class="totals__subtotal">{{ 'sections.cart.subtotal' | t }}</h2>
+        
+        <p class="totals__subtotal-value">{{ cart.total_price | money_with_currency }}</p>
+      </div>
+
+      {%- if settings.show_cart_note -%}
+        <cart-note class="cart__note field">
+          <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
+          <textarea
+            class="text-area field__input" 
+            name="note"
+            form="cart"
+            id="Cart-note"
+            placeholder="{{ 'sections.cart.note' | t }}"
+          >{{ cart.note }}</textarea>
+        </cart-note>
+      {%- endif -%}
+
+      
+      
+      <div class="jc-bottom-cart-flex-col smaller">
+        {% comment %}
+        <p class="jc-cart-bottom-flex-text-top"><strong>Important:</strong></p>
+        <p class="jc-cart-bottom-flex-text">Double-check your credit card information, shipping & billing address, and your email address.</p>
+        <p class="jc-cart-bottom-flex-text">Orders placed after <span style="text-decoration:underline;">12pm your local time</span> will be processed the following business day.</p>
+        <p class="jc-cart-bottom-flex-text"><em>Coupons, discounts, rewards redemptions, and auto ship offers cannot be combined.</em></p>
+        <p class="jc-cart-bottom-flex-text-top"><strong></strong></p>
+        <p class="jc-cart-bottom-flex-text"><em></em></p>
+      {% endcomment %}
+      </div>
+
+      <div class="cart__blocks double">
+
+
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
+            {%- when 'subtotal' -%}
+              <div class="js-contents" {{ block.shopify_attributes }}>
+
+                <div class="totals desktop">
+                  <h2 class="totals__subtotal">{{ 'sections.cart.subtotal' | t }}</h2>
+                  <p class="totals__subtotal-value">{{ cart.total_price | money_with_currency }}</p>
+                </div>
+
+                <div>
+                  {%- if cart.cart_level_discount_applications.size > 0 -%}
+                    <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                      {%- for discount in cart.cart_level_discount_applications -%}
+                        <li class="discounts__discount discounts__discount--position">
+                          {%- render 'icon-discount' -%}
+                          {{ discount.title }}
+                          (-{{ discount.total_allocated_amount | money }})
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                </div>
+
+                <small class="tax-note caption-large rte">
+                  {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+                    {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: "/pages/website-shipping-policy" }}
+                  {%- elsif cart.taxes_included -%}
+                    {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
+                  {%- elsif shop.shipping_policy.body != blank -%}
+                    {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: "/pages/website-shipping-policy" }}
+                  {%- else -%}
+                    {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
+                  {%- endif -%}
+                </small>
+              </div>
+            {%- else -%}
+
+
+{%- comment -%}
+  <div class="jc-bottom-cart-flex-col smaller">
+    <p class="jc-cart-bottom-flex-text-top"><strong>Important:</strong></p>
+    <p class="jc-cart-bottom-flex-text">Double-check your credit card information, shipping & billing address, and your email address.</p>
+    <p class="jc-cart-bottom-flex-text">Orders placed after <span style="text-decoration:underline;">12pm your local time</span> will be processed the following business day.</p>
+    <p class="jc-cart-bottom-flex-text"><em>Coupons, discounts, rewards redemptions, and auto ship offers cannot be combined.</em></p>
+    <p class="jc-cart-bottom-flex-text-top"><strong></strong></p>
+    <p class="jc-cart-bottom-flex-text"><em></em></p>
+  </div>
+  
+  <p class="rte jc-cart-disclaimer"><em>Taxes and shipping calculated at checkout</em></p>
+  <p class="rte jc-cart-disclaimer jc-cart-disclaimer-margin"><em>By purchasing from this website, you're agreeing to our terms of service</em></p>
+{%- endcomment -%}
+
+
+
+              <div class="jc-bottom-cart-flex-col" {{ block.shopify_attributes }}>
+                <noscript>
+                  <button type="submit" class="cart__update-button button button--secondary" form="cart">
+                    {{ 'sections.cart.update' | t }}
+                  </button>
+                </noscript>
+
+
+                <button
+                  type="submit"
+                  id="checkout"
+                  class="white-button-w-button w-inline-block"
+                  name="checkout"
+                  {% if cart == empty %}
+                    disabled
+                  {% endif %}
+                  form="cart"
+                >
+                  {{ 'sections.cart.checkout' | t }}
+                </button>
+
+
+              {% comment %}
+                
+                <div class="jc-cart-btn-wrapper">
+                  <a href="/cart/#smile-home" class="jc-medium-btn cart full w-button">Redeem Reward Points</a>
+                  </div>
+                {% endcomment %}
+              </div>
+
+              {%- if additional_checkout_buttons -%}
+                <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                  {{ content_for_additional_checkout_buttons }}
+                </div>
+              {%- endif -%}
+
+
+              
+          {%- endcase -%}
+        {% endfor %}
+
+        <div id="cart-errors"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function isIE() {
+      const ua = window.navigator.userAgent;
+      const msie = ua.indexOf('MSIE ');
+      const trident = ua.indexOf('Trident/');
+
+      return msie > 0 || trident > 0;
+    }
+
+    if (!isIE()) return;
+    const cartSubmitInput = document.createElement('input');
+    cartSubmitInput.setAttribute('name', 'checkout');
+    cartSubmitInput.setAttribute('type', 'hidden');
+    document.querySelector('#cart').appendChild(cartSubmitInput);
+    document.querySelector('#checkout').addEventListener('click', function (event) {
+      document.querySelector('#cart').submit();
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.main-cart-footer.name",
+  "class": "cart__footer-wrapper",
+  "blocks": [
+    {
+      "type": "subtotal",
+      "name": "t:sections.main-cart-footer.blocks.subtotal.name",
+      "limit": 1
+    },
+    {
+      "type": "buttons",
+      "name": "t:sections.main-cart-footer.blocks.buttons.name",
+      "limit": 1
+    },
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,380 @@
+	<!-- /templates/collection.liquid -->
+	{% comment %}
+	  The contents of the collection.liquid template can be found in /sections/collection-template.liquid
+
+
+	{% section 'collection-template' %}
+	{% endcomment %}
+	<style>
+		@media (max-width: 991px) {
+			.jc-products-flex-row{
+				margin-top: 12px;
+			}
+		}
+	</style>
+{{ 'jc-custom-recharge.css' | asset_url | stylesheet_tag }}
+{{ 'collection-page.css' | asset_url | stylesheet_tag }}
+
+{% assign petsCollection = false %}
+{% if collection.id == '159343902773' %}
+	{% assign petsCollection = true %}
+{% endif %}
+
+	<div class="collection-hero" style="background-color:{{ collection.metafields.custom.hero_background }}">
+		<div class="collection-heading-50">
+			<div class="collection-heading-inner">
+
+				<div class="constrained-600">
+					<h2 style="margin-top: 0px;{% if petsCollection %}max-width: 350px;{% endif %}" class="sub-header">{{collection.title}}</h2>
+					<h1 style="margin-top: 0px;" class="header-1 h1-new">{{collection.metafields.custom.collection_title}}</h1>
+				</div>
+			</div>
+		</div>
+		<div class="collection-heading-50 image">
+		<div class="collection-bg-image" style="background-image: {%if collection.image%}url({{collection.image |  image_url }}){% else %}url(https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Hero_Photo_Placeholder.jpg?v=1698954643){% endif %}"></div>
+		</div>
+
+		{% if collection.metafields.custom.collection_mobile_hero_image %}
+			<style>
+				@media screen and (max-width: 479px) {
+					.collection-bg-image{
+						background-image: url({{collection.metafields.custom.collection_mobile_hero_image | image_url }}) !important;
+					}
+				}
+			</style>
+		{% endif %}
+	</div>
+
+	<div class="jc-products-mid-wrapper">
+
+		{% render 'collection-menu'%}
+
+		
+
+		
+		<div class="collection-wrapper">
+
+			
+
+
+          
+			<div class="collection-top-info">
+				<div class="collection-info-left">
+					<div class="spec-heading">
+						<h2 class="header-2">Functional Gummies</h2>
+					</div>
+				</div>
+				<div class="collection-divider-line"></div>
+			</div>
+
+			<div class="jc-products-flex-row test-flex-row">
+				{% assign overall_index = 0 %}
+				{% assign collection = collections['functional-gummies'] %}
+				{% for product in collection.products %}
+					{% for variant in product.variants %}
+						{% assign overall_index = overall_index | plus: 1 %}
+									
+						{% assign default_index = 3 %}
+						{% assign review_position = collection.metafields.custom.review_position_1 | default: default_index %}
+						{% include 'collection-product-item' %}
+								
+					{% endfor %}
+				{% endfor %}
+			</div>
+
+			<div class="collection-top-info">
+				<div class="collection-info-left">
+					<div class="spec-heading">
+						<h2 class="header-2">Pain Creams</h2>
+					</div>
+				</div>
+				<div class="collection-divider-line"></div>
+			</div>
+
+			<div class="jc-products-flex-row test-flex-row">
+				{% assign overall_index = 0 %}
+				{% assign collection = collections['cbd-pain-creams'] %}
+				{% for product in collection.products %}
+					{% for variant in product.variants %}
+						{% assign overall_index = overall_index | plus: 1 %}
+									
+						{% assign default_index = 3 %}
+						{% assign review_position = collection.metafields.custom.review_position_1 | default: default_index %}
+						{% include 'collection-product-item' %}
+								
+					{% endfor %}
+				{% endfor %}
+			</div>
+          
+			<div class="collection-top-info">
+				<div class="collection-info-left">
+					<div class="spec-heading">
+						<h2 class="header-2">Gummies</h2>
+					</div>
+				</div>
+				<div class="collection-divider-line"></div>
+			</div>
+
+			<div class="jc-products-flex-row test-flex-row">
+				{% assign overall_index = 0 %}
+				{% assign collection = collections['gummies'] %}
+				{% for product in collection.products %}
+					{% for variant in product.variants %}
+						{% assign overall_index = overall_index | plus: 1 %}
+									
+						{% assign default_index = 3 %}
+						{% assign review_position = collection.metafields.custom.review_position_1 | default: default_index %}
+						{% include 'collection-product-item' %}
+								
+					{% endfor %}
+				{% endfor %}
+			</div>
+          
+			<div class="collection-top-info">
+				<div class="collection-info-left">
+					<div class="spec-heading">
+						<h2 class="header-2">Tinctures</h2>
+					</div>
+				</div>
+				<div class="collection-divider-line"></div>
+			</div>
+
+			<div class="jc-products-flex-row test-flex-row">
+				{% assign overall_index = 0 %}
+				{% assign collection = collections['tinctures'] %}
+				{% for product in collection.products %}
+					{% for variant in product.variants %}
+						{% assign overall_index = overall_index | plus: 1 %}
+									
+						{% assign default_index = 3 %}
+						{% assign review_position = collection.metafields.custom.review_position_1 | default: default_index %}
+						{% include 'collection-product-item' %}
+								
+					{% endfor %}
+				{% endfor %}
+			</div>
+          
+			<div class="collection-top-info">
+				<div class="collection-info-left">
+					<div class="spec-heading">
+						<h2 class="header-2">Softgels</h2>
+					</div>
+				</div>
+				<div class="collection-divider-line"></div>
+			</div>
+
+			<div class="jc-products-flex-row test-flex-row">
+				{% assign overall_index = 0 %}
+				{% assign collection = collections['softgels'] %}
+				{% for product in collection.products %}
+					{% for variant in product.variants %}
+						{% assign overall_index = overall_index | plus: 1 %}
+									
+						{% assign default_index = 3 %}
+						{% assign review_position = collection.metafields.custom.review_position_1 | default: default_index %}
+						{% include 'collection-product-item' %}
+								
+					{% endfor %}
+				{% endfor %}
+			</div>
+          
+			<div class="collection-top-info">
+				<div class="collection-info-left">
+					<div class="spec-heading">
+						<h2 class="header-2">THC Free</h2>
+					</div>
+				</div>
+				<div class="collection-divider-line"></div>
+			</div>
+
+			<div class="jc-products-flex-row test-flex-row">
+				{% assign overall_index = 0 %}
+				{% assign collection = collections['thc-free-products'] %}
+				{% for product in collection.products %}
+					{% for variant in product.variants %}
+						{% assign overall_index = overall_index | plus: 1 %}
+									
+						{% assign default_index = 3 %}
+						{% assign review_position = collection.metafields.custom.review_position_1 | default: default_index %}
+						{% include 'collection-product-item' %}
+								
+					{% endfor %}
+				{% endfor %}
+			</div>
+          
+			<div class="collection-top-info">
+				<div class="collection-info-left">
+					<div class="spec-heading">
+						<h2 class="header-2">For Pets </h2>
+					</div>
+				</div>
+				<div class="collection-divider-line"></div>
+			</div>
+
+			<div class="jc-products-flex-row test-flex-row">
+				{% assign overall_index = 0 %}
+				{% assign collection = collections['pet-products'] %}
+				{% for product in collection.products %}
+					{% for variant in product.variants %}
+						{% assign overall_index = overall_index | plus: 1 %}
+									
+						{% assign default_index = 3 %}
+						{% assign review_position = collection.metafields.custom.review_position_1 | default: default_index %}
+						{% include 'collection-product-item' %}
+								
+					{% endfor %}
+				{% endfor %}
+			</div>
+			
+		</div>
+
+
+
+
+
+
+		
+{% comment %}
+	
+	{% section 'yotpo-reviews' %}
+{% endcomment %}
+
+
+{% section 'reviews-slider'%}
+
+{% section 'features-bar' %}
+
+
+
+{% section 'backed-by-experts-collection'%}
+{% comment %}
+	
+	{% section 'backed-by-experts-green'%}
+{% endcomment %}
+
+
+{% comment %}
+{% section 'quiz-section'%}
+{% endcomment %}
+
+
+{% section 'faq-section'%}
+{% section 'collection-cta'%}
+
+{% include 'dropdown-script-collection' %}
+{% comment %}
+	
+
+<script>
+window.addEventListener("load", function() {
+    console.log("Window loaded. Calling scrollToActiveButton.");
+    scrollToActiveButton();
+});
+
+function scrollToActiveButton() {
+    var menuWrapper = document.querySelector('.collection-menu-wrapper');
+    // Updated selector to target the correct active button in the menu
+    var activeButton = menuWrapper.querySelector('.collection-menu-link.w--current');
+    if (menuWrapper && activeButton) {
+        setTimeout(function() {
+            var scrollPosition = activeButton.getBoundingClientRect().left - menuWrapper.getBoundingClientRect().left - menuWrapper.offsetWidth / 2;
+            menuWrapper.scrollLeft = scrollPosition;
+        }, 001);
+    } else {
+        if (!menuWrapper) {
+            console.log("menuWrapper not found.");
+        }
+        if (!activeButton) {
+            console.log("activeButton not found.");
+        }
+    }
+}
+
+
+</script>
+{% endcomment %}	  
+
+
+	  <style type="text/css">
+
+	  #jc-nav-link-products {
+
+	    color:#7a0805;
+
+	  }
+
+	  @media (max-width: 1130px) { 
+	    #jc-nav-link-products {
+
+	      color:#ffffff;
+
+	    }
+	  }
+
+	  </style>
+
+
+	  <script>
+		$(document).ready(function() {
+			// Show the pop-up on hover
+			$('.info-link').on('mouseenter', function(e) {
+				e.preventDefault();
+				// Find the closest .spec-info-wrapper element to this .info-link
+				$(this).closest('.pop-up-wrapper').find('.spec-info-wrapper').fadeIn(200, function() {
+					$(this).addClass('active');
+				});
+			});
+	
+			// Hide the pop-up when the mouse leaves the link or pop-up
+			$('.info-link, .spec-info-wrapper').on('mouseleave', function(e) {
+				// Find the closest .spec-info-wrapper element to this .info-link or .spec-info-wrapper
+				$(this).closest('.pop-up-wrapper').find('.spec-info-wrapper').fadeOut(100, function() {
+					$(this).removeClass('active');
+				});
+			});
+          {% comment %}
+			// Close button hides the pop-up
+			$('.info-close').on('click', function(e) {
+				e.stopPropagation(); // Stop event propagation
+				// Since the close button is inside .spec-info-wrapper, we can just use .closest to find the wrapper
+				$(this).closest('.spec-info-wrapper').fadeOut(100, function() {
+					$(this).removeClass('active');
+				});
+			});
+
+{% endcomment %}
+
+			// Function to check if an element is in the viewport
+			function isElementInView(element) {
+				var elementTop = $(element).offset().top;
+				var elementBottom = elementTop + $(element).outerHeight();
+
+				var viewportTop = $(window).scrollTop();
+				var viewportBottom = viewportTop + $(window).height();
+
+				return elementBottom > viewportTop && elementTop < viewportBottom;
+			}
+
+			// Event listener for scroll
+			$(window).on('scroll', function() {
+				$('.spec-info-wrapper.active').each(function() {
+					if (!isElementInView(this)) {
+						$(this).fadeOut(100, function() {
+							$(this).removeClass('active');
+						});
+					}
+				});
+			});
+
+
+
+
+		});
+	</script>
+
+{% comment %}
+  
+  {% include 'collection-product-flyout-pdp'%}
+{% endcomment %}
+{% include 'collection-product-flyout-current'%}
+ 

@@ -1,0 +1,594 @@
+
+{{ 'jc-custom-recharge.css' | asset_url | stylesheet_tag }}
+{{ 'collection-page.css' | asset_url | stylesheet_tag }}
+
+						{% comment  %}  
+							Pain Collection = 294623903942
+							Stress = 294623936710
+							Sleep = 294623871174
+							Overall Wellness = 294623969478
+						{% endcomment %}
+{% if collection.id ==  294623903942 or collection.id == 294623936710 or collection.id == 294623871174 or collection.id == 294623969478 %}
+	<style>
+		.jc-products-flex-row.test-flex-row .jc-product-section-col-inner{
+			padding-bottom: 15px;
+		}
+	</style>
+{% endif %}
+
+	<div class="collection-hero salmon"  style="background-color:{{ collection.metafields.custom.hero_background }}">
+		<div class="collection-heading-50">
+			<div class="collection-heading-inner">
+
+				<div class="constrained-600">
+					<h2 style="margin-top: 0px;" class="sub-header">{{collection.title}}</h2>
+					<h1 style="margin-top: 0px; {% if collection.id == 294623969478 %}max-width: 545px;{% endif %}" class="header-1 h1-new">{{collection.metafields.custom.collection_title}}</h1>
+				</div>
+			</div>
+		</div>
+		<div class="collection-heading-50 image salmon">
+		<div class="collection-bg-image" style="background-image: {%if collection.image%}url({{collection.image |  image_url }}){% else %}url(https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Hero_Photo_Placeholder.jpg?v=1698954643){% endif %}"></div>
+
+			{% if collection.metafields.custom.collection_mobile_hero_image %}
+				<style>
+					@media screen and (max-width: 479px) {
+						.collection-bg-image{
+							background-image: url({{collection.metafields.custom.collection_mobile_hero_image | image_url }}) !important;
+						}
+					}
+				</style>
+			{% endif %}
+
+		</div>
+	</div>
+
+	<div class="jc-products-mid-wrapper">
+
+		{% render 'collection-menu-solution'%}
+
+		{% if collection.id ==  159343902773 %}
+			<div class="collection-wrapper">
+
+			<div class="collection-top-info">
+				<div class="collection-info-left">
+
+					<div class="spec-heading">
+						<div class="spectrum-circle"></div>
+						<h2 class="header-2">Full Spectrum</h2>
+					</div>
+					
+					<div class="pop-up-wrapper">
+						<a href="#" class="info-link">What’s this?</a>
+						<div class="spec-info-wrapper">
+							{% comment %}
+							<div class="info-inner">
+								<div class="spectrum-circle smaller"></div>
+								<h3 class="header-2">Full Spectrum</h3>
+							</div>
+							{% endcomment %}
+							<p>Our whole-plant extraction formulas are rich in cannabinoids, including trace amounts of THC, terpenes, and other phytonutrients to help maximize the healing benefits of CBD.</p>
+							
+                            <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Group_8.svg?v=1698883152" alt="" class="info-close">
+							{% comment %}
+							{% endcomment %}
+						</div>
+					</div>
+					
+				</div>
+				<div class="collection-divider-line"></div>
+				
+			</div>
+
+			<div class="jc-products-flex-row test-flex-row">
+					{% assign overall_index = 0 %}
+					{% for product in collection.products %}
+					{% for variant in product.variants %}
+						{% assign overall_index = overall_index | plus: 1 %}
+									
+						{% assign default_index = 3 %}
+						{% assign review_position = collection.metafields.custom.review_position_1 | default: default_index %}
+						
+						{%comment%}
+						{% if overall_index == review_position %}
+						<div class="collection-product-wrapper card">
+							<div class="jc-product-section-col-inner green">
+							<div class="jc-product-section-img-wrapper collection review">
+								<div class="review-star-wrapper">
+								<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Stars_fce2bc84-7789-4fa8-8ff2-a088e5249168.svg?v=1698945688" alt="" class="review-stars">
+								</div>
+								<p>“Awesome! All natural! Minty! Tincture helps with aches and pains of arthritis! <span class="mobile-hide">The company is attentive to customers, too! I highly recommend R R Medicinals!</span>”</p>
+								<p class="review-author">Ann B.</p>
+							</div>
+							</div>
+						</div>
+						{% endif %}
+						{% endcomment %}
+
+						{% comment  %}  
+							Pain Collection = 294623903942
+							Stress = 294623936710
+							Sleep = 294623871174
+							Overall Wellness = 294623969478
+						{% endcomment %}
+						{% if collection.id == 294623903942 %}
+
+							{% if variant.metafields.custom.show_on_pain_collection == true %}
+								{% include 'collection-product-item' %}
+							{% endif %}
+
+						{%elsif collection.id == 294623936710 %}
+
+							{% if variant.metafields.custom.show_on_stress_collection == true %}
+								{% include 'collection-product-item' %}
+							{% endif %}
+
+						{%elsif collection.id == 294623871174 %}
+
+							{% if variant.metafields.custom.show_on_sleep_collection == true %}
+								{% include 'collection-product-item' %}
+							{% endif %}
+
+						{%elsif collection.id == 294623969478 %}
+
+							{% if variant.metafields.custom.show_on_overall_wellness_collection == true %}
+								{% include 'collection-product-item' %}
+							{% endif %}
+
+						{% endif %}
+
+					{% endfor %}
+					{% endfor %}
+				</div>
+			
+		</div>
+
+
+		{% else %}	
+
+		
+		<div class="collection-wrapper">
+
+			<!-- Full Spectrum Heading Wrapper -->
+			{% assign has_full_spec = false %}
+			{% for product in collection.products %}
+				{% if product.tags contains 'full-spectrum' %}
+					{% unless product.tags contains 'for-pets' %}
+						{% assign has_full_spec = true %}
+						{% break %}
+					{%endunless %}
+				{% endif %}
+			{% endfor %}
+
+			{% if has_full_spec %}
+			
+				<div class="collection-top-info">
+					<div class="collection-info-left">
+
+						<div class="spec-heading">
+							<div class="spectrum-circle"></div>
+							<h2 class="header-2">Full Spectrum</h2>
+							
+						</div>
+						
+						<div class="pop-up-wrapper">
+							<a href="#" class="info-link">What’s this?</a>
+
+							<div class="spec-info-wrapper">
+
+							{% comment %}
+								
+							
+								<div class="info-inner">
+									<div class="spectrum-circle smaller"></div>
+									<h3 class="header-2">Full Spectrum</h3>
+								</div>
+								{% endcomment %}
+								<p>Our whole-plant extraction formulas are rich in cannabinoids, including trace amounts of THC, terpenes, and other phytonutrients to help maximize the healing benefits of CBD.</p>
+							
+								<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Group_8.svg?v=1698883152" alt="" class="info-close">
+								{% comment %}	
+							{% endcomment %}
+							</div>
+						</div>
+						
+					</div>
+					<div class="collection-divider-line"></div>
+				</div>
+
+				<div class="jc-products-flex-row test-flex-row">
+					{% assign overall_index = 0 %}
+					{% for product in collection.products %}
+					{% for variant in product.variants %}
+						{% assign overall_index = overall_index | plus: 1 %}
+									
+						{% assign default_index = 3 %}
+						{% assign review_position = collection.metafields.custom.review_position_1 | default: default_index %}
+						
+						{%comment%}						{% if overall_index == review_position %}
+						<div class="collection-product-wrapper card">
+							<div class="jc-product-section-col-inner green">
+							<div class="jc-product-section-img-wrapper collection review">
+								<div class="review-star-wrapper">
+								<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Stars_fce2bc84-7789-4fa8-8ff2-a088e5249168.svg?v=1698945688" alt="" class="review-stars">
+								</div>
+								<p>“Awesome! All natural! Minty! Tincture helps with aches and pains of arthritis! <span class="mobile-hide">The company is attentive to customers, too! I highly recommend R R Medicinals!</span>”</p>
+								<p class="review-author">Ann B.</p>
+							</div>
+							</div>
+						</div>
+						{% endif %}{% endcomment %}
+						
+						{% if product.tags contains 'full-spectrum' %}
+							{% unless product.tags contains 'for-pets' %}
+								
+					
+								{% comment  %}  
+							Pain Collection = 294623903942
+							Stress = 294623936710
+							Sleep = 294623871174
+							Overall Wellness = 294623969478
+						{% endcomment %}
+						{% if collection.id == 294623903942 %}
+
+							{% if variant.metafields.custom.show_on_pain_collection == true %}
+								{% include 'collection-product-item' %}
+							{% endif %}
+
+						{%elsif collection.id == 294623936710 %}
+
+							{% if variant.metafields.custom.show_on_stress_collection == true %}
+								{% include 'collection-product-item' %}
+							{% endif %}
+
+						{%elsif collection.id == 294623871174 %}
+
+							{% if variant.metafields.custom.show_on_sleep_collection == true %}
+								{% include 'collection-product-item' %}
+							{% endif %}
+
+						{%elsif collection.id == 294623969478 %}
+
+							{% if variant.metafields.custom.show_on_overall_wellness_collection == true %}
+								{% include 'collection-product-item' %}
+							{% endif %}
+
+						{% endif %}
+								
+							{% endunless %}
+						{% endif %}
+					{% endfor %}
+					{% endfor %}
+				</div>
+
+			{% endif %}
+
+			
+
+			  
+			
+		
+			<!-- Broad Spectrum Heading Wrapper -->
+
+			
+			{% assign has_broad = false %}
+			{% for product in collection.products %}
+				{% if product.tags contains 'broad-spectrum' %}
+					{% assign has_broad = true %}
+					{% break %}
+				{% endif %}
+			{% endfor %}
+
+			{% if has_broad %}
+
+			<div class="collection-top-info top-100">
+				<div class="collection-info-left broad">
+
+					<div class="spec-heading">
+						<div class="spectrum-circle orange"></div>
+						<h2 class="header-2">Broad Spectrum</h2>
+					</div>
+
+					<div class="pop-up-wrapper">
+						<a href="#" class="info-link">What’s this?</a>
+						<div class="spec-info-wrapper orange">
+							{% comment %}
+								
+							
+							<div class="info-inner">
+								<div class="spectrum-circle smaller orange"></div>
+								<h3 class="header-2">Broad Spectrum</h3>
+							</div>
+							{% endcomment %}
+							<p>Similar to Full-Spectrum, our THC-free formulas offer a robust cannabinoid profile with terpenes and other phytonutrients, delivering the powerful relief of CBD without THC. </p>
+							
+							<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Group_8.svg?v=1698883152" alt="" class="info-close">
+							{% comment %}
+							{% endcomment %}
+						</div>
+					</div>
+				</div>
+				<div class="collection-divider-line"></div>
+			</div>
+	
+		
+
+
+			
+				
+			
+			<div class="jc-products-flex-row test-flex-row">
+				{% assign broad_spectrum_count = 0 %}
+				{% for product in collection.products %}
+					{% for variant in product.variants %}
+						{% if product.tags contains 'broad-spectrum' %}
+							{% assign broad_spectrum_count = broad_spectrum_count | plus: 1 %}
+
+							{% comment  %}  
+							Pain Collection = 294623903942
+							Stress = 294623936710
+							Sleep = 294623871174
+							Overall Wellness = 294623969478
+						{% endcomment %}
+						{% if collection.id == 294623903942 %}
+
+							{% if variant.metafields.custom.show_on_pain_collection == true %}
+								{% include 'collection-product-item' %}
+							{% endif %}
+
+						{%elsif collection.id == 294623936710 %}
+
+							{% if variant.metafields.custom.show_on_stress_collection == true %}
+								{% include 'collection-product-item' %}
+							{% endif %}
+
+						{%elsif collection.id == 294623871174 %}
+
+							{% if variant.metafields.custom.show_on_sleep_collection == true %}
+								{% include 'collection-product-item' %}
+							{% endif %}
+
+						{%elsif collection.id == 294623969478 %}
+
+							{% if variant.metafields.custom.show_on_overall_wellness_collection == true %}
+								{% include 'collection-product-item' %}
+							{% endif %}
+
+						{% endif %}
+
+							<!-- If this is the first broad-spectrum product, render the green review card after it -->
+							
+							{% assign review_position_2 = collection.metafields.custom.review_position_2 %}
+
+							{% comment %}
+							{% if review_position_2 != blank and broad_spectrum_count == review_position_2 %}
+							  <div class="collection-product-wrapper card">
+								<div class="jc-product-section-col-inner green">
+								  <div class="jc-product-section-img-wrapper collection review">
+									<div class="review-star-wrapper">
+									  <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Stars.svg?v=1698946534" alt="" class="review-stars">
+									</div>
+									<p>“Awesome! All natural! Minty! Tincture helps with aches and pains of arthritis!<span class="mobile-hide"> The company is attentive to customers, too! I highly recommend R R Medicinals!</span>”</p>
+									<p class="review-author">Ann B.</p>
+								  </div>
+								</div>
+							  </div>
+							{% elsif review_position_2 == blank and broad_spectrum_count == 1 %}
+							  <div class="collection-product-wrapper card">
+								<div class="jc-product-section-col-inner green">
+								  <div class="jc-product-section-img-wrapper collection review">
+									<div class="review-star-wrapper">
+									  <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Stars.svg?v=1698946534" alt="" class="review-stars">
+									</div>
+									<p>“Awesome! All natural! Minty! Tincture helps with aches and pains of arthritis!<span class="mobile-hide"> The company is attentive to customers, too! I highly recommend R R Medicinals!</span>”</p>
+									<p class="review-author">Ann B.</p>
+								  </div>
+								</div>
+							  </div>
+							{% endif %}
+							{% endcomment %}
+							
+							
+							
+
+
+						{% endif %}
+					{% endfor %}
+				{% endfor %}
+			</div>
+		{% endif %}
+			  
+			  
+			  
+			  {% assign has_for_pets = false %}
+			  {% for product in collection.products %}
+				  {% if product.tags contains 'for-pets' %}
+					  {% assign has_for_pets = true %}
+					  {% break %}
+				  {% endif %}
+			  {% endfor %}
+			  
+			  {% if has_for_pets %}
+		
+			<div class="collection-top-info top-100">
+				<div class="collection-info-left pet">
+
+					<div class="spec-heading">
+						<div class="spectrum-circle blue"></div>
+						<h2 class="header-2">For Pets</h2>
+					</div>
+					
+				</div>
+				<div class="collection-divider-line"></div>
+			</div>
+			{%endif %}
+		
+		
+			<div class="jc-products-flex-row test-flex-row pets">
+				{% for product in collection.products %}
+					{% for variant in product.variants %}
+						{% if product.tags contains 'for-pets' %}
+
+
+							
+							{% comment  %}  
+							Pain Collection = 294623903942
+							Stress = 294623936710
+							Sleep = 294623871174
+							Overall Wellness = 294623969478
+						{% endcomment %}
+						{% if collection.id == 294623903942 %}
+
+							{% if variant.metafields.custom.show_on_pain_collection == true %}
+								{% include 'collection-product-item' %}
+							{% endif %}
+
+						{%elsif collection.id == 294623936710 %}
+
+							{% if variant.metafields.custom.show_on_stress_collection == true %}
+								{% include 'collection-product-item' %}
+							{% endif %}
+
+						{%elsif collection.id == 294623871174 %}
+
+							{% if variant.metafields.custom.show_on_sleep_collection == true %}
+								{% include 'collection-product-item' %}
+							{% endif %}
+
+						{%elsif collection.id == 294623969478 %}
+
+							{% if variant.metafields.custom.show_on_overall_wellness_collection == true %}
+								{% include 'collection-product-item' %}
+							{% endif %}
+
+						{% endif %}
+
+						{% endif %}
+					{% endfor %}
+				{% endfor %}
+			</div>
+
+
+
+
+		
+		</div>
+	{% endif %}
+
+
+	{% comment %}
+	{% section 'yotpo-reviews' %}
+{% endcomment %}
+
+
+{% section 'reviews-slider' %}
+
+{% section 'features-bar' %}
+
+      
+{% section 'backed-by-experts-collection'%}
+{% comment %}
+	
+	{% section 'backed-by-experts-green'%}
+{% endcomment %}
+{% comment %}
+{% section 'quiz-section'%}
+{% endcomment %}
+
+{%  comment  %}  
+	{% section 'reviews-slider'%}
+{% endcomment %}
+{% section 'faq-section'%}
+{% section 'collection-cta'%}
+
+{% include 'dropdown-script-collection' %}
+	
+{% comment %}
+  
+  {% include 'collection-product-flyout-pdp'%}
+{% endcomment %}
+{% include 'collection-product-flyout-current'%}
+ 
+	    
+	 
+
+
+	  <style type="text/css">
+
+	  #jc-nav-link-products {
+
+	    color:#7a0805;
+
+	  }
+
+	  @media (max-width: 1130px) { 
+	    #jc-nav-link-products {
+
+	      color:#ffffff;
+
+	    }
+	  }
+
+	  </style>
+
+
+	  <script>
+$(document).ready(function() {
+    // Show the pop-up on hover
+    $('.info-link').on('mouseenter', function(e) {
+        e.preventDefault();
+        // Find the closest .spec-info-wrapper element to this .info-link
+        $(this).closest('.pop-up-wrapper').find('.spec-info-wrapper').fadeIn(200, function() {
+            $(this).addClass('active');
+        });
+    });
+
+    // Revised hiding logic
+    var timeout;
+
+    // Function to hide the pop-up
+    function hidePopup() {
+        $('.spec-info-wrapper.active').fadeOut(100, function() {
+            $(this).removeClass('active');
+        });
+    }
+
+    // Handle mouseleave for the link and the pop-up itself
+    $('.info-link, .spec-info-wrapper').on('mouseleave', function() {
+        timeout = setTimeout(hidePopup, 200); // delay can be adjusted
+    });
+
+    // Cancel the hiding if mouse re-enters the link or the pop-up
+    $('.info-link, .spec-info-wrapper').on('mouseenter', function() {
+        clearTimeout(timeout);
+    });
+
+    // Close button hides the pop-up
+    $('.info-close').on('click', function(e) {
+        e.stopPropagation(); // Stop event propagation
+        // Hide the closest .spec-info-wrapper when the close button is clicked
+        $(this).closest('.spec-info-wrapper').fadeOut(100, function() {
+            $(this).removeClass('active');
+        });
+    });
+
+    // Function to check if an element is in the viewport
+    function isElementInView(element) {
+        var elementTop = $(element).offset().top;
+        var elementBottom = elementTop + $(element).outerHeight();
+        var viewportTop = $(window).scrollTop();
+        var viewportBottom = viewportTop + $(window).height();
+        return elementBottom > viewportTop && elementTop < viewportBottom;
+    }
+
+    // Event listener for scroll
+    $(window).on('scroll', function() {
+        $('.spec-info-wrapper.active').each(function() {
+            if (!isElementInView(this)) {
+                $(this).fadeOut(100, function() {
+                    $(this).removeClass('active');
+                });
+            }
+        });
+    });
+});
+</script>

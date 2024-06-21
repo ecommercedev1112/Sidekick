@@ -1,0 +1,26 @@
+.product-banner {
+  background-color: #004943;
+  padding: 30px 0px;
+  color: white;
+}
+
+.product-menu-link {
+  font-family: century-old-style-std;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  padding-left: 30px;
+  padding-right: 30px;
+  line-height: 40px;
+}
+.product-menu-link.green {
+  color: #c8d645;
+  font-family: century-old-style-std;
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+div#yotpo-mobile-filters-popup {
+  z-index: 120;
+}

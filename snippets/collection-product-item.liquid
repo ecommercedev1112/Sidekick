@@ -1,0 +1,420 @@
+
+{% assign spectrum_value = product.metafields.order.broad_or_full_spectrum.value | downcase %}
+
+
+{% if spectrum_value == "full spectrum" %}
+  {% assign product_spectrum = "full-spectrum" %}
+{% elsif spectrum_value == "broad spectrum" %}
+  {% assign product_spectrum = "broad-spectrum" %}
+{% elsif spectrum_value == "for-pets" %}
+{% assign product_spectrum = "for-pets" %}
+{% else %}
+  {% assign product_spectrum = "unknown-spectrum" %}
+{% endif %}
+
+
+<style>
+  .collection-product-wrapper {
+    width: calc(25% - 10.5px);
+    position: relative;
+}
+@media (max-width: 749px) {
+  .collection-product-wrapper {
+    width: calc(50% - 7px);
+} 
+}
+</style>
+<div
+  class="collection-product-wrapper"
+  data-product='{{ product | json }}'
+  data-variant='{{ variant | json }}'>
+
+  <style>
+.yotpo a:hover{
+  color: #004943 !important;
+}
+    .solution-icon{
+      position: absolute;
+      top: 30px;
+      z-index: 1;
+      right: 25px;
+    }
+    .flavor-icon{
+      position: absolute;
+      top: 16px;
+      z-index: 1;
+      left: 16px;
+      height: 27px;
+    }
+    .description-tag{
+      background-color: #004943;
+      color: #fff;
+      padding: 0px 18px;
+      border-radius: 30px;
+      height: 35px;
+      font-size: 13px;
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      line-height: 15px;
+    }
+    @media (max-width: 1023px) {
+    .flavor-icon{
+      height: 16px;
+      top: 9px;
+      left: 9px;
+    }
+    .solution-icon{
+      top: 20px;
+      left: auto;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+    }
+}
+    @media (max-width: 479px) {
+
+
+    }
+  </style>
+
+
+{% comment %}
+
+  All Products = 137309519925
+  THC Free = 268100927686
+  Softgels = 268327682246
+  Tinctures = 158116937781
+  Gummies = 276663304390
+  Pain Creams = 288130203846
+
+  Pain = 294623903942
+  Stress = 294623936710
+  Sleep = 294623871174
+  Multi = 294623969478
+  Regular Strength Collection = 295136919750
+  Extra Strength Collection = 295136952518
+  Maximun Strength Collection = 295136985286
+  Functional Gummies = 289750220998
+{% endcomment %}
+
+  <!-- All Products -->
+  {% if template == 'collection.all_products' %}
+
+    {% if variant.metafields.custom.best_seller_all %}
+      <div class="best-seller-wrapper"  collection="{{collection.handle}}">Best Seller</div>
+    {% endif %}
+
+  <!-- THC Free -->
+  {% elsif collection.id == 268100927686 %}
+
+    {% if variant.metafields.custom.best_seller_thc_free %}
+      <div class="best-seller-wrapper" collection="{{collection.handle}}">Best Seller</div>
+    {% endif %}
+
+  <!-- Softgel -->
+  {% elsif collection.id == 268327682246 %}
+
+    {% if variant.metafields.custom.best_seller_softgels %}
+      <div class="best-seller-wrapper" collection="{{collection.handle}}">Best Seller</div>
+    {% endif %}
+
+  <!-- Tinctures -->
+  {% elsif collection.id == 158116937781 %}
+
+    {% if variant.metafields.custom.best_seller_tinctures %}
+      <div class="best-seller-wrapper" collection="{{collection.handle}}">Best Seller</div>
+    {% endif %}
+
+  <!-- Gummies -->
+  {% elsif collection.id == 276663304390 %}
+
+    {% if variant.metafields.custom.best_seller_gummies %}
+      <div class="best-seller-wrapper" collection="{{collection.handle}}">Best Seller</div>
+    {% endif %}
+
+  <!-- Pain Creams -->
+  {% elsif collection.id == 288130203846 %}
+
+    {% if variant.metafields.custom.best_seller_pain_creams %}
+      <div class="best-seller-wrapper" collection="{{collection.handle}}">Best Seller</div>
+    {% endif %}
+
+  <!-- Pain -->
+  {% elsif collection.id == 294623903942 %}
+
+    {% if variant.metafields.custom.best_seller_pain %}
+      <div class="best-seller-wrapper" collection="{{collection.handle}}">Best Seller</div>
+    {% endif %}
+
+  {% elsif  collection.id == 294623936710 %}
+
+    <!-- Stress -->
+    {% if variant.metafields.custom.best_seller_stress %}
+      <div class="best-seller-wrapper" collection="{{collection.handle}}">Best Seller</div>
+    {% endif %}
+
+  {% elsif collection.id == 294623871174 %}
+
+    <!-- Sleep -->
+    {% if variant.metafields.custom.best_seller_sleep %}
+      <div class="best-seller-wrapper" collection="{{collection.handle}}">Best Seller</div>
+    {% endif %}
+
+  {% elsif collection.id == 294623969478 %}
+
+    <!-- Multi -->
+    {% if variant.metafields.custom.best_seller_multi %}
+      <div class="best-seller-wrapper" collection="{{collection.handle}}">Best Seller</div>
+    {% endif %}
+
+  {% elsif collection.id == 295136919750 %}
+
+    <!-- Regular -->
+    {% if variant.metafields.custom.best_seller_regular %}
+      <div class="best-seller-wrapper" collection="{{collection.handle}}">Best Seller</div>
+    {% endif %}
+
+  {% elsif collection.id == 295136952518 %}
+
+    <!-- Extra -->
+    {% if variant.metafields.custom.best_seller_extra %}
+      <div class="best-seller-wrapper" collection="{{collection.handle}}">Best Seller</div>
+    {% endif %}
+
+  {% elsif collection.id == 295136985286 %}
+
+    <!-- Max -->
+    {% if variant.metafields.custom.best_seller_max %}
+      <div class="best-seller-wrapper" collection="{{collection.handle}}">Best Seller</div>
+    {% endif %}
+
+  {% elsif collection.id == 289750220998 %}
+
+    <!-- Functional Gummies -->
+      {% if variant.metafields.custom.best_seller_functional_gummies %}
+        <div class="best-seller-wrapper" collection="{{collection.handle}}">Best Seller</div>
+      {% endif %}
+
+  {% elsif collection.id == 159343902773 %}
+
+    <!-- Functional Gummies -->
+      {% if variant.metafields.custom.best_seller_for_pets %}
+        <div class="best-seller-wrapper" collection="{{collection.handle}}">Best Seller</div>
+      {% endif %}
+    
+  {% else %}
+    <!-- Hide Best Sellers Tag -->
+
+    {% comment %}
+      {% if variant.metafields.custom.best_seller %}
+        <div class="best-seller-wrapper" collection="{{collection.handle}}">Best Seller</div>
+      {% endif %}
+    {% endcomment %}
+  {% endif %}
+
+
+{% comment %}
+  
+  Pain - 294623903942
+  Stress - 294623936710
+  Sleep - 294623871174
+  Overall Wellness - 294623969478
+{% endcomment %}
+
+{% unless collection.id == 294623903942 or collection.id == 294623936710 or collection.id == 294623871174 or collection.id == 294623969478 %}
+{% endunless %}
+  
+  {% if variant.metafields.custom.solution_icon %}
+    <img src="{{ variant.metafields.custom.solution_icon |  image_url }}" class="solution-icon" alt="">
+  {% endif %}
+
+  {% if variant.metafields.custom.flavor_icon %}
+    <img src="{{ variant.metafields.custom.flavor_icon |  image_url }}" class="flavor-icon" alt="">
+  {% endif %}
+
+
+
+
+  <div class="jc-product-section-col-inner">
+    <a href="{{variant.url}}">
+
+      <div class="yotpo-widget-instance" data-yotpo-instance-id="539134487" data-yotpo-product-id="{{product.id}}" data-yotpo-cart-product-id="{{item.product.id}}" data-yotpo-section-id="{{template.name}}"></div>
+      
+    </a>
+  
+    <div class="jc-product-section-img-wrapper collection">
+      <!-- Start link wrapper -->
+      <div class="product-title-link product-item-top">
+
+
+      <div variantid="{{variant.id}}" class="product-title-link">
+        <!-- Conditional image display -->
+        <div class="image-wrapper">
+          <div class="image-overlay 1"></div>
+          <a href="{{variant.url}}">
+          {% if variant.metafields.custom.variant_image %}
+            <img src="{{ variant.metafields.custom.variant_image | image_url }}" alt="{{ variant.title | escape }}">
+          {% elsif variant.image %}
+            <img src="{{ variant.image.src | img_url: '1024x' }}" alt="{{ variant.title | escape }}">
+          {% else %}
+            <img src="{{ product.featured_image | img_url: '1024x' }}" alt="{{ product.title | escape }}">
+          {% endif %}
+          </a>
+
+
+
+          <button
+            class="white-button w-button desktop-show"
+            data-product-available="{{product.avalable}}"
+            data-quick-add-image="{{variant.metafields.custom.variant_image | image_url}}"
+            data-meta-image="{{variant.metafields.custom.variant_image | image_url}}"
+            data-variant-image="{{variant.image | image_url }}"
+            data-product-image="{{product.image | image_url }}"
+            data-product-spectrum="{{product_spectrum}}"
+            data-variant-id="{{ variant.id }}"
+            data-variant-title="{{ variant.title | escape }}"
+            data-product-title="{{ product.title | escape }}"
+            data-variant-price="{{ variant.price | money_without_currency }}"
+            data-product-url="{{product.url}}"
+            data-variant-url="{{variant.url}}"
+            data-productid="{{ product.id }}"
+            data-product-options="{{ product.options_with_values | json | escape }}"
+            data-variants="{{ product.variants | json | escape }}"
+            onclick="openFlyout(this)">
+            QUICK ADD
+          </button>
+        </div>
+
+
+        <!-- Variant title and product title -->
+        {% assign variant_parts = variant.title | split: ' / ' %}
+        {% assign mg_part = variant_parts[1] | remove: 'mg' %}
+        
+        <a href="{{variant.url}}">
+        <div class="yotpo bottomLine" style="cursor: pointer;"
+        data-product-id="{{ product.id }}">
+        </div>
+        </a>
+
+        {% comment %}
+          <a href="{{product.url}}" class="collection-product-title">{{ mg_part }}mg {{ product.title | escape }}</a>
+        {% endcomment %}
+        <a href="{{variant.url}}" class="collection-product-title">{{ variant.metafields.custom.variant_product_title | escape }}</a>
+      </div>
+
+      <div class="product-item-bot">
+        <!-- Price display -->
+        <a style="text-decoration: none;" href="{{variant.url}}" class="price-wrapper">
+
+        {% comment %}
+          
+          {% if variant.compare_at_price %}
+            <div class="compare-price">{{ variant.compare_at_price | money }}</div>
+          {% endif %}
+          <div class="price">{{ variant.price | money }}</div>
+        {% endcomment %}
+
+
+
+        {% assign integer_price = variant.price | times: 0.8 | money %}
+        {% if integer_price contains ".00" %}
+          {% assign integer_price = integer_price | remove: ".00" %}
+        {% endif %}
+        
+        <span class="compare-price">
+          {{ variant.price | money_without_trailing_zeros }}
+        </span>
+        <span class="price">
+          {{ integer_price }}
+        </span>
+        
+
+        {% comment %}
+          
+          <span class="compare-price">
+            {{ variant.price | money }}
+            </span>
+            <span class="price">
+              {{ variant.price | times: 0.8 | money  }}
+              </span>
+            {% endcomment %}
+
+
+          <div class="subscribe-text">(Subscribe & Save 20%)</div>
+        </a>
+        <button
+            class="white-button w-button mobile-show"
+            data-product-available="{{product.avalable}}"
+            data-quick-add-image="{{variant.metafields.custom.variant_image | image_url}}"
+            data-meta-image="{{variant.metafields.custom.variant_image | image_url}}"
+            data-variant-image="{{variant.image | image_url }}"
+            data-product-image="{{product.image | image_url }}"
+            data-product-spectrum="{{product_spectrum}}"
+            data-variant-id="{{ variant.id }}"
+            data-variant-title="{{ variant.title | escape }}"
+            data-product-title="{{ product.title | escape }}"
+            data-variant-price="{{ variant.price | money_without_currency }}"
+                        data-product-url="{{product.url}}"
+            data-variant-url="{{variant.url}}"
+            data-productid="{{ product.id }}"
+            data-product-options="{{ product.options_with_values | json | escape }}"
+            data-variants="{{ product.variants | json | escape }}"
+            onclick="openFlyout(this)">
+            QUICK ADD
+          </button>
+
+
+
+        </div>
+        
+
+      </div>
+      <!-- End link wrapper -->
+    </div>
+  </div>
+
+
+  {% comment %}
+    Pain = 294623903942
+    Stress = 294623936710
+    Sleep = 294623871174
+    Multifunctional = 294623969478
+
+  {% endcomment %}
+  
+
+  {% if collection.id == 294623903942
+    or collection.id == 294623936710
+    or collection.id == 294623871174
+    or collection.id == 294623969478 
+     %}
+    
+     <style>
+      .jc-product-section-col-inner{
+        padding-bottom: 30px;
+      }
+     </style>
+ 
+  {% if product.tags contains 'localized-relief' %}
+    <div class="description-tag">Localized Relief</div>
+
+  {%elsif product.tags contains 'long-lasting-relief' %}
+    <div class="description-tag">Long-Lasting Relief</div>
+
+  {%elsif product.tags contains 'fast-acting-relief' %}
+    <div class="description-tag">Fast-Acting Relief</div>
+
+  {%elsif product.tags contains 'fast-acting-and-long-lasting-relief' %}
+    <div class="description-tag">Fast-Acting Relief & Long-Lasting Relief</div>
+
+  {% endif %}
+{% endif %}
+{% comment %}
+{% endcomment %}
+
+</div>
+
+
+
+<script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/{{app_key}}" async></script>

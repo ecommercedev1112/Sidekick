@@ -1,0 +1,1264 @@
+<style>
+	.specific-gummy-tabs {
+		display: flex;
+	}
+
+	.specific-gummy-tabs.sleep-gummies-tab {
+		background: #B2D2EC;
+	}
+
+	.specific-gummy-tabs.pain-gummies-tab {
+		background: #FCD0BE;
+	}
+
+	.specific-gummy-tabs.de-stress-gummies-tab {
+		background: #D6F5E0;
+	}
+
+	.specific-gummy-tab-bottom {
+		display: flex;
+		gap: 45px;
+		align-items: start;
+		margin-top: 70px;
+	}
+
+	.specific-gummy-tab-content p {
+		font-size: 19px;
+		line-height: 29px;
+	}
+
+	.specific-gummy-tab-content .specific-gummy-tab-bottom__title {
+		font-size: 30px;
+		line-height: 29px;
+	}
+
+	.specific-gummy-tab-content .h1-new {
+		margin-top: 0;
+		margin-bottom: 20px;
+	}
+
+	.sleep-gummies-tab .specific-gummy-tab-content .h1-new {
+		color: #071561;
+	}
+
+	.pain-gummies-tab .specific-gummy-tab-content .h1-new {
+		color: #FF7050;
+	}
+
+	.de-stress-gummies-tab .specific-gummy-tab-content .h1-new {
+		color: #82C49D;
+	}
+
+	.specific-gummy-tab-bottom__title {
+		color: #071561;
+		font-family: "Century Old Style Std";
+		font-size: 30px;
+		font-style: normal;
+		font-weight: 400;
+		margin-bottom: 18px;
+	}
+
+	.sleep-gummies-tab .specific-gummy-tab-bottom__title {
+		color: #071561;
+	}
+
+	.pain-gummies-tab .specific-gummy-tab-bottom__title {
+		color: #FF7050;
+	}
+
+	.de-stress-gummies-tab .specific-gummy-tab-bottom__title {
+		color: #82C49D;
+	}
+
+	.specific-gummy-tab-bottom svg {
+		min-width: 122px;
+		width: 122px;
+		height: 122px;
+	}
+
+	.specific-gummy-tab-image-wrapper {
+		min-width: 40%;
+		max-width: 636px;
+		position: relative;
+		flex-grow: 1;
+	}
+	#function .cta-img-wrapper.tabs{
+
+
+	}
+	.specific-gummy-tab-image-wrapper svg {
+		display: none;
+		width: 88px;
+		height: 88px;
+	}
+
+	.specific-gummy-tab-content {
+		padding-top: 80px;
+		padding-bottom: 180px;
+
+		padding-left: max(calc((100vw - 1320px) / 2), 87px);
+		/*
+      padding-left: max(calc((100vw - 1380px) / 2), 87px);
+      padding-right: calc((100vw - 1434px) / 2);
+	  */
+		padding-right: 90px;
+		color: #2D2926;
+	}
+
+	.specific-gummy-tab-image {
+		position: absolute;
+		right: 0;
+		/*
+      height: calc(100% + 60px);
+	  */
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		object-position: center;
+		/*
+      border-bottom-left-radius: 200px;
+	  */
+		border-bottom-left-radius: 0px;
+	}
+	#function .cta-img-function{
+		position: absolute;
+		right: 0;
+		/*
+      height: calc(100% + 60px);
+	  */
+	  min-height: 962px;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		object-position: center;
+		/*
+      border-bottom-left-radius: 200px;
+	  */
+		border-bottom-left-radius: 0px;
+	}
+	.how-to-use-wrapper h1 {
+		font-size: 55px;
+		font-style: normal;
+		font-weight: 700;
+		margin-top: 0px;
+	}
+
+	.how-to-use-wrapper .jc-faq-page-content-heading {
+		color: #2D2926;
+		font-family: Poppins;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+		letter-spacing: 1.28px;
+		text-transform: uppercase;
+	}
+
+	.cta-wrapper-function {
+		display: flex;
+		/*
+		padding-left: max(calc((100vw - 1380px) / 2), 27px);
+		*/
+		padding-left: 27px;
+		padding-top: 0px;
+		padding-bottom: 100px;
+		padding-top: 102px;
+		background: #FCD0BE;
+	}
+
+	.cta-wrapper-function.orange {
+		padding-left: max(calc((100vw - 1380px) / 2), 27px);
+
+
+	}
+
+	#function .jc-faq-page-content-wrapper {
+		margin-top: 0px;
+	}
+
+
+	.cta-img-wrapper {
+
+		height: 100%;
+		/*
+		min-height: 765px;
+		*/
+		margin-right: 0px;
+		margin-left: 0px;
+		padding: 0px 0 20px;
+		/*
+	width: 60%;
+    max-width: 820px;
+	*/
+		text-align: right;
+		overflow: hidden;
+		width: 100%;
+		max-width: 504px;
+		position: relative;
+
+	}
+
+	.cta-img-function {
+		margin-bottom: 30px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		object-fit: cover;
+		/*
+	max-width: 813.84px;
+	*/
+		height: 675px;
+		min-width: 543px;
+		border-radius: 200px 0px 0px 200px;
+		transition: opacity 0.5s ease;
+		opacity: 0;
+		/* Hide all images initially */
+	}
+
+	.cta-img-function.active {
+		opacity: 1;
+		/* Only the active image is visible */
+	}
+
+	.cta-text-wrapper-tabs {
+		width: 100%;
+		max-width: none;
+		margin-right: 0px;
+		padding-left: 70px;
+		text-align: left;
+		padding-right: 40px;
+		padding-top: 0px;
+	}
+
+	.cta-text-wrapper-tabs.function {
+		padding-right: 34px;
+		padding-left: 0px;
+	}
+
+	.button-green {
+		padding: 21px 30px 19px 30px;
+		background-color: #004943;
+		-webkit-transition: background-color .25s ease;
+		transition: background-color .25s ease;
+		font-family: poppins;
+		color: #fff;
+		text-align: center;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		border-radius: 50px;
+		width: auto;
+		line-height: 1em;
+		font-size: 16px;
+		font-weight: 400;
+		text-decoration: none;
+	}
+
+	.button-green:hover {
+		background-color: white;
+		color: #004943;
+	}
+
+	.function-body {
+		max-width: 474px;
+		/*
+		max-width: none;
+		*/
+	}
+
+	/* Style the tab */
+
+	.tablinks svg path {
+		transition: all 300ms ease;
+		fill: black;
+		/* Default color */
+	}
+
+	.tablinks.active svg path {
+		fill: white;
+		/* Active color */
+	}
+
+	.border-extention {
+		position: absolute;
+		bottom: -22px;
+	}
+
+	.tab {
+		margin-top: 64px;
+		display: flex;
+		justify-content: space-between;
+
+	}
+
+	/* Style the buttons that are used to open the tab content */
+	.tab button {
+		background-color: inherit;
+		float: left;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		transition: 0.3s;
+		padding: 12px 26px 12px 24px;
+		justify-content: center;
+		align-items: center;
+		border-radius: 70px;
+		display: flex;
+		margin-right: 12px;
+		column-gap: 12px;
+		max-height: 52px;
+		position: relative;
+
+		font-family: century-old-style-std;
+		font-weight: 400;
+		font-size: 26px;
+		color: #2D2926
+	}
+
+	/* Change background color of buttons on hover */
+	.tab button:hover {}
+
+	.cta-wrapper-function.tabs {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+
+	.cta-text-wrapper-tabs.function {
+		padding-top: 60px;
+		padding-bottom: 70px;
+	}
+
+	.cta-img-function {
+		height: 100%;
+		border-radius: 0px;
+		margin-bottom: 0px;
+	}
+
+	.cta-img-wrapper {
+		/*
+	min-height: 831px;
+	*/
+		min-height: 682px;
+	}
+
+	.cta-wrapper-function.orange {
+		background: #FCD0BE;
+	}
+
+	.cta-wrapper-function.green {
+		background: #D6F5E0;
+	}
+
+	.cta-wrapper-function.blue {
+		background: #C6D9F0;
+	}
+
+	.cta-wrapper-function.teal {
+		background: #D3E6EA;
+	}
+
+	/* Create an active/current tablink class */
+	.tab button.active {
+		color: #fff;
+	}
+
+	.cta-wrapper-function.tabs .tablinks.orange.active {
+		background: var(--rr-pain, #FF7050);
+	}
+
+	.cta-wrapper-function.tabs .tablinks.green.active {
+		background: #82C49D;
+	}
+
+	.cta-wrapper-function.tabs .tablinks.blue.active {
+		background: #071561;
+	}
+
+	.cta-wrapper-function.tabs .tablinks.teal.active {
+		background: #004943;
+	}
+
+	.cta-wrapper-function.tabs .tablinks.dark-green.active {
+		background: #004943;
+	}
+
+	.cta-wrapper-function.tabs {
+		background: #D3E6EA;
+	}
+
+	.cta-wrapper-function.tabs .tablinks.orange:hover {
+		background: var(--rr-pain, #FF7050);
+		color: white;
+	}
+
+	.cta-wrapper-function.tabs .tablinks.orange:hover svg * {
+		fill: white;
+	}
+
+	.cta-wrapper-function.tabs .tablinks.green:hover {
+		background: #82C49D;
+		color: white;
+	}
+
+	.cta-wrapper-function.tabs .tablinks.green:hover svg * {
+		fill: white;
+	}
+
+	.cta-wrapper-function.tabs .tablinks.blue:hover {
+		background: #071561;
+		color: white;
+	}
+
+	.cta-wrapper-function.tabs .tablinks.dark-green:hover svg * {
+		fill: white;
+	}
+
+	.cta-wrapper-function.tabs .tablinks.dark-green:hover {
+		background: #004943;
+		color: white;
+	}
+
+	.cta-wrapper-function.tabs .tablinks.blue:hover svg * {
+		fill: white;
+	}
+
+	.cta-wrapper-function.tabs .tablinks.teal:hover {
+		background: #004943;
+		color: white;
+	}
+
+	.cta-wrapper-function.tabs .tablinks.teal:hover svg * {
+		fill: white;
+	}
+
+	/* Style the tab content */
+	.tabcontent {
+		display: none;
+
+		margin-top: 21px;
+		border-top: 2px solid black;
+	}
+	.tabcontent .tab-inner p:nth-of-type(1){
+		margin-bottom: 20px;
+	}
+	.how-to-use-wrapper .tab-inner{
+		max-width: 750px;
+	}
+	.tabcontent .tab-inner p{
+		font-size: 17px;
+		line-height: 26px;
+	}
+
+	.tab-inner {
+		margin-left: 67px;
+		padding-top: 30px;
+		font-size: 19px;
+	}
+
+	.tablinks svg {
+		width: 28px;
+		height: 28px;
+	}
+
+	.tab-inner h3 {
+		font-weight: 400;
+		color: #2D2926;
+		font-size: 30px;
+		margin-bottom: 20px;
+		font-family: century-old-style-std;
+	}
+
+	.btn-text-mobile {
+		display: none;
+	}
+
+	.cta-wrapper-function.tabs {
+		overflow: hidden;
+	}
+	.specific-gummy-tab-bottom__inner p:nth-of-type(2) {
+    margin-bottom: 20px;
+}
+
+	@media (max-width: 1440px) {
+		.specific-gummy-tab-content {
+			padding-left: 70px;
+			padding-right: 90px;
+		}
+	}
+
+	@media (max-width: 1023px) {
+		.specific-gummy-tab-content {
+			padding-top: 50px;
+			padding-bottom: 70px;
+		}
+
+		.cta-wrapper-function.tabs {
+			flex-direction: column;
+			padding-bottom: 70px;
+		}
+
+		.cta-text-wrapper-tabs {
+			width: 100%;
+			max-width: 100%;
+		}
+
+		.cta-img-wrapper img {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 100px;
+		}
+
+		.cta-text-wrapper-tabs.function {
+			padding-right: 20px;
+			padding-left: 20px;
+			padding-top: 0px;
+		}
+
+		.cta-wrapper-function.tabs {
+			padding-top: 57px;
+		}
+
+		.cta-img-wrapper.tabs {
+			margin-left: auto;
+			display: none;
+			/*
+			width: 355px;
+			height: 372px;
+			*/
+			width: 500px;
+			height: 600px;
+			border-radius: 100px 0px 0px 100px;
+			min-height: auto;
+			margin-top: 57px;
+			padding-right: 0px;
+		}
+		.tabcontent .function-body{
+			max-width: none;
+		}
+		#function{
+			padding-left: 0px;
+		}
+
+		.cta-wrapper-function.tabs .cta-img-wrapper img {
+			height: 100%;
+			border-radius: 0px;
+			border-bottom-left-radius: 100px;
+			border-top-left-radius: 100px;
+		}
+
+		.specific-gummy-tabs {
+			flex-direction: column-reverse;
+		}
+
+		.specific-gummy-tab-image {
+			position: relative;
+			max-height: 600px;
+			object-position: center;
+			width: 100%;
+			border-bottom-left-radius: 100px;
+			border-bottom-right-radius: 100px;
+		}
+
+		.specific-gummy-tab-image-wrapper {
+			width: 100%;
+			max-width: 100%;
+		}
+		.border-extention {
+			display: none;
+		}
+		.jc-faq-page-content-wrapper .tabcontent {
+			border-top: none;
+		}
+
+		.heading-color-bg {
+			border-radius: 0px 0px 40px 0px;
+			background: var(--rr-pain, #FF7050);
+			width: 280px;
+			/*
+			height: 52px;
+			*/
+			height: auto;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			display: flex;
+			align-items: center;
+			margin-bottom: 25px;
+			margin-left: -20px;
+			padding-left: 20px;
+		}
+
+		.heading-color-bg h3 {
+			color: #fff;
+			margin-top: 10px;
+		}
+
+		#Pain .heading-color-bg {
+			background: var(--rr-pain, #FF7050);
+		}
+
+		#Stress .heading-color-bg {
+			background: var(--rr-pain, #82C49D);
+		}
+
+		#Sleep .heading-color-bg {
+			background: var(--rr-pain, #071561);
+		}
+
+		#Multifunctional .heading-color-bg {
+			background: var(--rr-pain, #004943);
+		}
+
+	}
+
+	@media (max-width: 767px) {
+		.specific-gummy-tab-bottom svg {
+			display: none;
+		}
+
+		.specific-gummy-tab-content .h1-new {
+			margin-bottom: 20px;
+		}
+
+		.specific-gummy-tab-bottom {
+			margin-top: 50px;
+		}
+
+		.specific-gummy-tab-image-wrapper svg {
+			display: block;
+			position: absolute;
+			bottom: -24px;
+			right: 30px;
+		}
+
+		.cta-text-wrapper-tabs.function {
+			padding-top: 40px;
+		}
+
+		#function {
+			padding-top: 0px;
+		}
+
+		#function .tab-inner {
+			padding-top: 60px;
+		}
+
+		.specific-gummy-tab-bottom {
+			flex-direction: column;
+		}
+
+		.specific-gummy-tab-image {
+			max-height: 375px;
+		}
+
+		.tablinks .btn-text {
+			display: none;
+		}
+
+		.specific-gummy-tab-content .h1-new {
+			font-weight: 700 !important;
+		}
+
+		.specific-gummy-tab-content p {
+			font-size: 17px;
+			line-height: 26px;
+		}
+
+		.specific-gummy-tab-bottom__inner .specific-gummy-tab-bottom__title {
+			font-size: 30px;
+		}
+
+		.tablinks svg {
+			height: 44px;
+			width: 44px;
+		}
+
+		.cta-wrapper-function.tabs .tablinks {
+			background-color: #fff;
+		}
+
+		.tab .tablinks {
+			padding: 12px !important;
+			width: 67px;
+			height: 67px;
+			max-height: 67px;
+		}
+
+		.tablinks.teal svg {
+			width: ;
+		}
+
+		.max-289 {
+			max-width: 289px;
+		}
+
+		.cta-img-wrapper-use {
+			max-height: 375px;
+		}
+
+		.cta-wrapper-function.tabs .how-to-use-wrapper h1 {
+			max-width: 370px;
+		}
+
+		.cta-img-use {
+			height: 100%;
+		}
+
+		.btn-text-mobile {
+			display: block;
+			position: absolute;
+			bottom: -28px;
+			color: var(--rr-black, #2D2926);
+			text-align: center;
+			font-family: filson-pro;
+			font-size: 14px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: normal;
+			letter-spacing: 1.12px;
+			text-transform: uppercase;
+		}
+
+
+
+
+
+		.tablinks {
+			/*
+			opacity: .5;
+			*/
+		}
+
+		.tablinks.active {
+			opacity: 1;
+		}
+
+		.tablinks.active .btn-text-mobile {
+			padding-bottom: 10px;
+			bottom: -38px;
+		}
+
+		.tablinks.orange.active .btn-text-mobile {
+			border-bottom: 2px solid #FF7050;
+			color: #FF7050;
+		}
+
+		.tablinks.green.active .btn-text-mobile {
+			border-bottom: 2px solid #82C49D;
+			color: #82C49D;
+		}
+
+		.tablinks.blue.active .btn-text-mobile {
+			border-bottom: 2px solid #071561;
+			color: #071561;
+		}
+
+		.tablinks.teal.active .btn-text-mobile {
+			border-bottom: 2px solid #66A5D9;
+			color: #66A5D9;
+		}
+
+		.tablinks.dark-green.active .btn-text-mobile {
+			border-bottom: 2px solid #004943;
+			color: #004943;
+		}
+
+		.tabcontent .tab-inner {
+			margin-left: 0px;
+		}
+
+		.tabcontent .tab-inner .heading-color-bg {
+			display: flex;
+			align-items: center;
+		}
+		.tabcontent .tab-inner .heading-color-bg h3{
+			line-height: 36px;
+		}
+		.tabcontent .tab-inner h3 {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+
+		.cta-img-wrapper.tabs {
+			/*
+			width: 355px;
+			height: 372px;
+			margin-left: auto;
+    		padding-left: 20px;
+			*/
+			width: 100%;
+			max-width: none;
+			height: 435px;
+			border-radius: 0px;
+			
+
+		}
+
+		.cta-wrapper-function.tabs .cta-img-wrapper img {
+			border-radius: 0px;
+		}
+
+		.cta-wrapper-function.tabs {
+			padding-bottom: 0px;
+			margin-top: 0px;
+		}
+
+		.cta-text-wrapper-tabs.function {
+			padding-bottom: 52px;
+		}
+
+		#function .function-body {
+			font-size: 17px;
+			line-height: 26px;
+		}
+	}
+
+	@media (max-width: 479px) {
+		.specific-gummy-tab-content {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+
+		.cta-img-wrapper.tabs {
+			margin-top: 0px;
+			width: 100%;
+			height: 435px;
+			margin-left: 0px;
+			padding-left: 0px;
+			display: none;
+		}
+
+		.cta-wrapper-function.tabs {
+			padding-bottom: 0px;
+		}
+
+	}
+</style>
+
+
+
+{% assign isPetProduct = false %}
+{% assign isPainCream = false %}
+{% for collection in product.collections %}
+	{% case collection.handle %}
+	{% when 'pet-products' %}
+		{% assign isPetProduct = true %}
+	{% when 'cbd-pain-creams' %}
+		{% assign isPainCream = true %}
+	{% endcase %}
+{% endfor %}
+
+
+{% if isPainCream %}
+	<div class="specific-gummy-tabs pain-gummies-tab">
+		<div class="specific-gummy-tab-content">
+			<h2 class="h1-new">Experience Transformative Topical Relief</h2>
+			<p style="max-width: 580px;">
+				Don’t let muscle strain or achy joints get in the way of your best life. Let CBD soothe your pain away, naturally. 
+			</p>
+			<div class="specific-gummy-tab-bottom">
+				{% render 'icon-pain' %}
+				<div class="specific-gummy-tab-bottom__inner">
+					<p class="specific-gummy-tab-bottom__title">How to Build Your Routine</p>
+					<p>If you suffer from chronic aching joints or are healing from a painful injury, smooth 1-2 doses onto your skin every day to mitigate pain from the get-go. You can also apply additional servings an hour before any activity that can cause flare-ups and any time you’re feeling pain.</p>
+					<p>Keep in mind that <strong style="font-style: italic;">taking CBD every day is important</strong> in helping you manage your pain over time. Consistent dosing builds up the cumulative effects CBD can bring, allowing you to experience results in as little as 5 minutes after each dose.*</p>
+				</div>
+			</div>
+		</div>
+		<div class="specific-gummy-tab-image-wrapper">
+			<img class="specific-gummy-tab-image"
+				src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/life_routine-pain.jpg?v=1714508749" />
+			{% render 'icon-pain' %}
+		</div>
+	</div>
+{% elsif product.id == 7842451488966 %}
+<div class="specific-gummy-tabs de-stress-gummies-tab">
+	<div class="specific-gummy-tab-content">
+		<h2 style="max-width: 550px;" class="h1-new">Say Peace Out to Stress for Good</h2>
+		<p style="max-width: 680px;">
+			Eliminate those racing thoughts and feelings of overwhelm for good. CBD can keep you feeling cool and calm in any situation.* 
+		</p>
+		<div class="specific-gummy-tab-bottom">
+			{% render 'icon-de-stress' %}
+			<div class="specific-gummy-tab-bottom__inner">
+				<p class="specific-gummy-tab-bottom__title">How to Build Your Routine</p>
+				<p>Begin each day with 1-2 doses to instill a feeling of calm. If you’ve got an event coming up that you know will be stressful, take 1-2 doses an hour beforehand. You can also dose any time you’re feeling stressed.</p>
+				<p>Keep in mind that <strong style="font-style: italic;">taking CBD every day is important</strong> in helping you manage your stress levels over time. Consistent dosing builds up the cumulative effects CBD can bring, allowing you to experience results in as little as 5 minutes after each dose.*</p>
+			</div>
+		</div>
+	</div>
+	<div class="specific-gummy-tab-image-wrapper">
+		<img class="specific-gummy-tab-image"
+			src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/life_routine-stress.jpg?v=1714508749" />
+		{% render 'icon-de-stress' %}
+	</div>
+</div>
+	{% elsif product.id == 7842450538694 or product.id == 4631247323189 %}
+		<div class="specific-gummy-tabs pain-gummies-tab">
+			<div class="specific-gummy-tab-content">
+				<h2 class="h1-new">Reap the Benefits of a CBD Routine for Pain</h2>
+				<p>
+					Pain can have you feeling trapped in your body. CBD is your path towards freedom from pain.
+				</p>
+				<style>
+					.specific-gummy-tab-content h2{
+						max-width: 600px;
+					}
+					.specific-gummy-tab-content p{
+						max-width: 700px;
+					}
+				</style>
+				<div class="specific-gummy-tab-bottom">
+					{% render 'icon-pain' %}
+					<div class="specific-gummy-tab-bottom__inner">
+						<p class="specific-gummy-tab-bottom__title">How to Build Your Routine</p>
+						<p>Start each day by taking 1-2 Gummies in the morning to keep pain at bay. You can also take 1-2 servings an hour before any activity that may cause flare-ups and any time you’re experiencing pain. </p>
+						<p>Keep in mind that <strong style="font-style: italic;">taking CBD every day is important</strong> in helping you manage your pain over time. Consistent dosing builds up the cumulative effects CBD can bring, allowing you to experience results in as little as 5 minutes after each dose.*</p>
+					</div>
+				</div>
+			</div>
+			<div class="specific-gummy-tab-image-wrapper">
+				<img class="specific-gummy-tab-image"
+					src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/life_routine-pain.jpg?v=1714508749" />
+				{% render 'icon-pain' %}
+			</div>
+		</div>
+{% elsif product.id == 7794862817478 %}
+<div class="specific-gummy-tabs sleep-gummies-tab">
+	<div class="specific-gummy-tab-content">
+		<h2 class="h1-new">Get the Most From Our Sleep Gummies</h2>
+		<p>
+			The body repairs and restores at night–so if you’re not sleeping well, all sorts of problems can arise. Let CBD help you rest well from now on.
+		</p>
+		<div class="specific-gummy-tab-bottom">
+			{% render 'icon-sleep' %}
+			<div class="specific-gummy-tab-bottom__inner">
+				<p class="specific-gummy-tab-bottom__title">How to Build Your Routine</p>
+				<p>For healthy, regular sleep cycles, take 1-2 Gummies every night about one hour before your bedtime to help you fall asleep swiftly and stay asleep through the night.*</p>
+				<p>Keep in mind that <strong style="font-style: italic;">taking CBD every day is important</strong> in helping you maintain healthy sleep cycles over time. Consistent dosing builds up the cumulative effects CBD can bring, allowing you to experience results in as little as 5 minutes after each dose.*
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="specific-gummy-tab-image-wrapper">
+		<img class="specific-gummy-tab-image"
+			src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/life_routine-sleep.jpg?v=1714508749" />
+		{% render 'icon-sleep' %}
+	</div>
+</div>
+{% else %}
+<div id="function" class="cta-wrapper-function tabs">
+
+
+
+	<div class="cta-text-wrapper-tabs function">
+
+
+
+		<div class="how-to-use-wrapper">
+
+			<div class="top-heading-wrapper">
+				{% if isPetProduct %}
+					<h1 style="max-width: 710px;" class="h1-new">Build a Transformative Relief Routine for Your Pet</h1>
+				{% else %}
+				<h1 style="max-width: 710px;" class="h1-new">Build A Life-Changing Relief Routine</h1>
+				{% endif %}
+				
+				
+			</div>
+
+			<div class="jc-faq-page-content-wrapper">
+
+			{% if isPetProduct %}
+				<p style="max-width: 700px">Pets experience pain, stress, and trouble sleeping just like we do. CBD can be the ultimate solution to help them feel their best.
+				</p>
+				{% else %}
+				<p style="max-width: 800px">When you’re in pain, feeling anxious, or not sleeping well, your life can
+					feel disrupted.
+					CBD is an all-natural solution that can help you achieve and maintain balance in your body and mind,
+					so you can get back to feeling your best.*
+				</p>
+			{%endif %}
+
+
+
+
+				<div class="tab">
+					<button class="tablinks orange" onclick="openTab(event, 'Pain', 'function')">
+						{%render 'pain-icon'%}
+						<span class="btn-text">
+							Pain
+						</span>
+						<img class="border-extention"
+							src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_94359199-9e48-4f0e-9d20-530485afae3d.svg?v=1708986754"
+							alt="">
+						<span class="btn-text-mobile">
+							PAIN
+						</span>
+					</button>
+
+					<button class="tablinks green" onclick="openTab(event, 'Stress', 'function')">
+						{%render 'stress-icon'%}
+						<span class="btn-text">
+							Stress
+						</span>
+						<img class="border-extention"
+							src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_94359199-9e48-4f0e-9d20-530485afae3d.svg?v=1708986754"
+							alt="">
+						<span class="btn-text-mobile">
+							STRESS
+						</span>
+					</button>
+
+					<button class="tablinks blue" onclick="openTab(event, 'Sleep', 'function')">
+						{%render 'sleep-icon'%}
+						<span class="btn-text">
+							Sleep
+						</span>
+						<img class="border-extention"
+							src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_94359199-9e48-4f0e-9d20-530485afae3d.svg?v=1708986754"
+							alt="">
+						<span class="btn-text-mobile">
+							SLEEP
+						</span>
+					</button>
+
+					<button class="tablinks dark-green" onclick="openTab(event, 'Multifunctional', 'function')">
+						{%render 'multi-icon'%}
+						<span class="btn-text">
+							Multifunctional
+						</span>
+						<img class="border-extention"
+							src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_94359199-9e48-4f0e-9d20-530485afae3d.svg?v=1708986754"
+							alt="">
+						<span class="btn-text-mobile">
+							MULTI
+						</span>
+					</button>
+				</div>
+
+
+
+				<div id="Pain" class="tabcontent">
+
+					<div class="tab-inner">
+						<div class="heading-color-bg">
+
+							<h3>For Pain Relief</h3>
+						</div>
+
+						{% if isPetProduct %}
+							<p class="function-body">Give them 1-2 servings each morning to keep their pain at bay. Plus, you can give them additional servings an hour before an activity that might cause painful flare-ups, like a walk or visit to the park, and any time they appear to be in pain. </p>
+							<p class="function-body">Remember that <strong style="font-style: italic;">maintaining a daily CBD dosing routine is crucial</strong> in helping you manage your pet’s pain over time. Consistent dosing builds up the cumulative effects CBD can bring, allowing them to experience relief in as little as 5 minutes after each dose.*</p>
+						{% else %}
+							<p class="function-body">Starting with 1-2 doses in the morning can provide pain relief
+								throughout your day. You may also dose an hour before doing an activity that could cause
+								painful flare-ups. Plus, you can dose any time you’re feeling pain to experience soothing
+								effects.</p>
+							<p class="function-body">Keep in mind that <strong style="font-style: italic;">taking CBD every
+								day is important</strong> in helping you manage your pain over time. Consistent dosing
+							builds up the cumulative effects CBD can bring, allowing you to experience results in as
+							little as 5 minutes after each dose.*</p>
+						{% endif %}
+					</div>
+				</div>
+
+				<div id="Stress" class="tabcontent">
+					<div class="tab-inner">
+						<div class="heading-color-bg">
+
+							<h3>To Reduce Stress</h3>
+						</div>
+
+						{% if isPetProduct %}
+							<p class="function-body">Give them 1-2 servings each morning to help them feel calm all day. Plus, you can give them additional servings an hour before an event that may cause stress, and anytime they appear to be stressed out. </p>
+							<p class="function-body">Remember that <strong style="font-style: italic;">maintaining a daily CBD dosing routine is crucial</strong> in helping you manage your pet’s stress over time. Consistent dosing builds up the cumulative effects CBD can bring, allowing them to experience relief in as little as 5 minutes after each dose.*</p>
+							{% else %}
+						<p class="function-body">Starting with 1-2 doses in the morning can provide feelings of calm
+							throughout your day. Additionally, anytime you’ve got an event coming up that’s going to
+							cause stress, take 1-2 servings an hour beforehand. You can also dose any time you’re
+							experiencing stress and you want to feel calmer.</p>
+						<p class="function-body">Keep in mind that <strong style="font-style: italic;">taking CBD every
+								day is important</strong> in helping you manage your stress levels over time. Consistent
+							dosing builds up the cumulative effects CBD can bring, allowing you to experience results in
+							as little as 5 minutes after each dose.*</p>
+						{% endif %}
+					</div>
+				</div>
+
+				<div id="Sleep" class="tabcontent">
+					<div class="tab-inner">
+						<div class="heading-color-bg">
+
+							<h3>To Get Restful Sleep</h3>
+						</div>
+
+						{% if isPetProduct %}
+							<p class="function-body">Give them 1-2 servings about an hour before their bedtime each night to help them get to sleep faster and stay asleep all night long. </p>
+							<p class="function-body">Remember that <strong style="font-style: italic;">maintaining a nightly CBD dosing routine is crucial</strong> in helping you manage your pet’s sleep over time. Consistent dosing builds up the cumulative effects CBD can bring, allowing them to experience effects in as little as 5 minutes after each dose.*</p>
+							{% else %}
+						<p class="function-body">Take 1-2 servings nightly about one hour before your bedtime to help
+							you fall asleep faster and stay asleep through the night.</p>
+						<p class="function-body">Keep in mind that <strong style="font-style: italic;">taking CBD every
+								day is important</strong> in helping you maintain healthy sleep cycles over time.
+							Consistent dosing builds up the cumulative effects CBD can bring, allowing you to experience
+							results in as little as 5 minutes after each dose.*</p>
+						{% endif %}
+					</div>
+				</div>
+
+				<div id="Multifunctional" class="tabcontent">
+					<div class="tab-inner">
+						<div class="heading-color-bg">
+							{% if isPetProduct %}
+							<h3>To Feel Their Overall Best</h3>
+							{% else %}
+							<h3>To Feel Your Overall Best</h3>
+							{% endif %}
+						</div>
+
+						{% if isPetProduct %}
+							<p class="function-body">Give them 1-2 servings every morning to help keep stress and pain at bay. You can also dose about an hour before any activity or event that may cause flare-ups, and anytime they’re in pain or seem anxious.*</p>
+
+							<p class="function-body">To help them get a good night’s rest, give them their dose an hour before their bedtime to help them fall asleep faster and stay asleep through the night.</p>
+							<p class="function-body">Remember that <strong style="font-style: italic;">maintaining a daily CBD dosing routine is crucial</strong> to getting the most benefits. Consistent dosing builds up the cumulative effects CBD can bring, allowing your pets to experience relief in as little as 5 minutes after each dose.*</p>
+							{% else %}
+						<p class="function-body">This is the Swiss army knife of CBD. Formulated to help you manage
+							pain, stress, and sleep, this is a great option if you’re dealing with multiple issues all
+							at once.</p>
+						<p class="function-body">Take 1-2 servings every morning to help keep stress and pain at bay.
+							You can also dose about an hour before any activity or event that may cause flare-ups, and
+							anytime you’re in pain or feeling stressed.</p>
+						<p class="function-body">For getting a good night’s rest, take your dose an hour before your
+							bedtime to help you fall asleep faster and stay asleep through the night.</p>
+						<p class="function-body">Keep in mind that <strong style="font-style: italic;">taking CBD every
+								day is important</strong> in helping you maintain whole-body balance. Consistent dosing
+							builds up the cumulative effects CBD can bring, allowing you to experience results in as
+							little as 5 minutes after each dose.*</p>
+						{% endif %}
+					</div>
+				</div>
+
+				<script>
+					function openTab(evt, tabName, sectionId) {
+						evt.preventDefault();  // Prevent the default anchor click behavior
+
+						var tabcontent, tablinks;
+						var section = document.getElementById(sectionId);
+
+						// Debugging
+						console.log("Clicked tab:", evt.currentTarget.className);
+
+						// Hide all tab content
+						tabcontent = section.getElementsByClassName("tabcontent");
+						for (let i = 0; i < tabcontent.length; i++) {
+							tabcontent[i].style.display = "none";
+						}
+
+						// Remove the 'active' class from all tab links
+						tablinks = section.getElementsByClassName("tablinks");
+						for (let i = 0; i < tablinks.length; i++) {
+							tablinks[i].classList.remove("active");
+						}
+
+						// Display the current tab, and add an 'active' class to the clicked tab button
+						document.getElementById(tabName).style.display = "block";
+						evt.currentTarget.classList.add("active");
+
+						// Removing all specific color classes from the container
+						const classes = ['orange', 'green', 'blue', 'dark-green'];
+						section.classList.remove(...classes);
+
+						// Add specific class based on clicked tab
+						if (evt.currentTarget.classList.contains('orange')) {
+							section.classList.add('orange');
+						} else if (evt.currentTarget.classList.contains('green')) {
+							section.classList.add('green');
+						} else if (evt.currentTarget.classList.contains('blue')) {
+							section.classList.add('blue');
+						} else if (evt.currentTarget.classList.contains('dark-green')) {
+							section.classList.add('dark-green');
+						}
+
+						// Debugging
+						console.log("Updated classes on section:", section.classList);
+					}
+
+					// Initialize the first tab on load
+					document.addEventListener("DOMContentLoaded", function () {
+						var initialTab = document.querySelector("#function .tablinks");
+						if (initialTab) {
+							initialTab.click();
+						}
+					});
+				</script>
+
+
+
+			</div>
+		</div>
+	</div>
+
+	<div class="cta-img-wrapper tabs">
+
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/d5b0827e3a214d8aca688bddf2a178be.jpg?v=1708552053"
+			class="cta-img-function right-rounded orange active">
+
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/62857fed584642f3661d7877e8a161f6_bf4bccd6-03f0-475b-9804-35cab8060e39.jpg?v=1708987915"
+			class="cta-img-function right-rounded green">
+
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/4a5c6945fcbf675a8bf0679fc6ed7ec1.jpg?v=1708987915"
+			class="cta-img-function right-rounded blue">
+
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/f8cf96dec89900e63f6ddc50471f27c7.jpg?v=1708987915"
+			class="cta-img-function right-rounded dark-green">
+
+
+		{% comment %}
+
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/62857fed584642f3661d7877e8a161f6.jpg?v=1708551111"
+			class="cta-img-function right-rounded">
+		{% endcomment %}
+	</div>
+
+</div>
+{% endif %}
+<style>
+	.jc-faq-page-expand-wrapper {
+		overflow: hidden;
+		max-height: 0;
+		opacity: 0;
+		transition: max-height 0.5s ease, opacity 0.5s ease;
+	}
+
+	.jc-faq-page-expand-wrapper.open {
+		max-height: 1000px;
+		/* Adjust this value based on the actual content size */
+		opacity: 1;
+		height: auto;
+	}
+
+	.jc-faq-page-open-btn img {
+		transition: transform 0.5s ease;
+	}
+</style>
+
+
+
+{% schema %}
+{
+"name": "Functional Tabs",
+"tag": "section",
+"class": "section",
+"disabled_on": {
+"groups": ["header", "footer"]
+},
+"settings": [
+
+],
+"presets": [
+{
+"name": "Functional Tabs"
+}
+]
+}
+{% endschema %}

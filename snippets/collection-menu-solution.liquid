@@ -1,0 +1,95 @@
+<style>
+    .collection-menu-wrapper{
+        margin-bottom: 0px;
+        justify-content: center;
+    }
+    @media (max-width: 767px){
+        .collection-menu-wrapper{
+        justify-content: start;
+    }
+    }
+</style>
+<div class="collection-menu-wrapper-outter">
+    <div class="collection-button-wrapper">
+        <button class="scroll-btn left-collection-arrow"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Arrow_bbbe2ebd-90e3-4cdf-948c-aa4b430a7fd8.svg?v=1698873896" alt="" class="left-icon-arrow"></button>
+        <button class="scroll-btn right-collection-arrow"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Arrow_bbbe2ebd-90e3-4cdf-948c-aa4b430a7fd8.svg?v=1698873896" alt="" class="right-icon-arrow"></button>
+    </div>
+    <div class="fade-wrapper">
+        <div class="white-fade-left"></div>
+        <div class="white-fade-right"></div>
+    </div>
+    <div class="collection-menu-wrapper">
+        <a href="/collections/pain" class="collection-menu-link large">
+            <h4 class="collection-link-text" >Pain</h4>
+            </a>
+            <a href="/collections/stress" class="collection-menu-link">
+            <h4 class="collection-link-text" >Stress</h4>
+            </a>
+            <a href="/collections/sleep" class="collection-menu-link">
+            <h4 class="collection-link-text" >Sleep</h4>
+            </a>
+            <a href="/collections/multifunctional" class="collection-menu-link">
+              <h4 class="collection-link-text" >Multifunctional</h4>
+            </a>
+            
+    </div>
+</div> 
+
+<div class="menu-divider-line"></div>
+<div class="collection-body-wrapper">
+    <p>{{collection.description}}</p>
+</div>
+
+
+<script>
+$(document).ready(function() {
+    // Function to update arrow and gradient visibility based on scroll position
+    function updateScrollUI() {
+        var $wrapper = $('.collection-menu-wrapper');
+        var scrollLeft = $wrapper.scrollLeft();
+        var maxScrollLeft = $wrapper[0].scrollWidth - $wrapper[0].clientWidth;
+
+        // Arrows
+        // If scrolled all the way to the left
+        if (scrollLeft <= 0) {
+            $('.left-collection-arrow').css('opacity', '0');
+            $('.white-fade-left').hide(); // Hide left gradient
+        } else {
+            $('.left-collection-arrow').css('opacity', '1');
+            $('.white-fade-left').show(); // Show left gradient
+        }
+
+        // If scrolled all the way to the right
+        if ((scrollLeft+27) >= maxScrollLeft) {
+            $('.right-collection-arrow').css('opacity', '0');
+            $('.white-fade-right').hide(); // Hide right gradient
+        } else {
+            $('.right-collection-arrow').css('opacity', '1');
+            $('.white-fade-right').show(); // Show right gradient
+        }
+    }
+
+    // Initial check
+    updateScrollUI();
+
+    // Update arrow and gradient visibility on scroll
+    $('.collection-menu-wrapper').on('scroll', updateScrollUI);
+
+    // Left arrow click
+    $('.left-collection-arrow').click(function() {
+        $('.collection-menu-wrapper').animate({
+            scrollLeft: "-=200px"
+        }, "fast", updateScrollUI);
+    });
+
+    // Right arrow click
+    $('.right-collection-arrow').click(function() {
+        $('.collection-menu-wrapper').animate({
+            scrollLeft: "+=200px"
+        }, "fast", updateScrollUI);
+    });
+});
+
+
+</script>
+

@@ -1,0 +1,453 @@
+<style>
+    .testimonial-slider {
+      position: relative;
+      width: calc(100vw - 210px);
+      max-width: 1224px;
+      margin: auto;
+      overflow: hidden;
+      margin: 25px 0px 30px;
+    }
+  .slide-product-name{
+    text-decoration: none;
+  }
+  .top-right a {
+    text-decoration: none;
+  }
+    .slides {
+        display: flex;
+       
+        column-gap: 19px;
+        transition: transform 0.5s ease;
+      }
+    .slide-top-wrapper{
+      display: flex;
+      column-gap: 22px;
+    }
+    .slide .slide-product-name{
+      color: var(--rr-black, #2D2926);
+      font-family: Poppins;
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: capitalize;
+      line-height: 26px;
+    }
+    .slide {
+  flex: 0 0 calc((100% - 38px) / 3);
+  max-width: 395px; /* Adjust this as needed, ensuring it's not less than the calculated width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+  
+    .slider-arrow {
+    
+
+      font-size: 24px;
+      color: white;
+
+      padding: 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+  
+    .left-slider-arrow {
+      left: 10px;
+    }
+  
+    .right-slider-arrow {
+      right: 10px;
+    }
+      /* Additions for responsiveness */
+.slide {
+display: flex;
+flex-direction: column;
+justify-content: left;
+align-items: baseline;
+justify-content: space-between;
+text-align: center;
+background: #fff;
+border-radius: 0px;
+padding: 28px 24px 32px 30px;
+color: #004943;
+text-align: left;
+/*
+border: 1px solid var(--rr-green-current-web, #004943);
+*/
+height: 515px;
+}
+
+/* Indicators styling */
+.slider-indicators {
+position: absolute;
+bottom: 200px;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+align-items: center;
+}
+
+.indicator {
+margin: 0;
+cursor: pointer;
+font-size: 15px;
+}
+
+.active-indicator {
+color: #ff0000; /* Active indicator color */
+}
+.top-heading-wrapper{
+text-align: center;
+}
+.jc-disclaimer-wrapper-products.green{
+background-color: #E5ECEB;
+padding: 30px 0px 80px;
+margin-top: 0px;
+margin-bottom: 0px;
+}
+.slider-wrapper{
+  position: relative;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.arrow-wrapper{
+display: flex;
+top: 50%;
+position: absolute;
+justify-content: space-between;
+width: 100vw;
+margin-right: auto;
+margin-left: auto;
+max-width: 1434px;
+padding-right: 27px;
+padding-left: 27px;
+}
+.review-stars{
+margin-bottom: 15px;
+}
+.slide-top-wrapper{
+  margin-bottom: 20px;
+}
+.top-right{
+  display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: flex-start;
+
+}
+.slide p {
+  color: var(--rr-black, #2D2926);
+  font-family: Poppins;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 300;
+  margin-top: 0px;
+}
+.faded-heading{
+color: #59837E;
+text-transform: uppercase;
+margin-bottom: -10px;
+}
+.review-author.slider-text{
+  color: var(--rr-green-current-web, #004943);
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.slides::-webkit-scrollbar {
+  width: 5px !important;               /* width of the entire scrollbar */
+}
+
+.slides::-webkit-scrollbar-track {
+  background: #ffffff;        /* color of the tracking area */
+}
+
+.slides::-webkit-scrollbar-thumb {
+  background-color: #fff;    /* color of the scroll thumb */
+  border-radius: 0px;       /* roundness of the scroll thumb */
+  border: 9px solid rgb(255, 255, 255);  /* creates padding around scroll thumb */
+}
+
+.slides::-webkit-scrollbar-thumb {
+    background: #ffffff;        /* color of the tracking area */
+    background-color: #002E29;    /* color of the scroll thumb */
+    border-radius: 0px;       /* roundness of the scroll thumb */
+    border: 7px solid #fff;  /* creates padding around scroll thumb */
+    max-width: 30px;
+    margin-left: 20px;
+    width: 10px;
+    box-shadow: none;
+    scrollbar-width: thin; /* For Firefox */
+  }
+  /* Ensuring the scrollbar is always visible */
+.testimonial-slider {
+  overflow-x: scroll; /* Vertical scrolling */
+}
+
+/* Customizing the scrollbar */
+.testimonial-slider::-webkit-scrollbar {
+  width: 10px; /* Adjusting the width of the scrollbar */
+}
+
+.testimonial-slider::-webkit-scrollbar-track {
+  background: #ffffff; /* Color of the tracking area, keeping it as you've defined */
+}
+
+.testimonial-slider::-webkit-scrollbar-thumb {
+  background-color: #002E29; /* Color of the scroll thumb */
+  border-radius: 0px; /* Making the scrollbar square */
+  border: 3px solid #fff; /* Adjust border as needed, keeping your style */
+}
+
+/* For Firefox */
+.testimonial-slider {
+  scrollbar-width: thin;
+  scrollbar-color: #002E29 #ffffff;
+}
+
+/* Hide arrows on mobile */
+@media (max-width: 1130px) {
+  .arrow-wrapper {
+    display: none;
+  }
+
+/* Style for .testimonial-slider and .slides applicable to all browsers */
+.slides {
+  /*
+  overflow-x: scroll !important;
+  */
+  -webkit-overflow-scrolling: touch; /* For momentum scrolling on iOS */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #002E29 #ffffff; /* Thumb and track color for Firefox */
+  border-radius: 0px; /* Roundness of the scrollbar thumb */
+
+
+}
+
+
+.top-heading-wrapper{
+  padding-left: 27px;
+    padding-right: 27px;
+}
+
+  .slides{
+    padding-bottom: 20px;
+    padding-left: 27px;
+    padding-right: 27px;
+  }
+  .slide{
+    height: auto;
+
+  }
+  .slide {
+    width: 100%;
+    flex: 0 0 auto!important;
+}
+.testimonial-slider{
+  width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.jc-disclaimer-wrapper-products .slider-wrapper{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+}
+
+
+  </style>
+
+<div class="jc-disclaimer-wrapper-products green">
+    <div class="wrapper-outter">
+        <div class="slider-wrapper">
+
+            <div class="top-heading-wrapper">
+                <h1 class="header-1 max-360">10,000+ Customer Reviews</h1>
+            </div>
+
+            <div class="testimonial-slider">
+              <div class="slides">
+                
+              {% comment %}
+
+              CATEGORY
+                THC Free = 268100927686
+                Tincture = 158116937781
+                Gummies = 276663304390
+                Softgels = 268327682246
+                Pain Creams = 288130203846
+                Functional Gummies = 289750220998
+                For Pets = 159343902773
+              
+              SOLUTION
+                Stress = 294623936710
+                Pain = 294623903942
+                Sleep = 294623871174
+                Multi = 294623969478
+
+              Strength
+                Regular = 295136919750
+                Extra = 295136952518
+                MAximum = 295136985286
+
+              {% endcomment %}
+              {% if collection.id == 268100927686 %}
+                {% include 'reviews-thc-free' %}  
+              {% elsif collection.id == 158116937781 %}
+                {% include 'reviews-tinctures' %}
+              {% elsif collection.id == 276663304390 %}
+                {% include 'reviews-gummies' %}
+              {% elsif collection.id == 268327682246 %}
+                {% include 'reviews-softgels' %}
+              {% elsif collection.id == 288130203846 %}
+                {% include 'reviews-pain-creams' %}
+              {% elsif collection.id == 289750220998 %}
+                {% include 'reviews-functional' %}
+              {% elsif collection.id == 159343902773 %}
+                {% include 'reviews-pets' %}
+
+
+              {% elsif collection.id == 294623936710 %}
+                {% include 'reviews-stress' %}
+              {% elsif collection.id == 294623903942 %}
+                {% include 'reviews-pain' %}
+              {% elsif collection.id == 294623871174 %}
+                {% include 'reviews-sleep' %}
+              {% elsif collection.id == 294623969478 %}
+                {% include 'reviews-multi' %}
+
+
+              {% elsif collection.id == 295136919750 %}
+                {% include 'reviews-regular' %}
+              {% elsif collection.id == 295136952518 %}
+                {% include 'reviews-extra' %}
+              {% elsif collection.id == 295136985286 %}
+                {% include 'reviews-max' %}
+
+              {% else %}
+                {% include 'reviews-all-products' %}
+              {% endif %}
+
+              </div>
+            </div>
+
+            <div class="arrow-wrapper">
+                <div class="slider-arrow left-slider-arrow" onclick="moveSlide(-1)">
+                  <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Group_420_d3753d58-51d3-437c-a7f2-372fc591c844.svg?v=1709913757" style="transform: rotate(180deg);" alt="Left Arrow" class="arrow-icon left active">
+                  <div  alt="" class="arrow-icon left faded"></div>
+                </div>
+                <div class="slider-arrow right-slider-arrow" onclick="moveSlide(1)">
+                  <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Group_420_d3753d58-51d3-437c-a7f2-372fc591c844.svg?v=1709913757" alt="Right Arrow" class="arrow-icon right active">
+                  <div  style="transform: rotate(180deg);" alt="" class="arrow-icon right faded"></div>
+                </div>
+              </div>
+              
+              
+
+        </div>
+    </div>
+    <div class="slider-indicators"></div> 
+    <div class="scroll-bar-line slider-bar"></div>
+</div>
+
+
+
+
+<script>
+  let index = 0;
+  const slides = document.querySelectorAll('.slide');
+  let slidesToShow = 3; // Default for desktop
+  const slideGap = 20; // Gap between slides
+
+  function updateSlidesToShow() {
+    if (window.innerWidth <= 768) {
+      slidesToShow = 1; // Show one slide at a time on mobile
+    } else {
+      slidesToShow = 3; // Show three slides at a time on desktop
+    }
+
+  }
+
+  window.addEventListener('resize', updateSlidesToShow);
+  updateSlidesToShow();
+
+  function updateArrowStates() {
+    const leftActive = document.querySelector('.left-slider-arrow .active');
+    const leftFaded = document.querySelector('.left-slider-arrow .faded');
+    const rightActive = document.querySelector('.right-slider-arrow .active');
+    const rightFaded = document.querySelector('.right-slider-arrow .faded');
+
+    if (index === 0) {
+      leftActive.style.display = 'none';
+      leftFaded.style.display = 'block';
+    } else {
+      leftActive.style.display = 'block';
+      leftFaded.style.display = 'none';
+    }
+
+    if (index >= slides.length - slidesToShow) {
+      rightActive.style.display = 'none';
+      rightFaded.style.display = 'block';
+    } else {
+      rightActive.style.display = 'block';
+      rightFaded.style.display = 'none';
+    }
+  }
+
+  function calculateSlideWidth() {
+    const slideWidth = slides[0].getBoundingClientRect().width;
+
+    const totalWidth = slideWidth + slideGap;
+
+    return totalWidth;
+  }
+
+  function moveSlide(step) {
+    const slideWidthWithGap = calculateSlideWidth();
+    index += step;
+    index = Math.max(0, Math.min(index, slides.length - slidesToShow)); // Ensure index is within bounds
+ 
+    let totalTranslation = index * slideWidthWithGap;
+
+
+    // This adjustment is no longer necessary
+    // totalTranslation -= (index === 0 ? 0 : slideGap); 
+  
+
+    document.querySelector('.slides').style.transform = `translateX(-${totalTranslation}px)`;
+    updateArrowStates();
+}
+
+
+  document.addEventListener('DOMContentLoaded', updateArrowStates);
+</script>
+
+{% schema %}
+  {
+    "name": "Reviews Slider",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+    ],
+    "presets": [
+      {
+        "name": "Reviews Slider"
+      }
+    ]
+  }
+  {% endschema %}
+  

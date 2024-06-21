@@ -1,0 +1,608 @@
+<style>
+  .background-video.about-page{
+    height: 619px;
+  padding-top: 50px;
+  margin-top: 0px;
+  padding-left: 27px;
+  padding-right: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  .section-heading.video-heading{
+    font-family: century-old-style-std;
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 62.4px;
+    max-width: 840px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+  .spd-wrapper.about.right-padding{
+    padding-right: 87px;
+    padding-left: 87px;
+  }
+  .spd-wrapper.about.left-padding{
+    padding-left: 87px;
+    padding-right: 87px;
+  }
+  .spd-wrapper.about .inner-50.padding-right-20{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .spd-wrapper.about .flex-wrapper.center.padding-top-133.padding-bottom-132{
+    column-gap: 80px;
+    max-width: calc(100% - 80px)
+  }
+  .light-green-text{
+    color: #C8D645;
+    text-transform: none;
+    font-weight: 700;
+  }
+  .section.about{
+    padding-bottom: 60px;
+  }
+  .about-boxes-inner.mobile-reverse{
+    margin-bottom: 0px;
+  }
+  section.about-bottom{
+    padding-bottom: 100px;
+  }
+  .about-boxes-wrapper{
+    margin-top: -200px;
+  }
+  .about-boxes-inner{
+    display: flex;
+    column-gap: 16px;
+    margin-bottom: 16px;
+  }
+  .about-sub-heading{
+    font-family: century-old-style-std;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #FFF;
+    margin-bottom: 30px;
+  }
+  #shopify-section-about-page .video-text-wrapper{
+    max-width: 823px;
+    margin-bottom: 150px;
+  }
+  .about-body{
+    font-family: Poppins;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 29px;
+    color: #FFF;
+  }
+  .about-body.dark{
+    color: #2D2926;
+  }
+  .about-box._3 h1{
+    margin-bottom: 30px;
+  }
+  .about-box{
+    height: 630px;
+    border-radius: 150px 150px 150px 150px;
+    background: #FFF;
+    width: 100%;
+    padding: 80px 60px 97px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .about-box._1{
+    border-top-left-radius: 0px;
+    background-image: url("https://cdn.shopify.com/s/files/1/0107/7431/5072/files/725bd8b5f34bbb51c241a2259cfb4cab.jpg?v=1713468939");
+    background-size: cover;
+    background-position: center;
+  }
+  .about-box._2{
+    background-color: #004943;
+    border-top-right-radius: 0px;
+  }
+  .about-box._3{
+    background-color: #fff;
+    border-bottom-left-radius: 0px;
+  }
+  .about-box._4{
+    background-image: url("https://cdn.shopify.com/s/files/1/0107/7431/5072/files/25b12c763666a37ab653239939a6065a.jpg?v=1713477717");
+    background-size: cover;
+    background-position: center;
+    border-bottom-right-radius: 0px;
+  }
+  .multi-image-wrapper.about {
+    height: 600px;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    position: relative;
+    margin-left: auto;
+    max-width: 595px;
+}
+.multi-image-wrapper.about.left._2{
+  height: 635px;
+}
+.multi-image-wrapper.about._1{
+  background-image: none;
+}
+.multi-image-wrapper.about._2{
+  background-image: none;
+}
+.multi-image-wrapper.about._3{
+  background-image: none;
+}
+.spd-wrapper.about .heading-wrapper .body-larger{
+    font-size: 19px;
+    line-height: 29px;
+    font-weight: 400;
+  }
+.multi-image-wrapper.about.left{
+  margin-left: 0px;
+  margin-right: auto;
+}
+.inner-50.padding-left-20 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.section.extra-padding-top{
+  padding-top: 100px;
+}
+.spd-wrapper.about .inner-50{
+  min-width: 50%;
+
+}
+.multi-image-wrapper.about .image-rounded-top-right{
+  height: auto;
+  /*
+  width: 100%;
+  */
+}
+.spd-wrapper.about .flex-wrapper.center.padding-top-133.padding-bottom-132{
+  padding-top: 0px;
+  padding-bottom: 60px;
+}
+
+.section-heading.extra-margin-bottom{
+  margin-bottom: 30px;
+}
+.body-larger{
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29px;
+  color: #2D2926;
+}
+.right-inner-wrapper._540{
+  max-width: none;
+}
+.green-sub-heading{
+  font-family: century-old-style-std;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 33px;
+  margin-bottom: 14px;
+  margin-top: 30px;
+}
+@media screen and (max-width: 991px){
+  .section-heading.video-heading{
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 45.6px;
+  }
+  .section.about .section-heading{
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 45.6px;
+    text-align: left;
+    margin-bottom: 24px;
+  }
+  .section.about-bottom .section-heading{
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 45.6px;
+    text-align: left;
+    margin-bottom: 24px;
+  }
+  section.green.about.tablet-white{
+    background-color: #FFF;
+  }
+  section.green.about{
+    padding-bottom: 0px;
+  }
+  .section.extra-padding-top{
+    padding-top: 0px;
+  }
+  .about-boxes-inner{
+    flex-direction: column;
+  }
+  .about-boxes-inner.mobile-reverse{
+    flex-direction: column-reverse;
+    margin-top: 89px;
+  }
+  .about-box{
+    padding: 57px 19px 101px 18px;
+    height: auto;
+    align-items: baseline;
+   
+  }
+  .about-box._1{
+    border-radius: 0px 75px 0px 0px;
+    height: 428px;
+  }
+  .about-box._2{
+    border-radius: 0px 0px 0px 100px;
+  }
+  .about-box._3{
+    border-radius: 0px;
+    padding-bottom: 98px;
+  }
+  .about-box._4{
+    border-radius: 0px;
+    height: 425px;
+  }
+  .about-boxes-wrapper {
+    margin-top: -182px;
+}
+  .about-sub-heading{
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 33px;
+    text-align: left;
+  }
+  .about-body{
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    text-align: left;
+    line-height: 26px;
+  }
+  .shop-by-function-inner.about{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .about-boxes-inner.mobile-padding{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .section.about-bottom .flex-wrapper.center.padding-top-133.padding-bottom-132.reverse{
+    flex-direction: column-reverse;
+    padding-top: 0px;
+  }
+  .multi-image-wrapper.about{
+    height: 426px;
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
+    max-width: none;
+    border-radius: 0px;
+  }
+  .spd-wrapper.about{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .section.about-bottom .inner-50.padding-right-20{
+    margin-top: 54px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 98px;
+  }
+  .section.about-bottom .inner-50.padding-right-20.last{
+    margin-bottom: 0px;
+  }
+  .multi-image-wrapper.about._1{
+    background-image: url("https://cdn.shopify.com/s/files/1/0107/7431/5072/files/66e72f470510e22517cd04ffe971f0b9.jpg?v=1713478508");
+    background-size: cover;
+    background-position: center;
+  }
+  .multi-image-wrapper.about._2{
+    background-image: url("https://cdn.shopify.com/s/files/1/0107/7431/5072/files/dedf87a3cbd810d38f16e22c9478a213.jpg?v=1713480816");
+    background-size: cover;
+    background-position: center;
+  }
+    
+  .multi-image-wrapper.about._3{
+    background-image: url("https://cdn.shopify.com/s/files/1/0107/7431/5072/files/d496f0f4fa07a430d27c012947f422c4.jpg?v=1713480816");
+    background-size: cover;
+    background-position: center;
+  }
+  .image-rounded-top-right.tablet-hidden{
+    display: none;
+  }
+  .right-inner-wrapper._540{
+    max-width: none;
+  }
+  .inner-50.padding-left-20{
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 54px;
+    margin-bottom: 98px;
+  }
+  .section-heading{
+    margin-top: 0px;
+  }
+  .heading-wrapper .body-larger{
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .spd-wrapper.about .heading-wrapper .body-larger{
+    font-size: 17px;
+    line-height: 26px;
+    font-weight: 400;
+  }
+  .flex-wrapper.center.padding-top-133{
+    padding-top: 0px;
+  }
+  .about-boxes-inner{
+    margin-bottom: 0px;
+  }
+  section.about-bottom{
+    padding-bottom: 60px;
+  }
+  .spd-wrapper.about.right-padding{
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .spd-wrapper.about.left-padding{
+        padding-right: 0px;
+    padding-left: 0px;
+  }
+
+
+}
+@media screen and (max-width: 991px) {
+    .background-video .video-text-wrapper {
+        padding-bottom: 0;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    #shopify-section-about-page .video-text-wrapper{
+    margin-bottom: 0px;
+  }
+  .about-box._1{
+    height: 386px;
+  }
+  .about-box._2{
+    padding: 40px 18px;
+    border-radius: 0px;
+
+  }
+  .about-sub-heading{
+    margin-bottom: 20px;
+  }
+  .about-boxes-inner.mobile-reverse{
+    margin-top: 20px;
+  }
+  .about-box._3{
+    padding: 40px 20px;
+  }
+  .section.about .section-heading{
+    margin-bottom: 20px;
+  }
+  .about-body.dark.more-padding{
+  margin-bottom: 14px;
+  }
+  .about-body.dark{
+    margin-bottom: 0px;
+  }
+  .spd-wrapper.about.right-padding{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .spd-wrapper.about .flex-wrapper.center.padding-top-133.padding-bottom-132{
+    max-width: 100%;
+  }
+  .spd-wrapper.about.right-padding.no-padding-mobile{
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .spd-wrapper.about.left-padding{
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .section.about-bottom .inner-50.padding-right-20{
+    margin-bottom: 0px;
+  }
+
+  .spd-wrapper.about .flex-wrapper.center.padding-top-133.padding-bottom-132{
+    padding-bottom: 50px;
+  }
+  .multi-image-wrapper.about.left._2{
+    height: 426px;
+  }
+  .inner-50.padding-left-20{
+    margin-top: 40px;
+    margin-bottom: 0px;
+  }
+  .spd-wrapper.about.right-padding{
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .section.about-bottom .inner-50.padding-right-20{
+    margin-top: 40px;
+  }
+  .section.about-bottom .section-heading{
+    margin-bottom: 20px;
+  }
+  .spd-wrapper.about .inner-50.padding-right-20 p{
+    margin-bottom: 30px;
+  }
+  .green-sub-heading{
+    margin-bottom: 10px;
+  }
+  .spd-wrapper.about .body-larger.no-margin{
+    margin-bottom: 0px !important;
+  }
+  .spd-wrapper.about .heading-wrapper .body-larger{
+    margin-bottom: 14px;
+  }
+  .spd-wrapper.about .inner-50.padding-right-20 .body-larger{
+    margin-bottom: 14px;
+  }
+  .background-video.about-page{
+
+    height: 589px;
+
+  }
+  .body-larger.margin-b-10{
+    margin-bottom: 10px !important;
+  }
+  .spd-wrapper.about .rounded-button.primary{
+    font-weight: 400;
+  }
+}
+
+</style>
+
+{{ 'section-home-page.css' | asset_url | stylesheet_tag }}
+
+<section>
+  <div data-poster-url="https://uploads-ssl.webflow.com/62d7331e2672d697b84370db/66043fdc49386dfba808dced_VIDEO BKG Money Back Guarantee_Compressed-poster-00001.jpg" data-video-urls="https://uploads-ssl.webflow.com/62d7331e2672d697b84370db/66043fdc49386dfba808dced_VIDEO BKG Money Back Guarantee_Compressed-transcode.mp4,https://uploads-ssl.webflow.com/62d7331e2672d697b84370db/66043fdc49386dfba808dced_VIDEO BKG Money Back Guarantee_Compressed-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="background-video about-page w-background-video w-background-video-atom"><video id="084ee1eb-fb43-3596-7c7b-5e9b8e3c3fec-video" autoplay="" loop="" poster="https://uploads-ssl.webflow.com/62d7331e2672d697b84370db/66043fdc49386dfba808dced_VIDEO BKG Money Back Guarantee_Compressed-poster-00001.jpg" style="background-image:url(&quot;https://uploads-ssl.webflow.com/62d7331e2672d697b84370db/66043fdc49386dfba808dced_VIDEO BKG Money Back Guarantee_Compressed-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
+      <source src="https://uploads-ssl.webflow.com/62d7331e2672d697b84370db/66043fdc49386dfba808dced_VIDEO BKG Money Back Guarantee_Compressed-transcode.mp4" data-wf-ignore="true">
+      <source src="https://uploads-ssl.webflow.com/62d7331e2672d697b84370db/66043fdc49386dfba808dced_VIDEO BKG Money Back Guarantee_Compressed-transcode.webm" data-wf-ignore="true">
+    </video>
+    <div class="video-text-wrapper">
+
+      <h1 class="section-heading video-heading">Hi, we're R&R, and we're here to help you <span class="light-green-text">feel better.</span></h1>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section green about">
+  <div class="shop-by-function-inner about">
+
+    <div class="about-boxes-wrapper">
+
+      <div class="about-boxes-inner mobile-padding">
+        <div class="about-box _1">
+
+        </div>
+        <div class="about-box _2">
+          <div class="about-sub-heading">Our mission is to help you take back control of your well-being, quickly and naturally, so you can live your life to its fullest.</div>
+
+          <p class="about-body">We don’t think you should ever settle for feeling just “okay.” You can, and should, always feel your best. We’re committed to helping you overcome what’s holding you back in no time, and for good.</p>
+        </div>
+      </div>
+
+      <div class="about-boxes-inner mobile-reverse">
+        <div class="about-box _3">
+          <h1 class="section-heading">We’re Committed to Your Well-Being</h1>
+
+          <p class="about-body dark more-padding">We believe everyone deserves access to effective relief that really works. By offering the highest-quality CBD on the market, we’re putting a holistic solution into your hands that can make your life better.*
+          </p>
+          <p class="about-body dark">
+            Sometimes it can feel like the world is against you when you’re struggling with pain, stress, sleep, or the harsh side effects from pharmaceuticals that are supposed to be helping. At R&R, we’ve developed all-natural ways for you to feel better. We guarantee your pain will diminish, you’ll feel calmer, and you’ll sleep more soundly.*
+          </p>
+        </div>
+        <div class="about-box _4">
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section extra-padding-top about-bottom">
+    <div class="spd-wrapper about right-padding no-padding-mobile">
+      <div class="flex-wrapper center padding-top-133 padding-bottom-132 about reverse">
+        <div class="inner-50 padding-right-20">
+          <div class="right-inner-wrapper _540">
+            <div class="heading-wrapper">
+              <h1 class="section-heading dark-green no-margin-top extra-margin-bottom">Why We’re Obsessed With CBD</h1>
+              <p class="body-larger margin-b-10" >CBD changed our lives. After about six years in the U.S. Marine Corps, Dave sought to relieve lingering pain and sleeping issues. When a fellow veteran introduced Dave to CBD, his results were so good that he almost couldn’t believe it. </p>
+              <p class="body-larger no-margin" >Dave shared his experience with his twin brother Lars, who struggled with stress, and his close friend Eric, who had trouble sleeping. After experiencing the benefits themselves, they decided to leave their corporate jobs, dedicating themselves full-time to put a superior version of this natural solution into the hands of as many people as possible. </p>
+
+            </div>
+          </div>
+        </div>
+        <div class="inner-50 padding-top center">
+          <div class="multi-image-wrapper about _1"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/66e72f470510e22517cd04ffe971f0b9.jpg?v=1713478508" loading="lazy" alt="" class="image-rounded-top-right no-radius tablet-hidden">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="spd-wrapper about left-padding">
+      <div class="flex-wrapper center padding-top-133 padding-bottom-132">
+        <div class="inner-50 padding-top center">
+          <div class="multi-image-wrapper about left _2"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/dedf87a3cbd810d38f16e22c9478a213.jpg?v=1713480816" loading="lazy" alt="" class="image-rounded-top-right no-radius tablet-hidden">
+
+          </div>
+        </div>
+
+        <div class="inner-50 padding-left-20">
+          <div class="right-inner-wrapper _540">
+            <div class="heading-wrapper">
+              <h1 class="section-heading dark-green no-margin-top extra-margin-bottom">Why Our CBD Works</h1>
+              <p class="body-larger" >The power of CBD was clear to us from the get-go, but we were disappointed when we encountered subpar products in the market that didn’t work, giving CBD a bad rap.</p>
+              <p class="body-larger">So we started from the ground up. We selected a genetically unique and superior strain of hemp and worked with local family farms to produce USDA-certified organic crops. Our CBD extract, always third-party tested, preserves terepens, flavonoids, and other phytonutrients to make our products unmatched in efficacy. Then we assembled a world-class team of scientists, doctors, chemists, and more to develop our unique products and share them with the world. </p>
+              <p class="body-larger no-margin">The result? Safe, effective products that we give to our families, that we take every single day ourselves, and that have improved the lives of the thousands of people in our R&R community.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+    <div class="spd-wrapper about right-padding">
+      <div class="flex-wrapper center padding-top-133 padding-bottom-132 reverse">
+        <div class="inner-50 padding-right-20 last">
+          <div class="right-inner-wrapper _540">
+            <div class="heading-wrapper">
+              <h1 class="section-heading dark-green no-margin-top extra-margin-bottom">What You Deserve</h1>
+              <p class="body-larger" >R&R is a military abbreviation that stands for <strong>“Rest and Relaxation.”</strong> We also stand for:</p>
+
+
+              <h4 class="green-sub-heading">Products that work for your needs</h4>
+              <p class="body-larger" >Whether you want help overcoming sleeping problems, chronic or acute pain, or dealing with anxiety and stress, our CBD can work for you.*</p>
+
+              <h4 class="green-sub-heading">Above & Beyond Customer Support</h4>
+              <p class="body-larger no-margin">We’re passionate about getting you back to your best self. Let our in-house Relief Experts help you tailor a CBD routine that will work best for you. We’re here for you every step of the way.</p>
+
+            </div>
+          </div>
+        </div>
+        <div class="inner-50 padding-top center">
+          <div class="multi-image-wrapper about _3"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/d496f0f4fa07a430d27c012947f422c4.jpg?v=1713480816" loading="lazy" alt="" class="image-rounded-top-right no-radius tablet-hidden">
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="center-button-wrapper">
+        <a href="/collections/all-products" class="rounded-button primary no-margin-top hover-darker">Start Feeling Better</a>
+      </div>
+
+    </div>
+
+
+
+  </section> 

@@ -1,0 +1,129 @@
+<style>
+.category-card {
+    position: relative;
+    overflow: hidden;
+    display: block; /* Ensuring the anchor tag behaves like a block for proper positioning */
+    text-decoration: none; /* Optional: removes underline from links */
+}
+
+/* Media query for desktops, applying hover effect at widths greater than 768px */
+@media (min-width: 768px) {
+    .category-card::after {
+        content: 'SHOP NOW'; /* Adding text inside the pseudo-element */
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 61px;
+        background-color: #002E29;
+        color: #FFFFFF; /* Ensuring the text color is white or any contrasting color */
+        text-align: center; /* Centering the text horizontally */
+        line-height: 61px; /* Centering the text vertically */
+        opacity: 0; /* Start fully transparent */
+        transition: opacity 0.3s ease-in-out; /* Smooth transition for the fade in/out effect */
+        font-family: Poppins;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0.48px;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .category-card:hover::after {
+        opacity: 1; /* Fully visible on hover */
+    }
+}
+
+
+
+</style>
+<section class="section-padded padding-top-70">
+  <div class="spd-wrapper">
+    <div class="heading-and-button-wrapper">
+      <h1 class="section-heading margin-0">Get the Relief You Deserve</h1>
+      <a href="/collections/all-products" class="rounded-button primary no-margin-top right hover-darker">Shop All</a>
+    </div>
+    <div class="category-wrapper">
+      <div class="category-container">
+        <a href="/collections/cbd-pain-creams" class="category-card">
+          <div class="category-button">Topicals</div><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/83863be1ea18ac27054d501b5c952676.jpg?v=1713391177" loading="lazy" alt="" class="category-image">
+        </a>
+        <a href="/collections/tinctures" class="category-card _2">
+          <div class="category-button">Tinctures</div>
+          
+
+          <style>
+            .category-image.tinctures{
+              background-image: url("https://cdn.shopify.com/s/files/1/0107/7431/5072/files/2c747f002ce563b1b567f78add073758.jpg?v=1713391177");
+              background-position: center;
+              background-size: cover;
+            }
+            .category-image.softgels{
+              background-image: url("https://cdn.shopify.com/s/files/1/0107/7431/5072/files/afc969b3ff0d530fcb86abff00d72619.jpg?v=1713391177");
+              background-position: center;
+              background-size: cover;
+            }
+            @media (max-width: 768px) {
+              .category-image.tinctures{
+              background-image: url("https://cdn.shopify.com/s/files/1/0107/7431/5072/files/4417852f2370e3d5230fc5e016f738d4.jpg?v=1713802821");
+            }
+            .category-image.softgels{
+              background-image: url("https://cdn.shopify.com/s/files/1/0107/7431/5072/files/afc969b3ff0d530fcb86abff00d72619_d463873e-7673-4fae-8df2-2f1e66039500.jpg?v=1713802821");
+            }
+            }
+
+          </style>
+          <div class="category-image tinctures"></div>
+
+          {% comment %}
+            <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/2c747f002ce563b1b567f78add073758.jpg?v=1713391177" loading="lazy" alt="" class="category-image">
+          {% endcomment %}
+
+
+        </a>
+      </div>
+      <div class="category-container">
+        <a href="/collections/gummies" class="category-card">
+          <div class="category-button">Gummies</div><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/c52f5cfdcf9e6af37aba1f1f3bbca7e2.jpg?v=1713391177" loading="lazy" alt="" class="category-image">
+        </a>
+        <a href="/collections/softgels" class="category-card">
+          <div class="category-button">Softgels</div>
+          
+
+          <div class="category-image softgels"></div>
+          {% comment %}
+            <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/afc969b3ff0d530fcb86abff00d72619.jpg?v=1713391177" loading="lazy" alt="" class="category-image">
+          {% endcomment %}
+
+          
+        </a>
+      </div>
+      <div class="center-button-wrapper deskop-hidden">
+        <a href="/collections/all-products" class="rounded-button primary margin-top-42">Shop all</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Category Cards",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+    ],
+    "presets": [
+      {
+        "name": "Category Cards"
+      }
+    ]
+  }
+  {% endschema %}
+  

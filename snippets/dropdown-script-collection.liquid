@@ -1,0 +1,175 @@
+<style>
+	.jc-faq-page-expand-wrapper {
+		overflow: hidden;
+		max-height: 0;
+		opacity: 0;
+		transition: max-height 0.5s ease, opacity 0.5s ease;
+	}
+
+	.jc-faq-page-expand-wrapper.open {
+		max-height: 1000px;
+		/* Adjust this value based on the actual content size */
+		opacity: 1;
+		height: auto;
+	}
+
+	.jc-faq-page-open-btn img {
+		transition: transform 0.5s ease;
+	}
+</style>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const headers = document.querySelectorAll('.jc-faq-page-content-heading-wrapper');
+
+    // Utility function to find the correct expandable section
+    function findExpandableSection(header) {
+        let section = header.nextElementSibling;
+        if (section && (section.classList.contains('jc-faq-page-expand-wrapper') || section.classList.contains('jc-faq-page-expand-wrapper-use'))) {
+            return section;
+        }
+        return null; // Return null if no matching section is found
+    }
+
+    headers.forEach(header => {
+        header.addEventListener('click', function() {
+            const currentSection = findExpandableSection(this);
+            const icon = this.querySelector('.jc-faq-page-open-btn img');
+
+            if (!currentSection || !icon) {
+                console.log('Current section or icon not found for:', this);
+                return; // Early return if elements are not found
+            }
+
+            // Toggle the current section open state
+            if (!currentSection.classList.contains('open')) {
+                currentSection.classList.add('open');
+                icon.style.transform = 'rotate(45deg)'; // Rotate the icon to indicate open state
+            } else {
+                currentSection.classList.remove('open');
+                icon.style.transform = 'rotate(0deg)'; // Reset the icon to indicate closed state
+            }
+        });
+    });
+});
+
+</script>
+
+{% comment %}
+    
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const headers = document.querySelectorAll('.jc-faq-page-content-heading-wrapper');
+
+    
+
+    // Utility function to find the correct expandable section
+    function findExpandableSection(header) {
+        let section = header.nextElementSibling;
+        if (section && (section.classList.contains('jc-faq-page-expand-wrapper') || section.classList.contains('jc-faq-page-expand-wrapper-use'))) {
+            return section;
+        }
+        // If not found, search for a specific class if needed (optional)
+        return null; // Return null if no matching section is found
+    }
+
+    headers.forEach(header => {
+        header.addEventListener('click', function() {
+            const currentSection = findExpandableSection(this);
+            const icon = this.querySelector('.jc-faq-page-open-btn img');
+            const allSections = document.querySelectorAll('.jc-faq-page-expand-wrapper, .jc-faq-page-expand-wrapper-use');
+            const allIcons = document.querySelectorAll('.jc-faq-page-content-heading-wrapper .jc-faq-page-open-btn img');
+
+            if (!currentSection || !icon) {
+                console.log('Current section or icon not found for:', this);
+                return; // Early return if elements are not found
+            }
+
+            // Close all other sections and reset their icons
+            allSections.forEach(section => {
+                if (section !== currentSection) {
+                    section.classList.remove('open');
+                }
+            });
+
+            allIcons.forEach(iconItem => {
+                // Reset all icons to their initial state
+                iconItem.style.transform = 'rotate(0deg)';
+            });
+
+            // Only open the current section if it's not already open
+            if (!currentSection.classList.contains('open')) {
+                currentSection.classList.add('open');
+                icon.style.transform = 'rotate(45deg)'; // Rotate the current icon
+            } else {
+                currentSection.classList.remove('open');
+                // No need to reset the current icon here as it's already been reset above
+            }
+        });
+    });
+
+    // Optionally, automatically open the first section
+  /*
+    if (headers.length > 0) {
+        const firstSection = findExpandableSection(headers[0]);
+        const firstIcon = headers[0].querySelector('.jc-faq-page-open-btn img');
+        if (firstSection && !firstSection.classList.contains('open')) {
+            firstSection.classList.add('open');
+            firstIcon.style.transform = 'rotate(45deg)';
+        }
+    }
+  */
+});
+</script>
+{% endcomment %}
+
+
+
+
+{% comment %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const headers = document.querySelectorAll('.jc-faq-page-content-heading-wrapper');
+
+    headers.forEach(header => {
+        header.addEventListener('click', function() {
+            const currentSection = this.parentNode.querySelector('.jc-faq-page-expand-wrapper-use');
+            const icon = this.querySelector('.jc-faq-page-open-btn img');
+            const allSections = document.querySelectorAll('.jc-faq-page-expand-wrapper-use');
+            const allIcons = document.querySelectorAll('.jc-faq-page-content-heading-wrapper .jc-faq-page-open-btn img');
+
+            // Close all sections except the current one and reset their icons
+            allSections.forEach((section, index) => {
+                if (section !== currentSection) {
+                    section.classList.remove('open');
+                    allIcons[index].style.transform = 'rotate(0deg)';
+                }
+            });
+
+            // Toggle the current section
+            if (!currentSection.classList.contains('open')) {
+                currentSection.classList.add('open');
+                icon.style.transform = 'rotate(45deg)';
+            } else {
+                currentSection.classList.remove('open');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        });
+    });
+	    // Automatically open the first section
+		if (headers.length > 0) {
+        const firstSection = headers[0].parentNode.querySelector('.jc-faq-page-expand-wrapper-use');
+        const firstIcon = headers[0].querySelector('.jc-faq-page-open-btn img');
+        if (firstSection && !firstSection.classList.contains('open')) {
+            firstSection.classList.add('open');
+            firstIcon.style.transform = 'rotate(45deg)';
+        }
+    }
+});
+
+
+</script>
+    {% endcomment %}

@@ -1,0 +1,573 @@
+<style>
+                    .yotpo a:hover {
+                        color: #004943 !important;
+                    }
+
+                    .solution-icon {
+                        position: absolute;
+                        top: 30px;
+                        z-index: 1;
+                        right: 25px;
+                    }
+                    #home-slider .section-heading{
+                        margin-bottom: 0px;
+                    }
+                    #home-slider .collection-menu-wrapper-outter.slider{
+                        padding-bottom: 0px;
+                        margin-top: 0px;
+                        align-items: baseline;
+                        padding-top: 13px;
+                        min-height: auto;
+                    }
+                    #home-slider .jc-product-section-col-inner{
+                        padding-bottom: 60px;
+                    }
+
+                    .scroll-btn.slider-btn{
+                        top: 25%;
+                        transform: none;
+                    }
+                    .collection-button-wrapper.slider-btn-wrapper{
+                        height: 100%;
+                    }
+                    .white-button.desktop-show.slider-btn{
+                        bottom: -70px
+                    }
+
+                    #home-slider .description-tag{
+                        display: none;
+                    }
+                    #home-slider .white-button.desktop-show.slider-btn{
+                        bottom: 60px
+                    }
+                    .collection-menu-wrapper-outter {
+                        position: relative;
+                    }
+                    .collection-menu-wrapper-outter.slider{
+                        margin-top: 30px;
+                        padding-top: 0px;
+                        top: 0px;
+                        justify-content: left;
+                        -webkit-box-pack: left;
+                        -webkit-justify-content: left;
+                        -ms-flex-pack: left;
+                        margin-left: -7px;
+                    }
+                    .collection-menu-wrapper-outter.active {
+                        border: none;
+                    }
+
+                    .jc-products-flex-row.slider {
+                        flex-wrap: nowrap;
+                        margin-top: 0px;
+                        padding-top: 0px;
+                        min-height: auto;
+                        max-width: 100%;
+                    }
+
+                    .collection-product-wrapper.slider {
+                        min-width: auto;
+                        min-height: 0;
+                    }
+
+                    .collection-product-wrapper-item {
+                        max-width: 25%;
+                        margin: 0 8px;
+                    }
+                    .flavor-icon {
+                        position: absolute;
+                        top: 16px;
+                        z-index: 1;
+                        left: 16px;
+                        height: 27px;
+                    }
+                    #home-slider .image-overlay{
+                        margin-bottom: 0px;
+                    }
+
+                    @media (max-width: 1023px) {
+                        .collection-product-wrapper-item {
+                            max-width: 50%;
+                        }
+                        .flavor-icon{
+                            height: 16px;
+                            top: 9px;
+                            left: 9px;
+                            }
+                            .solution-icon {
+                            top: 20px;
+                            left: auto;
+                            right: 10px;
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+
+                    @media (max-width: 768px) {
+                        .collection-product-wrapper-item {
+                            max-width: 100%;
+                            min-height: 450px;
+                            margin: 0 7px;
+                        }
+
+
+                    }
+
+                    @media (max-width: 410px) {
+                        .collection-product-wrapper-item {
+                            min-height: 410px;
+                        }
+                    }
+
+                    .collection-product-wrapper-item .collection-product-wrapper {
+                        width: 100%;
+                    }
+
+                    #home-slider .slick-list {
+                        padding: 50px 0 0;
+                    }
+
+                    .collection-menu-wrapper{
+                        width: 90%;
+                        margin-bottom: 0px;
+                    }
+
+                    .description-tag {
+                        background-color: #004943;
+                        color: #fff;
+                        padding: 0px 18px;
+                        border-radius: 30px;
+                        height: 35px;
+                        font-size: 16px;
+                        width: fit-content;
+                        display: flex;
+                        align-items: center;
+                    }
+                    @media screen and (max-width: 767px) {
+                        .slider{
+                            min-height: 500px;
+                        }
+                        .collection-menu-wrapper-outter.slider{
+                            margin-left: 0px;
+                        }
+                        /* Indicators styling */
+                        .slider-indicators-home {
+                        position: absolute;
+                        bottom: 0px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        display: flex;
+                        align-items: center;
+
+                        width: calc(100vw - 0px);
+                        padding-right: 20px;
+                        padding-left: 20px;
+                        }
+                        .indicator-home {
+                        width: 100%;
+                        height: 1px; /* Rectangle height */
+                        background-color: #ccc; /* Inactive color (grey) */
+                        margin: 0px;
+                        cursor: pointer;
+                        /*
+                        transition: background-color 0.3s;
+                        */
+                        
+                        }
+
+                        .indicator-home.active {
+                        background-color: #004943; /* Active color (green) */
+                        height: 2px;
+                        }
+                    }
+                    .collection-menu-wrapper.home{
+                        overflow: hidden;
+                    }
+                    @media (max-width: 479px) {
+
+
+                    }
+
+                    #home-slider .left-collection-arrow {
+                        left: 0;
+                        padding-left: 0;
+                        top: 0;
+                    }
+
+                    #home-slider .left-collection-arrow img {
+                        transform: rotate(180deg);
+                    }
+
+                    #home-slider .slick-dots {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    #home-slider .slick-dots li {
+                        margin: 0;
+                        height: auto;
+                    }
+
+                    #home-slider .slick-dots li button {
+                        width: 100%;
+                        background-color: #ccc;
+                        height: 1px;
+                        padding: 0;
+                        margin: 0;
+                        transition: background-color 0.3s;
+                    }
+
+                    #home-slider .slick-dots li.slick-active button {
+                        background-color: #004943;
+                        height: 2px;
+                    }
+
+                    @media (max-width: 749px) {
+                        #home-slider .white-button.w-button {
+                            bottom: unset;
+                        }
+
+                        #home-slider {
+                            padding-right: 0;
+                        }
+
+                        #home-slider .collection-product-title {
+                            min-height: 66px;
+                        }
+
+                        #home-slider .slick-slider .slick-track {
+                            margin-left: -155px;
+                        }
+                    }
+
+                    @media (max-width: 424px) {
+                        #home-slider .slick-slider .slick-track {
+                            margin-left: -136px;
+                        }
+                    }
+                </style>
+
+
+{% assign current_collection = collections[collection_handle] %}
+{% assign itemCount = 0 %}
+
+<div class="collection-menu-wrapper-outter slider">
+    <div class="collection-menu-wrapper home">
+        <div class="jc-products-flex-row slider test-flex-row home">
+            {% for product in current_collection.products %}
+            {% for variant in product.variants %}
+
+
+                {% comment %}
+                    1000mg pain cream = 37546462740678
+                    5000mg pain cream = 42753364951238
+
+                    30mg Gummy = 37546503733446
+                    90mg Gummy = 43162448625862
+
+                    1000 Fresh Mint Tincture = 29122588934197
+                    5000 Fresh Mint Tincture = 42669261586630
+
+                    30mg Softgels = 29122871918645
+                    60mg Softgels = 42695090176198
+                {% endcomment %}
+
+
+                {% unless 
+                    variant.id == 37546462740678 
+                    or 
+                    variant.id == 42753364951238
+                    or 
+                    variant.id == 37546503733446
+                    or 
+                    variant.id == 43162448625862 
+                    or 
+                    variant.id == 29122588934197
+                    or 
+                    variant.id == 42669261586630 
+                    or 
+                    variant.id == 29122871918645
+                    or 
+                    variant.id == 42695090176198
+                    
+                %}
+
+                {% assign itemCount = itemCount | plus: 1 %}
+                    
+               
+            <div class="collection-product-wrapper-item">
+
+                <div class="collection-product-wrapper home slider" data-product='{{ product | json }}'
+                    data-variant='{{ variant | json }}'>
+
+
+                    {% if variant.metafields.custom.best_seller %}
+                    <div class="best-seller-wrapper">Best Seller</div>
+                    {% endif %}
+
+                    {% comment %}
+
+                    Pain - 294623903942
+                    Stress - 294623936710
+                    Sleep - 294623871174
+                    Overall Wellness - 294623969478
+                    {% endcomment %}
+
+                    {% unless collection.id == 294623903942 or collection.id == 294623936710 or collection.id ==
+                    294623871174 or collection.id == 294623969478 %}
+
+                    {% if variant.metafields.custom.solution_icon%}
+                    <img src="{{variant.metafields.custom.solution_icon |  image_url }}" class="solution-icon" alt="">
+                    {% endif %}
+                    {% endunless %}
+
+
+                    {% unless collection.id == 294623903942 or collection.id == 294623936710 or collection.id == 294623871174 or collection.id == 294623969478 %}
+  
+                        {% if variant.metafields.custom.solution_icon %}
+                          <img src="{{ variant.metafields.custom.solution_icon |  image_url }}" class="solution-icon" alt="">
+                        {% endif %}
+                      
+                        {% if variant.metafields.custom.flavor_icon %}
+                          <img src="{{ variant.metafields.custom.flavor_icon |  image_url }}" class="flavor-icon" alt="">
+                        {% endif %}
+                      
+                      
+                      {% endunless %}
+
+
+                    <div class="jc-product-section-col-inner">
+
+                    <div class="yotpo-widget-instance home" data-yotpo-instance-id="539134487"
+                    data-yotpo-product-id="{{product.id}}" data-yotpo-cart-product-id="{{item.product.id}}"
+                    data-yotpo-section-id="{{template.name}}"></div>
+
+
+                        <div class="jc-product-section-img-wrapper collection home">
+                            <!-- Start link wrapper -->
+                            <div class="product-title-link product-item-top">
+
+
+                                <!-- Conditional image display -->
+                                <div class="image-wrapper">
+
+
+
+
+                                    <div class="image-overlay"></div>
+                                    <a href="{{variant.url}}">
+                                        {% if variant.metafields.custom.variant_image %}
+                                        <img src="{{ variant.metafields.custom.variant_image | image_url }}"
+                                            alt="{{ variant.title | escape }}">
+                                        {% elsif variant.image %}
+                                        <img src="{{ variant.image.src | img_url: '1024x' }}"
+                                            alt="{{ variant.title | escape }}">
+                                        {% else %}
+                                        <img src="{{ product.featured_image | img_url: '1024x' }}"
+                                            alt="{{ product.title | escape }}">
+                                        {% endif %}
+                                    </a>
+
+
+
+                                    <button class="white-button w-button desktop-show slider-btn"
+                                        data-product-available="{{product.avalable}}"
+                                        data-quick-add-image="{{variant.metafields.custom.variant_image | image_url}}"
+                                        data-meta-image="{{variant.metafields.custom.variant_image | image_url}}"
+                                        data-variant-image="{{variant.image | image_url }}"
+                                        data-product-image="{{product.image | image_url }}"
+                                        data-product-spectrum="{{product_spectrum}}" 
+                                        data-variant-id="{{ variant.id }}"
+                                        data-variant-title="{{ variant.title | escape }}"
+                                        data-product-title="{{ product.title | escape }}"
+                                        data-variant-price="{{ variant.price | money_without_currency }}"
+                                        data-product-url="{{product.url}}"
+                                        data-variant-url="{{variant.url}}" 
+                                        data-productid="{{ product.id }}"
+                                        data-product-options="{{ product.options_with_values | json | escape }}"
+                                        data-variants="{{ product.variants | json | escape }}" 
+                                        onclick="openFlyout(this)">
+                                        QUICK ADD
+                                    </button>
+                                </div>
+
+
+                                <!-- Variant title and product title -->
+                                {% assign variant_parts = variant.title | split: ' / ' %}
+                                {% assign mg_part = variant_parts[1] | remove: 'mg' %}
+
+                                <a href="{{variant.url}}">
+                                <div class="yotpo bottomLine" data-product-id="{{ product.id }}">
+                                </div>
+                                </a>
+
+
+                                    {% comment %}
+                                    <a href="{{product.url}}" class="collection-product-title">{{ mg_part }}mg {{ product.title | escape }}</a>
+                                    {% endcomment %}
+                                    <a href="{{variant.url}}" class="collection-product-title">{{ variant.metafields.custom.variant_product_title | escape }}</a>
+
+
+
+
+
+
+
+
+                                <!-- Price display -->
+                                <a href="{{ variant.url }}" class="price-wrapper">
+
+                                {% assign integer_price = variant.price | times: 0.8 | money %}
+                                {% if integer_price contains ".00" %}
+                                  {% assign integer_price = integer_price | remove: ".00" %}
+                                {% endif %}
+                                
+                                <span class="compare-price">
+                                  {{ variant.price | money_without_trailing_zeros }}
+                                </span>
+                                <span class="price">
+                                  {{ integer_price }}
+                                </span>
+                                <div class="subscribe-text">(Subscribe & Save 20%)</div>
+{% comment %}
+    
+
+                                    {% if variant.compare_at_price %}
+                                    <div class="compare-price">
+                                        {% assign compare_parts = variant.compare_at_price | money | split: "." %}
+                                        {% if compare_parts[1] == "00" %}
+                                            {{ compare_parts[0] }}
+                                        {% else %}
+                                            {{ variant.compare_at_price | money }}
+                                        {% endif %}
+                                    </div>
+                                    {% endif %}
+                                    <div class="price">
+                                        {% assign price_parts = variant.price | money | split: "." %}
+                                        {% if price_parts[1] == "00" %}
+                                            {{ price_parts[0] }}
+                                        {% else %}
+                                            {{ variant.price | money }}
+                                        {% endif %}
+                                    </div>
+                                    <div class="subscribe-text">(Subscribe & Save 20%)</div>
+                                    {% endcomment %}
+                                </a>
+
+                                
+
+
+                                <button class="white-button w-button mobile-show"
+                                    data-product-available="{{product.avalable}}"
+                                    data-quick-add-image="{{variant.metafields.custom.variant_image | image_url}}"
+                                    data-meta-image="{{variant.metafields.custom.variant_image | image_url}}"
+                                    data-variant-image="{{variant.image | image_url }}"
+                                    data-product-image="{{product.image | image_url }}"
+                                    data-product-spectrum="{{product_spectrum}}" 
+                                    data-variant-id="{{ variant.id }}"
+                                    data-variant-title="{{ variant.title | escape }}"
+                                    data-product-title="{{ product.title | escape }}"
+                                    data-variant-price="{{ variant.price | money_without_currency }}"
+                                    data-product-url="{{product.url}}"
+                                    data-variant-url="{{variant.url}}" 
+                                    data-productid="{{ product.id }}"
+                                    data-product-options="{{ product.options_with_values | json | escape }}"
+                                    data-variants="{{ product.variants | json | escape }}" onclick="openFlyout(this)">
+                                    QUICK ADD
+                                </button>
+                                {% assign spectrum_value = product.metafields.order.broad_or_full_spectrum.value | downcase
+                                %}
+
+                                {% if spectrum_value == "full spectrum" %}
+                                    {% assign product_spectrum = "full-spectrum" %}
+                                {% elsif spectrum_value == "broad spectrum" %}
+                                    {% assign product_spectrum = "broad-spectrum" %}
+                                {% else %}
+                                    {% assign product_spectrum = "unknown-spectrum" %}
+                                {% endif %}
+
+
+
+
+
+                            </div>
+                            <!-- End link wrapper -->
+                        </div>
+                    </div>
+
+
+
+
+                    {% unless collection.id == 295136919750
+                    or collection.id == 295136952518
+                    or collection.id == 294623871174 %}
+
+
+                    {% if product.tags contains 'localized-relief' %}
+                    <div class="description-tag">Localized Relief</div>
+
+                    {%elsif product.tags contains 'long-lasting-relief' %}
+                    <div class="description-tag">Long Lasting Relief</div>
+
+                    {%elsif product.tags contains 'fast-acting-relief' %}
+                    <div class="description-tag">Fast Acting</div>
+
+                    {%elsif product.tags contains 'fast-acting-and-long-lasting-relief' %}
+                    <div class="description-tag">Fast Acting & Long Lasting Relief</div>
+
+                    {% endif %}
+                    {% endunless %}
+
+
+                </div>
+
+                <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/{{app_key}}" async></script>
+            </div>
+
+            {% endunless %}
+            {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<style>
+    #home-slider .slick-dots li {
+        width: calc(100% / {{ itemCount }});
+    }
+</style>
+
+<script>
+    $(document).ready(function(){
+      $('#home-slider .jc-products-flex-row').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true,
+        prevArrow: $('#home-slider .left-collection-arrow'),
+        nextArrow: $('#home-slider .right-collection-arrow'),
+        responsive: [
+          {
+            breakpoint: 990,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              dots: true,
+              arrows: false,
+            }
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2.2,
+              slidesToScroll: 1,
+              dots: true,
+              arrows: false,
+            }
+          }
+        ]
+      });
+    });
+</script>

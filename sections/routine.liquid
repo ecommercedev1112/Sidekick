@@ -1,0 +1,1306 @@
+
+
+
+<style>
+	.collection-product-wrapper{
+		width: 33%;
+	}
+  
+.image-wrapper {
+    height: 320px;
+}
+.description-tag{
+	display: none !important;
+}
+
+.how-to-use-wrapper {
+	max-width: 970px;
+	}
+	.tablinks.light-blue.last{
+	min-width: 185px;
+	}
+
+	.how-to-use-wrapper h1 {
+		font-size: 55px;
+		font-style: normal;
+		font-weight: 700;
+        margin-bottom: 15px;
+	}
+
+	.how-to-use-wrapper .jc-faq-page-content-heading {
+		color: #2D2926;
+		font-family: Poppins;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+		letter-spacing: 1.28px;
+		text-transform: uppercase;
+	}
+
+	.cta-wrapper-function {
+		display: flex;
+		padding-left: max(calc((100vw - 1380px) / 2), 27px);
+		padding-top: 0px;
+		padding-bottom: 102px;
+		padding-top: 102px;
+		background: #FCD0BE;
+	}
+	.cta-wrapper-function.routine {
+		/*
+		padding-right: calc((100vw - 1434px) / 2);
+		*/
+		padding-right: max(calc((100vw - 1380px) / 2), 27px);
+		padding-left: 0px;
+		padding-top: 0px;
+	}
+	#routine .how-to-use-wrapper{
+		margin-left: auto;
+	}
+	#routine .jc-products-flex-row.slider{
+		column-gap: 16px;
+		max-width: 100%;
+	}
+	.cta-wrapper-function.white{
+		background: #fff !important;
+	}
+    .cta-img-wrapper.show-mobile {
+      display: none;
+        
+      padding: 0;
+      min-height: 0;
+      max-width: 100%;
+    }
+	.cta-img-wrapper.show-desktop {
+
+		height: 100%;
+		min-height: 765px;
+		margin-right: 0px;
+		margin-left: 0px;
+		padding: 0px 0 20px;
+		/*
+	width: 60%;
+    max-width: 820px;
+	*/
+		text-align: right;
+		overflow: hidden;
+		width: 100%;
+		max-width: 504px;
+		position: relative;
+
+	}
+
+	.cta-img-function.routine {
+		margin-bottom: 30px;
+		position: absolute;
+		top: 0;
+		left: ;: 0;
+		width: 100%;
+		object-fit: cover;
+		/*
+	max-width: 813.84px;
+	*/
+		height: 675px;
+		min-width: 543px;
+		border-radius: 200px 0px 0px 200px;
+		transition: opacity 0.5s ease;
+		opacity: 0;
+		/* Hide all images initially */
+	}
+	.cta-img-function.routine{
+		border-radius: 0px 0px 200px 0px;
+		right: 0;
+		left: auto;
+	}
+	.cta-img-function.active {
+		opacity: 1;
+		/* Only the active image is visible */
+	}
+	.tab.routine{
+		margin-top: 35px;
+	}
+	.tablinks.green.active .circle-underline{
+		background-color: #82C49D;
+	}
+	.tablinks.blue.active .circle-underline{
+		background-color: #071561;
+	}
+	.tablinks.orange.active .circle-underline{
+		background-color: #FF7050;
+	}
+	.tablinks.teal.active .circle-underline{
+		background-color: #004943;
+	}
+	.tablinks.light-blue.active .circle-underline{
+		background-color: #66A5D9;
+	}
+
+	.circle-underline{
+		width: 100%;
+		max-width: 40px;
+		height: 2px;
+		background-color: grey;
+		position: absolute;
+		top: auto;
+		bottom: -10px;
+		left: auto;
+		right: auto;
+	}
+	.cta-text-wrapper-tabs {
+		width: 100%;
+		max-width: none;
+		margin-right: 0px;
+		padding-left: 35px;
+		text-align: left;
+		padding-right: 40px;
+		padding-top: 0px;
+	}
+	#routine .cta-text-wrapper-tabs{
+		padding-right: 0px;
+		padding-top: 60px;
+	}
+	#routine .jc-faq-page-content-wrapper{
+		margin-top: 0;
+	}
+	.button-green {
+		padding: 21px 30px 19px 30px;
+		background-color: #004943;
+		-webkit-transition: background-color .25s ease;
+		transition: background-color .25s ease;
+		font-family: poppins;
+		color: #fff;
+		text-align: center;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		border-radius: 50px;
+		width: auto;
+		line-height: 1em;
+		font-size: 16px;
+		font-weight: 400;
+		text-decoration: none;
+	}
+
+	.button-green:hover {
+		background-color: white;
+		color: #004943;
+	}
+
+	.function-body {
+		/*
+						max-width: 474px;
+						*/
+						max-width: none;
+					}
+
+					/* Style the tab */
+
+					.tab.routine .tablinks svg path {
+						transition: all 300ms ease;
+						fill: white;
+						/* Default color */
+					}
+
+					.tablinks.active svg path {
+						fill: white;
+						/* Active color */
+					}
+
+					.border-extention {
+						position: absolute;
+						bottom: -22px;
+						opacity: 0;
+						transition: all 300ms ease;
+					}
+					.tablinks.active .border-extention{
+						opacity: 1;
+					}
+
+					.tab {
+						margin-top: 40px;
+						display: flex;
+
+					}
+
+					/* Style the buttons that are used to open the tab content */
+					.tab button {
+						background-color: inherit;
+						float: left;
+						border: none;
+						outline: none;
+						cursor: pointer;
+						padding: 14px 16px;
+						transition: 0.3s;
+						padding: 12px 20px 12px 20px;
+						justify-content: center;
+						align-items: center;
+						border-radius: 70px;
+						display: flex;
+						color: #000;
+						margin-right: 12px;
+						column-gap: 12px;
+						max-height: 52px;
+						position: relative;
+					}
+					.tab .last{
+						margin-right: 0px;
+					}
+					/* Change background color of buttons on hover */
+					.tab button:hover {}
+
+					.cta-wrapper-function.orange {
+						background: #FCD0BE;
+					}
+
+					.cta-wrapper-function.green {
+						background: #D6F5E0;
+					}
+
+					.cta-wrapper-function.blue {
+						background: #C6D9F0;
+					}
+
+					.cta-wrapper-function.teal {
+						background: #D3E6EA;
+					}
+					.cta-wrapper-function.dark-green {
+						background: #D3E6EA;
+					}
+					#routine .tab.routine{
+						/*
+						column-gap: 12px;
+						*/
+					}
+					/* Create an active/current tablink class */
+					.tab.routine button {
+						color: #fff;
+						margin-right: 15px;
+					}
+
+					.circle-underline{
+						display: none;
+					}
+                    .tab.routine button:hover {
+                      background: #002E29;
+                    }
+
+					.tab.routine .tablinks.orange {
+						background: var(--rr-pain, #FF7050);
+					}
+					
+					.tab.routine .tablinks.green {
+						background: #82C49D;
+					}
+
+					.tab.routine .tablinks.blue {
+						background: #071561;
+					}
+
+					.tab.routine .tablinks.teal {
+						background: #004943;
+					}
+
+					.tab.routine .tablinks.light-blue {
+						background: #66A5D9;
+					}
+
+					/* Style the tab content */
+					.tabcontent {
+						display: none;
+
+						margin-top: 21px;
+						border-top: 2px solid black;
+					}
+
+					.cta-text-wrapper-tabs.function .tab-inner {
+						margin-left: 67px;
+						padding-top: 50px;
+					}
+					.tab-inner h3{
+						margin-top: 0px;
+					}
+					#routine .tab-inner{
+						margin-left: 0px;
+						padding-top: 0px;
+						/*
+						*/
+						max-width: 930px;
+					}
+					.constrain-700{
+						max-width: 700px;
+					}
+					.heading-color-bg.routine{
+						display: none;
+					}
+					#routine .jc-products-flex-row.slider{
+						min-height: auto;
+					}
+					#routine .collection-menu-wrapper-outter{
+						padding-bottom: 0px !important;
+						margin-top: 0px;
+					}
+					#routine .how-to-use-wrapper h1{
+						margin-bottom: 10px;
+					}
+					#routine .collection-menu-wrapper{
+						margin-bottom: 35px;
+					}
+					#routine .scroll-btn.slider-btn{
+						top: 30%;
+					}
+    @media (max-width: 1440px) {
+      #routine .cta-text-wrapper-tabs {
+		/*
+        padding-right: max(calc((100vw - 1380px) / 2), 27px);
+		*/
+
+      }
+    }
+	@media (max-width: 1023px) {
+        .cta-img-wrapper.show-mobile {
+          display: block;
+        }
+        .cta-img-wrapper.show-desktop {
+          display: none;
+        }
+        .tab.routine .tablinks .btn-tab-text {
+          display: none;
+        }
+        .tab.routine .tablinks.light-blue.last {
+          min-width: 0;  
+        }
+        .tab.routine {
+          justify-content: start;
+        }
+        .tab.routine button {
+          width: 80px;
+          height: 80px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+          max-height: 100%;  
+        }
+		.tablinks svg{
+			width: 45px;
+			height: 45px;
+		}
+		.cta-wrapper-function {
+			flex-direction: column-reverse;
+			padding-bottom: 70px;
+		}
+
+		.cta-text-wrapper-tabs {
+			width: 100%;
+			max-width: 100%;
+		}
+
+		.cta-img-wrapper img {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 100px;
+		}
+	}
+	@media (max-width: 991px) {
+
+
+	.cta-text-wrapper-tabs.function .tab-inner{
+    margin-left: 0px;
+  }
+
+					.tablinks.active .circle-underline{
+						display: block;
+					}
+					#routine .tab.routine .tablinks{
+						filter: grayscale(100);
+    					opacity: .5;
+					}
+					.jc-faq-page-content-wrapper .tab.routine .tablinks{
+						background: gray;
+					}
+					#routine .tab.routine .tablinks.active{
+						filter: grayscale(0);
+    					opacity: 1;
+					}
+					.tab.routine .tablinks.orange.active {
+						background: var(--rr-pain, #FF7050);
+					}
+					
+					.tab.routine .tablinks.green.active {
+						background: #82C49D;
+					}
+
+					.tab.routine .tablinks.blue.active {
+						background: #071561;
+					}
+
+					.tab.routine .tablinks.teal.active {
+						background: #004943;
+					}
+
+					.tab.routine .tablinks.light-blue.active {
+						background: #66A5D9;
+					}
+					#routine .collection-menu-wrapper{
+						padding-bottom: 70px !important;
+					}
+
+
+
+
+
+      #routine .image-wrapper {
+        height: auto;
+      }
+	  .tab.routine button {
+						color: #fff;
+						margin-right: 0px;
+					}
+					.tab.routine button {
+          width: 80px;
+          height: 80px;
+        }
+
+      .cta-wrapper-function.routine {
+        padding-bottom: 0;
+      }
+		.btn-tab-text{	
+			display: none;
+
+		}
+		.tablinks.light-blue.last{
+			min-width: auto;
+		}
+		#routine .cta-text-wrapper-tabs{
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+		#routine .slider{
+			min-height: 0;
+		}
+		#routine.cta-wrapper-function{
+			flex-direction: column;
+			position: relative;
+			padding-right: 0px;
+		}
+		#routine .top-heading-wrapper .h1-new{
+			text-align: center;
+			max-width: 300px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		#routine .constrain-700{
+			text-align: center;
+			max-width: 340px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		.cta-img-function.routine{
+			border-radius: 30px;
+			max-height: 100%;
+			height: 163.296px;
+			width: 100%;
+			min-width: auto;
+			margin-bottom: 0px;
+
+		}
+      .product-title-link .white-button.w-button {
+        bottom: 0!important;
+      }
+      .cta-img-function.routine.active {
+        position: relative;
+        opacity: 1;
+      }
+		.tab.routine{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+          margin-top: 45px;
+			row-gap: 12px;
+		}
+		#routine .scroll-btn{
+			display: block;
+		}
+		.heading-color-bg.routine{
+			position: absolute;
+			z-index: 5;
+			margin-left: 0px;
+			top: 28px;
+			width: 175px;
+			height: 53px;
+			display: none;
+			opacity: 0;
+			transition: all 200ms ease;
+		}
+		.heading-color-bg.routine svg path {
+			fill: #fff !important;
+		}
+
+		.heading-color-bg.routine h3{
+			font-size: 30px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 52px;
+			font-family: century-old-style-std;
+			margin-left: 9px;
+		}
+		.heading-color-bg.routine.teal svg{
+			height: 28px;
+			width: 28px;
+		}
+		.cta-wrapper-function.routine.orange .heading-color-bg.routine.orange{
+			display: flex;
+			opacity: 1;
+		}
+		.cta-wrapper-function.routine.green .heading-color-bg.routine.green{
+			display: flex;
+			opacity: 1;
+			background-color: #82C49D;
+		}
+		.cta-wrapper-function.routine.blue .heading-color-bg.routine.blue{
+			display: flex;
+			opacity: 1;
+			background-color: #071561;
+		}
+		.cta-wrapper-function.routine.teal .heading-color-bg.routine.teal{
+			display: flex;
+			opacity: 1;
+			background-color: #004943;
+		}
+		.cta-wrapper-function.routine.light-blue .heading-color-bg.routine.light-blue{
+			display: flex;
+			opacity: 1;
+			background-color: #66A5D9;
+		}
+
+	}
+	
+	@media (max-width: 991px) {
+		#routine .cta-text-wrapper-tabs{
+			padding-top: 40px;
+		}
+		#routine .jc-faq-page-content-wrapper p{
+			font-size: 17px;
+			line-height: 26px;
+			margin-bottom: 30px;
+		}
+  }
+  @media (max-width: 767px) {
+
+  
+  .tablinks svg{
+			width: 28px;
+			height: 28px;
+		}
+		.tab.routine button{
+			width: 58px;
+        height: 58px;
+		}
+		}
+  @media (max-width: 480px) {
+    .routine .jc-products-flex-row {
+      column-gap: 0;
+    }
+  }
+</style>
+
+
+
+
+
+
+{% assign full_spectrum_found = false %}
+{% assign broad_spectrum_found = false %}
+
+
+
+<div id="routine" class="cta-wrapper-function routine white orange">
+
+
+	<div class="cta-img-wrapper show-desktop">
+
+
+		<div class="heading-color-bg routine orange">
+			{%render 'pain-icon'%} 
+			<h3>Pain</h3>
+		</div>
+
+		<div class="heading-color-bg routine green">
+			{%render 'stress-icon'%} 
+			<h3>Stress</h3>
+		</div>
+
+		<div class="heading-color-bg routine blue">
+			{%render 'sleep-icon'%} 
+			<h3>Sleep</h3>
+		</div>
+
+		<div class="heading-color-bg routine teal">
+			{%render 'multi-icon'%} 
+			<h3>Multi</h3>
+		</div>
+
+		<div class="heading-color-bg routine light-blue">
+			{%render 'pet-icon'%} 
+			<h3>Pets</h3>
+		</div>
+
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/7c016cc8a78b55b11df6c755f62e92b7.jpg?v=1709149164"
+			class="cta-img-function routine right-rounded orange 1 active">
+
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/8a2f608d65580662613a9426e92aaaa7.jpg?v=1709149164"
+			class="cta-img-function routine right-rounded green">
+
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/b383a4e14f49c451049dc8aba6afefb4.jpg?v=1709149301"
+			class="cta-img-function routine right-rounded blue">
+
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/3b07d12beef619e9568ef505e4178616.jpg?v=1709149164"
+			class="cta-img-function routine right-rounded teal">
+
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/5c9d2b56e1e95f9ccbb239d33ce40094.jpg?v=1709149163"
+			class="cta-img-function routine right-rounded light-blue">
+
+	</div>
+
+		
+
+	<div class="cta-text-wrapper-tabs">
+
+
+
+		<div class="how-to-use-wrapper">
+
+			<div class="top-heading-wrapper">
+				<h1 class="h1-new">Explore Even More Solutions</h1>
+			</div>
+
+			<div class="jc-faq-page-content-wrapper">
+
+			<div class="constrain-700">
+				<p>Build a bundle that addresses all your relief needs. Subscribe & Save 20% or get up to 15% off when you bundle 2 or more one-time products.</p>
+			</div>
+
+            <div class="cta-img-wrapper show-mobile">
+            
+            
+            		<div class="heading-color-bg routine orange">
+            			{%render 'pain-icon'%} 
+            			<h3>Pain</h3>
+            		</div>
+            
+            		<div class="heading-color-bg routine green">
+            			{%render 'stress-icon'%} 
+            			<h3>Stress</h3>
+            		</div>
+            
+            		<div class="heading-color-bg routine blue">
+            			{%render 'sleep-icon'%} 
+            			<h3>Sleep</h3>
+            		</div>
+            
+            		<div class="heading-color-bg routine teal">
+            			{%render 'multi-icon'%} 
+            			<h3>Multi</h3>
+            		</div>
+            
+            		<div class="heading-color-bg routine light-blue">
+            			{%render 'pet-icon'%} 
+            			<h3>Pets</h3>
+            		</div>
+            
+            		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/7c016cc8a78b55b11df6c755f62e92b7.jpg?v=1709149164"
+            			class="cta-img-function routine right-rounded orange 2 active">
+            
+            		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/6aacc032657d08e5c25ca37f07ab47fc.jpg?v=1712962221"
+            			class="cta-img-function routine right-rounded green">
+            
+            		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/8fda3c87072171e5e86101db4964a31c.jpg?v=1712962221"
+            			class="cta-img-function routine right-rounded blue">
+            
+            		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/3b07d12beef619e9568ef505e4178616.jpg?v=1709149164"
+            			class="cta-img-function routine right-rounded teal">
+            
+            		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/fcae46a64db93886aaecbeabf8231016.jpg?v=1712962221"
+            			class="cta-img-function routine right-rounded light-blue">
+            
+            	</div>
+
+
+				<div class="tab routine">
+					<button id="open-on-load" class="tablinks orange active" onclick="openTab(event, 'Pain-2', 'routine')">
+						{%render 'pain-icon'%} 
+						<span class="btn-tab-text">
+							Pain
+						</span>
+						<img class="border-extention"
+							src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_94359199-9e48-4f0e-9d20-530485afae3d.svg?v=1708986754"
+							alt="">
+							<div class="circle-underline"></div>
+					</button>
+
+					
+					<script>
+					document.addEventListener("DOMContentLoaded", function() {
+						// Attempt to find the button by its ID
+						var openOnLoadButton = document.getElementById("open-on-load");
+
+						// If the button exists, simulate a click on it
+						if (openOnLoadButton) {
+							openOnLoadButton.click();
+						}
+					});
+					</script>
+
+
+					<button class="tablinks green" onclick="openTab(event, 'Stress-2', 'routine')">
+						{%render 'stress-icon'%} <span class="btn-tab-text">
+
+							Stress
+						</span>
+						<img class="border-extention"
+							src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_94359199-9e48-4f0e-9d20-530485afae3d.svg?v=1708986754"
+							alt="">
+
+							<div class="circle-underline"></div>
+					</button>
+
+					<button class="tablinks blue" onclick="openTab(event, 'Sleep-2', 'routine')">
+						{%render 'sleep-icon'%} <span class="btn-tab-text">
+
+							Sleep
+						</span>
+						<img class="border-extention"
+							src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_94359199-9e48-4f0e-9d20-530485afae3d.svg?v=1708986754"
+							alt="">
+							<div class="circle-underline"></div>
+					</button>
+
+					<button class="tablinks teal" onclick="openTab(event, 'Multifunctional-2', 'routine')">
+						{%render 'multi-icon'%} <span class="btn-tab-text">
+
+							Multifunctional
+						</span>
+						<img class="border-extention"
+							src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_94359199-9e48-4f0e-9d20-530485afae3d.svg?v=1708986754"
+							alt="">
+							<div class="circle-underline"></div>
+					</button>
+					<button class="tablinks light-blue last" onclick="openTab(event, 'Pets-2', 'routine')">
+						{%render 'pet-icon'%} <span class="btn-tab-text">
+
+							For Pets
+						</span>
+						<img class="border-extention"
+							src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_94359199-9e48-4f0e-9d20-530485afae3d.svg?v=1708986754"
+							alt="">
+							<div class="circle-underline"></div>
+					</button>
+				</div>
+
+
+
+
+
+
+
+				{% for tag in product.tags %}
+				{% if tag == 'full-spectrum' %}
+					{% assign full_spectrum_found = true %}
+				{% elsif tag == 'broad-spectrum' %}
+					{% assign broad_spectrum_found = true %}
+				{% endif %}
+				{% endfor %}
+
+ 
+
+				<div id="Pain-2" class="tabcontent " style="display: block">
+					<div class="tab-inner">
+					{% if full_spectrum_found %}
+						{% render 'product-slider', collection_handle: 'pdp-full-spectrum-upsells-for-pain', current_tab: 'fs-pain' %}
+					{% elsif broad_spectrum_found  %}
+						{% render 'product-slider', collection_handle: 'pdp-broad-spectrum-upsells-for-pain', current_tab: 'bs-pain' %}
+					{% else %}
+						{% render 'product-slider', collection_handle: 'pdp-full-spectrum-upsells-for-pain', current_tab: 'fs-pain' %}
+					{% endif %}
+					</div>
+				</div>
+
+
+
+
+				<div id="Stress-2" class="tabcontent">
+					<div class="tab-inner">
+						
+					{% if full_spectrum_found %}
+						{% render 'product-slider', collection_handle: 'pdp-full-spectrum-upsells-for-stress', current_tab: 'fs-stress' %}
+					{% elsif broad_spectrum_found  %}
+						{% render 'product-slider', collection_handle: 'pdp-broad-spectrum-upsells-for-stress', current_tab: 'bs-stress' %}
+					{% else %}
+						{% render 'product-slider', collection_handle: 'pdp-full-spectrum-upsells-for-stress', current_tab: 'fs-stress' %}
+					{% endif %}
+
+					</div>
+				</div>
+
+				<div id="Sleep-2" class="tabcontent">
+					<div class="tab-inner">
+
+						{% if full_spectrum_found %}
+							{% render 'product-slider', collection_handle: 'pdp-full-spectrum-upsells-for-sleep', current_tab: 'fs-sleep' %}
+						{% elsif broad_spectrum_found  %}
+							{% render 'product-slider', collection_handle: 'pdp-broad-spectrum-upsells-for-sleep', current_tab: 'bs-sleep' %}
+						{% else %}
+							{% render 'product-slider', collection_handle: 'pdp-full-spectrum-upsells-for-sleep', current_tab: 'fs-sleep' %}
+						{% endif %}
+
+					</div>
+				</div>
+
+				<div id="Multifunctional-2" class="tabcontent">
+					<div class="tab-inner">
+
+					{% if full_spectrum_found %}
+						{% render 'product-slider', collection_handle: 'pdp-full-spectrum-upsells-multifunctional', current_tab: 'fs-multi' %}
+					{% elsif broad_spectrum_found  %}
+						{% render 'product-slider', collection_handle: 'pdp-broad-spectrum-upsells-multifunctional', current_tab: 'bs-multi' %}
+					{% else %}
+						{% render 'product-slider', collection_handle: 'pdp-full-spectrum-upsells-multifunctional', current_tab: 'fs-multi' %}
+					{% endif %}
+
+					</div>
+				</div>
+
+				<div id="Pets-2" class="tabcontent">
+					<div class="tab-inner">
+						{% render 'product-slider', collection_handle: 'pdp-upsells-for-pets', current_tab: 'pets' %}
+					</div>
+				</div>
+
+
+
+				{% comment %}
+					
+				<script>
+					$(document).ready(function() {
+						initializeSliders(); // Call on initial load
+					});
+					
+					// Encapsulated slider setup logic
+					function initializeSliders() {
+						$('.jc-products-flex-row').each(function() {
+							var $container = $(this);
+							$container.find('.collection-product-wrapper.cloned-item').remove(); // Clean up previous clones
+
+							var $items = $container.find('.collection-product-wrapper:not(.cloned-item)');
+							var itemsToClone = 3;
+							
+
+							// Clone items for looping effect if needed
+							for (var i = 0; i < itemsToClone && i < $items.length; i++) {
+								$container.append($items.eq(i).clone(true).addClass('cloned-item'));
+							}
+						});
+
+						$('.collection-menu-wrapper').on('scroll', function() {
+							var $thisWrapper = $(this); // Define $thisWrapper to use in the log
+							updateScrollUI($thisWrapper);
+						});
+					}
+
+
+					
+					function updateScrollUI($wrapper) {
+						var scrollLeft = $wrapper.scrollLeft();
+						var maxScrollLeft = $wrapper[0].scrollWidth - $wrapper[0].clientWidth;
+
+						// Update arrow visibility based on actual overflow
+						$wrapper.siblings('.slider-btn-wrapper').find('.left-collection-arrow').css('opacity', scrollLeft <= 0 ? '0' : '1');
+						$wrapper.siblings('.slider-btn-wrapper').find('.right-collection-arrow').css('opacity', $wrapper[0].scrollWidth > $wrapper[0].clientWidth ? '1' : '0');
+					}
+
+					
+					// Scroll animation for the arrows
+					$('.left-collection-arrow').click(function() {
+						var $wrapper = $(this).closest('.slider-btn-wrapper').siblings('.collection-menu-wrapper');
+						$wrapper.animate({
+							scrollLeft: "-=294px"
+						}, "fast", function() {
+							updateScrollUI($wrapper);
+						});
+					});
+					
+					$('.right-collection-arrow').click(function() {
+						var $wrapper = $(this).closest('.slider-btn-wrapper').siblings('.collection-menu-wrapper');
+						var singleItemWidth = $wrapper.find('.collection-product-wrapper').first().outerWidth(true);
+						var newScrollPosition = $wrapper.scrollLeft() + singleItemWidth;
+					
+						$wrapper.animate({
+							scrollLeft: newScrollPosition
+						}, "fast", function() {
+							var maxScrollLeft = $wrapper[0].scrollWidth - $wrapper[0].clientWidth;
+							// Reset to start if we've scrolled into the cloned items
+							if (newScrollPosition >= maxScrollLeft) {
+								$wrapper.scrollLeft(0);
+							}
+							updateScrollUI($wrapper);
+						});
+					});
+					
+					// UI update on scroll
+					$('.collection-menu-wrapper').on('scroll', function() {
+						var $thisWrapper = $(this); // Correctly define $thisWrapper for use within this function
+						updateScrollUI($thisWrapper);
+					});
+					</script>
+				{% endcomment %}
+					
+
+
+{% comment %}
+	
+
+				<script>
+    $(document).ready(function() {
+        initializeSliders(); // Call on initial load
+    });
+    
+    // Encapsulated slider setup logic
+    function initializeSliders() {
+        $('.jc-products-flex-row').each(function() {
+            var $container = $(this);
+            $container.find('.collection-product-wrapper.cloned-item').remove(); // Clean up previous clones
+
+            var $items = $container.find('.collection-product-wrapper:not(.cloned-item)');
+            var itemsToClone = 3;
+
+            // Hide arrows if less than 4 items, otherwise show them
+            $container.siblings('.slider-btn-wrapper').find('.left-collection-arrow, .right-collection-arrow').css('display', $items.length < 4 ? 'none' : 'block');
+            
+			console.log("Number of items before cloning: ", $items.length);
+// Cloning logic here
+
+            // Clone items for looping effect if needed and only if there are 4 or more items
+            if ($items.length >= 4) {
+                for (var i = 0; i < itemsToClone && i < $items.length; i++) {
+                    $container.append($items.eq(i).clone(true).addClass('cloned-item'));
+                }
+            }
+			console.log("Number of items after cloning: ", $container.find('.collection-product-wrapper').length);
+
+        });
+
+        $('.collection-menu-wrapper').on('scroll', function() {
+            var $thisWrapper = $(this);
+            updateScrollUI($thisWrapper);
+        });
+    }
+
+    function updateScrollUI($wrapper) {
+        var scrollLeft = $wrapper.scrollLeft();
+        var maxScrollLeft = $wrapper[0].scrollWidth - $wrapper[0].clientWidth;
+
+        // Update arrow visibility based on actual overflow and item count
+        var itemVisibility = $wrapper.find('.collection-product-wrapper:not(.cloned-item)').length >= 4 ? '1' : '0';
+        $wrapper.siblings('.slider-btn-wrapper').find('.left-collection-arrow').css('opacity', scrollLeft <= 0 ? '0' : itemVisibility);
+        $wrapper.siblings('.slider-btn-wrapper').find('.right-collection-arrow').css('opacity', $wrapper[0].scrollWidth > $wrapper[0].clientWidth ? itemVisibility : '0');
+    }
+
+    // Scroll animation for the arrows
+    $('.left-collection-arrow').click(function() {
+        var $wrapper = $(this).closest('.slider-btn-wrapper').siblings('.collection-menu-wrapper');
+        $wrapper.animate({
+            scrollLeft: "-=294px"
+        }, "fast", function() {
+            updateScrollUI($wrapper);
+        });
+    });
+
+    $('.right-collection-arrow').click(function() {
+        var $wrapper = $(this).closest('.slider-btn-wrapper').siblings('.collection-menu-wrapper');
+        var singleItemWidth = $wrapper.find('.collection-product-wrapper').first().outerWidth(true);
+        var newScrollPosition = $wrapper.scrollLeft() + singleItemWidth;
+
+        $wrapper.animate({
+            scrollLeft: newScrollPosition
+        }, "fast", function() {
+            var maxScrollLeft = $wrapper[0].scrollWidth - $wrapper[0].clientWidth;
+            // Reset to start if we've scrolled into the cloned items
+            if (newScrollPosition >= maxScrollLeft) {
+                $wrapper.scrollLeft(0);
+            }
+            updateScrollUI($wrapper);
+        });
+    });
+
+    // UI update on scroll
+    $('.collection-menu-wrapper').on('scroll', function() {
+        var $thisWrapper = $(this); // Correctly define $thisWrapper for use within this function
+        updateScrollUI($thisWrapper);
+    });
+</script>
+
+{% endcomment %}
+
+
+
+
+
+
+
+{% comment %}
+	WORKING SCRIPT
+
+					<script>
+						function openTab(evt, tabName, sectionId) {
+							var i, section, tabcontent, tablinks, ctaWrapper;
+							
+							// Scope everything within the specified section using the sectionId
+							section = document.getElementById(sectionId);
+						
+							// Get all elements with class="tabcontent" within the section and hide them
+							tabcontent = section.getElementsByClassName("tabcontent");
+							for (i = 0; i < tabcontent.length; i++) {
+								tabcontent[i].style.display = "none";
+							}
+						
+							// Get all elements with class="tablinks" within the section and remove the class "active"
+							tablinks = section.getElementsByClassName("tablinks");
+							for (i = 0; i < tablinks.length; i++) {
+								tablinks[i].className = tablinks[i].className.replace(" active", "");
+							}
+						
+							// Show the current tab, and add an "active" class to the button that opened the tab
+							document.getElementById(tabName).style.display = "block";
+							evt.currentTarget.className += " active";
+						
+							// The .cta-wrapper-function is the section itself, so we directly use the section variable
+							ctaWrapper = section; // Since sectionId is specifically for cta-wrapper-function, we use it directly
+							ctaWrapper.classList.remove('orange', 'green', 'blue', 'teal', 'light-blue');
+						
+							// Add the color class based on the button that was clicked
+							if (evt.currentTarget.classList.contains('orange')) {
+								ctaWrapper.classList.add('orange');
+							} else if (evt.currentTarget.classList.contains('green')) {
+								ctaWrapper.classList.add('green');
+							} else if (evt.currentTarget.classList.contains('blue')) {
+								ctaWrapper.classList.add('blue');
+							} else if (evt.currentTarget.classList.contains('teal')) {
+								ctaWrapper.classList.add('teal');
+							 } else if (evt.currentTarget.classList.contains('light-blue')) {
+							ctaWrapper.classList.add('light-blue');
+							}
+						
+							// Find all images within the section
+							var images = section.querySelectorAll('.cta-img-function');
+							// Hide all images
+							images.forEach(function(img) {
+								img.classList.remove('active');
+							});
+						
+							// Activate the image corresponding to the active tab
+						  
+							var activeImgs = section.querySelectorAll('.cta-img-function.' + evt.currentTarget.className.split(' ')[1]);
+							if (activeImgs) {
+								activeImgs.forEach(function (img) {
+									img.classList.add('active');
+								});
+							}
+						}
+						
+						// Automatically open the first tab in the function section
+						document.addEventListener("DOMContentLoaded", function() {
+							var firstTabLink = document.querySelector("#function .tablinks");
+							if (firstTabLink) {
+								firstTabLink.click();
+							}
+						});
+						</script>
+
+						{% endcomment %}
+
+						<script>
+$(document).ready(function(){
+    function initSlickSlider(selector, prevArrow, nextArrow) {
+		const sliderCount = $(selector).find('.collection-product-wrapper').length
+		console.log(sliderCount);
+		let mobileScrollShow = 2.2;
+		let mobileDots = true;
+		if (sliderCount <= 2) {
+			mobileScrollShow = 2;
+			mobileDots = false;
+		}
+        $(selector).slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            dots: false,
+            arrows: true,
+            prevArrow: prevArrow,
+            nextArrow: nextArrow,
+            responsive: [
+                {
+                    breakpoint: 990,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        dots: true,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: mobileScrollShow,
+                        slidesToScroll: 1,
+                        dots: mobileDots,
+                        arrows: false
+                    }
+                }
+            ]
+        });
+		if (sliderCount <= 2) $(selector).find('.slick-track').css({'margin': 0});
+			if($(selector).find('.slick-dots')) {
+				$(selector).find('.slick-dots li').css({'width': `${100 / $(selector).find('.slick-dots li').length}%`})
+			}
+    }
+
+    function reinitSlickSliders() {
+        $('.jc-products-flex-row.slider').each(function() {
+            if ($(this).hasClass('slick-initialized')) {
+                $(this).slick('unslick');
+            }
+        });
+        initSlickSlider('#Pain-2 .jc-products-flex-row.slider', '#Pain-2 .left-slider-arrow', '#Pain-2 .right-slider-arrow');
+        initSlickSlider('#Stress-2 .jc-products-flex-row.slider', '#Stress-2 .left-slider-arrow', '#Stress-2 .right-slider-arrow');
+		initSlickSlider('#Sleep-2 .jc-products-flex-row.slider', '#Sleep-2 .left-slider-arrow', '#Sleep-2 .right-slider-arrow');
+		initSlickSlider('#Multifunctional-2 .jc-products-flex-row.slider', '#Multifunctional-2 .left-slider-arrow', '#Multifunctional-2 .right-slider-arrow');
+		initSlickSlider('#Pets-2 .jc-products-flex-row.slider', '#Pets-2 .left-slider-arrow', '#Pets-2 .right-slider-arrow');
+        // Repeat for other sliders if needed
+    }
+
+    // Initialize sliders on page load
+    reinitSlickSliders();
+
+    // Reinitialize sliders when tabs are clicked
+    function openTab(evt, tabName, sectionId) {
+        var i, section, tabcontent, tablinks, ctaWrapper;
+
+        // Scope everything within the specified section using the sectionId
+        section = document.getElementById(sectionId);
+
+        // Get all elements with class="tabcontent" within the section and hide them
+        tabcontent = section.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" within the section and remove the class "active"
+        tablinks = section.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+
+        // The .cta-wrapper-function is the section itself, so we directly use the section variable
+        ctaWrapper = section; // Since sectionId is specifically for cta-wrapper-function, we use it directly
+        ctaWrapper.classList.remove('orange', 'green', 'blue', 'teal', 'light-blue');
+
+        // Add the color class based on the button that was clicked
+        if (evt.currentTarget.classList.contains('orange')) {
+            ctaWrapper.classList.add('orange');
+        } else if (evt.currentTarget.classList.contains('green')) {
+            ctaWrapper.classList.add('green');
+        } else if (evt.currentTarget.classList.contains('blue')) {
+            ctaWrapper.classList.add('blue');
+        } else if (evt.currentTarget.classList.contains('teal')) {
+            ctaWrapper.classList.add('teal');
+        } else if (evt.currentTarget.classList.contains('light-blue')) {
+            ctaWrapper.classList.add('light-blue');
+        }
+
+        // Find all images within the section
+        var images = section.querySelectorAll('.cta-img-function');
+        // Hide all images
+        images.forEach(function(img) {
+            img.classList.remove('active');
+        });
+
+        // Activate the image corresponding to the active tab
+        var activeImgs = section.querySelectorAll('.cta-img-function.' + evt.currentTarget.className.split(' ')[1]);
+        if (activeImgs) {
+            activeImgs.forEach(function(img) {
+                img.classList.add('active');
+            });
+        }
+
+        // Reinitialize sliders
+        reinitSlickSliders();
+    }
+
+    // Automatically open the first tab in the function section
+    document.addEventListener("DOMContentLoaded", function() {
+        var openOnLoadButton = document.getElementById("open-on-load");
+
+        // If the button exists, simulate a click on it
+        if (openOnLoadButton) {
+            openOnLoadButton.click();
+        }
+    });
+
+    // Attach the openTab function to global scope for button clicks
+    window.openTab = openTab;
+});
+</script>
+
+						
+
+
+			</div>
+		</div>
+	</div>
+
+	
+
+</div>
+
+<style>
+	.jc-faq-page-expand-wrapper {
+		overflow: hidden;
+		max-height: 0;
+		opacity: 0;
+		transition: max-height 0.5s ease, opacity 0.5s ease;
+	}
+
+	.jc-faq-page-expand-wrapper.open {
+		max-height: 1000px;
+		/* Adjust this value based on the actual content size */
+		opacity: 1;
+		height: auto;
+	}
+
+	.jc-faq-page-open-btn img {
+		transition: transform 0.5s ease;
+	}
+</style>
+
+
+
+{% schema %}
+{
+"name": "Routine",
+"tag": "section",
+"class": "section",
+"disabled_on": {
+"groups": ["header", "footer"]
+},
+"settings": [
+
+],
+"presets": [
+{
+"name": "Routine"
+}
+]
+}
+{% endschema %}

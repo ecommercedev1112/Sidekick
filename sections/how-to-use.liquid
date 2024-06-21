@@ -1,0 +1,933 @@
+{% assign main_product_id = product.id %}
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+
+{% assign variantDescription = current_variant.metafields.variantDescription %}
+{% assign key = 'description' %}
+
+{% assign variantDirections = current_variant.metafields.variantDirections %}
+{% assign key = 'directions' %}
+
+{% assign variantSafety = current_variant.metafields.variantSafety %}
+{% assign key = 'safety' %}
+
+{% assign variantIngredients = current_variant.metafields.variantIngredients %}
+{% assign key = 'ingredients' %}
+
+{% assign subHeading = current_variant.metafields.subHeading %}
+{% assign key = 'heading' %}
+
+{% assign labResults = product.metafields.labResults %}
+{% assign key = 'url' %}
+
+{% assign productVideo = product.metafields.productVideo %}
+{% assign key = 'videoId' %}
+
+{% assign productDirections = product.metafields.productDirections %}
+{% assign key = 'directions' %}
+
+{% assign productIngredients = product.metafields.productIngredients %}
+{% assign key = 'ingredients' %}
+
+{% assign productSafetyLabTest = product.metafields.productSafetyLabTest %}
+{% assign key = 'safetyLabTest' %}
+
+{% assign broad_spectrum = false %}
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+{% comment %}
+THC free tincture - 6683040284870
+THC free softgel - 6683070496966
+THC free gummies - 6841769033926
+THC Free Pain Cream = 7706902626502
+{% endcomment %}
+{% if product.id == 6683040284870 or product.id == 6683070496966 or product.id == 6841769033926 or product.id ==
+7706902626502 %}
+{% assign broad_spectrum = true %}
+{% endif %}
+
+
+{% assign initialVideoUrl = 'https://www.youtube.com/embed/' %}
+{% assign uniqueVideoId = productVideo.videoId %}
+{% assign endVideoUrl = '?rel=0&amp;controls=1&amp;autoplay=0&amp;mute=0&amp;start=0' %}
+{% capture fullVideoUrl %}
+{{ initialVideoUrl | append: uniqueVideoId | append: endVideoUrl }}
+{% endcapture %}
+
+{% assign productDetails = product.metafields.productDetails %}
+{% assign key = 'default' %}
+{% assign productDetails = product.metafields.productDetails %}
+{% assign key = 'details2' %}
+{% assign productDetails = product.metafields.productDetails %}
+{% assign key = 'details3' %}
+
+{% assign bestSeller = current_variant.metafields.bestSeller.sticker %}
+{% if product.id == 4447123537973 %}
+{% assign jc_sticker_class = 'jc-product-page-sticker-img-alt' %}
+{% endif %}
+
+{% if current_variant.id == 29122588901429 %}
+{% assign jc_test_bold = true %}
+{% endif %}
+
+{% comment %}
+32310809264181 - 500mg unflavored 3-pack
+32310782558261 - 500mg unflavored Single
+{% endcomment %}
+
+
+{% if current_variant.available %}
+{% assign is_available = true %}
+{% else %}
+{% assign is_available = false %}
+{% endif %}
+
+{% assign set_pre_order = current_variant.metafields.variant_info.pre_order %}
+{% assign pre_order_name = current_variant.metafields.variant_info.pre_order_name %}
+{% assign pre_order_plural = current_variant.metafields.variant_info.pre_order_plural %}
+
+{% if pre_order_plural == true %}
+{% assign pre_order_plurality = 'are' %}
+{% else %}
+{% assign pre_order_plurality = 'is' %}
+{% endif %}
+
+
+
+<style>
+	.how-to-use-wrapper h1 {
+		font-size: 55px;
+		font-style: normal;
+		font-weight: 700;
+	}
+
+	.how-to-use-wrapper .jc-faq-page-content-heading {
+		color: #2D2926;
+		font-family: Poppins;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+		letter-spacing: 1.28px;
+		text-transform: uppercase;
+	}
+
+	.cta-wrapper {
+		display: flex;
+		/*
+padding-right: calc((100vw - 1434px) / 2);
+*/
+		padding-right: max(calc((100vw - 1380px) / 2), 27px);
+		padding-top: 0px;
+		padding-bottom: 40px;
+		background: #F1F4D8;
+	}
+
+	.cta-wrapper.use {
+		padding-bottom: 84px;
+	}
+
+	#function .how-to-use-wrapper .tablinks {
+		opacity: 1;
+	}
+
+	#function .how-to-use-wrapper .tablinks.active {
+		opacity: 1;
+	}
+
+	.cta-img-wrapper-use {
+
+		height: 100%;
+		margin-right: 0px;
+		margin-left: 0px;
+		padding: 0px;
+		/*
+	width: 60%;
+    max-width: 820px;
+	*/
+		text-align: right;
+		overflow: hidden;
+		width: 100%;
+		max-width: 504px;
+
+	}
+
+	.cta-img-use {
+		margin-bottom: 0px;
+		width: 100%;
+		object-fit: cover;
+		/*
+	max-width: 813.84px;
+	*/
+		height: 650px;
+		border-radius: 0px 0px 200px 0px;
+	}
+
+	.cta-text-wrapper-use {
+		width: 100%;
+		max-width: none;
+		margin-right: 0px;
+		padding-left: 70px;
+		text-align: left;
+		padding-right: 40px;
+		padding-top: 60px;
+	}
+
+	.cta-text-wrapper-use h1 {
+		margin-top: 0px;
+	}
+
+	.button-green {
+		padding: 21px 30px 19px 30px;
+		background-color: #004943;
+		-webkit-transition: background-color .25s ease;
+		transition: background-color .25s ease;
+		font-family: poppins;
+		color: #fff;
+		text-align: center;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		border-radius: 50px;
+		width: auto;
+		line-height: 1em;
+		font-size: 16px;
+		font-weight: 400;
+		text-decoration: none;
+	}
+
+	.button-green:hover {
+		background-color: white;
+		color: #004943;
+	}
+
+	@media (max-width: 1023px) {
+		.cta-wrapper {
+			flex-direction: column-reverse;
+			padding-bottom: 70px;
+		}
+
+		.cta-text-wrapper-use {
+			width: 100%;
+			max-width: 100%;
+		}
+
+		.cta-img-wrapper-use img {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 100px;
+		}
+
+		.cta-wrapper.use {
+			flex-direction: column;
+		}
+
+		.cta-img-wrapper-use {
+			max-width: none;
+			max-height: 470px;
+		}
+
+		.cta-img-use.right-rounded {
+			border-radius: 0px;
+		}
+
+		.cta-text-wrapper-use {
+			padding-left: 20px;
+			padding-right: 20px;
+			padding-top: 57px;
+		}
+
+	}
+
+	@media (max-width: 767px) {
+		.how-to-use-wrapper h1 {
+			font-size: 36px !important;
+			line-height: 43px;
+		}
+
+		.cta-img-wrapper-use {
+			padding-bottom: 0px;
+		}
+
+		.cta-text-wrapper-use {
+			padding-top: 40px;
+		}
+
+		.how-to-use-wrapper h1 {
+			margin-bottom: 0px;
+		}
+
+		.how-to-use-wrapper .jc-faq-page-content-wrapper {
+			margin-top: 25px;
+		}
+
+		#function .how-to-use-wrapper .tablinks {
+			opacity: .5;
+		}
+
+		#function .how-to-use-wrapper .tablinks.active {
+			opacity: 1;
+		}
+
+	}
+
+	@media (max-width: 479px) {
+		.cta-wrapper.use .cta-img-wrapper-use {
+			height: 375px;
+		}
+
+	}
+</style>
+
+
+{% comment %}
+Sleep Gummies = 7794862817478
+Pain Gummies = 7842450538694 or product.id == 4631247323189
+De-Stress Gummies = 7842451488966
+{% endcomment %}
+
+
+<div class="cta-wrapper use">
+
+	<div class="cta-img-wrapper-use">
+
+	{% comment %}
+		Sleep Gummy = 7794862817478
+	{% endcomment %}
+		{% if product.id == 7794862817478 %}
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/02fb9f708745f2cb16c8f4024b12d1a0.jpg?v=1711381316"
+			class="cta-img-use right-rounded">
+
+		<style>
+			.cta-wrapper {
+				background-color: #071561;
+			}
+
+			.cta-wrapper.use .how-to-use-wrapper .h1-new {
+				color: #fff;
+				opacity: .95;
+			}
+
+			.jc-faq-page-content-block.top {
+				border-color: #fff;
+			}
+
+			.jc-faq-page-content-block.top.border-top {
+				border-color: #fff;
+			}
+
+			.cta-wrapper.use .how-to-use-wrapper .jc-faq-page-content-heading {
+				color: #fff;
+				opacity: .95;
+			}
+
+			.cta-wrapper.use .jc-faq-page-content-wrapper p {
+				color: #fff;
+				opacity: .95;
+
+			}
+
+			.cta-wrapper.use .jc-faq-page-expand-wrapper-use a {
+				color: #fff;
+				opacity: .95;
+			}
+
+			.cta-wrapper.use .jc-faq-page-expand-block ul {
+				color: #fff;
+				opacity: .95;
+			}
+
+			.cta-wrapper.use .jc-faq-page-content-block {
+				border-color: #fff;
+			}
+
+			.cta-wrapper.use .jc-product-page-bottom-tabs-text {
+				color: #fff;
+				opacity: .95;
+			}
+
+			.cta-wrapper.use .button-primary.button-green.hollow {
+				border: 2px solid #fff;
+				color: #fff;
+			}
+
+			#how-to-use .button-primary.button-green.hollow:hover {
+				background-color: #fff;
+				color: #004943;
+			}
+		</style>
+		{% comment %}
+		Pain Gummy = 7842450538694
+		{% endcomment %}
+		{% elsif product.id == 7842450538694 %}
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/FUN_gummies-pain.jpg?v=1714507802"
+			class="cta-img-use right-rounded">
+
+		<style>
+			.cta-wrapper {
+				background-color: #FF7050;
+			}
+
+			.cta-wrapper.use .how-to-use-wrapper .h1-new {
+				color: #fff;
+				opacity: .95;
+			}
+
+			.jc-faq-page-content-block.top {
+				border-color: #fff;
+			}
+
+			.jc-faq-page-content-block.top.border-top {
+				border-color: #fff;
+			}
+
+			.cta-wrapper.use .how-to-use-wrapper .jc-faq-page-content-heading {
+				color: #fff;
+				opacity: .95;
+			}
+
+			.cta-wrapper.use .jc-faq-page-content-wrapper p {
+				color: #fff;
+				opacity: .95;
+			}
+
+			.cta-wrapper.use .jc-faq-page-expand-wrapper-use a {
+				color: #fff;
+				opacity: .95;
+			}
+
+			.cta-wrapper.use .jc-faq-page-expand-block ul {
+				color: #fff;
+				opacity: .95;
+			}
+
+			.cta-wrapper.use .jc-faq-page-content-block {
+				border-color: #fff;
+			}
+
+			.cta-wrapper.use .jc-product-page-bottom-tabs-text {
+				color: #fff;
+				opacity: .95;
+			}
+
+			.cta-wrapper.use .button-primary.button-green.hollow {
+				border: 2px solid #fff;
+				color: #fff;
+
+			}
+
+			#how-to-use .button-primary.button-green.hollow:hover {
+				background-color: #fff;
+				color: #004943;
+			}
+		</style>
+
+		{% comment %}
+		Full Spec Pain Cream = 4631247323189
+		{% endcomment %}
+		{% elsif product.id == 4631247323189 %}
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/cream-full_spectrum.jpg?v=1718395935"
+			class="cta-img-use right-rounded">
+
+		<style>
+			.cta-wrapper {
+				background-color: #FF7050;
+			}
+
+			.cta-wrapper.use .how-to-use-wrapper .h1-new {
+				color: #fff;
+				opacity: .95;
+			}
+
+			.jc-faq-page-content-block.top {
+				border-color: #fff;
+			}
+
+			.jc-faq-page-content-block.top.border-top {
+				border-color: #fff;
+			}
+
+			.cta-wrapper.use .how-to-use-wrapper .jc-faq-page-content-heading {
+				color: #fff;
+				opacity: .95;
+			}
+
+			.cta-wrapper.use .jc-faq-page-content-wrapper p {
+				color: #fff;
+				opacity: .95;
+			}
+
+			.cta-wrapper.use .jc-faq-page-expand-wrapper-use a {
+				color: #fff;
+				opacity: .95;
+			}
+
+			.cta-wrapper.use .jc-faq-page-expand-block ul {
+				color: #fff;
+				opacity: .95;
+			}
+
+			.cta-wrapper.use .jc-faq-page-content-block {
+				border-color: #fff;
+			}
+
+			.cta-wrapper.use .jc-product-page-bottom-tabs-text {
+				color: #fff;
+				opacity: .95;
+			}
+
+			.cta-wrapper.use .button-primary.button-green.hollow {
+				border: 2px solid #fff;
+				color: #fff;
+
+			}
+
+			#how-to-use .button-primary.button-green.hollow:hover {
+				background-color: #fff;
+				color: #004943;
+			}
+		</style>
+
+
+
+		{% comment %}
+		Stress Gummy = 7842451488966
+		{% endcomment %}
+		{% elsif product.id == 7842451488966 %}
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/FUN_gummies-stress.jpg?v=1714507894"
+			class="cta-img-use right-rounded">
+
+		<style>
+			.cta-wrapper {
+				background-color: #82C49D;
+			}
+
+			.cta-wrapper.use .how-to-use-wrapper .h1-new {
+				color: #fff;
+			}
+
+			.jc-faq-page-content-block.top {
+				border-color: #fff;
+			}
+
+			.jc-faq-page-content-block.top.border-top {
+				border-color: #fff;
+			}
+
+			.cta-wrapper.use .how-to-use-wrapper .jc-faq-page-content-heading {
+				color: #fff;
+			}
+
+			.cta-wrapper.use .jc-faq-page-content-wrapper p {
+				color: #fff;
+			}
+
+			.cta-wrapper.use .jc-faq-page-expand-wrapper-use a {
+				color: #fff;
+			}
+
+			.cta-wrapper.use .jc-faq-page-expand-block ul {
+				color: #fff;
+			}
+
+			.cta-wrapper.use .jc-faq-page-content-block {
+				border-color: #fff;
+			}
+
+			.cta-wrapper.use .jc-product-page-bottom-tabs-text {
+				color: #fff;
+			}
+
+			.cta-wrapper.use .button-primary.button-green.hollow {
+				border: 2px solid #fff;
+				color: #fff;
+			}
+
+			#how-to-use .button-primary.button-green.hollow:hover {
+				background-color: #fff;
+				color: #004943;
+			}
+		</style>
+
+
+		{% comment %}
+		THC Free Pain Cream = 7706902626502
+		{% endcomment %}
+		{% elsif product.id == 7706902626502 %}
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/cream-broad_spectrum.jpg?v=1718397520"
+			class="cta-img-use right-rounded">
+
+			<style>
+				.cta-wrapper {
+					background-color: #FF7050;
+				}
+	
+				.cta-wrapper.use .how-to-use-wrapper .h1-new {
+					color: #fff;
+					opacity: .95;
+				}
+	
+				.jc-faq-page-content-block.top {
+					border-color: #fff;
+				}
+	
+				.jc-faq-page-content-block.top.border-top {
+					border-color: #fff;
+				}
+	
+				.cta-wrapper.use .how-to-use-wrapper .jc-faq-page-content-heading {
+					color: #fff;
+					opacity: .95;
+				}
+	
+				.cta-wrapper.use .jc-faq-page-content-wrapper p {
+					color: #fff;
+					opacity: .95;
+				}
+	
+				.cta-wrapper.use .jc-faq-page-expand-wrapper-use a {
+					color: #fff;
+					opacity: .95;
+				}
+	
+				.cta-wrapper.use .jc-faq-page-expand-block ul {
+					color: #fff;
+					opacity: .95;
+				}
+	
+				.cta-wrapper.use .jc-faq-page-content-block {
+					border-color: #fff;
+				}
+	
+				.cta-wrapper.use .jc-product-page-bottom-tabs-text {
+					color: #fff;
+					opacity: .95;
+				}
+	
+				.cta-wrapper.use .button-primary.button-green.hollow {
+					border: 2px solid #fff;
+					color: #fff;
+	
+				}
+	
+				#how-to-use .button-primary.button-green.hollow:hover {
+					background-color: #fff;
+					color: #004943;
+				}
+				.how-to-use-wrapper .jc-product-page-bottom-tabs-text span{
+					color: #fff !important;
+				}
+			</style>
+				{% elsif product.id == 6683070496966 %}
+					<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Softgels-broad_Spectrum_DESKTOP.jpg?v=1718399293"
+						class="cta-img-use right-rounded desktop">
+						<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Softgels-broad_Spectrum_MOBILE.jpg?v=1718399372"
+						class="cta-img-use right-rounded mobile">
+			
+					<style>
+						.cta-wrapper {
+							background-color: rgba(255, 136, 116, 0.2);
+						}
+						.cta-img-use.right-rounded.mobile{
+							display: none;
+						}
+						@media (max-width: 1023px) {
+							.cta-img-use.right-rounded.mobile{
+							display: block;
+						}
+						.cta-img-use.right-rounded.desktop{
+							display: none;
+						}
+						}
+					</style>
+							{% comment %}
+			Broad Spec Gummy = 
+		{% endcomment %}
+							{% elsif product.id == 6841769033926 %}
+								<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/gummies_1.jpg?v=1718831478"
+									class="cta-img-use right-rounded">
+						
+								<style>
+									.cta-wrapper {
+										background-color: rgba(255, 136, 116, 0.2);
+									}
+								</style>
+		{% elsif product.tags contains 'broad-spectrum' %}
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/tinctures-broad_spectrum_1.jpg?v=1718831714"
+			class="cta-img-use right-rounded">
+
+		<style>
+			.cta-wrapper {
+				background-color: rgba(255, 136, 116, 0.2);
+			}
+		</style>
+		{% comment %}
+			Dog Chews = 
+		{% endcomment %}
+				{% elsif product.id == 4502500573237 %}
+					<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/dog_chews.jpg?v=1718398926"
+						class="cta-img-use right-rounded">
+					<style>
+						.cta-wrapper {
+							background-color: rgba(102, 165, 217, 0.3);
+						}
+					</style>
+		{% elsif product.tags contains 'for-pets' %}
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/tinctures-pets.jpg?v=1718831771"
+			class="cta-img-use right-rounded">
+		<style>
+			.cta-wrapper {
+				background-color: rgba(102, 165, 217, 0.3);
+			}
+		</style>
+		{% comment %}
+			Full Spec Gummy = 4447123537973
+		{% endcomment %}
+		{% elsif product.id == 4447123537973 %}
+			<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/gummies.jpg?v=1718398967"
+			class="cta-img-use right-rounded">
+					{% comment %}
+			Full Spec Softgel = 3775056216117
+		{% endcomment %}
+		{% elsif product.id == 3775056216117 %}
+			<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/softgels-full_spectrum-desktop.jpg?v=1718399157"
+			class="cta-img-use right-rounded">
+		{% else %}
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/4f7cf11c8b9ccd12ef0038b0fe21c681.jpg?v=1708472921"
+			class="cta-img-use right-rounded">
+		{% endif %}
+
+	</div>
+
+	<div id="how-to-use" class="cta-text-wrapper-use">
+		<div style="position: relative; top: -180px;" id="tab-section"></div>
+
+
+		<div class="how-to-use-wrapper">
+
+			<div class="top-heading-wrapper">
+				<h1 class="h1-new">How to Use</h1>
+			</div>
+
+			<div class="jc-faq-page-content-wrapper">
+
+
+				<div class="jc-faq-page-content-block top border-top">
+					<div class="jc-faq-page-content-heading-wrapper" {%comment %}data-ix="faq-page-expand" {% endcomment
+						%}>
+						<div class="jc-faq-page-content-heading">PRODUCT DETAILS</div>
+
+						<div class="jc-faq-page-open-btn">
+							<img src="{% if product.id == 7794862817478 or product.id == 7842450538694 or product.id == 4631247323189 or product.id == 7842451488966 or product.id == 7706902626502 %} https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Small_291404d7-d9e4-4739-a660-f777ca039e8a.svg?v=1711382104{%else %}https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Small_f327a3c2-807c-4558-9927-095f69473f2b.svg?v=1702595086 {% endif %}"
+								alt="" class="plus-icon">
+						</div>
+
+
+					</div>
+					<div class="jc-faq-page-expand-wrapper-use">
+						<div class="jc-faq-page-expand-block">
+
+
+							<div class="jc-product-page-variant-default">
+								<div class="jc-product-page-bottom-tabs-text">
+									{{ variantDescription.description }}
+								</div>
+							</div>
+
+							{% for variant in product.variants %}
+							<div class="jc-variant-options-block" id="jc-show-variant-description-{{variant.id}}">
+								{{ variant.metafields.variantDescription.description }}
+							</div>
+
+							{% endfor %}
+
+
+						</div>
+					</div>
+				</div>
+
+
+				<div class="jc-faq-page-content-block">
+					<div class="jc-faq-page-content-heading-wrapper" {%comment %}data-ix="faq-page-expand" {% endcomment
+						%}>
+						<div class="jc-faq-page-content-heading">DIRECTIONS</div>
+						<div class="jc-faq-page-open-btn">
+							<img src="{% if product.id == 7794862817478 or product.id == 7842450538694 or product.id == 4631247323189 or product.id == 7842451488966 or product.id == 7706902626502 %}https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Small_291404d7-d9e4-4739-a660-f777ca039e8a.svg?v=1711382104{%else %}https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Small_f327a3c2-807c-4558-9927-095f69473f2b.svg?v=1702595086 {% endif %}"
+								alt="" class="plus-icon">
+						</div>
+					</div>
+					<div class="jc-faq-page-expand-wrapper-use">
+						<div class="jc-faq-page-expand-block">
+
+							<div class="jc-product-page-variant-default">
+								<div class="jc-product-page-bottom-tabs-text">
+									{{ variantDirections.directions }}
+
+								</div>
+							</div>
+
+							{% for variant in product.variants %}
+							<div class="jc-variant-options-block" id="jc-show-variant-directions-{{variant.id}}">
+								<div class="jc-product-page-bottom-tabs-text">
+									{{ variant.metafields.variantDirections.directions }}
+
+								</div>
+							</div>
+
+							{% endfor %}
+
+
+						</div>
+					</div>
+				</div>
+
+				<div class="jc-faq-page-content-block">
+					<div class="jc-faq-page-content-heading-wrapper" {%comment %}data-ix="faq-page-expand" {% endcomment
+						%}>
+						<div class="jc-faq-page-content-heading">Ingredients</div>
+						<div class="jc-faq-page-open-btn">
+							<img src="{% if product.id == 7794862817478 or product.id == 7842450538694 or product.id == 4631247323189 or product.id == 7842451488966 or product.id == 7706902626502 %}https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Small_291404d7-d9e4-4739-a660-f777ca039e8a.svg?v=1711382104{%else %}https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Small_f327a3c2-807c-4558-9927-095f69473f2b.svg?v=1702595086 {% endif %}"
+								alt="" class="plus-icon">
+						</div>
+					</div>
+					<div class="jc-faq-page-expand-wrapper-use">
+						<div class="jc-faq-page-expand-block">
+
+
+							<div class="jc-product-page-variant-default">
+								<div class="jc-product-page-bottom-tabs-text">
+									{{ variantIngredients.ingredients }}
+								</div>
+							</div>
+
+							{% for variant in product.variants %}
+							<div class="jc-variant-options-block" id="jc-show-variant-ingredients-{{variant.id}}">
+								<div class="jc-product-page-bottom-tabs-text">
+									{{ variant.metafields.variantIngredients.ingredients }}
+
+								</div>
+							</div>
+
+							{% endfor %}
+
+
+						</div>
+					</div>
+				</div>
+
+				<div class="jc-faq-page-content-block last">
+					<div class="jc-faq-page-content-heading-wrapper" {%comment %}data-ix="faq-page-expand" {% endcomment
+						%}>
+						<div class="jc-faq-page-content-heading">Lab Testing / Safety</div>
+						<div class="jc-faq-page-open-btn">
+							<img src="{% if product.id == 7794862817478 or product.id == 7842450538694 or product.id == 4631247323189 or product.id == 7842451488966 or product.id == 7706902626502 %}https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Small_291404d7-d9e4-4739-a660-f777ca039e8a.svg?v=1711382104{%else %}https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Small_f327a3c2-807c-4558-9927-095f69473f2b.svg?v=1702595086 {% endif %}"
+								alt="" class="plus-icon">
+						</div>
+					</div>
+					<div class="jc-faq-page-expand-wrapper-use">
+						<div class="jc-faq-page-expand-block">
+
+
+							<div class="jc-product-page-variant-default">
+								<div class="jc-product-page-bottom-tabs-text">
+									{{ variantSafety.safety }}
+									<div class="jc-medium-btn-section extra-margin left">
+										<a href="/pages/lab-testing" class="button-primary button-green hollow"
+											style="font-weight: 500!important">View Lab Results</a>
+									</div>
+								</div>
+							</div>
+
+							{% for variant in product.variants %}
+							<div class="jc-variant-options-block" id="jc-show-variant-safety-{{variant.id}}">
+								<div class="jc-product-page-bottom-tabs-text">
+									{{ variant.metafields.variantSafety.safety }}
+									<div class="jc-medium-btn-section extra-margin left">
+										<a href="/pages/lab-testing" class="button-primary button-green hollow"
+											style="font-weight: 500!important">View Lab Results</a>
+									</div>
+								</div>
+							</div>
+
+							{% endfor %}
+
+
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+
+
+
+
+
+			<!-- Modal -->
+			<div id="calendly-modal" class="modal">
+				<div class="modal-content">
+					<span class="close-button">&times;</span>
+					<!-- Calendly inline widget begin -->
+					<div class="calendly-inline-widget"
+						data-url="https://calendly.com/r-r-client-service/personalized-call"
+						style="min-width:320px;height:700px;"></div>
+					<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"
+						async></script>
+					<!-- Calendly inline widget end -->
+				</div>
+			</div>
+
+
+
+		</div>
+
+
+
+	</div>
+
+</div>
+
+<style>
+	.jc-faq-page-expand-wrapper-use {
+		overflow: hidden;
+		max-height: 0;
+		opacity: 0;
+		transition: max-height 0.5s ease, opacity 0.5s ease;
+	}
+
+	.jc-faq-page-expand-wrapper-use.open {
+		max-height: 1000px;
+		/* Adjust this value based on the actual content size */
+		opacity: 1;
+		height: auto;
+	}
+
+	.jc-faq-page-open-btn img {
+		transition: transform 0.5s ease;
+	}
+</style>
+
+
+
+
+{% comment %}
+{% endcomment %}
+
+
+{% schema %}
+{
+"name": "How to Use",
+"tag": "section",
+"class": "section",
+"disabled_on": {
+"groups": ["header", "footer"]
+},
+"settings": [
+
+],
+"presets": [
+{
+"name": "How to Use"
+}
+]
+}
+{% endschema %}

@@ -1,0 +1,225 @@
+<style>
+  .top-heading-wrapper.center {
+    text-align: center;
+  }
+
+  .jc-disclaimer-wrapper-products.white {
+
+    padding: 60px 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .faded-heading {
+    color: #59837E;
+    text-transform: uppercase;
+    margin-bottom: -10px;
+  }
+
+  .jc-faq-page-content-wrapper {
+    margin-top: 0px;
+  }
+
+  .jc-faq-page-content-block {
+    border-color: #000;
+  }
+
+  .jc-faq-page-content-block.top {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .faq-wrapper {
+    width: 100%;
+    padding-right: 27px;
+    padding-left: 27px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1434px;
+
+  }
+
+  @media (max-width: 749px) {
+    .faq-wrapper .jc-faq-page-content-wrapper {
+      margin-top: 0px;
+      /*
+      margin-top: 45px;
+      */
+    }
+
+    .jc-disclaimer-wrapper-products.white {
+      padding-bottom: 40px;
+      padding-top: 40px;
+    }
+  }
+</style>
+
+
+{% assign isFullSpec = false %}
+{% assign isBroadSpec = false %}
+{% assign isPain = false %}
+{% assign isStress = false %}
+{% assign isSleep = false %}
+{% assign isCBDGummy = false %}
+{% assign isCBDCreams = false %}
+{% assign isCBDTinctures = false %}
+{% assign isCBDSoftgels = false %}
+{% assign isPetProduct = false %}
+
+{% if product.tags contains 'full-spectrum' %}
+{% assign isFullSpec = true %}
+{% endif %}
+
+{% if product.tags contains 'broad-spectrum' %}
+{% assign isBroadSpec = true %}
+{% endif %}
+
+{% if product.tags contains 'pain' %}
+{% assign isPain = true %}
+{% endif %}
+
+{% if product.tags contains 'stress' %}
+{% assign isStress = true %}
+{% endif %}
+
+{% if product.tags contains 'sleep' %}
+{% assign isSleep = true %}
+{% endif %}
+
+
+{% for collection in product.collections %}
+{% case collection.handle %}
+{% when 'gummies' %}
+{% assign isCBDGummy = true %}
+{% when 'cbd-pain-creams' %}
+{% assign isCBDCreams = true %}
+{% when 'tinctures' %}
+{% assign isCBDTinctures = true %}
+{% when 'softgels' %}
+{% assign isCBDSoftgels = true %}
+{% when 'pet-products' %}
+{% assign isPetProduct = true %}
+{% endcase %}
+{% endfor %}
+
+<div class="jc-disclaimer-wrapper-products white">
+  <div class="wrapper-outter">
+    <div class="faq-wrapper">
+
+      <div class="top-heading-wrapper center">
+        <h1 class="h1-new smaller">Your Questions, Answered.</h1>
+      </div>
+
+      <div class="jc-faq-page-content-wrapper">
+
+        {% comment %}
+        data-ix="faq-page-expand"
+        {% endcomment %}
+
+        {% if collection.handle == 'all-products' %}
+
+        {% include 'FAQ-all-products' %}
+        {% elsif collection.handle == 'cbd-pain-creams' %}
+        {% include 'FAQ-pain-creams' %}
+        {% elsif collection.handle == 'gummies' %}
+        {% include 'FAQ-gummies' %}
+        {% elsif collection.handle == 'tinctures' %}
+        {% include 'FAQ-tinctures' %}
+        {% elsif collection.handle == 'softgels' %}
+        {% include 'FAQ-softgels' %}
+        {% elsif collection.handle == 'thc-free-products' %}
+        {% include 'FAQ-thc-free' %}
+        {% elsif collection.handle == 'pet-products' %}
+        {% include 'FAQ-pets' %}
+        {% elsif collection.handle == 'pain' %}
+        {% include 'FAQ-pain' %}
+        {% elsif collection.handle == 'stress' %}
+        {% include 'FAQ-stress' %}
+        {% elsif collection.handle == 'sleep' %}
+        {% include 'FAQ-sleep' %}
+        {% elsif collection.handle == 'multifunctional' %}
+        {% include 'FAQ-multi' %}
+        {% elsif collection.handle == 'regular-strength' %}
+        {% include 'FAQ-regular-strength' %}
+        {% elsif collection.handle == 'extra-strength' %}
+        {% include 'FAQ-extra-strength' %}
+        {% elsif collection.handle == 'maximum-strength' %}
+        {% include 'FAQ-maximum-strength' %}
+        {% elsif collection.handle == 'functional-gummies' %}
+        {% include 'FAQ-functional-gummies' %}
+
+
+
+
+        {% elsif isPain and isCBDGummy and product.handle == 'cbd-cbg-pain-gummies' %}
+        {% include 'PDP-FAQ-pain-gummies' %}
+
+        {% elsif isStress and isCBDGummy and product.handle == 'cbd-cbn-cbg-de-stress-gummies' %}
+        {% include 'PDP-FAQ-de-stress-gummies' %}
+
+        {% elsif isSleep and isCBDGummy and product.handle == '25mg-cbd-5mg-cbn-sleep-gummies' %}
+        {% include 'PDP-FAQ-sleep-gummies' %}
+        
+        {% elsif isPetProduct and product.handle == 'pet-tincture' %}
+        {% include 'PDP-FAQ-pet-tincture' %}
+
+        {% elsif isPetProduct and product.handle == '5mg-hemp-extract-dog-chews-chicken-flavored' %}
+        {% include 'PDP-FAQ-dog-chews' %}
+
+        {% elsif isFullSpec and isCBDGummy %}
+        {% include 'PDP-FAQ-full-spec-cbd-gummies' %}
+
+        {% elsif isBroadSpec and isCBDGummy %}
+        {% include 'PDP-FAQ-broad-spec-cbd-gummies' %}
+
+        {% elsif isFullSpec and isCBDCreams %}
+        {% include 'PDP-FAQ-full-spec-pain-cream' %}
+
+        {% elsif isBroadSpec and isCBDCreams %}
+        {% include 'PDP-FAQ-broad-spec-pain-cream' %}
+
+        {% elsif isCBDTinctures and isFullSpec %}
+        {% include 'PDP-FAQ-all-full-spectrum-tinctures' %}
+
+        {% elsif isCBDTinctures and isBroadSpec %}
+        {% include 'PDP-FAQ-all-broad-spectrum-tinctures' %}
+
+        {% elsif isCBDSoftgels and isFullSpec %}
+        {% include 'PDP-FAQ-all-full-spectrum-softgels' %}
+
+        {% elsif isCBDSoftgels and isBroadSpec %}
+        {% include 'PDP-FAQ-all-broad-spectrum-softgels' %}
+
+
+
+
+        {% endif %}
+
+
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+"name": "FAQs",
+"tag": "section",
+"class": "section",
+"disabled_on": {
+"groups": ["header", "footer"]
+},
+"settings": [
+
+],
+"presets": [
+{
+"name": "FAQs"
+}
+]
+}
+{% endschema %}

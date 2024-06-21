@@ -1,0 +1,623 @@
+<style>
+	.specific-img-ingredients {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 200%;
+		left: -50%;
+		height: 100%;
+		transform: scale(2.5);
+		object-fit: contain;
+	}
+
+	.how-to-use-wrapper h1 {
+		font-size: 55px;
+		font-style: normal;
+		font-weight: 700;
+	}
+
+	.how-to-use-wrapper .jc-faq-page-content-heading {
+		color: #2D2926;
+		font-family: Poppins;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+		letter-spacing: 1.28px;
+		text-transform: uppercase;
+	}
+
+	.cta-wrapper-ingredients {
+		display: flex;
+		padding-right: max(calc((100vw - 1380px) / 2), 27px);
+		padding-top: 0px;
+		padding-bottom: 60px;
+		background: #fff;
+		overflow: hidden;
+	}
+
+	.cta-img-wrapper {
+
+		height: 100%;
+		margin-right: 0px;
+		margin-left: 0px;
+		padding: 0px;
+		/*
+	width: 60%;
+    max-width: 820px;
+	*/
+		text-align: right;
+		overflow: visible;
+		width: 100%;
+		max-width: 504px;
+
+	}
+
+	.cta-img-ingredients {
+		margin-bottom: 0px;
+		width: 100%;
+		object-fit: cover;
+		/*
+	max-width: 813.84px;
+	*/
+		height: 750px;
+		border-radius: 0px 0px 200px 0px;
+	}
+
+	.cta-text-wrapper-ingredients {
+		width: 100%;
+		max-width: none;
+		margin-right: 0px;
+		padding-left: 0px;
+		text-align: left;
+		padding-right: 0px;
+		padding-top: 70px;
+	}
+
+	.cta-wrapper-ingredients .how-to-use-wrapper {
+		margin-left: auto;
+	}
+
+	.button-green {
+		padding: 21px 30px 19px 30px;
+		background-color: #004943;
+		-webkit-transition: background-color .25s ease;
+		transition: background-color .25s ease;
+		font-family: poppins;
+		color: #fff;
+		text-align: center;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		border-radius: 50px;
+		width: auto;
+		line-height: 1em;
+		font-size: 16px;
+		font-weight: 400;
+		text-decoration: none;
+	}
+
+	.button-green:hover {
+		background-color: white;
+		color: #004943;
+	}
+
+	.ingredient-wrapper {
+		display: flex;
+		column-gap: 34px;
+		margin-top: 50px;
+	}
+
+	.ingredient-image {
+		width: 13vw;
+		height: 13vw;
+		max-width: 140px;
+		max-height: 140px;
+		min-width: 120px;
+		min-height: 120px;
+		border-radius: 50%;
+	}
+
+	.ingredient-heading {
+		color: var(--rr-green-current-web, #004943);
+		font-family: century-old-style-std;
+		font-size: 26px;
+		line-height: 30px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		margin-top: 20px;
+	}
+
+	.ingredient-item {
+		width: 25%;
+	}
+
+	.ingredient-item p {
+		font-size: 17px;
+	}
+
+	.top-heading-wrapper p {
+		font-size: 17px;
+		font-weight: 400;
+		line-height: 26px;
+	}
+
+	.cta-img-ingredients.right-rounded.mobile {
+		display: none;
+	}
+
+	.jc-faq-page-content-wrapper.ingredient-mobile {
+		display: none;
+	}
+
+	@media (max-width: 1023px) {
+		.cta-wrapper-ingredients {
+			flex-direction: column-reverse;
+			padding-bottom: 40px;
+		}
+		.cta-wrapper-ingredients .jc-faq-page-content-heading{
+			display: flex;
+			align-items: center;
+		}
+		.cta-wrapper-ingredients .cta-img-wrapper.specific-img-ingredients-wrap {
+			height: 300px;
+			overflow: visible;
+		}
+
+		.specific-img-ingredients {
+
+			object-fit: contain;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: -30px;
+			transform: scale(2);
+		}
+
+		.cta-text-wrapper-ingredients {
+			width: 100%;
+			max-width: 100%;
+		}
+
+		.cta-img-wrapper img {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 100px;
+		}
+
+		.cta-text-wrapper-ingredients {
+			padding-left: 20px;
+			padding-right: 20px;
+			padding-top: 0px;
+		}
+
+		.cta-wrapper-ingredients {
+			flex-direction: column;
+		}
+
+		.cta-img-ingredients.right-rounded {
+			display: none;
+		}
+
+		.cta-img-ingredients.right-rounded.mobile {
+			display: block;
+			width: 100%;
+			max-width: 100%;
+			height: auto;
+		}
+
+		.cta-wrapper-ingredients .cta-img-wrapper {
+			min-height: auto;
+			width: 100%;
+			height: auto;
+			max-width: none;
+		}
+
+		.cta-wrapper-ingredients {
+			padding-right: 0px;
+		}
+
+	}
+
+	@media (max-width: 767px) {
+		.cta-text-wrapper-ingredients h1.h1-new {
+			text-align: center;
+			margin-bottom: 20px;
+			margin-top: 0px;
+		}
+
+		.cta-text-wrapper-ingredients .top-heading-wrapper p {
+			text-align: center;
+		}
+
+		.ingredient-wrapper {
+			flex-wrap: wrap;
+		}
+
+		.ingredient-item {
+			width: 100%;
+		}
+
+		.ingredient-image.mobile {
+			width: 66px;
+			min-width: 66px;
+			height: 53px;
+			border-radius: 100px;
+			margin-right: 15px;
+		}
+
+		.ingredient-wrapper {
+			display: none;
+		}
+
+		.jc-faq-page-content-wrapper.ingredient-mobile {
+			display: block;
+		}
+
+		.ingredient-image {
+			min-width: auto;
+			min-height: auto;
+		}
+
+		.jc-faq-page-content-wrapper.ingredient-mobile .jc-faq-page-expand-wrapper {
+			padding-right: 0px;
+		}
+
+		.cta-text-wrapper-ingredients .jc-faq-page-expand-text {
+			font-size: 17px;
+			line-height: 26px;
+			font-weight: 400;
+		}
+
+		.cta-wrapper-ingredients {
+			padding-right: 0px;
+		}
+
+		.cta-img-ingredients {
+			margin-bottom: 10px;
+		}
+
+		.cta-wrapper-ingredients .cta-img-wrapper {
+			padding-right: 0px;
+		}
+
+		.mobile-smaller-width {
+			max-width: 300px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+</style>
+
+
+
+
+{% assign isFullSpec = false %}
+{% assign isBroadSpec = false %}
+{% assign isPain = false %}
+{% assign isStress = false %}
+{% assign isSleep = false %}
+{% assign isCBDGummy = false %}
+{% assign isCBDCreams = false %}
+{% assign isCBDTinctures = false %}
+{% assign isCBDSoftgels = false %}
+{% assign isPetProduct = false %}
+
+{% if product.tags contains 'full-spectrum' %}
+{% assign isFullSpec = true %}
+{% endif %}
+
+{% if product.tags contains 'broad-spectrum' %}
+{% assign isBroadSpec = true %}
+{% endif %}
+
+{% if product.tags contains 'pain' %}
+{% assign isPain = true %}
+{% endif %}
+
+{% if product.tags contains 'stress' %}
+{% assign isStress = true %}
+{% endif %}
+
+{% if product.tags contains 'sleep' %}
+{% assign isSleep = true %}
+{% endif %}
+
+
+{% for collection in product.collections %}
+{% case collection.handle %}
+{% when 'gummies' %}
+{% assign isCBDGummy = true %}
+{% when 'cbd-pain-creams' %}
+{% assign isCBDCreams = true %}
+{% when 'tinctures' %}
+{% assign isCBDTinctures = true %}
+{% when 'softgels' %}
+{% assign isCBDSoftgels = true %}
+{% when 'pet-products' %}
+{% assign isPetProduct = true %}
+{% endcase %}
+{% endfor %}
+
+
+<div class="cta-wrapper-ingredients">
+
+	{% if isSleep and isCBDGummy and product.handle == '25mg-cbd-5mg-cbn-sleep-gummies' %}
+	<div class="cta-img-wrapper">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_Sleep_Gummies_DESK.jpg?v=1717602835"
+			class="cta-img-ingredients right-rounded">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_Sleep_Gummies_MOB.jpg?v=1717602835"
+			class="cta-img-ingredients right-rounded mobile">
+	</div>
+	{% elsif isPain and isCBDGummy and product.handle == 'cbd-cbg-pain-gummies' %}
+	<div class="cta-img-wrapper">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_Pain_Gummies_DESK.jpg?v=1717602835"
+			class="cta-img-ingredients right-rounded">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_Pain_Gummies_MOB.jpg?v=1717602835"
+			class="cta-img-ingredients right-rounded mobile">
+	</div>
+	{% elsif isStress and isCBDGummy and product.handle == 'cbd-cbn-cbg-de-stress-gummies' %}
+	<div class="cta-img-wrapper">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_De-Stress_Gummies_DESK.jpg?v=1717602835"
+			class="cta-img-ingredients right-rounded">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_De-Stress_Gummies_MOB.jpg?v=1717602835"
+			class="cta-img-ingredients right-rounded mobile">
+
+	</div>
+	{% elsif isCBDSoftgels %}
+		<div class="cta-img-wrapper">
+			<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_Softgels_FS_DESK_80639bff-6fb2-4f4b-acc2-fc24a848e261.jpg?v=1718833305"
+				class="cta-img-ingredients right-rounded">
+			<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_Softgels_FS_MOB_e8472ada-f0db-4335-b056-39a32878e8f4.jpg?v=1718833554"
+				class="cta-img-ingredients right-rounded mobile">
+	
+		</div>
+		{% elsif product.handle == 'softgels' %}
+			<div class="cta-img-wrapper">
+				<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_Softgels_FS_DESK_80639bff-6fb2-4f4b-acc2-fc24a848e261.jpg?v=1718833305"
+					class="cta-img-ingredients right-rounded">
+				<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_Softgels_FS_MOB_e8472ada-f0db-4335-b056-39a32878e8f4.jpg?v=1718833554"
+					class="cta-img-ingredients right-rounded mobile">
+		
+			</div>
+	{% elsif isCBDGummy %}
+	<div class="cta-img-wrapper">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_CBD_Gummies_DESK.jpg?v=1717602835"
+			class="cta-img-ingredients right-rounded">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_CBD_Gummies_MOB.jpg?v=1717602835"
+			class="cta-img-ingredients right-rounded mobile">
+	</div>
+
+	<style>
+		.specific-img-ingredients {
+			transform: none;
+			top: -60px;
+			bottom: auto;
+			width: 100%;
+			left: 0%;
+			height: auto;
+		}
+	</style>
+	{% elsif isCBDCreams %}
+	<div class="cta-img-wrapper">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_Pain_Cream_DESK.jpg?v=1717602835"
+			class="cta-img-ingredients right-rounded">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_Pain_Cream_MOB.jpg?v=1717602835"
+			class="cta-img-ingredients right-rounded mobile">
+	</div>
+		{% comment %}
+		Dog Chews = 4502500573237
+	{% endcomment %}
+	{% elsif product.id == 4502500573237 %}
+		<div class="cta-img-wrapper">
+			<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_Dog_Chews_V2_DESK.jpg?v=1718403641"
+				class="cta-img-ingredients right-rounded">
+			<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_Dog_Chews_V2_MOB.jpg?v=1718403641"
+				class="cta-img-ingredients right-rounded mobile">
+		</div>
+	{% elsif isPetProduct %}
+		<div class="cta-img-wrapper">
+			<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_Tictures_PETS_DESK.jpg?v=1718897434"
+				class="cta-img-ingredients right-rounded">
+			<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_Tictures_PETS_MOb.jpg?v=1718897434"
+				class="cta-img-ingredients right-rounded mobile">
+		</div>
+	{% elsif isCBDTinctures %}
+	<div class="cta-img-wrapper">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_Tictures_BS_DESK.jpg?v=1717602835"
+			class="cta-img-ingredients right-rounded">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Ingredients_Tictures_BS_MOb.jpg?v=1717602835"
+			class="cta-img-ingredients right-rounded mobile">
+	</div>
+	{% else %}
+	<div class="cta-img-wrapper">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/a6f98ddca31467db65f243119f94b016.png?v=1708988707"
+			class="cta-img-ingredients right-rounded">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/RR_Meds-2.png?v=1710519066"
+			class="cta-img-ingredients right-rounded mobile">
+	</div>
+	{% endif %}
+
+	{% comment %}
+
+
+	{% if product.id == 7842450538694 or product.id == 4631247323189 %}
+	<div class="cta-img-wrapper specific-img-ingredients-wrap">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/pain-gummy.png?v=1711470741"
+			class="specific-img-ingredients">
+	</div>
+	{% elsif product.id == 7842451488966 %}
+	<div class="cta-img-wrapper specific-img-ingredients-wrap">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/de-stress-gummy.png?v=1711470741"
+			class="specific-img-ingredients">
+	</div>
+	{% elsif product.id == 7794862817478 %}
+	<div class="cta-img-wrapper specific-img-ingredients-wrap">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/sleep-gummy.png?v=1711470741"
+			class="specific-img-ingredients">
+	</div>
+	{% else %}
+	<div class="cta-img-wrapper">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/a6f98ddca31467db65f243119f94b016.png?v=1708988707"
+			class="cta-img-ingredients right-rounded">
+		<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/RR_Meds-2.png?v=1710519066"
+			class="cta-img-ingredients right-rounded mobile">
+	</div>
+	{% endif %}
+	{% endcomment %}
+
+
+
+	<div class="cta-text-wrapper-ingredients">
+
+
+
+		<div class="how-to-use-wrapper">
+
+			<div class="top-heading-wrapper">
+				<h1 style="max-width: 600px;" class="h1-new mobile-smaller-width">The Best Ingredients for Superior Relief</h1>
+
+				<p style="">Our industry-leading cannabinoid formulas, featuring adaptogens, botanicals,
+					and potent CBD, are designed for your optimal daily wellness.</p>
+
+					<style>
+						.how-to-use-wrapper .top-heading-wrapper p{
+							max-width: 700px;
+						}
+						@media (max-width: 767px) {
+							.how-to-use-wrapper .top-heading-wrapper p{
+							max-width: 280px;
+							margin-right: auto;
+							margin-left: auto;
+						}
+						}
+					</style>
+			</div>
+
+			<div class="ingredient-wrapper">
+
+
+
+
+				{% if isPain and isCBDGummy and product.handle == 'cbd-cbg-pain-gummies' %}
+				{% include 'ingredients-pain-gummies' %}
+
+				{% elsif isStress and isCBDGummy and product.handle == 'cbd-cbn-cbg-de-stress-gummies' %}
+				{% include 'ingredients-de-stress-gummies' %}
+
+				{% elsif isSleep and isCBDGummy and product.handle == '25mg-cbd-5mg-cbn-sleep-gummies' %}
+				{% include 'ingredients-sleep-gummies' %}
+
+				{% elsif isFullSpec and isCBDGummy %}
+				{% include 'ingredients-full-spec-cbd-gummies' %}
+
+				{% elsif isBroadSpec and isCBDGummy %}
+				{% include 'ingredients-broad-spec-cbd-gummies' %}
+
+				{% elsif isFullSpec and isCBDCreams %}
+				{% include 'ingredients-full-spec-pain-cream' %}
+
+				{% elsif isBroadSpec and isCBDCreams %}
+				{% include 'ingredients-broad-spec-pain-cream' %}
+
+				{% elsif isCBDTinctures and isFullSpec %}
+				{% include 'ingredients-all-full-spectrum-tinctures-and-softgels' %}
+
+				{% elsif isCBDTinctures and isBroadSpec %}
+				{% include 'ingredients-all-broad-spectrum-tinctures-and-softgels' %}
+
+				{% elsif isCBDSoftgels and isFullSpec %}
+				{% include 'ingredients-all-full-spectrum-tinctures-and-softgels' %}
+
+				{% elsif isCBDSoftgels and isBroadSpec %}
+				{% include 'ingredients-all-broad-spectrum-tinctures-and-softgels' %}
+
+				{% elsif isPetProduct %}
+				{% include 'ingredients-dog-chews' %}
+
+				{% endif %}
+
+
+
+
+			</div>
+
+			<div class="jc-faq-page-content-wrapper ingredient-mobile">
+
+
+
+
+				{% if isPain and isCBDGummy and product.handle == 'cbd-cbg-pain-gummies' %}
+				{% include 'ingr-mobile-pain-gummies' %}
+
+				{% elsif isStress and isCBDGummy and product.handle == 'cbd-cbn-cbg-de-stress-gummies' %}
+				{% include 'ingr-mobile-de-stress-gummies' %}
+
+				{% elsif isSleep and isCBDGummy and product.handle == '25mg-cbd-5mg-cbn-sleep-gummies' %}
+				{% include 'ingr-mobile-sleep-gummies' %}
+
+				{% elsif isFullSpec and isCBDGummy %}
+				{% include 'ingr-mobile-full-spec-cbd-gummies' %}
+
+				{% elsif isBroadSpec and isCBDGummy %}
+				{% include 'ingr-mobile-broad-spec-cbd-gummies' %}
+
+				{% elsif isFullSpec and isCBDCreams %}
+				{% include 'ingr-mobile-full-spec-pain-cream' %}
+
+				{% elsif isBroadSpec and isCBDCreams %}
+				{% include 'ingr-mobile-broad-spec-pain-cream' %}
+
+				{% elsif isCBDTinctures and isFullSpec %}
+				{% include 'ingr-mobile-all-full-spectrum-tinctures-and-softgels' %}
+
+				{% elsif isCBDTinctures and isBroadSpec %}
+				{% include 'ingr-mobile-all-broad-spectrum-tinctures-and-softgels' %}
+
+				{% elsif isCBDSoftgels and isFullSpec %}
+				{% include 'ingr-mobile-all-full-spectrum-tinctures-and-softgels' %}
+
+				{% elsif isCBDSoftgels and isBroadSpec %}
+				{% include 'ingr-mobile-all-broad-spectrum-tinctures-and-softgels' %}
+
+				{% elsif isPetProduct %}
+				{% include 'ingr-mobile-dog-chews' %}
+
+				{% endif %}
+
+
+
+
+
+
+
+
+			</div>
+
+
+
+
+
+		</div>
+
+	</div>
+
+
+	{% schema %}
+	{
+	"name": "Ingredients",
+	"tag": "section",
+	"class": "section",
+	"disabled_on": {
+	"groups": ["header", "footer"]
+	},
+	"settings": [
+
+	],
+	"presets": [
+	{
+	"name": "Ingredients"
+	}
+	]
+	}
+	{% endschema %}

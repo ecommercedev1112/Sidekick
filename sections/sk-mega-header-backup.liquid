@@ -1,0 +1,844 @@
+
+<style>
+/* Hide Mobile-only announcements on Desktop */
+@media (min-width: 992px) {
+  .announce-rte-text[data-device="mobile"] {
+    display: none;
+  }
+}
+
+/* Hide Desktop-only announcements on Mobile */
+@media (max-width: 991px) {
+  .announce-rte-text[data-device="desktop"] {
+    display: none;
+  }
+}
+
+</style>
+
+<div class="fixed-top-wrapper">
+  <div id="nav-overlay" class="nav-overlay"></div>
+  <div class="announce-wrapper">
+    <div class="announcement-inner">
+
+      {%- comment -%}
+        <div class="nav-icon-wrapper">
+          <a href="https://www.facebook.com/rrmeds/" class="jc-fixed-bar-social-link w-inline-block" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/RR-reskin-nav_AST_facebook_icon.svg?v=1658163170" alt="" class="jc-fixed-bar-social-img"></a>
+          <a href="https://www.instagram.com/rrmedicinals/" class="jc-fixed-bar-social-link w-inline-block" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/RR-reskin-nav_AST_IG_icon.svg?v=1658163169" alt="" class="jc-fixed-bar-social-img"></a>
+          <a href="mailto:contact@rrmeds.com" class="jc-fixed-bar-social-link w-inline-block"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/RR-reskin-nav_AST_email_icon.svg?v=1658163169" alt="" class="jc-fixed-bar-social-img"></a>
+        </div>
+      {%- endcomment -%}
+
+      
+      <div class="announce-rte w-richtext">
+        {% for block in section.blocks %}
+          <div class="announce-rte-text {% if forloop.first %}active{% endif %}"
+               id="announce-rte--{{ block.id }}"
+               data-device="{{ block.settings.device_target }}"
+               style="color: {{ block.settings.color }};">
+            {{ block.settings.text | richtext }}
+          </div>
+        {% endfor %}
+      </div>
+      
+
+    </div>
+  </div>
+  <div id="fixed-nav" class="fixed-nav-wrapper">
+    <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
+      <div class="nav-container w-container">
+        <div class="nav-flex-row-outer">
+
+          <a href="/cart" class="jc-fixed-bar-cart-link mobile w-inline-block">
+            <div class="cart-inner">
+              <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_6_1f2a06e3-fcf7-470e-b82e-ee8f7ac2fcd6.svg?v=1699916238" alt="" class="jc-fixed-bar-cart-img">
+              <div class="cart-count-number mobile">{{cart.item_count}}</div>
+            </div>
+          </a>
+
+          <div class="nav-left">
+          <div data-w-id="86b09c31-cc06-88f2-fc9b-fae0eabe6558" id="nav-logo-main" class="nav-flex-col-outer-1">
+            <a href="/" class="nav-brand-link w-inline-block"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/RR-reskin-nav_AST_R_R_Logo.svg?v=1658163169" loading="lazy" alt="" class="nav-brand-img"></a>
+          </div>
+          <div class="nav-flex-col-outer-2">
+            <nav role="navigation" class="nav-menu desktop w-nav-menu">
+
+
+              <div data-w-id="b85f670b-9f70-b5f6-f2c8-0b3d201ee690" class="nav-link-container">
+                <a href="https://www.rrmeds.com/collections/all-products" data-w-id="86b09c31-cc06-88f2-fc9b-fae0eabe6571" id="menu-link-1" class="jc-nav-overlay-link-mega _w-inline-block w-nav-link">Shop</a>
+                <div class="link-hover-line container">
+                  <div class="link-hover-line _1"></div>
+                </div>
+              </div>
+
+              {% comment %}
+                
+            
+              <div data-w-id="d3269279-f3d0-2e81-6082-9567a1629efa" class="nav-link-container">
+                <a href="https://www.rrmeds.com/pages/all-reviews" data-w-id="ed73a9bb-ce96-6ac9-6689-1975515091b7" id="menu-link-2" class="jc-nav-overlay-link-mega _w-inline-block w-nav-link">product finder</a>
+                <div class="link-hover-line container">
+                  <div class="link-hover-line _2"></div>
+                </div>
+              </div>
+              {% endcomment %}
+
+              <div data-w-id="62f8ad95-3455-1c46-003d-b8cf27150af8" class="nav-link-container">
+                <a href="https://www.rrmeds.com/pages/learn" data-w-id="86b09c31-cc06-88f2-fc9b-fae0eabe656f" id="menu-link-3" class="jc-nav-overlay-link-mega _w-inline-block w-nav-link">Learn</a>
+                <div class="link-hover-line container">
+                  <div class="link-hover-line _3"></div>
+                </div>
+              </div>
+              <div data-w-id="76e78eec-81bf-4321-9a6e-61004c3a03c6" class="nav-link-container">
+                <a href="https://www.rrmeds.com/pages/discounts" data-w-id="86b09c31-cc06-88f2-fc9b-fae0eabe6575" id="menu-link-4" class="jc-nav-overlay-link-mega _w-inline-block w-nav-link">Discounts</a>
+                <div class="link-hover-line container">
+                  <div class="link-hover-line _4"></div>
+                </div>
+              </div>
+              <div data-w-id="74d8a8b2-6933-4226-dc42-4ab053f5f3f9" class="nav-link-container" id="menu-link-5">
+                <a href="https://www.rrmeds.com/pages/contact" data-w-id="225241d8-59c1-bae9-c7a9-b25c41b4f445" class="jc-nav-overlay-link-mega _w-inline-block w-nav-link">Contact</a>
+                <div class="link-hover-line container">
+                  <div class="link-hover-line _5"></div>
+                </div>
+                <div class="contact-dropdown">
+                  <a href="https://www.rrmeds.com/pages/contact" class="nav-link-menu">Contact</a>
+                  <a href="https://www.rrmeds.com/pages/wholesale" class="nav-link-menu">Wholesale Program</a>
+                </div>
+              </div>
+            </nav>
+            <nav role="navigation" id="menu-mobile" class="nav-menu mobile w-nav-menu">
+
+              <div class="dropshadow-nav"></div>
+
+              <div class="nav-padding">
+              <div class="nav-dropdown-toggle w-dropdown-toggle top">
+
+                <h4 class="header-4">Shop</h4>
+
+                {% if customer %}
+                  <a href="https://www.rrmeds.com/account" class="link dark nav">ACCOUNT</a>
+                  {% else %}
+                  <a href="https://www.rrmeds.com/account/login" class="link dark nav sign-in">SIGN IN</a>
+                  {% endif %}
+
+
+
+                
+              </div>
+
+
+              <script>
+                  $(document).ready(function() {
+                      $(".mobile-nav-x").on('click', 
+                      function() {
+                          
+                        $(".nav-menu.desktop.w-nav-menu").removeClass('w--nav-menu-open').trigger('classChange');
+                        $(".nav-menu.mobile.w-nav-menu").removeClass('w--nav-menu-open').trigger('classChange');
+                        
+
+                        
+                      });
+
+                      
+                  });
+              </script> 
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var menuButton = document.querySelector('.menu-btn'); // Adjust if the menu button selector is different
+        var fixedNavWrapper = document.querySelector('.fixed-nav-wrapper');
+        var mobileNavMenu = document.querySelector('.nav-menu.mobile.w-nav-menu');
+
+        menuButton.addEventListener('click', function() {
+            // Toggling the background color based on the menu state
+            if (mobileNavMenu.classList.contains('w--nav-menu-open')) {
+                fixedNavWrapper.style.backgroundColor = '#fffffff2'; // Slightly transparent white when menu is closed
+            } else {
+                fixedNavWrapper.style.backgroundColor = '#fff'; // Solid white when menu is open
+            }
+        });
+    });
+</script>
+
+
+
+
+              <div data-hover="true" data-delay="0" class="nav-dropdown-show-mobile w-dropdown">
+                <div class="nav-dropdown-toggle w-dropdown-toggle">
+                  <div class="jc-nav-overlay-link-mega">By category</div>
+                  <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Arrow_da5d5408-8c81-4f10-bfc5-e2f7fe9fe109.svg?v=1701719551" class="mobile-nav-arrow">
+                </div>
+
+                <nav class="nav-dropdown-menu w-dropdown-list">
+                  <div class="nav-link-menu-wrapper mobile">
+                    <a href="https://www.rrmeds.com/collections/all-products" class="nav-link-menu">All Products</a>
+                    <a href="https://www.rrmeds.com/collections/cbd-pain-creams" class="nav-link-menu">Pain Creams</a>
+                    <a href="https://www.rrmeds.com/collections/targeted-gummies" class="nav-link-menu">Functional Gummies</a>
+                    <a href="https://www.rrmeds.com/collections/gummies" class="nav-link-menu">Gummies</a>
+                    <a href="https://www.rrmeds.com/collections/tinctures" class="nav-link-menu">Tinctures</a>
+                    <a href="https://www.rrmeds.com/collections/softgels" class="nav-link-menu">Softgels</a>
+                    <a href="https://www.rrmeds.com/collections/thc-free-products" class="nav-link-menu">THC Free</a>
+                    <a href="https://www.rrmeds.com/collections/pet-products" class="nav-link-menu">For Pets</a>
+                    <a href="https://www.rrmeds.com/a/gc/gift-card/" class="nav-link-menu">Gift Cards</a>
+                    <a href="#" class="nav-link-menu summit-btn">Delta-9, HHC, & Delta-8</a>
+                  </div>
+                </nav>
+              </div>
+
+              <div data-hover="true" data-delay="0" class="nav-dropdown-show-mobile w-dropdown">
+                <div class="nav-dropdown-toggle w-dropdown-toggle">
+                  <div class="jc-nav-overlay-link-mega">By solution</div>
+                  <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Arrow_da5d5408-8c81-4f10-bfc5-e2f7fe9fe109.svg?v=1701719551" class="mobile-nav-arrow">
+                </div>
+
+                <nav class="nav-dropdown-menu w-dropdown-list">
+                  <div class="nav-link-menu-wrapper mobile">
+                    <a href="https://www.rrmeds.com/collections/pain" class="nav-link-menu">Pain</a>
+                    <a href="https://www.rrmeds.com/collections/stress" class="nav-link-menu">Stress</a>
+                    <a href="https://www.rrmeds.com/collections/sleep" class="nav-link-menu">Sleep</a>
+                    <a href="https://www.rrmeds.com/collections/multifunctional" class="nav-link-menu">Multifunctional</a>
+                  </div>
+                </nav>
+              </div>
+
+              <div data-hover="true" data-delay="0" class="nav-dropdown-show-mobile w-dropdown">
+                <div class="nav-dropdown-toggle w-dropdown-toggle last"> 
+                  <div class="jc-nav-overlay-link-mega">By Strength</div>
+                  <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Arrow_da5d5408-8c81-4f10-bfc5-e2f7fe9fe109.svg?v=1701719551" class="mobile-nav-arrow">
+                </div>
+
+                <nav class="nav-dropdown-menu w-dropdown-list">
+                  <div class="nav-link-menu-wrapper mobile">
+                    <a href="https://www.rrmeds.com/collections/regular-strength" class="nav-link-menu">Regular Strength</a>
+                    <a href="https://www.rrmeds.com/collections/extra-strength" class="nav-link-menu">Extra Strength</a>
+                    <a href="https://www.rrmeds.com/collections/maximum-strength" class="nav-link-menu">Maximum Strength</a>
+                  </div>
+                </nav>
+              </div>
+
+              <div class="nav-expand-col-left-inner mobile">
+                <div class="nav-expand-flex-col-outer mobile">
+                  <div class="nav-expand-flex-col-inner">
+                    <div class="nav-expand-img-wrapper mobile">
+                      <div class="nav-expand-img-holder"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Store_Menu_Bestsellers_CBD_Gummies.jpg?v=1703099416" loading="eager" alt="" class="nav-expand-img">
+                        <a href="https://www.rrmeds.com/collections/gummies" class="nav-expand-overlay-link w-inline-block"></a>
+                      </div>
+                    </div>
+                    <div class="nav-expand-content-col mobile">
+                      <div class="nav-expand-content-inner">
+    
+                        <a href="#" class="nav-btn mobile">BESTSELLERS</a>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="nav-expand-flex-col-outer mobile">
+                  <div class="nav-expand-flex-col-inner mobile">
+                    <div class="nav-expand-img-wrapper mobile">
+                      <div class="nav-expand-img-holder"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/047325d5229a3b99828c2d53f8e1f297.jpg?v=1709942310" loading="eager" alt="" class="nav-expand-img">
+                        <a href="#" target="_blank" class="nav-expand-overlay-link w-inline-block summit-btn"></a>
+                      </div>
+                    </div>
+                    <div class="nav-expand-content-col mobile">
+                      <div class="nav-expand-content-inner">
+                        <a href="#" class="nav-btn mobile summit-btn">Shop Summit</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+              </div>
+
+                  <div class="mobile-nav-green-bg">
+
+
+
+
+
+
+              <div class="nav-dropdown-toggle w-dropdown-toggle no-border-top">
+                <a href="https://www.rrmeds.com/pages/all-reviews" class="jc-nav-overlay-link-mega non-dropdown">Reviews</a>
+              </div>
+              <div data-hover="true" data-delay="0" class="nav-dropdown-show-mobile w-dropdown">
+                <div class="nav-dropdown-toggle w-dropdown-toggle">
+
+                    <div class="jc-nav-overlay-link-mega">Learn</div>
+                    <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Arrow_da5d5408-8c81-4f10-bfc5-e2f7fe9fe109.svg?v=1701719551" class="mobile-nav-arrow">
+                </div>
+                <nav class="nav-dropdown-menu w-dropdown-list">
+                  <div class="nav-link-menu-wrapper mobile">
+                    <a href="https://www.rrmeds.com/pages/learn" class="nav-link-menu">Learn</a>
+                    <a href="https://www.rrmeds.com/pages/cbd-101" class="nav-link-menu">CBD 101</a>
+                    <a href="https://www.rrmeds.com/pages/how-hemp-works" class="nav-link-menu">How Hemp Works</a>
+                    <a href="https://www.rrmeds.com/pages/our-hemp" class="nav-link-menu">Our Hemp</a>
+                    <a href="https://www.rrmeds.com/pages/lab-testing" class="nav-link-menu">Lab Testing</a>
+                    <a href="https://www.rrmeds.com/pages/frequently-asked-questions" class="nav-link-menu">FAQs</a>
+                    <a href="https://www.rrmeds.com/pages/glossary" class="nav-link-menu">CBD Glossary</a>
+                  </div>
+                </nav>
+              </div>
+              <div data-hover="true" data-delay="0" class="nav-dropdown-show-mobile w-dropdown">
+                <div class="nav-dropdown-toggle w-dropdown-toggle">
+                  <div class="jc-nav-overlay-link-mega">Discounts</div>
+                  <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Arrow_da5d5408-8c81-4f10-bfc5-e2f7fe9fe109.svg?v=1701719551" class="mobile-nav-arrow">
+                </div>
+                <nav class="nav-dropdown-menu w-dropdown-list">
+                  <div class="nav-link-menu-wrapper mobile">
+                    <a href="https://www.rrmeds.com/pages/discounts" class="nav-link-menu">Discounts</a>
+                    <a href="https://www.rrmeds.com/pages/auto-ship-program" class="nav-link-menu">Subscribe & Save 20% OFF</a>
+                    <a href="https://www.rrmeds.com/pages/veteran-program" class="nav-link-menu">Veterans 25% OFF</a>
+                    <a href="https://www.rrmeds.com/pages/referral" class="nav-link-menu">Referrals 30% OFF</a>
+                    <a href="https://www.rrmeds.com/pages/rewards" class="nav-link-menu">Rewards Program</a>
+                  </div>
+                </nav>
+              </div>
+              <div data-hover="true" data-delay="0" class="nav-dropdown-show-mobile w-dropdown">
+                <div class="nav-dropdown-toggle w-dropdown-toggle last">
+                  <div class="jc-nav-overlay-link-mega">Contact</div>
+                  <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Arrow_da5d5408-8c81-4f10-bfc5-e2f7fe9fe109.svg?v=1701719551" class="mobile-nav-arrow">
+                </div>
+                <nav class="nav-dropdown-menu w-dropdown-list">
+                  <div class="nav-link-menu-wrapper mobile">
+                    <a href="https://www.rrmeds.com/pages/contact" class="nav-link-menu">Contact</a>
+                    <a href="https://www.rrmeds.com/pages/wholesale" class="nav-link-menu">Wholesale Program</a>
+                  </div>
+                </nav>
+              </div>
+
+              <div class="nav-disclaimer" style="color: #002E29; text-align: left; font-size: 12px; font-weight: 400; margin-bottom: 60px; margin-top: 20px;">© R&R 2023</div>
+              
+              
+                          <div class="jc-footer-bottom-wrapper mobile nav">
+              
+                            <div class="jc-footer-social-row">
+                              <a href="https://www.facebook.com/rrmeds/" class="jc-footer-social-link w-inline-block" target="_blank">
+                                <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/RR-reskin-footer_AST_facebook_icon.svg?v=1658254797" alt="Facebook Icon" class="jc-footer-social-img">
+                                <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/facebook-r-min.png" alt="Facebook Icon Red" class="jc-footer-social-img-hover">
+                              </a>
+                                <a href="https://www.instagram.com/rrmedicinals/" class="jc-footer-social-link w-inline-block" target="_blank">
+                                  <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/RR-reskin-footer_AST_IG_icon.svg?v=1658254797" alt="Instagram Icon" class="jc-footer-social-img">
+                                  <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/instagram-r-min.png" alt="Instagram Icon Red" class="jc-footer-social-img-hover">
+                                </a>
+                                  <a href="mailto:contact@rrmeds.com" class="jc-footer-social-link w-inline-block">
+                                    <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/RR-reskin-footer_AST_email_icon.svg?v=1658254797" alt="Mail Icon" class="jc-footer-social-img mail">
+                                    <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/mail-r-min.png" alt="Mail Icon Red" class="jc-footer-social-img-hover">
+                                </a>   
+                              </div>
+                            
+                          </div>
+
+
+
+                </div>
+            </nav>
+
+
+
+
+
+
+
+            <div class="menu-btn w-nav-button">
+              <div class="">
+                <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Hamburger.png?v=1701451694" class="mobile-hammy">
+                <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/X_Small_9a10f7ec-9243-4f0c-8a73-d4868c9d4c00.svg?v=1699990757" class="mobile-close">
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+          <div class="nav-right">
+            <a href="/cart" class="jc-fixed-bar-cart-link w-inline-block">
+              <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_6_1f2a06e3-fcf7-470e-b82e-ee8f7ac2fcd6.svg?v=1699916238" alt="" class="jc-fixed-bar-cart-img">
+              <div class="cart-count-number mobile">{{cart.item_count}}</div>
+            </a>
+            <div class="nav-btn-wrapper">
+            <a href="/account" class="nav-btn w-110">Sign IN</a>
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-w-id="db0831b6-6ac2-522d-ff74-fd3143a6a4c4" id="menu-box-1" class="nav-expand-wrapper _1">
+    <div class="nav-expand-inner">
+      <div class="nav-expand-flex-row-outer">
+        <div class="nav-expand-col-right">
+          <div class="nav-expand-col-right-inner">
+            <div class="jc-section-bg-col-faded-heading">By Category</div>
+            <div class="nav-link-menu-wrapper">
+
+              {%comment%}
+              <a href="https://www.rrmeds.com/pages/holiday" class="nav-link-menu">Holiday Deals</a>
+              {%endcomment%}
+              <a href="https://www.rrmeds.com/collections/all-products" class="nav-link-menu">All Products</a>
+              <a href="https://www.rrmeds.com/collections/cbd-pain-creams" class="nav-link-menu">Pain Creams</a>
+              <a href="https://www.rrmeds.com/collections/targeted-gummies" class="nav-link-menu">Functional Gummies</a>
+              <a href="https://www.rrmeds.com/collections/gummies" class="nav-link-menu">Gummies</a>
+              <a href="https://www.rrmeds.com/collections/tinctures" class="nav-link-menu">Tinctures</a>
+              <a href="https://www.rrmeds.com/collections/softgels" class="nav-link-menu">Softgels</a>
+              <a href="https://www.rrmeds.com/collections/thc-free-products" class="nav-link-menu">THC Free</a>
+              <a href="https://www.rrmeds.com/collections/pet-products" class="nav-link-menu">For Pets</a>
+              <a href="https://www.rrmeds.com/a/gc/gift-card/" class="nav-link-menu">Gift Cards</a>
+              <a href="#" class="nav-link-menu summit-btn">Delta-9, HHC, & Delta-8</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-expand-col-right">
+          <div class="nav-expand-col-right-inner">
+            <div class="jc-section-bg-col-faded-heading">By Solution</div>
+            <div class="nav-link-menu-wrapper">
+              <a href="https://www.rrmeds.com/collections/pain" class="nav-link-menu">Pain</a>
+              <a href="https://www.rrmeds.com/collections/stress" class="nav-link-menu">Stress</a>
+              <a href="https://www.rrmeds.com/collections/sleep" class="nav-link-menu">Sleep</a>
+              <a href="https://www.rrmeds.com/collections/multifunctional" class="nav-link-menu">Multifunctional</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-expand-col-right">
+          <div class="nav-expand-col-right-inner">
+            <div class="jc-section-bg-col-faded-heading">By Strength</div>
+            <div class="nav-link-menu-wrapper">
+              <a href="https://www.rrmeds.com/collections/regular-strength" class="nav-link-menu">Regular Strength</a>
+              <a href="https://www.rrmeds.com/collections/extra-strength" class="nav-link-menu">Extra Strength</a>
+              <a href="https://www.rrmeds.com/collections/maximum-strength" class="nav-link-menu">Maximum Strength</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-expand-col-left">
+          <div class="nav-expand-col-left-inner">
+            <div class="nav-expand-flex-col-outer">
+              <div class="nav-expand-flex-col-inner">
+                <div class="nav-expand-img-wrapper">
+                  <div class="nav-expand-img-holder"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Summit-1R2A9807_1.png?v=1699985121" loading="eager" alt="" class="nav-expand-img">
+                    <a href="https://www.rrmeds.com/collections/gummies" class="nav-expand-overlay-link w-inline-block"></a>
+                  </div>
+                </div>
+                <div class="nav-expand-content-col">
+                  <div class="nav-expand-content-inner">
+
+                    <a href="#" class="nav-btn-dropdown">BESTSELLERS</a>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="nav-expand-flex-col-outer">
+              <div class="nav-expand-flex-col-inner">
+                <div class="nav-expand-img-wrapper">
+                  <div class="nav-expand-img-holder"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Summit-1R2A9807_2.png?v=1699985819" loading="eager" alt="" class="nav-expand-img">
+                    <a href="#" target="_blank" class="nav-expand-overlay-link w-inline-block summit-btn"></a>
+                  </div>
+                </div>
+                <div class="nav-expand-content-col">
+                  <div class="nav-expand-content-inner">
+                    <a href="#" class="nav-btn-dropdown summit-btn">Shop Summit</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-w-id="5fbbfc50-7c67-0292-c357-4e584fd8ed78" id="menu-box-2" class="nav-expand-wrapper _2">
+    <div class="nav-expand-inner">
+      <div class="nav-expand-flex-row-outer">
+        <div class="nav-expand-col-right">
+          <div class="nav-expand-col-right-inner">
+            <a class="nav-link-menu-faded" href="https://www.rrmeds.com/pages/learn">
+              <div class="jc-section-bg-col-faded-heading">Learn</div>
+            </a>
+            <div class="nav-link-menu-wrapper">
+              <a href="https://www.rrmeds.com/pages/cbd-101" class="nav-link-menu">CBD 101</a>
+              <a href="https://www.rrmeds.com/pages/how-hemp-works" class="nav-link-menu">How Hemp Works</a>
+              <a href="https://www.rrmeds.com/pages/our-hemp" class="nav-link-menu">Our Hemp</a>
+              <a href="https://www.rrmeds.com/pages/lab-testing" class="nav-link-menu">Lab Testing</a>
+              <a href="https://www.rrmeds.com/pages/frequently-asked-questions" class="nav-link-menu">FAQs</a>
+              <a href="https://www.rrmeds.com/pages/glossary" class="nav-link-menu">CBD Glossary</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-expand-col-left">
+          <div class="nav-expand-col-left-inner">
+            <div class="nav-expand-flex-col-outer">
+              <div class="nav-expand-flex-col-inner">
+                <div class="nav-expand-img-wrapper">
+                  <div class="nav-expand-img-holder"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Store_Menu_CBD_101.jpg?v=1703099416" loading="eager" alt="" class="nav-expand-img">
+                    <a href="https://www.rrmeds.com/pages/cbd-101" class="nav-expand-overlay-link w-inline-block"></a>
+                  </div>
+                </div>
+                <div class="nav-expand-content-col">
+                  <div class="nav-expand-content-inner">
+
+                    <a href="https://www.rrmeds.com/pages/cbd-101" class="nav-btn-dropdown">CBD 101</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="nav-expand-flex-col-outer">
+              <div class="nav-expand-flex-col-inner">
+                <div class="nav-expand-img-wrapper">
+                  <div class="nav-expand-img-holder"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Store_Menu_How_Hemp_Works.jpg?v=1703099416" loading="eager" alt="" class="nav-expand-img">
+                    <a href="https://www.rrmeds.com/pages/how-hemp-works" class="nav-expand-overlay-link w-inline-block"></a>
+                  </div>
+                </div>
+                <div class="nav-expand-content-col">
+                  <div class="nav-expand-content-inner">
+                    <a href="https://www.rrmeds.com/pages/how-hemp-works" class="nav-btn-dropdown">How Hemp Works</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="nav-expand-flex-col-outer">
+              <div class="nav-expand-flex-col-inner">
+                <div class="nav-expand-img-wrapper">
+                  <div class="nav-expand-img-holder"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Store_Menu_Our_Hemp.jpg?v=1703099416" loading="eager" alt="" class="nav-expand-img">
+                    <a href="https://www.rrmeds.com/pages/our-hemp" class="nav-expand-overlay-link w-inline-block"></a>
+                  </div>
+                </div>
+                <div class="nav-expand-content-col">
+                  <div class="nav-expand-content-inner">
+                    <a href="https://www.rrmeds.com/pages/our-hemp" class="nav-btn-dropdown">Our Hemp</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-w-id="37415a7c-c662-dfac-3a10-62de4961e15e" id="menu-box-3" class="nav-expand-wrapper _3">
+    <div class="nav-expand-inner">
+      <div class="nav-expand-flex-row-outer">
+        <div class="nav-expand-col-right">
+          <div class="nav-expand-col-right-inner">
+            <a class="nav-link-menu-faded" href="https://www.rrmeds.com/pages/discounts">
+              <div class="jc-section-bg-col-faded-heading">Discounts</div>
+            </a>
+            <div class="nav-link-menu-wrapper">
+              <a href="https://www.rrmeds.com/pages/auto-ship-program" class="nav-link-menu">Subscribe & Save 20% OFF</a>
+              <a href="https://www.rrmeds.com/pages/veteran-program" class="nav-link-menu">Veterans 25% OFF</a>
+              <a href="https://www.rrmeds.com/pages/referral" class="nav-link-menu">Referrals 30% OFF</a>
+              <a href="https://www.rrmeds.com/pages/rewards" class="nav-link-menu">Rewards Program</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-expand-col-left">
+          <div class="nav-expand-col-left-inner">
+            <div class="nav-expand-flex-col-outer discount">
+              <div class="nav-expand-flex-col-inner">
+                <div class="nav-expand-img-wrapper discount">
+                  <div class="nav-expand-img-holder discount"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Store_Menu_Sub_Save.jpg?v=1703099416" loading="eager" alt="" class="nav-expand-img discount">
+                    <a href="https://www.rrmeds.com/pages/auto-ship-program" class="nav-expand-overlay-link discount w-inline-block"></a>
+                  </div>
+                </div>
+                <div class="nav-expand-content-col">
+                  <div class="nav-expand-content-inner">
+                    <a href="https://www.rrmeds.com/pages/auto-ship-program" class="nav-btn-dropdown">Save 20%</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="nav-expand-flex-col-outer discount">
+              <div class="nav-expand-flex-col-inner">
+                <div class="nav-expand-img-wrapper discount">
+                  <div class="nav-expand-img-holder discount"><img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Store_Menu_Refer_a_Friend.jpg?v=1703099416" loading="eager" alt="" class="nav-expand-img discount">
+                    <a href="https://www.rrmeds.com/pages/referral" class="nav-expand-overlay-link discount w-inline-block"></a>
+                  </div>
+                </div>
+                <div class="nav-expand-content-col">
+                  <div class="nav-expand-content-inner">
+                    <a href="https://www.rrmeds.com/pages/referral" class="nav-btn-dropdown">Save 30%</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="nav-expand-overlay-bg"></div>
+</div>
+
+<style>
+  {% for block in section.blocks %}
+    #announce-rte--{{ block.id }} * {
+      color: {{ block.settings.color }};
+    }
+  {% endfor %}
+</style>
+
+<script>
+
+$(document).ready(function() {
+  var announcements = $(".announce-rte-text").filter(function() {
+    var device = $(this).data("device");
+    var isMobile = window.matchMedia("(max-width: 991px)").matches;
+    return device === "both" || (device === "mobile" && isMobile) || (device === "desktop" && !isMobile);
+  });
+  
+  var announcementIndex = 0; // Start from the first applicable announcement
+  var announcementCount = announcements.length;
+  
+  // Activate the first applicable announcement immediately
+  if (announcementCount > 0) {
+    $(announcements[announcementIndex]).addClass('active');
+  }
+  
+  // Only proceed if there's more than one applicable announcement
+  if (announcementCount > 1) {
+    setInterval(function() {
+      announcements.removeClass('active');
+      announcementIndex = (announcementIndex + 1) % announcementCount; // Increment and loop index
+      $(announcements[announcementIndex]).addClass('active');
+    }, 4000); // Cycle every 4 seconds
+  }
+});
+
+
+  
+    // Function to handle hover event
+    function handleNavHover(isHovering) {
+      if (isHovering) {
+        $(".fixed-nav-wrapper").css("background-color", "#fff");
+      } else {
+        $(".fixed-nav-wrapper").css("background-color", ""); // Removes the inline style
+      }
+    }
+  
+    // Apply hover function to navigation links and dropdowns
+    $("#menu-link-1, #menu-link-2, #menu-link-3, #menu-link-4, #menu-link-5, #menu-link-6, #menu-box-1, #menu-box-2, #menu-box-3").hover(
+      function() {
+        handleNavHover(true);
+      },
+      function() {
+        handleNavHover(false);
+      }
+    );
+
+    $("#menu-link-1").hover(
+      function(){ 
+        $(".link-hover-line._1").css("left", "0%");
+        
+        $("#menu-box-1").addClass("show")
+        $(".fixed-top-wrapper").addClass("bg-white")
+        $("#menu-box-2").removeClass("show")
+        $("#menu-box-3").removeClass("show")
+        $("#nav-overlay").addClass("show")
+       },
+       function(){ 
+        $(".link-hover-line._1").css("left", "-100%");
+       }
+    ),
+    $("#menu-link-2").hover(
+      function(){ 
+        $(".link-hover-line._2").css("left", "0%");
+        $(".fixed-top-wrapper").removeClass("bg-white")
+        $("#menu-box-1").removeClass("show")
+        $("#menu-box-2").removeClass("show")
+        $("#menu-box-3").removeClass("show")
+        $("#nav-overlay").removeClass("show")
+        
+       },
+       function(){ 
+        $(".link-hover-line._2").css("left", "-100%");
+       }
+    ),
+
+    $("#menu-link-3").hover(
+      function(){ 
+        $(".link-hover-line._3").css("left", "0%");
+        $(".fixed-top-wrapper").addClass("bg-white")
+        $("#menu-box-2").addClass("show")
+        $("#menu-box-1").removeClass("show")
+        $("#menu-box-3").removeClass("show")
+        $("#nav-overlay").addClass("show")
+       },
+       function(){ 
+        $(".link-hover-line._3").css("left", "-100%");
+       }
+    ),
+
+    $("#menu-link-4").hover(
+      function(){ 
+        $(".link-hover-line._4").css("left", "0%");
+        $(".fixed-top-wrapper").addClass("bg-white")
+        $("#menu-box-3").addClass("show")
+        $("#menu-box-2").removeClass("show")
+        $("#menu-box-1").removeClass("show")
+        $("#nav-overlay").addClass("show")
+       },
+       function(){ 
+        $(".link-hover-line._4").css("left", "-100%");
+       }
+    ),
+    $("#menu-link-5").hover(
+      function(){ 
+        $(".link-hover-line._5").css("left", "0%");
+        $(".fixed-top-wrapper").removeClass("bg-white")
+        $("#menu-box-1").removeClass("show")
+        $("#menu-box-2").removeClass("show")
+        $("#menu-box-3").removeClass("show")
+        $(".contact-dropdown").addClass("show")
+        $("#nav-overlay").addClass("show")
+        
+        
+       },
+       function(){ 
+        $(".link-hover-line._5").css("left", "-100%");
+        $(".contact-dropdown").removeClass("show")
+       }
+    ),
+    $("#menu-link-6").hover(
+      function(){ 
+        $(".link-hover-line._6").css("left", "0%");
+        $(".fixed-top-wrapper").removeClass("bg-white")
+        $("#menu-box-1").removeClass("show")
+        $("#menu-box-2").removeClass("show")
+        $("#nav-overlay").removeClass("show")
+       
+       },
+       function(){ 
+        $(".link-hover-line._6").css("left", "-100%");
+       }
+    ),
+
+
+
+
+    $("#nav-logo-main").hover(
+      function(){ 
+        $("#menu-box-1").removeClass("show")
+        $("#menu-box-2").removeClass("show")
+        $("#menu-box-3").removeClass("show")
+        $(".fixed-top-wrapper").removeClass("bg-white")
+        $("#nav-overlay").removeClass("show")
+       }
+    ),
+    $(".announce-wrapper").hover(
+      function(){ 
+        $("#menu-box-1").removeClass("show")
+        $("#menu-box-2").removeClass("show")
+        $("#menu-box-3").removeClass("show")
+        $(".fixed-top-wrapper").removeClass("bg-white")
+        $("#nav-overlay").removeClass("show")
+       }
+    ),
+
+    $("#nav-overlay").hover(
+      function(){ 
+        $("#menu-box-1").removeClass("show")
+        $("#menu-box-2").removeClass("show")
+        $("#menu-box-3").removeClass("show")
+        $(".fixed-top-wrapper").removeClass("bg-white")
+        $("#nav-overlay").removeClass("show")
+        
+       }
+    ),
+    
+    
+    
+
+    $("#menu-box-1").hover(
+      function(){ 
+        $("#menu-box-1").addClass("show")
+        $("#menu-box-2").removeClass("show")
+        $("#menu-box-3").removeClass("show")
+       },
+       function(){ 
+        $("#menu-box-1").removeClass("show")
+        $(".fixed-top-wrapper").removeClass("bg-white")
+       }
+    ),
+    $("#menu-box-2").hover(
+      function(){ 
+        $("#menu-box-2").addClass("show")
+        $("#menu-box-1").removeClass("show")
+        $("#menu-box-3").removeClass("show")
+       },
+       function(){ 
+        $("#menu-box-2").removeClass("show")
+        $(".fixed-top-wrapper").removeClass("bg-white")
+       }
+    ),
+    $("#menu-box-3").hover(
+      function(){ 
+        
+        $("#menu-box-3").addClass("show")
+        $("#menu-box-2").removeClass("show")
+        $("#menu-box-1").removeClass("show")
+        nav-overlay
+       },
+       function(){ 
+        $("#menu-box-3").removeClass("show")
+        $(".fixed-top-wrapper").removeClass("bg-white")
+      
+       }
+    )
+
+
+</script>
+
+
+{% schema %}
+  {
+    "name": "Announcement Section",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "announcement",
+        "name": "Announcement",
+        "settings": [
+          {
+            "label": "Text",
+            "id": "text",
+            "type": "richtext"
+          },
+          {
+            "label": "Color",
+            "id": "color",
+            "type": "color"
+          },
+          {
+            "label": "Device Target",
+            "id": "device_target",
+            "type": "select",
+            "options": [
+              {
+                "value": "desktop",
+                "label": "Desktop"
+              },
+              {
+                "value": "mobile",
+                "label": "Mobile"
+              },
+              {
+                "value": "both",
+                "label": "Both"
+              }
+            ],
+            "default": "both",
+            "info": "Select the device target for this announcement."
+          }
+        ]
+      }
+    ]
+  }
+  {% endschema %}
+  

@@ -1,0 +1,105 @@
+
+{{ 'jc-custom-recharge.css' | asset_url | stylesheet_tag }}
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+{{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+{{ 'custom-product.css' | asset_url | stylesheet_tag }}
+
+{{ 'jc-custom-recharge.css' | asset_url | stylesheet_tag }}
+{{ 'collection-page.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'slick.js' | asset_url }}" defer="defer"></script>
+
+{% style %}
+    .product-banner {
+    background-color: #004943;
+    padding: 30px 0px;
+    color: white;
+}
+
+
+.product-menu-link{
+  font-family: century-old-style-std;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  padding-left: 30px;
+  padding-right: 30px;
+  line-height: 40px;
+}
+.product-menu-link.green{
+  color: #C8D645;
+  font-family: century-old-style-std;
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 400;
+}
+{% endstyle %}
+
+<div class="product-banner">
+    <div><a class="product-menu-link">Rest</a></div>
+    <div><a class="product-menu-link">Relax</a></div>
+    <div><a class="product-menu-link">Recover</a></div>
+    <div><a class="product-menu-link">Restore</a></div>
+    <div><a class="product-menu-link">Rejuvenate</a></div>
+    <div><a class="product-menu-link">Relieve</a></div>
+    <div><a class="product-menu-link">Replenish</a></div>
+	<div><a class="product-menu-link green">Repeat</a></div>
+
+  
+    <div><a class="product-menu-link">Rest</a></div>
+    <div><a class="product-menu-link">Relax</a></div>
+    <div><a class="product-menu-link">Recover</a></div>
+    <div><a class="product-menu-link">Restore</a></div>
+    <div><a class="product-menu-link">Rejuvenate</a></div>
+    <div><a class="product-menu-link">Relieve</a></div>
+    <div><a class="product-menu-link">Replenish</a></div>
+	<div><a class="product-menu-link green">Repeat</a></div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        
+      $('.product-banner').slick({
+        dots: false,
+        autoplay: true,
+        autoplaySpeed: 0,
+        speed: 2500,
+        cssEase: 'linear',
+        pauseOnHover: false,
+        variableWidth: true,
+        pauseOnFocus: false,
+        infinite: true,
+        arrows: false,
+        slidesToScroll: 1,
+        slidesToShow: 15
+        
+      });
+			
+      
+        $('.single-option-selector__radio[name="potency"]').change(function() {
+
+        	$('.jc-product-details-wrapper').css('display','none');
+            
+            if( $(this).hasClass('jc-input-index-1') ){
+
+            	$('#product-details-wrapper-default').css('display','block');
+
+            } else if ( $(this).hasClass('jc-input-index-2') ) {
+
+            	$('#product-details-wrapper-2').css('display','block');
+
+            } else if ( $(this).hasClass('jc-input-index-3') ) {
+
+            	$('#product-details-wrapper-3').css('display','block');
+
+            } else {
+            	
+            	$('#product-details-wrapper-default').css('display','block');
+            }
+
+
+        });
+
+    });
+</script>

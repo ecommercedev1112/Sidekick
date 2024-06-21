@@ -1,0 +1,599 @@
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+{{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+
+<style>
+
+.rounded-button.desktop{
+    /*
+    */
+    display: none !important;
+  }
+  .section-heading {
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 62.4px;
+    color: #004943;
+    margin: 0;
+    font-family: century-old-style-std;
+}
+    .testimonial-slider {
+      position: relative;
+      /*
+      width: calc(100vw - 210px);
+      max-width: 1224px;
+      */
+      width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+      overflow: hidden;
+      margin: 20px 0px 30px;
+    }
+  .slider-wrapper{
+    max-width: 1380px;
+      width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+    .slides {
+        display: flex;
+       
+        column-gap: 16px;
+        transition: transform 0.5s ease;
+        padding: 0 56px;
+      }
+    .slide-top-wrapper{
+      display: flex;
+      column-gap: 22px;
+    }
+    .slide .slide-product-name{
+      color: var(--rr-black, #2D2926);
+      font-family: Poppins;
+      
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      text-transform: capitalize;
+      line-height: 26px;
+    }
+    .slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+  
+    .slider-arrow {
+    
+
+      font-size: 24px;
+      color: white;
+
+      padding: 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+  
+    .left-slider-arrow {
+      left: 10px;
+    }
+  
+    .right-slider-arrow {
+      right: 10px;
+    }
+      /* Additions for responsiveness */
+.slide {
+display: flex !important;
+flex-direction: column;
+justify-content: left;
+align-items: baseline;
+justify-content: space-between;
+text-align: center;
+background: #fff;
+border-radius: 0px;
+padding: 20px 20px 30px 20px;
+color: #004943;
+text-align: left;
+/*
+border: 1px solid var(--rr-green-current-web, #004943);
+*/
+height: 409px;
+margin: 0 8px;
+}
+.product-little-image{
+
+}
+.slide-top-wrapper a img{
+  /*
+  min-width: 97px;
+  */
+  min-height: 101px;
+}
+.slide-top-wrapper > a:first-of-type {
+  min-width: 97px;
+  display: flex;
+  justify-content: center;
+  background-color: #f3f5f5;
+  padding: 5px 0px;
+}
+
+
+.top-right{
+  margin-top: 6px;
+}
+.top-right a p{
+  margin-bottom: 0px;
+}
+/* Indicators styling */
+.slider-indicators {
+position: absolute;
+bottom: 200px;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+align-items: center;
+
+width: calc(100vw - 210px);
+padding-right: 20px;
+padding-left: 20px;
+}
+
+.indicator {
+margin: 0px;
+cursor: pointer;
+font-size: 15px;
+}
+
+.active-indicator {
+color: #ff0000; /* Active indicator color */
+}
+.top-heading-wrapper{
+text-align: left;
+display: flex;
+justify-content: center;
+width: 100%;
+align-items: center;
+}
+.top-right a{
+  text-decoration: none;
+}
+.jc-disclaimer-wrapper-products.green{
+background-color: #E5ECEB;
+padding: 30px 27px 80px;
+margin-top: 0px;
+margin-bottom: 0px;
+}
+.slider-wrapper{
+  position: relative;
+  display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+.arrow-wrapper{
+display: flex;
+top: 50%;
+position: absolute;
+justify-content: space-between;
+width: 100%;
+margin-right: auto;
+margin-left: auto;
+max-width: 1380px;
+padding-right: 0px;
+padding-left: 0px;
+left: 0;
+}
+.review-stars{
+margin-bottom: 10px;
+}
+.slide-top-wrapper{
+  margin-bottom: 18px;
+}
+.top-right{
+  display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: flex-start;
+
+}
+.slide p {
+  color: var(--rr-black, #2D2926);
+  font-family: Poppins;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 300;
+  margin-top: 0px;
+}
+.faded-heading{
+color: #59837E;
+text-transform: uppercase;
+margin-bottom: -10px;
+}
+.review-author.slider-text{
+  color: var(--rr-green-current-web, #004943);
+  font-family: century-old-style-std;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.slides::-webkit-scrollbar {
+  width: 5px !important;               /* width of the entire scrollbar */
+}
+
+.slides::-webkit-scrollbar-track {
+  background: #ffffff;        /* color of the tracking area */
+}
+
+.slides::-webkit-scrollbar-thumb {
+  background-color: #fff;    /* color of the scroll thumb */
+  border-radius: 0px;       /* roundness of the scroll thumb */
+  border: 9px solid rgb(255, 255, 255);  /* creates padding around scroll thumb */
+}
+
+.slides::-webkit-scrollbar-thumb {
+    background: #ffffff;        /* color of the tracking area */
+    background-color: #002E29;    /* color of the scroll thumb */
+    border-radius: 0px;       /* roundness of the scroll thumb */
+    border: 7px solid #fff;  /* creates padding around scroll thumb */
+    max-width: 30px;
+    margin-left: 20px;
+    width: 10px;
+    box-shadow: none;
+    scrollbar-width: thin; /* For Firefox */
+  }
+  /* Ensuring the scrollbar is always visible */
+.testimonial-slider {
+  overflow-x: hidden;
+}
+
+/* Customizing the scrollbar */
+.testimonial-slider::-webkit-scrollbar {
+  width: 10px; /* Adjusting the width of the scrollbar */
+}
+
+.testimonial-slider::-webkit-scrollbar-track {
+  background: #ffffff; /* Color of the tracking area, keeping it as you've defined */
+}
+.slides {
+    column-gap: 16px !important;
+}
+
+.testimonial-slider::-webkit-scrollbar-thumb {
+  background-color: #002E29; /* Color of the scroll thumb */
+  border-radius: 0px; /* Making the scrollbar square */
+  border: 3px solid #fff; /* Adjust border as needed, keeping your style */
+}
+
+/* For Firefox */
+.testimonial-slider {
+  scrollbar-width: thin;
+  scrollbar-color: #002E29 #ffffff;
+}
+.slider-indicators {
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.indicator {
+  width: 100%;
+  height: 1px; /* Rectangle height */
+  background-color: #ccc; /* Inactive color (grey) */
+  margin: 0px;
+  cursor: pointer;
+  /*
+  transition: background-color 0.3s;
+  */
+ 
+}
+
+.indicator.active {
+  background-color: #004943; /* Active color (green) */
+  height: 2px;
+}
+.jc-disclaimer-wrapper-products p {
+    line-height: 39px;
+    font-weight: 400;
+}
+/* Hide arrows on mobile */
+@media (max-width: 1130px) {
+  .arrow-wrapper {
+    display: none;
+  }
+
+/* Style for .testimonial-slider and .slides applicable to all browsers */
+.slides {
+  /*
+  overflow-x: scroll !important;
+  */
+  -webkit-overflow-scrolling: touch; /* For momentum scrolling on iOS */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #002E29 #ffffff; /* Thumb and track color for Firefox */
+  border-radius: 0px; /* Roundness of the scrollbar thumb */
+
+
+}
+
+
+.top-heading-wrapper{
+  padding-left: 27px;
+    padding-right: 27px;
+}
+
+  .slides{
+    padding-bottom: 20px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .slide {
+    width: 100%;
+    height: auto;
+}
+.testimonial-slider{
+  width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.jc-disclaimer-wrapper-products .slider-wrapper{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+}
+@media (max-width: 767px){
+.testimonial-slider {
+
+}
+.slide{
+  padding: 20px;
+}
+.jc-disclaimer-wrapper-products.green{
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.slide {
+    width: 100%;
+}
+}
+
+.testimonial-slider .slick-track {
+  display: flex;
+}
+
+.testimonial-slider .slick-prev, .testimonial-slider .slick-next {
+    width: 45px;
+    height: 45px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Arrow_332aea83-ab3a-47df-8340-b48641c183ec.svg?v=1714763910);
+}
+
+.testimonial-slider .slick-prev {
+    left: 0;
+
+    background-image: url(https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Arrow_1.svg?v=1716916501);
+}
+
+.testimonial-slider .slick-next {
+    right: 0;
+}
+
+.testimonial-slider .slick-prev:before, .testimonial-slider .slick-next:before {
+  display: none;
+}
+
+.testimonial-slider .slick-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.testimonial-slider .slick-dots li {
+  width: calc(100% / 12);
+  height: auto;
+  margin: 0;
+}
+
+.testimonial-slider .slick-dots li button {
+  width: 100%;
+  background-color: #ccc;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  transition: background-color 0.3s;
+}
+
+
+.testimonial-slider .slick-dots li.slick-active button {
+  background-color: #004943;
+  height: 2px;
+}
+
+.testimonial-slider .slick-dots li button:before {
+  display: none;
+}
+
+.testimonial-slider .slide {
+  flex: 0 0 calc(33.33% - 8px);
+}
+@media (max-width: 1130px) {
+  .testimonial-slider .slide {
+    flex: 0 0 calc(50% - 8px);
+  }
+}
+@media (max-width: 768px) {
+  .testimonial-slider .slide {
+    flex: 0 0 auto;
+  }
+  .testimonial-slider .slides {
+    width: calc(100% + 16px);
+    margin-left: -8px;
+    padding-bottom: 0px;
+  }
+  .section-heading{
+        font-size: 38px;
+        line-height: 45.6px;
+        text-align: center;
+      }
+}
+
+.testimonial-slider .slick-initialized .slide {
+  flex: none;
+}
+
+  </style>
+
+<div style="padding-top: 60px; padding-bottom: 60px;" class="jc-disclaimer-wrapper-products green">
+    <div class="wrapper-outter">
+        <div class="slider-wrapper">
+
+            <div class="top-heading-wrapper flex">
+                <h1 style="margin-bottom: 10px; margin-top: 0px;" class="section-heading dark-green max-360">Read the Transformations for Yourself</h1>
+                <a href="/collections/all-products" class="rounded-button primary no-margin-top right review desktop">START FEELING BETTER</a>
+            </div>
+
+            {% comment %}
+            <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Stars_19393c8e-5f12-42da-99aa-e5225f7d0842.svg?v=1699396903" alt="" class="review-stars smaller">
+
+              
+              <h4 style="margin-bottom: 50px;" class="sub-text">5.0 rating out of 602 reviews</h4>
+            {% endcomment %}
+
+            <div class="testimonial-slider">
+              <div class="slides">
+                
+
+          {% comment %}
+
+              CATEGORY
+                THC Free = 268100927686
+                Tincture = 158116937781
+                Gummies = 276663304390
+                Softgels = 268327682246
+                Pain Creams = 288130203846
+                Functional Gummies = 289750220998
+                For Pets = 159343902773
+              
+              SOLUTION
+                Stress = 294623936710
+                Pain = 294623903942
+                Sleep = 294623871174
+                Multi = 294623969478
+
+              Strength
+                Regular = 295136919750
+                Extra = 295136952518
+                MAximum = 295136985286
+
+              {% endcomment %}
+              {% if collection.id == 268100927686 %}
+                {% include 'reviews-thc-free' %}  
+              {% elsif collection.id == 158116937781 %}
+                {% include 'reviews-tinctures' %}
+              {% elsif collection.id == 276663304390 %}
+                {% include 'reviews-gummies' %}
+              {% elsif collection.id == 268327682246 %}
+                {% include 'reviews-softgels' %}
+              {% elsif collection.id == 288130203846 %}
+                {% include 'reviews-pain-creams' %}
+              {% elsif collection.id == 289750220998 %}
+                {% include 'reviews-functional' %}
+              {% elsif collection.id == 159343902773 %}
+                {% include 'reviews-pets' %}
+
+
+              {% elsif collection.id == 294623936710 %}
+                {% include 'reviews-stress' %}
+              {% elsif collection.id == 294623903942 %}
+                {% include 'reviews-pain' %}
+              {% elsif collection.id == 294623871174 %}
+                {% include 'reviews-sleep' %}
+              {% elsif collection.id == 294623969478 %}
+                {% include 'reviews-multi' %}
+
+
+              {% elsif collection.id == 295136919750 %}
+                {% include 'reviews-regular' %}
+              {% elsif collection.id == 295136952518 %}
+                {% include 'reviews-extra' %}
+              {% elsif collection.id == 295136985286 %}
+                {% include 'reviews-max' %}
+
+              {% else %}
+                {% include 'reviews-all-products' %}
+              {% endif %}
+
+              </div>
+            </div>            
+              
+
+        </div>
+    </div>
+    {% unless collection %}
+      <a href="/collections/all-products" style="margin-right: auto; margin-left: auro;" class="rounded-button primary no-margin-top right review mobile">START FEELING BETTER</a>
+    {% endunless %}
+
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('.testimonial-slider .slides').slick({
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      dots: false,
+      arrows: true,
+      responsive: [
+        {
+          breakpoint: 1025,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            dots: true,
+            arrows: false,
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true,
+            arrows: false,
+          }
+        }
+      ]
+    });
+  });
+</script>
+
+
+{% schema %}
+  {
+    "name": "Reviews Slider",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+    ],
+    "presets": [
+      {
+        "name": "Reviews Slider"
+      }
+    ]
+  }
+  {% endschema %}
+  

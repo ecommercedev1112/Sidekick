@@ -1,0 +1,96 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Scope everything inside the cartFlyout div
+  const cartFlyout = document.querySelector('.cart-flyout.pdp');
+
+  const config = {
+    addToCartBtnLabel: 'Add To Cart',
+    addedToCartBtnLabel: 'Item Added!',
+    addingToCartBtnLabel: 'Adding...ajax',
+    soldOutBtnLabel: 'Sold Out',
+    howLongTillBtnReturnsToNormal: 1000,
+    cartCountSelector: '#CartCount',
+    cartTotalSelector: '#cart-price',
+    feedbackPosition: 'belowForm',
+    addToCartBtnSelector: '#submit-pdp',
+    addToCartFormSelector: 'form[action="/cart/add"]',
+    shopifyAjaxAddURL: '/cart/add.js',
+    shopifyAjaxCartURL: '/cart.js'
+  };
+
+  const showFeedback = (success, message, formElement) => {
+    const feedbackId = 'ajaxified-cart-feedback-message';
+    let feedbackElem = cartFlyout.querySelector('#' + feedbackId);
+
+    if (!feedbackElem) {
+      feedbackElem = document.createElement('p');
+      feedbackElem.id = feedbackId;
+      feedbackElem.className = `ajaxified-cart-feedback ${success}`;
+      feedbackElem.style.display = 'block';
+
+      switch (config.feedbackPosition) {
+        case 'aboveForm':
+          formElement.insertAdjacentElement('beforebegin', feedbackElem);
+          break;
+        case 'belowForm':
+          formElement.insertAdjacentElement('afterend', feedbackElem);
+          break;
+        case 'nextButton':
+          const button = formElement.querySelector(config.addToCartBtnSelector);
+          if (button) {
+            button.insertAdjacentElement('afterend', feedbackElem);
+          } else {
+            console.error('Button not found for feedback positioning.');
+            return;
+          }
+          break;
+        default:
+          console.error('Invalid feedbackPosition configuration.');
+          return;
+      }
+    }
+    feedbackElem.innerHTML = message;
+  };
+
+  const handleAddToCartSubmit = (e) => {
+    console.log('Add to Cart form submitted.');
+    e.preventDefault();
+
+    const formElement = e.target;
+    const addToCartButton = formElement.querySelector(config.addToCartBtnSelector);
+    addToCartButton.textContent = config.addingToCartBtnLabel;
+    addToCartButton.disabled = true;
+
+    fetch(config.shopifyAjaxAddURL, {
+      method: 'POST',
+      body: new FormData(formElement),
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      addToCartButton.textContent = config.addedToCartBtnLabel;
+      showFeedback('success', `<i class="fa fa-check"></i> Items Added! <a href="/cart">View Cart</a>`, formElement);
+
+      setTimeout(() => {
+        addToCartButton.disabled = false;
+        addToCartButton.textContent = config.addToCartBtnLabel;
+      }, config.howLongTillBtnReturnsToNormal);
+    })
+    .catch(error => {
+      showFeedback('error', `<i class="fa fa-warning"></i> ${error.message}`, formElement);
+      addToCartButton.disabled = false;
+      addToCartButton.textContent = config.addToCartBtnLabel;
+    });
+  };
+
+  const addToCartForm = cartFlyout.querySelector(config.addToCartFormSelector);
+  if (addToCartForm) {
+    addToCartForm.removeEventListener('submit', handleAddToCartSubmit); // Remove existing listeners to avoid duplicates
+    addToCartForm.addEventListener('submit', handleAddToCartSubmit);
+  } else {
+    console.log('Add to Cart form not found.');
+  }
+});
+</script>

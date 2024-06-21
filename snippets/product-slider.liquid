@@ -1,0 +1,1017 @@
+
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+{{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+
+<style>
+    .yotpo a:hover {
+        color: #004943 !important;
+    }
+
+    .solution-icon {
+        position: absolute;
+        top: 15px;
+        z-index: 1;
+        left: 25px;
+    }
+    .slick-list{
+        overflow: visible;
+    }
+    .scroll-btn.slider-btn {
+        top: 25%;
+        transform: none;
+    }
+
+    .collection-button-wrapper.slider-btn-wrapper {
+        height: 100%;
+    }
+
+    .white-button.desktop-show.slider-btn {
+        /*
+                        bottom: 70px
+                        */
+    }
+
+    .collection-menu-wrapper-outter {
+        position: relative;
+    }
+
+    .collection-menu-wrapper-outter.slider {
+        margin-top: 59px;
+        padding-top: 0px;
+        top: 0px;
+        justify-content: left;
+        -webkit-box-pack: left;
+        -webkit-justify-content: left;
+        -ms-flex-pack: left;
+        margin-left: -7px;
+    }
+
+    .collection-menu-wrapper-outter.active {
+        border: none;
+    }
+
+    .jc-products-flex-row.slider {
+        flex-wrap: nowrap;
+        margin-top: 0px;
+        padding-top: 16px;
+    }
+
+    .collection-product-wrapper.slider {
+        min-height: 450px;
+    }
+    
+    .jc-product-section-col-inner{
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .collection-menu-wrapper {
+        width: 90%;
+    }
+
+    .description-tag {
+        background-color: #004943;
+        color: #fff;
+        padding: 0px 18px;
+        border-radius: 30px;
+        height: 35px;
+        font-size: 16px;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+    }
+
+    @media (max-width: 479px) {
+
+        .solution-icon {
+            top: 10px;
+            left: 20px;
+            right: auto;
+            width: 30px;
+            height: 30px;
+        }
+
+        .custom-product-slider .jc-products-flex-row.slider .slick-track {
+            margin-left: -77vw;
+        }
+
+        .custom-product-slider .product-title-link .collection-product-title {
+            min-height: 66px;
+        }
+
+        .custom-product-slider .product-title-link .yotpo-widget-instance .yotpo-sr-bottom-line-text {
+            font-size: 10px !important;
+        }
+
+        .custom-product-slider .collection-button-wrapper.slider-btn-wrapper {
+            display: none;
+        }
+
+        .custom-product-slider .product-title-link.product-item-top .image-wrapper {
+            margin-bottom: 0;
+        }
+
+        .custom-product-slider .yotpo-reviews-star-ratings-widget.yotpo-star-ratings-widget-override-css {
+            margin-bottom: 0 !important;
+        }
+    }
+
+    .custom-product-slider .image-overlay {
+        margin-bottom: 0;
+    }
+
+    .custom-product-slider .slick-dots li button {
+        width: 100%;
+        background-color: #ccc;
+        height: 1px;
+        padding: 0;
+        margin: 0;
+        transition: background-color 0.3s;
+    }
+
+    .custom-product-slider .slick-dots li.slick-active button {
+        background-color: #004943;
+        height: 2px;
+    }
+
+    .custom-product-slider .slick-dots li {
+        margin: 0;
+        height: auto;
+    }
+
+    .custom-product-slider .slick-dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .custom-product-slider .collection-menu-wrapper {
+        overflow-x: hidden;
+    }
+</style>
+
+
+{% assign current_collection = collections[collection_handle] %}
+{% assign current_product_id = product.id %}
+
+{% assign show_variant_ids = '' %}
+
+{% if current_tab == 'fs-pain' %}
+    {% assign show_variant_ids = '42853255971014, 42461428351174, 29122588999733, 42695087489222, 39834379518150, 39834283212998, 42726923010246' %}
+
+{% elsif current_tab == 'bs-pain' %}
+    {% assign show_variant_ids = '42463610175686, 39834283212998, 39834379518150, 42853255971014, 42461428351174, 29122588999733, 42726923010246' %}
+
+{% elsif current_tab == 'fs-sleep' %}
+    {% assign show_variant_ids = '42710192783558, 42695087489222, 29122588999733, 42726923010246, 39834379518150, 39834283212998, 42727000604870' %}
+
+{% elsif current_tab == 'bs-sleep' %}
+    {% assign show_variant_ids = '39834379518150, 39834283212998, 42727000604870, 42710192783558, 42695087489222, 29122588999733, 42726923010246' %}
+
+{% elsif current_tab == 'fs-stress' %}
+    {% assign show_variant_ids = '42853261148358, 42726923010246, 29122588999733, 42695087489222, 39834379518150, 39834283212998, 42727000604870' %}
+
+{% elsif current_tab == 'bs-stress' %}
+    {% assign show_variant_ids = '39834379518150, 39834283212998, 42727000604870, 42853261148358, 42726923010246, 29122588999733, 42695087489222' %}
+
+{% elsif current_tab == 'fs-multi' %}
+    {% assign show_variant_ids = '42726923010246, 29122588999733, 42695087489222, 39834379518150, 39834283212998, 42727000604870, 29122884665397' %}
+
+{% elsif current_tab == 'bs-multi' %}
+    {% assign show_variant_ids = '39834379518150, 39834283212998, 42727000604870, 42726923010246, 29122588999733, 42695087489222, 29122884665397' %}
+
+{% elsif current_tab == 'pets' %}
+    {% assign show_variant_ids = '37546665803974, 29122884665397' %}
+
+{% endif %}
+
+
+
+{% assign variant_id_array = show_variant_ids | split: ', ' %}
+
+
+
+
+
+
+
+<div class="collection-menu-wrapper-outter slider custom-product-slider">
+    <div class="collection-button-wrapper slider-btn-wrapper right">
+        <button class="scroll-btn slider-btn left-slider-arrow">
+            <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Arrow_1.svg?v=1716916501" alt="" class="left-icon-arrow">
+        </button>
+        <button class="scroll-btn slider-btn right-slider-arrow">
+            <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Group_420.svg?v=1709226622" alt="" class="right-icon-arrow">
+        </button>
+    </div>
+
+    <div class="collection-menu-wrapper">
+
+        <div class="jc-products-flex-row slider test-flex-row">
+
+
+
+
+{% assign count_displayed_variants = 0 %}
+
+{% for product in current_collection.products %}
+    {% unless product.id == current_product_id %}
+      {% for variant in product.variants %}
+        {% capture variant_id_string %}{{ variant.id | append: '' }}{% endcapture %}  <!-- Ensure it's treated as a string -->
+        {% assign is_found = false %}
+        
+        {% for id in variant_id_array %}
+          {% if id == variant_id_string %}
+            {% assign is_found = true %}
+
+          {% endif %}
+        {% endfor %}
+        {% if is_found and count_displayed_variants < 6 %}
+
+            {% assign count_displayed_variants = count_displayed_variants | plus: 1 %}
+  
+
+    
+        {% if is_found %}
+
+
+
+          <div class="collection-product-wrapper slider collection" data-product='{{ product | json }}'
+          data-variant='{{ variant | json }}'>
+      
+      
+{% comment %}
+            variant.metafields.custom.best_seller_for_pets or
+            variant.metafields.custom.best_seller_thc_free or
+            variant.metafields.custom.best_seller_softgels or
+            variant.metafields.custom.best_seller_tinctures or
+            variant.metafields.custom.best_seller_gummies or
+            variant.metafields.custom.best_seller_pain_creams or
+            variant.metafields.custom.best_seller_functional_gummies or
+            variant.metafields.custom.best_seller_all
+{% endcomment %}
+
+          {% if 
+
+
+            variant.metafields.custom.best_seller_regular or
+            variant.metafields.custom.best_seller_extra or
+            variant.metafields.custom.best_seller_max or
+            variant.metafields.custom.best_seller_multi or
+            variant.metafields.custom.best_seller_sleep or
+            variant.metafields.custom.best_seller_stress or
+            variant.metafields.custom.best_seller_pain
+            %}
+          <div class="best-seller-wrapper">Best Seller</div>
+          {% endif %}
+      
+          {% comment %}
+      
+          Pain - 294623903942
+          Stress - 294623936710
+          Sleep - 294623871174
+          Overall Wellness - 294623969478
+          {% endcomment %}
+      
+          {% unless collection.id == 294623903942 or collection.id == 294623936710 or collection.id ==
+          294623871174 or collection.id == 294623969478 %}
+      
+          {% if variant.metafields.custom.solution_icon%}
+          <img src="{{variant.metafields.custom.solution_icon |  image_url }}" class="solution-icon" alt="">
+          {% endif %}
+          {% endunless %}
+      
+      
+          <div class="jc-product-section-col-inner">
+      
+              <div class="yotpo-widget-instance" data-yotpo-instance-id="539134487" data-yotpo-product-id="{{product.id}}"
+                  data-yotpo-cart-product-id="{{item.product.id}}" data-yotpo-section-id="{{template.name}}"></div>
+      
+              <div class="jc-product-section-img-wrapper collection">
+        
+                  <div class="product-title-link product-item-top">
+      
+      
+                      <div class="image-wrapper">
+                          <div class="image-overlay"></div>
+                          <a href="{{variant.url}}">
+                              {% if variant.metafields.custom.variant_image %}
+                              <img src="{{ variant.metafields.custom.variant_image | image_url }}"
+                                  alt="{{ variant.title | escape }}">
+                              {% elsif variant.image %}
+                              <img src="{{ variant.image.src | img_url: '1024x' }}" alt="{{ variant.title | escape }}">
+                              {% else %}
+                              <img src="{{ product.featured_image | img_url: '1024x' }}" alt="{{ product.title | escape }}">
+                              {% endif %}
+                          </a>
+      
+      
+      {% comment %}
+        
+
+                          <button class="white-button w-button desktop-show slider-btn"
+                              data-product-available="{{product.avalable}}"
+                              data-quick-add-image="{{variant.metafields.custom.variant_image | image_url}}"
+                              data-meta-image="{{variant.metafields.custom.variant_image | image_url}}"
+                              data-variant-image="{{variant.image | image_url }}"
+                              data-product-image="{{product.image | image_url }}" data-product-spectrum="{{product_spectrum}}"
+                              data-variant-id="{{ variant.id }}" data-variant-title="{{ variant.title | escape }}"
+                              data-product-title="{{ product.title | escape }}"
+                              data-variant-price="{{ variant.price | money_without_currency }}"
+                              data-product-url="{{product.url}}" data-variant-url="{{variant.url}}"
+                              data-productid="{{ product.id }}"
+                              data-product-options="{{ product.options_with_values | json | escape }}"
+                              data-variants="{{ product.variants | json | escape }}" 
+                              onclick="openFlyout(this)">
+                              QUICK ADD
+                          </button>
+                                {% endcomment %}
+
+                          <button
+                          class="white-button w-button desktop-show slider-btn"
+                          data-product-available="{{product.avalable}}"
+                          data-quick-add-image="{{variant.metafields.custom.variant_image | image_url}}"
+                          data-meta-image="{{variant.metafields.custom.variant_image | image_url}}"
+                          data-variant-image="{{variant.image | image_url }}"
+                          data-product-image="{{product.image | image_url }}"
+                          data-product-spectrum="{{product_spectrum}}"
+                          data-variant-id="{{ variant.id }}"
+                          data-variant-title="{{ variant.title | escape }}"
+                          data-product-title="{{ product.title | escape }}"
+                          data-variant-price="{{ variant.price | money_without_currency }}"
+                          data-product-url="{{product.url}}"
+                          data-variant-url="{{variant.url}}"
+                          data-productid="{{ product.id }}"
+                          data-product-options="{{ product.options_with_values | json | escape }}"
+                          data-variants="{{ product.variants | json | escape }}"
+                          onclick="openFlyout(this)">
+                          QUICK ADD
+                        </button>
+
+                      </div>
+      
+      
+                      {% assign variant_parts = variant.title | split: ' / ' %}
+                      {% assign mg_part = variant_parts[1] | remove: 'mg' %}
+      
+                      <a style="cursor:pointer;" href="{{variant.url}}">
+                        <div class="yotpo bottomLine" data-product-id="{{ product.id }}"></div>
+                    </a>
+                    
+                    
+                    
+      
+      
+                      {% comment %}
+                      <a href="{{product.url}}" class="collection-product-title">{{ mg_part }}mg {{ product.title
+                          | escape }}</a>
+                      {% endcomment %}
+                      <a href="{{variant.url}}" class="collection-product-title">{{
+                          variant.metafields.custom.variant_product_title | escape }}</a>
+      
+      
+      
+                      <!-- Price display -->
+                      <a href="{{ variant.url }}" class="price-wrapper">
+
+
+                      {% assign integer_price = variant.price | times: 0.8 | money %}
+                      {% if integer_price contains ".00" %}
+                        {% assign integer_price = integer_price | remove: ".00" %}
+                      {% endif %}
+                      
+                      <span class="compare-price">
+                        {{ variant.price | money_without_trailing_zeros }}
+                      </span>
+                      <span class="price">
+                        {{ integer_price }}
+                      </span>
+
+{% comment %}
+    
+
+                          {% if variant.compare_at_price %}
+                          <div class="compare-price">
+                              {% assign compare_parts = variant.compare_at_price | money | split: "." %}
+                              {% if compare_parts[1] == "00" %}
+                              {{ compare_parts[0] }}
+                              {% else %}
+                              {{ variant.compare_at_price | money }}
+                              {% endif %}
+                          </div>
+                          {% endif %}
+                          <div class="price">
+                              {% assign price_parts = variant.price | money | split: "." %}
+                              {% if price_parts[1] == "00" %}
+                              {{ price_parts[0] }}
+                              {% else %}
+                              {{ variant.price | money }}
+                              {% endif %}
+                          </div>
+                          {% endcomment %}
+                          <div class="subscribe-text">(Subscribe & Save 20%)</div>
+                      </a>
+      
+                      <button class="white-button w-button mobile-show" 
+                      data-product-available="{{product.avalable}}"
+                          data-quick-add-image="{{variant.metafields.custom.quick_add_image | image_url}}"
+                          data-meta-image="{{variant.metafields.custom.variant_image | image_url}}"
+                          data-variant-image="{{variant.image | image_url }}"
+                          data-product-image="{{product.image | image_url }}" 
+                          data-product-spectrum="{{product_spectrum}}"
+                          data-variant-id="{{ variant.id }}" 
+                          data-variant-title="{{ variant.title | escape }}"
+                          data-product-title="{{ product.title | escape }}"
+                          data-variant-price="{{ variant.price | money_without_currency }}" 
+                          data-product-url="{{product.url}}"
+                          data-variant-url="{{variant.url}}" 
+                          data-productid="{{ product.id }}"
+                          data-product-options="{{ product.options_with_values | json | escape }}"
+                          data-variants="{{ product.variants | json | escape }}" 
+                          onclick="openFlyout(this)">
+                          QUICK ADD
+                      </button>
+                      {% assign spectrum_value = product.metafields.order.broad_or_full_spectrum.value | downcase
+                      %}
+      
+                      {% if spectrum_value == "full spectrum" %}
+                      {% assign product_spectrum = "full-spectrum" %}
+                      {% elsif spectrum_value == "broad spectrum" %}
+                      {% assign product_spectrum = "broad-spectrum" %}
+                      {% else %}
+                      {% assign product_spectrum = "unknown-spectrum" %}
+                      {% endif %}
+      
+      
+      
+      
+      
+                  </div>
+                  <!-- End link wrapper -->
+              </div>
+          </div>
+      
+      
+      
+      
+          {% unless collection.id == 295136919750
+          or collection.id == 295136952518
+          or collection.id == 294623871174 %}
+      
+      
+          {% if product.tags contains 'localized-relief' %}
+          <div class="description-tag">Localized Relief</div>
+      
+          {%elsif product.tags contains 'long-lasting-relief' %}
+          <div class="description-tag">Long Lasting Relief</div>
+      
+          {%elsif product.tags contains 'fast-acting-relief' %}
+          <div class="description-tag">Fast Acting</div>
+      
+          {%elsif product.tags contains 'fast-acting-and-long-lasting-relief' %}
+          <div class="description-tag">Fast Acting & Long Lasting Relief</div>
+      
+          {% endif %}
+          {% endunless %}
+      
+      
+      
+      
+      </div>
+
+    {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endunless %}
+  {% endfor %}
+  
+  </div>
+  </div>
+</div>
+
+
+
+{% comment %}
+    
+
+<script>
+    $(document).ready(function(){
+        function initSlickSlider(selector, prevArrow, nextArrow) {
+            $(selector).slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                dots: false,
+                arrows: true,
+                prevArrow: prevArrow,
+                nextArrow: nextArrow,
+                responsive: [
+                    {
+                        breakpoint: 990,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            dots: true,
+                            arrows: false
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2.2,
+                            slidesToScroll: 1,
+                            dots: true,
+                            arrows: false
+                        }
+                    }
+                ]
+            });
+        }
+
+        initSlickSlider('#Pain-2 .jc-products-flex-row.slider', '#Pain-2 .left-slider-arrow', '#Pain-2 .right-slider-arrow');
+        initSlickSlider('#Stress-2 .jc-products-flex-row.slider', '#Stress-2 .left-slider-arrow', '#Stress-2 .right-slider-arrow');
+    });
+</script>
+
+{% endcomment %}
+
+
+{% comment %}
+Variant Display Snippet
+
+<div class="collection-product-wrapper slider collection" data-product='{{ product | json }}'
+    data-variant='{{ variant | json }}'>
+
+
+    {% if variant.metafields.custom.best_seller %}
+    <div class="best-seller-wrapper">Best Seller</div>
+    {% endif %}
+
+    { comment %}
+
+    Pain - 294623903942
+    Stress - 294623936710
+    Sleep - 294623871174
+    Overall Wellness - 294623969478
+    { endcomment %}
+
+    {% unless collection.id == 294623903942 or collection.id == 294623936710 or collection.id ==
+    294623871174 or collection.id == 294623969478 %}
+
+    {% if variant.metafields.custom.solution_icon%}
+    <img src="{{variant.metafields.custom.solution_icon |  image_url }}" class="solution-icon" alt="">
+    {% endif %}
+    {% endunless %}
+
+
+    <div class="jc-product-section-col-inner">
+
+        <div class="yotpo-widget-instance" data-yotpo-instance-id="539134487" data-yotpo-product-id="{{product.id}}"
+            data-yotpo-cart-product-id="{{item.product.id}}" data-yotpo-section-id="{{template.name}}"></div>
+
+        <div class="jc-product-section-img-wrapper collection">
+            <!-- Start link wrapper -->
+            <div class="product-title-link">
+
+
+                <!-- Conditional image display -->
+                <div class="image-wrapper">
+                    <div class="image-overlay"></div>
+                    <a href="{{variant.url}}">
+                        {% if variant.metafields.custom.variant_image %}
+                        <img src="{{ variant.metafields.custom.variant_image | image_url }}"
+                            alt="{{ variant.title | escape }}">
+                        {% elsif variant.image %}
+                        <img src="{{ variant.image.src | img_url: '1024x' }}" alt="{{ variant.title | escape }}">
+                        {% else %}
+                        <img src="{{ product.featured_image | img_url: '1024x' }}" alt="{{ product.title | escape }}">
+                        {% endif %}
+                    </a>
+
+
+
+                    <button class="white-button w-button desktop-show slider-btn"
+                        data-product-available="{{product.avalable}}"
+                        data-quick-add-image="{{variant.metafields.custom.variant_image | image_url}}"
+                        data-meta-image="{{variant.metafields.custom.variant_image | image_url}}"
+                        data-variant-image="{{variant.image | image_url }}"
+                        data-product-image="{{product.image | image_url }}" data-product-spectrum="{{product_spectrum}}"
+                        data-variant-id="{{ variant.id }}" data-variant-title="{{ variant.title | escape }}"
+                        data-product-title="{{ product.title | escape }}"
+                        data-variant-price="{{ variant.price | money_without_currency }}"
+                        data-product-url="{{product.url}}" data-variant-url="{{variant.url}}"
+                        data-productid="{{ product.id }}"
+                        data-product-options="{{ product.options_with_values | json | escape }}"
+                        data-variants="{{ product.variants | json | escape }}" onclick="openFlyout(this)">
+                        QUICK ADD
+                    </button>
+                </div>
+
+
+                <!-- Variant title and product title -->
+                {% assign variant_parts = variant.title | split: ' / ' %}
+                {% assign mg_part = variant_parts[1] | remove: 'mg' %}
+
+                <div class="yotpo bottomLine" data-product-id="{{ product.id }}">
+                </div>
+
+
+                { comment %}
+                <a href="{{product.url}}" class="collection-product-title">{{ mg_part }}mg {{ product.title
+                    | escape }}</a>
+                { endcomment %}
+                <a href="{{variant.url}}" class="collection-product-title">{{
+                    variant.metafields.custom.variant_product_title | escape }}</a>
+
+
+
+                <!-- Price display -->
+                <a href="{{ variant.url }}" class="price-wrapper">
+                    {% if variant.compare_at_price %}
+                    <div class="compare-price">
+                        {% assign compare_parts = variant.compare_at_price | money | split: "." %}
+                        {% if compare_parts[1] == "00" %}
+                        {{ compare_parts[0] }}
+                        {% else %}
+                        {{ variant.compare_at_price | money }}
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    <div class="price">
+                        {% assign price_parts = variant.price | money | split: "." %}
+                        {% if price_parts[1] == "00" %}
+                        {{ price_parts[0] }}
+                        {% else %}
+                        {{ variant.price | money }}
+                        {% endif %}
+                    </div>
+                    <div class="subscribe-text">(Subscribe & Save 20%)</div>
+                </a>
+
+                <button class="white-button w-button mobile-show" data-product-available="{{product.avalable}}"
+                    data-quick-add-image="{{variant.metafields.custom.quick_add_image | image_url}}"
+                    data-meta-image="{{variant.metafields.custom.variant_image | image_url}}"
+                    data-variant-image="{{variant.image | image_url }}"
+                    data-product-image="{{product.image | image_url }}" data-product-spectrum="{{product_spectrum}}"
+                    data-variant-id="{{ variant.id }}" data-variant-title="{{ variant.title | escape }}"
+                    data-product-title="{{ product.title | escape }}"
+                    data-variant-price="{{ variant.price | money_without_currency }}" data-product-url="{{product.url}}"
+                    data-variant-url="{{variant.url}}" data-productid="{{ product.id }}"
+                    data-product-options="{{ product.options_with_values | json | escape }}"
+                    data-variants="{{ product.variants | json | escape }}" onclick="openFlyout(this)">
+                    QUICK ADD
+                </button>
+                {% assign spectrum_value = product.metafields.order.broad_or_full_spectrum.value | downcase
+                %}
+
+                {% if spectrum_value == "full spectrum" %}
+                {% assign product_spectrum = "full-spectrum" %}
+                {% elsif spectrum_value == "broad spectrum" %}
+                {% assign product_spectrum = "broad-spectrum" %}
+                {% else %}
+                {% assign product_spectrum = "unknown-spectrum" %}
+                {% endif %}
+
+
+
+
+
+            </div>
+            <!-- End link wrapper -->
+        </div>
+    </div>
+
+
+
+
+    {% unless collection.id == 295136919750
+    or collection.id == 295136952518
+    or collection.id == 294623871174 %}
+
+
+    {% if product.tags contains 'localized-relief' %}
+    <div class="description-tag">Localized Relief</div>
+
+    {%elsif product.tags contains 'long-lasting-relief' %}
+    <div class="description-tag">Long Lasting Relief</div>
+
+    {%elsif product.tags contains 'fast-acting-relief' %}
+    <div class="description-tag">Fast Acting</div>
+
+    {%elsif product.tags contains 'fast-acting-and-long-lasting-relief' %}
+    <div class="description-tag">Fast Acting & Long Lasting Relief</div>
+
+    {% endif %}
+    {% endunless %}
+
+
+
+
+</div>
+{% endcomment %}
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+
+<div class="collection-menu-wrapper-outter slider">
+    <div class="collection-button-wrapper slider-btn-wrapper">
+
+        <button class="scroll-btn slider-btn right-collection-arrow"><img
+                src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Group_420.svg?v=1709226622" alt=""
+                class="right-icon-arrow"></button>
+    </div>
+
+    <div class="collection-menu-wrapper">
+
+        <div class="jc-products-flex-row slider test-flex-row">
+
+
+            {% for product in current_collection.products %}
+
+            {% unless product.id == current_product_id %}
+
+
+            {% for variant in product.variants %}
+
+
+
+            {% if variant_id_array contains variant_id_string %}
+
+            Display this variant: {{ variant.title }} (ID: {{ variant_id_string }})
+
+
+
+
+            <div class="collection-product-wrapper slider collection" data-product='{{ product | json }}'
+                data-variant='{{ variant | json }}'>
+
+
+                {% if variant.metafields.custom.best_seller %}
+                <div class="best-seller-wrapper">Best Seller</div>
+                {% endif %}
+
+                { comment %}
+
+                Pain - 294623903942
+                Stress - 294623936710
+                Sleep - 294623871174
+                Overall Wellness - 294623969478
+                { endcomment %}
+
+                {% unless collection.id == 294623903942 or collection.id == 294623936710 or collection.id ==
+                294623871174 or collection.id == 294623969478 %}
+
+                {% if variant.metafields.custom.solution_icon%}
+                <img src="{{variant.metafields.custom.solution_icon |  image_url }}" class="solution-icon" alt="">
+                {% endif %}
+                {% endunless %}
+
+
+                <div class="jc-product-section-col-inner">
+
+                    <div class="yotpo-widget-instance" data-yotpo-instance-id="539134487"
+                        data-yotpo-product-id="{{product.id}}" data-yotpo-cart-product-id="{{item.product.id}}"
+                        data-yotpo-section-id="{{template.name}}"></div>
+
+                    <div class="jc-product-section-img-wrapper collection">
+                        <!-- Start link wrapper -->
+                        <div class="product-title-link">
+
+
+                            <!-- Conditional image display -->
+                            <div class="image-wrapper">
+                                <div class="image-overlay"></div>
+                                <a href="{{variant.url}}">
+                                    {% if variant.metafields.custom.variant_image %}
+                                    <img src="{{ variant.metafields.custom.variant_image | image_url }}"
+                                        alt="{{ variant.title | escape }}">
+                                    {% elsif variant.image %}
+                                    <img src="{{ variant.image.src | img_url: '1024x' }}"
+                                        alt="{{ variant.title | escape }}">
+                                    {% else %}
+                                    <img src="{{ product.featured_image | img_url: '1024x' }}"
+                                        alt="{{ product.title | escape }}">
+                                    {% endif %}
+                                </a>
+
+
+
+                                <button class="white-button w-button desktop-show slider-btn"
+                                    data-product-available="{{product.avalable}}"
+                                    data-quick-add-image="{{variant.metafields.custom.variant_image | image_url}}"
+                                    data-meta-image="{{variant.metafields.custom.variant_image | image_url}}"
+                                    data-variant-image="{{variant.image | image_url }}"
+                                    data-product-image="{{product.image | image_url }}"
+                                    data-product-spectrum="{{product_spectrum}}" data-variant-id="{{ variant.id }}"
+                                    data-variant-title="{{ variant.title | escape }}"
+                                    data-product-title="{{ product.title | escape }}"
+                                    data-variant-price="{{ variant.price | money_without_currency }}"
+                                    data-product-url="{{product.url}}" data-variant-url="{{variant.url}}"
+                                    data-productid="{{ product.id }}"
+                                    data-product-options="{{ product.options_with_values | json | escape }}"
+                                    data-variants="{{ product.variants | json | escape }}" onclick="openFlyout(this)">
+                                    QUICK ADD
+                                </button>
+                            </div>
+
+
+                            <!-- Variant title and product title -->
+                            {% assign variant_parts = variant.title | split: ' / ' %}
+                            {% assign mg_part = variant_parts[1] | remove: 'mg' %}
+
+                            <div class="yotpo bottomLine" data-product-id="{{ product.id }}">
+                            </div>
+
+
+                            { comment %}
+                            <a href="{{product.url}}" class="collection-product-title">{{ mg_part }}mg {{ product.title
+                                | escape }}</a>
+                            { endcomment %}
+                            <a href="{{variant.url}}" class="collection-product-title">{{
+                                variant.metafields.custom.variant_product_title | escape }}</a>
+
+
+
+                            <!-- Price display -->
+                            <a href="{{ variant.url }}" class="price-wrapper">
+                                {% if variant.compare_at_price %}
+                                <div class="compare-price">
+                                    {% assign compare_parts = variant.compare_at_price | money | split: "." %}
+                                    {% if compare_parts[1] == "00" %}
+                                    {{ compare_parts[0] }}
+                                    {% else %}
+                                    {{ variant.compare_at_price | money }}
+                                    {% endif %}
+                                </div>
+                                {% endif %}
+                                <div class="price">
+                                    {% assign price_parts = variant.price | money | split: "." %}
+                                    {% if price_parts[1] == "00" %}
+                                    {{ price_parts[0] }}
+                                    {% else %}
+                                    {{ variant.price | money }}
+                                    {% endif %}
+                                </div>
+                                <div class="subscribe-text">(Subscribe & Save 20%)</div>
+                            </a>
+
+                            <button class="white-button w-button mobile-show"
+                                data-product-available="{{product.avalable}}"
+                                data-quick-add-image="{{variant.metafields.custom.quick_add_image | image_url}}"
+                                data-meta-image="{{variant.metafields.custom.variant_image | image_url}}"
+                                data-variant-image="{{variant.image | image_url }}"
+                                data-product-image="{{product.image | image_url }}"
+                                data-product-spectrum="{{product_spectrum}}" data-variant-id="{{ variant.id }}"
+                                data-variant-title="{{ variant.title | escape }}"
+                                data-product-title="{{ product.title | escape }}"
+                                data-variant-price="{{ variant.price | money_without_currency }}"
+                                data-product-url="{{product.url}}" data-variant-url="{{variant.url}}"
+                                data-productid="{{ product.id }}"
+                                data-product-options="{{ product.options_with_values | json | escape }}"
+                                data-variants="{{ product.variants | json | escape }}" onclick="openFlyout(this)">
+                                QUICK ADD
+                            </button>
+                            {% assign spectrum_value = product.metafields.order.broad_or_full_spectrum.value | downcase
+                            %}
+
+                            {% if spectrum_value == "full spectrum" %}
+                            {% assign product_spectrum = "full-spectrum" %}
+                            {% elsif spectrum_value == "broad spectrum" %}
+                            {% assign product_spectrum = "broad-spectrum" %}
+                            {% else %}
+                            {% assign product_spectrum = "unknown-spectrum" %}
+                            {% endif %}
+
+
+
+
+
+                        </div>
+                        <!-- End link wrapper -->
+                    </div>
+                </div>
+
+
+
+
+                {% unless collection.id == 295136919750
+                or collection.id == 295136952518
+                or collection.id == 294623871174 %}
+
+
+                {% if product.tags contains 'localized-relief' %}
+                <div class="description-tag">Localized Relief</div>
+
+                {%elsif product.tags contains 'long-lasting-relief' %}
+                <div class="description-tag">Long Lasting Relief</div>
+
+                {%elsif product.tags contains 'fast-acting-relief' %}
+                <div class="description-tag">Fast Acting</div>
+
+                {%elsif product.tags contains 'fast-acting-and-long-lasting-relief' %}
+                <div class="description-tag">Fast Acting & Long Lasting Relief</div>
+
+                {% endif %}
+                {% endunless %}
+
+
+            </div>
+
+            <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/{{app_key}}" async></script>
+
+            {% endif %}
+            {% endfor %}
+            {% endunless %}
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endcomment %}
+
+{% comment %}
+
+<div class="menu-divider-line"></div>
+<div class="collection-body-wrapper">
+    <p>{{collection.description}}</p>
+</div>
+{% endcomment %}
+
+
+
+
+
+
+
+
+
+{% comment %}
+Working Script without loop
+
+<script>
+    $(document).ready(function () {
+        // Clone first three items and append them to the end for looping effect
+        var $items = $('.jc-products-flex-row .collection-product-wrapper');
+        var $container = $('.jc-products-flex-row');
+        var itemsToClone = 3; // Number of items to clone for looping effect
+
+        // Adjust based on your needs
+        for (var i = 0; i < itemsToClone; i++) {
+            $container.append($items.eq(i).clone(true));
+        }
+
+        // Update the $items variable to include cloned items
+        $items = $('.jc-products-flex-row .collection-product-wrapper');
+
+        function updateScrollUI() {
+            var $wrapper = $('.collection-menu-wrapper');
+            var scrollLeft = $wrapper.scrollLeft();
+            var maxScrollLeft = $wrapper[0].scrollWidth - $wrapper[0].clientWidth;
+
+            // Update arrow and gradient visibility
+            $('.left-collection-arrow').css('opacity', scrollLeft <= 0 ? '0' : '1');
+            $('.white-fade-left').toggle(scrollLeft > 0);
+            $('.right-collection-arrow').css('opacity', (scrollLeft + 27) >= maxScrollLeft ? '0' : '1');
+            $('.white-fade-right').toggle((scrollLeft + 27) < maxScrollLeft);
+        }
+
+        // Initial UI update
+        updateScrollUI();
+
+        // UI update on scroll
+        $('.collection-menu-wrapper').on('scroll', updateScrollUI);
+
+        // Scroll animation for the arrows
+        $('.left-collection-arrow').click(function () {
+            $('.collection-menu-wrapper').animate({
+                scrollLeft: "-=280px"
+            }, "fast", updateScrollUI);
+        });
+
+        $('.right-collection-arrow').click(function () {
+            var singleItemWidth = $items.first().outerWidth(true);
+            var $wrapper = $('.collection-menu-wrapper');
+            var newScrollPosition = $wrapper.scrollLeft() + singleItemWidth;
+
+            $wrapper.animate({
+                scrollLeft: newScrollPosition
+            }, "fast", function () {
+                var maxScrollLeft = $container[0].scrollWidth - $wrapper[0].clientWidth;
+                // Reset to start if we've scrolled into the cloned items
+                if (newScrollPosition >= maxScrollLeft) {
+                    $wrapper.scrollLeft(0);
+                    updateScrollUI();
+                }
+            });
+        });
+    });
+</script>
+{% endcomment %}

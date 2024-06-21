@@ -1,0 +1,238 @@
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+
+    const config = {
+      addToCartBtnLabel: 'Add To Cart',
+      addedToCartBtnLabel: 'Item Added!',
+      addingToCartBtnLabel: 'Adding...',
+      soldOutBtnLabel: 'Sold Out',
+      howLongTillBtnReturnsToNormal: 1000,
+      cartCountSelector: '#CartCount',
+      cartTotalSelector: '#cart-price',
+      feedbackPosition: 'belowForm',
+      addToCartBtnSelector: '[type="submit"]',
+      addToCartFormSelector: 'form[action="/cart/add"]',
+      shopifyAjaxAddURL: '/cart/add.js',
+      shopifyAjaxCartURL: '/cart.js'
+    };
+
+    const showFeedback = (success, message, formElement) => {
+    const feedbackId = 'ajaxified-cart-feedback-message';
+    let feedbackElem = document.querySelector('#' + feedbackId);
+
+    if (!feedbackElem) {
+      feedbackElem = document.createElement('p');
+      feedbackElem.id = feedbackId;
+      feedbackElem.className = `ajaxified-cart-feedback ${success}`;
+      feedbackElem.style.display = 'block';
+
+      switch (config.feedbackPosition) {
+        case 'aboveForm':
+          formElement.insertAdjacentElement('beforebegin', feedbackElem);
+          break;
+        case 'belowForm':
+          formElement.insertAdjacentElement('afterend', feedbackElem);
+          break;
+        case 'nextButton':
+          const button = formElement.querySelector(config.addToCartBtnSelector);
+          if (button) {
+            button.insertAdjacentElement('afterend', feedbackElem);
+          } else {
+            console.error('Button not found for feedback positioning.');
+            return;
+          }
+          break;
+        default:
+          console.error('Invalid feedbackPosition configuration.');
+          return;
+      }
+    }
+    feedbackElem.innerHTML = message;
+  };
+
+
+    // Named function for handling form submission
+    function handleAddToCartSubmit(e) {
+      console.log('Add to Cart form submitted.'); // Diagnostic log
+      e.preventDefault();
+
+      const addToCartButton = e.target.querySelector(config.addToCartBtnSelector);
+      addToCartButton.textContent = config.addingToCartBtnLabel;
+      addToCartButton.disabled = true;
+
+      fetch(config.shopifyAjaxAddURL, {
+        method: 'POST',
+        body: new FormData(e.target),
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        addToCartButton.textContent = config.addedToCartBtnLabel;
+        showFeedback('success', `<p style="margin-bottom: 40px;" class="jc-form-success-text-quick"><i class="fa fa-check"></i> Items Added! <a href="/cart">View Cart</a></p>`, e.target);
+
+        fetch(config.shopifyAjaxCartURL)
+        .then(response => response.json())
+        .then(cartData => {
+          updateCartDisplay(cartData, config);
+
+          setTimeout(() => {
+            addToCartButton.disabled = false;
+            addToCartButton.textContent = config.addToCartBtnLabel;
+          }, config.howLongTillBtnReturnsToNormal);
+        });
+      })
+      .catch(error => {
+        showFeedback('error', `<i class="fa fa-warning"></i> ${error.message}`, e.target);
+        addToCartButton.disabled = false;
+        addToCartButton.textContent = config.addToCartBtnLabel;
+      });
+    }
+
+    // Attach the event listener to the form
+    const addToCartForm = document.querySelector(config.addToCartFormSelector);
+    if (addToCartForm) {
+      addToCartForm.removeEventListener('submit', handleAddToCartSubmit); // Attempt to remove the listener if it was previously attached
+      addToCartForm.addEventListener('submit', handleAddToCartSubmit);
+    } else {
+      console.log('Add to Cart form not found.');
+    }
+  });
+  function updateCartDisplay(cartData, config) {
+    $('.cart-count-number').text(cartData.item_count); // Assuming you're using jQuery elsewhere for consistency
+    if ($(config.cartCountSelector).length) {
+        $(config.cartCountSelector).text(cartData.item_count);
+    }
+    if ($(config.cartTotalSelector).length) {
+        $(config.cartTotalSelector).text(Shopify.formatMoney(cartData.total_price, "{{ shop.money_format | remove: "'" | remove: '"' }}"));
+    }
+  }
+</script>
+
+{% comment %}
+    
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+
+    const config = {
+        addToCartBtnLabel: 'Add To Cart',
+        addedToCartBtnLabel: 'Item Added!',
+        addingToCartBtnLabel: 'Adding...',
+        soldOutBtnLabel: 'Sold Out',
+        howLongTillBtnReturnsToNormal: 1000,
+        cartCountSelector: '#CartCount',
+        cartTotalSelector: '#cart-price',
+        feedbackPosition: 'belowForm',
+        addToCartBtnSelector: '[type="submit"]',
+        addToCartFormSelector: 'form[action="/cart/add"]',
+        shopifyAjaxAddURL: '/cart/add.js',
+        shopifyAjaxCartURL: '/cart.js'
+    };
+
+    const showFeedback = (success, message, formElement) => {
+        const feedbackElem = document.createElement('p');
+        feedbackElem.className = `ajaxified-cart-feedback ${success}`;
+        feedbackElem.innerHTML = message;
+
+        switch (config.feedbackPosition) {
+            case 'aboveForm':
+                formElement.insertAdjacentElement('beforebegin', feedbackElem);
+                break;
+            case 'belowForm':
+                formElement.insertAdjacentElement('afterend', feedbackElem);
+                break;
+            case 'nextButton':
+            default:
+                formElement.querySelector(config.addToCartBtnSelector).insertAdjacentElement('afterend', feedbackElem);
+                break;
+        }
+        feedbackElem.style.display = 'block';
+    };
+
+    document.querySelector(config.addToCartFormSelector).addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const addToCartButton = e.target.querySelector(config.addToCartBtnSelector);
+        addToCartButton.textContent = config.addingToCartBtnLabel;
+        addToCartButton.disabled = true;
+
+        fetch(config.shopifyAjaxAddURL, {
+            method: 'POST',
+            body: new FormData(e.target),
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            addToCartButton.textContent = config.addedToCartBtnLabel;
+            showFeedback('success', `<p style="margin-bottom: 30px;" class="jc-form-success-text-quick"><i class="fa fa-check"></i> Items Added! <a href="/cart">View Cart</a></p>`, e.target);
+
+            fetch(config.shopifyAjaxCartURL)
+            .then(response => response.json())
+            .then(cartData => {
+                $('.cart-count-number').text(cartData.item_count);
+                if (document.querySelector(config.cartCountSelector)) {
+                    document.querySelector(config.cartCountSelector).textContent = cartData.item_count;
+                }
+
+                if (document.querySelector(config.cartTotalSelector)) {
+                    document.querySelector(config.cartTotalSelector).textContent = Shopify.formatMoney(cartData.total_price, "{{ shop.money_format | remove: "'" | remove: '"' }}");
+                }
+
+                setTimeout(() => {
+                    addToCartButton.disabled = false;
+                    addToCartButton.textContent = config.addToCartBtnLabel;
+                }, config.howLongTillBtnReturnsToNormal);
+            });
+        })
+        .catch(error => {
+            showFeedback('error', `<i class="fa fa-warning"></i> ${error.message}`, e.target);
+            addToCartButton.disabled = false;
+            addToCartButton.textContent = config.addToCartBtnLabel;
+        });
+    });
+});
+
+  </script>
+  {% endcomment %}
+
+
+
+
+
+  {% comment %}
+    If you want to animate your feedback message.
+  {% endcomment %}
+  
+  {% comment %}
+  {{ '//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css' | stylesheet_tag }}
+  {% endcomment %}
+  
+  {{ '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' | stylesheet_tag }}
+  
+  <style>
+  .ajaxified-cart-feedback {
+    display: block;
+    line-height: 36px;
+    font-size: 90%;
+    vertical-align: middle;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .ajaxified-cart-feedback.success { 
+    color: #3D9970;
+  }
+  .ajaxified-cart-feedback.error { 
+    color: #FF4136; 
+  } 
+  .ajaxified-cart-feedback a {
+    /*
+    border-bottom: 1px solid;
+    */
+    text-decoration: none;
+  }
+  </style>

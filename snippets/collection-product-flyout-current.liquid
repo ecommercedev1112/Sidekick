@@ -1,0 +1,1096 @@
+<!-- Flyout HTML -->
+<div id="flyoutOverlay" class="flyout-overlay"></div>
+<div id="cartFlyout" class="cart-flyout"></div>
+
+{% render 'ajaxify-cart' %}
+
+<script>
+
+
+  // Initialize an object to store selected options
+  let selectedOptions = {};
+
+// Utility function to 'handleize' strings similar to Liquid's filter
+  function handleize(string) {
+    return string.toLowerCase().replace(/[^a-z0-9]/g, '-');
+  }
+
+
+ 
+
+  function buildProductOptions(productOptions, productVariants) {
+    // Create a new div to hold the product options form elements
+    const productForm = document.createElement('div');
+    productForm.id = 'productOptionsForm'; // Give an ID or class if needed
+  
+    productOptions.forEach((option, index) => {
+      const optionDiv = document.createElement('div');
+      optionDiv.className = 'radio-wrapper js product-form__item jc-product-page-flex-row';
+      if (option.values.length === 1) {
+        optionDiv.classList.add('one-has-potency');
+      }
+  
+      const label = document.createElement('label');
+      label.textContent = option.name;
+      if (option.name === 'Default' || option.name === 'Title') {
+        label.classList.add('hidden-label');
+      }
+      optionDiv.appendChild(label);
+  
+      const fieldset = document.createElement('fieldset');
+      fieldset.name = handleize(option.name);
+  
+      option.values.forEach((value, valueIndex) => {
+        const inputWrapper = document.createElement('div');
+        const input = document.createElement('input');
+        input.id = `variant--${index}--${valueIndex}`;
+        input.type = 'radio';
+        input.value = value;
+        input.name = handleize(option.name);
+        if (option.selected_value === value || valueIndex == 0) {
+          input.checked = true;
+        }
+        input.classList.add('product-option-input');
+  
+        // Add event listener for when a radio button is selected
+        input.addEventListener('change', function(event) {
+          // Update the selected options and variant ID
+          updateSelectedOptions(option.name, event.target.value, productVariants);
+        });
+  
+        inputWrapper.appendChild(input);
+  
+        // Check if the option is 'Flavor' and add the corresponding image
+        if (option.name === 'Flavor') {
+          const img = document.createElement('img');
+          img.className = 'flavor-label';
+          if (value.toLowerCase() === 'fresh mint') {
+            img.src = 'https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Pain_V2_aacdda67-b420-4e0c-b787-b70a181c7eb3.svg?v=1707346148';
+          } else if (value.toLowerCase() === 'unflavored') {
+            img.src = 'https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Pain_V2.svg?v=1707346094';
+          }
+          inputWrapper.appendChild(img);
+        } else {
+          const inputLabel = document.createElement('label');
+          inputLabel.setAttribute('for', `variant--${index}--${valueIndex}`);
+          inputLabel.textContent = value;
+          inputWrapper.appendChild(inputLabel);
+        }
+        if (option.name === 'Potency') {
+          optionDiv.classList.add('potency-padding');
+        }
+        if (value == '2500mg') {
+          const iconDiv = document.createElement('div');
+          iconDiv.classList.add('icon-most-popular-hear');
+          iconDiv.innerHTML = `<style>.flyout-content .jc-product-page-flex-row.potency-padding{padding-bottom: 38px;}</style><svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.83 11.49"><defs><style>.cls-1{fill:#004943;}</style></defs><g id="Guides"><path class="cls-1" d="m6.13,11.41c.09.05.19.07.29.07.1,0,.2-.02.29-.07.18-.1,4.41-2.46,5.75-5.81.57-1.43.49-2.88-.23-3.96-.34-.51-.8-.92-1.36-1.19C10.32.17,9.67.01,8.96,0c-.95-.02-1.82.28-2.54.85C5.69.28,4.79-.02,3.87,0,2.45.03,1.29.62.61,1.65-.11,2.73-.2,4.17.38,5.61c1.33,3.35,5.57,5.71,5.75,5.81Z"></path></g></svg>
+          <span>MOST POPULAR</span>`;
+          inputWrapper.appendChild(iconDiv);
+        }
+        if (value == '60mg') {
+          const iconDiv = document.createElement('div');
+          iconDiv.classList.add('icon-most-popular-hear');
+          iconDiv.innerHTML = `<style>.flyout-content .jc-product-page-flex-row.potency-padding{padding-bottom: 38px;}</style><svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.83 11.49"><defs><style>.cls-1{fill:#004943;}</style></defs><g id="Guides"><path class="cls-1" d="m6.13,11.41c.09.05.19.07.29.07.1,0,.2-.02.29-.07.18-.1,4.41-2.46,5.75-5.81.57-1.43.49-2.88-.23-3.96-.34-.51-.8-.92-1.36-1.19C10.32.17,9.67.01,8.96,0c-.95-.02-1.82.28-2.54.85C5.69.28,4.79-.02,3.87,0,2.45.03,1.29.62.61,1.65-.11,2.73-.2,4.17.38,5.61c1.33,3.35,5.57,5.71,5.75,5.81Z"></path></g></svg>
+          <span>MOST POPULAR</span>`;
+          inputWrapper.appendChild(iconDiv);
+        }
+  
+        fieldset.appendChild(inputWrapper);
+      });
+  
+      optionDiv.appendChild(fieldset);
+      productForm.appendChild(optionDiv);
+    });
+  
+    return productForm;
+  }
+  
+
+
+
+  function buildSubscriptionSection(product) {
+
+// Calculate prices based on the product's price
+    var fullPrice = product.price / 100;
+    var discountPrice = fullPrice * 0.8; // 20% discount for subscription
+    var twoPackDiscountPrice = fullPrice * 2 * 0.9; // 10% discount for two-pack
+    var threePackDiscountPrice = fullPrice * 3 * 0.85;
+
+// 15% discount for three-pack
+
+// Build the subscription HTML
+    var subscriptionHtml = `
+      <div class="jc-custom-rc-container">
+        <!-- Subscribe & Save Option -->
+        <label class="jc-custom-rc-radio jc-custom-subsave" for="custom-rc-radio-subscribe-save">
+          <!-- ... -->
+          <input type="radio" class="jc-custom-rc-radio__input" name="custom-rc-radio" id="custom-rc-radio-subscribe-save" value="subsave" checked="">
+          <div class="jc-custom-ra-radio-wrapper">
+            <!-- ... -->
+            <div class="jc-custom-rc-radio__label">
+              <div class="jc-custom-rc-radio__text">
+                <h3 class="jc-custom-rc__label-heading">
+                  Subscribe &amp; Save 20%
+                </h3>
+                <p class="jc-custom-rc__label-text">
+                  Free U.S. Shipping. Cancel Anytime.
+                </p>
+              </div>
+              <div class="jc-custom-rc-radio__price">
+                <div class="jc-custom-rc__price-box">
+                  <span class="jc-custom-rc__compare-price">$${
+      fullPrice.toFixed(2).replace('.00', '')
+    }</span>
+                  <span class="jc-custom-rc__sale-price">$${
+      discountPrice.toFixed(2).replace('.00', '')
+    }</span>
+                </div>
+                <div class="jc-custom-rc__save-price">
+                  Save 20%
+                </div>
+              </div>
+            </div>
+            <div class="jc-custom-rc-radio__packs jc-custom-rc-radio__hidden">
+              <!-- 1-Pack Option -->
+              <div class="jc-custom-rc-radio__pack-item active" data-pack="1">
+                <div class="pack-label">1 - PACK</div>
+                <div class="pack-price">
+                  <span class="jc-custom-rc__compare-price">$${
+      fullPrice.toFixed(2).replace('.00', '')
+    }</span>
+                  <span class="jc-custom-rc__sale-price">$${
+      discountPrice.toFixed(2).replace('.00', '')
+    }</span>
+                </div>
+                <div class="jc-custom-rc__save-price">Save 20%</div>
+              </div>
+              <!-- 2-Pack Option -->
+              <div class="jc-custom-rc-radio__pack-item" data-pack="2">
+                <div class="pack-label">2 - PACK</div>
+                <div class="pack-price">
+                  <span class="jc-custom-rc__compare-price">$${
+      (fullPrice * 2).toFixed(2).replace('.00', '')
+    }</span>
+                  <span class="jc-custom-rc__sale-price">$${
+      (discountPrice * 2).toFixed(2).replace('.00', '')
+    }</span>
+                </div>
+                <div class="jc-custom-rc__save-price">Save 20%</div>
+              </div>
+              <!-- 3-Pack Option -->
+              <div class="jc-custom-rc-radio__pack-item" data-pack="3">
+                <div class="pack-label">3 - PACK</div>
+                <div class="pack-price">
+                  <span class="jc-custom-rc__compare-price">$${
+      (fullPrice * 3).toFixed(2).replace('.00', '')
+    }</span>
+                  <span class="jc-custom-rc__sale-price">$${
+      (discountPrice * 3).toFixed(2).replace('.00', '')
+    }</span>
+                </div>
+                <div class="jc-custom-rc__save-price">Save 20%</div>
+              </div>
+            </div>
+            <!-- Subscription Plans -->
+            <div class="jc-custom-rc-radio__plans jc-custom-rc-radio__hidden">
+              <div class="jc-custom-rc-radio__plan-label">Deliver every:</div>
+              <div class="jc-custom-rc-radio__plan-list">
+                <div class="jc-custom-rc-radio__plan-item active" data-plan="0" data-selling-plan-id="${
+      product.selling_plan_groups[0].selling_plans[0].id
+    }">30 Days</div>
+                <div class="jc-custom-rc-radio__plan-item" data-plan="1" data-selling-plan-id="${
+      product.selling_plan_groups[0].selling_plans[1].id
+    }">60 Days</div>
+                <div class="jc-custom-rc-radio__plan-item" data-plan="2" data-selling-plan-id="${
+      product.selling_plan_groups[0].selling_plans[2].id
+    }">90 Days</div>
+              </div>
+            </div>
+            <!-- Popup Info -->
+            <div class="jc-custom-rc-radio__popup jc-custom-rc-radio__hidden">
+              Skip or cancel at any time. <a class="jc-custom-rc-radio__popup-link">Learn More<span class="jc-custom-rc-radio__popup-content">Subscribe & Save delivers refills automatically and on your schedule. Swap products, skip orders, or cancel any time—plus enjoy free shipping on U.S. orders.</span></a>
+            </div>
+          </div>
+        </label>
+        <!-- One-Time Purchase Option -->
+        <label class="jc-custom-rc-radio jc-custom-onetime" for="custom-rc-radio-one-time">
+        <input type="radio" class="jc-custom-rc-radio__input" name="custom-rc-radio" id="custom-rc-radio-one-time" value="onetime">
+        <div class="jc-custom-ra-radio-wrapper">
+          <div class="jc-custom-rc-radio__label">
+            <div class="jc-custom-rc-radio__text">
+              <h3 class="jc-custom-rc__label-heading">One-Time Purchase</h3>
+              <p class="jc-custom-rc__label-text">Free U.S. Shipping Over $60</p>
+            </div>
+            <div class="jc-custom-rc-radio__price">
+              <div class="jc-custom-rc__price-box">
+                <span class="jc-custom-rc__sale-price">$${
+      fullPrice.toFixed(2).replace('.00', '')
+    }</span>
+              </div>
+            </div>
+          </div>
+          <div class="jc-custom-rc-radio__packs jc-custom-rc-radio__hidden">
+            <!-- 1-Pack Option -->
+            <div class="jc-custom-rc-radio__pack-item no-discount" data-pack="1">
+              <div class="pack-label">1 - PACK</div>
+              <div class="pack-price">
+                <span class="jc-custom-rc__sale-price">$${
+      fullPrice.toFixed(2).replace('.00', '')
+    }</span>
+              </div>
+              <div class="jc-custom-rc__save-price">No Discount</div>
+            </div>
+            <!-- 2-Pack Option -->
+            <div class="jc-custom-rc-radio__pack-item active" data-pack="2">
+              <div class="pack-label">2 - PACK</div>
+              <div class="pack-price">
+                <span class="jc-custom-rc__compare-price">$${
+      (fullPrice * 2).toFixed(2).replace('.00', '')
+    }</span>
+                <span class="jc-custom-rc__sale-price">$${
+      (fullPrice * 2 * 0.9).toFixed(2).replace('.00', '')
+    }</span>
+              </div>
+              <div class="jc-custom-rc__save-price">Save 10%</div>
+            </div>
+            <!-- 3-Pack Option -->
+            <div class="jc-custom-rc-radio__pack-item" data-pack="3">
+              <div class="pack-label">3 - PACK</div>
+              <div class="pack-price">
+                <span class="jc-custom-rc__compare-price">$${
+      (fullPrice * 3).toFixed(2).replace('.00', '')
+    }</span>
+                <span class="jc-custom-rc__sale-price">$${
+      (fullPrice * 3 * 0.85).toFixed(2).replace('.00', '')
+    }</span>
+              </div>
+              <div class="jc-custom-rc__save-price">Save 15%</div>
+            </div>
+          </div>
+        </div>
+        </label>
+      </div>
+    `;
+
+    return subscriptionHtml;
+  }
+
+
+
+// Function to update selected options
+  function updateSelectedOptions(optionName, selectedValue, productVariants) {
+    selectedOptions[optionName] = selectedValue;
+    updateVariantID(productVariants);
+  }
+
+// Function to update the variant ID based on selected options
+  function updateVariantID(productVariants) {
+
+
+// Make sure productOptions is already defined and populated before this function is called
+    const matchingVariant = productVariants.find(variant => {
+      return Object.keys(selectedOptions).every(optionName => {
+        const optionIndex = productOptions.findIndex(opt => handleize(opt.name) === handleize(optionName)) + 1;
+        const variantOption = variant[`option${optionIndex}`];
+
+        return variantOption === selectedOptions[optionName];
+      });
+    });
+
+    if (matchingVariant) { // Update the hidden input field with the new variant ID
+      const variantInput = document.querySelector('input[name="id"]');
+      if (variantInput) {
+        variantInput.value = matchingVariant.id;
+        changeVariant(matchingVariant.price);
+      }
+
+// Here you could also update the price, image, and any other details related to the selected variant
+    } else {
+      console.log('No matching variant found');
+    }
+  }
+  var productOptions; // Declare it in the global scope
+
+
+  function openFlyout(button) {
+
+   
+
+// Function to decode HTML entities
+    function decodeHtmlEntities(encodedString) {
+      var textArea = document.createElement('textarea');
+      textArea.innerHTML = encodedString;
+      return textArea.value;
+    }
+
+    var productSpectrum = button.getAttribute('data-product-spectrum');
+    var variantMetaImage = button.getAttribute('data-meta-image');
+    var variantImage = button.getAttribute('data-variant-image');
+    var productImage = button.getAttribute('data-product-image');
+    var quickAddImage = button.getAttribute('data-quick-add-image');
+    var variantId = button.getAttribute('data-variant-id');
+    var variantTitle = button.getAttribute('data-variant-title');
+    var productTitle = button.getAttribute('data-product-title');
+    var variantPrice = button.getAttribute('data-variant-price');
+    var productUrl = button.getAttribute('data-product-url');
+    var variantUrl = button.getAttribute('data-variant-url');
+    var productId = button.getAttribute('data-productid');
+    var productOptionsEncoded = button.getAttribute('data-product-options');
+    var productVariantsEncoded = button.getAttribute('data-variants');
+    var productAvailable = button.getAttribute('data-product-available') === 'true';
+    var productPrice = parseFloat(variantPrice); // assuming this is the price passed in data attributes
+
+    var productOptionsDecoded,
+      productVariantsDecoded,
+      productVariants;
+    try {
+      productOptionsDecoded = decodeHtmlEntities(productOptionsEncoded);
+      productOptions = JSON.parse(productOptionsDecoded);
+
+      productVariantsDecoded = decodeHtmlEntities(productVariantsEncoded);
+      productVariants = JSON.parse(productVariantsDecoded);
+    } catch (error) {
+      console.error('Error parsing JSON data:', error);
+      return; // Exit the function if there is a parsing error
+    }
+
+
+
+
+
+
+
+
+// Construct the product object
+console.log("Attempting to retrieve product data...");
+
+var productDataAttribute = button.closest('.collection-product-wrapper').getAttribute('data-product');
+if (productDataAttribute) {
+    var product = JSON.parse(productDataAttribute);
+    console.log("Product data retrieved successfully:", product);
+} else {
+    console.error("Failed to retrieve 'data-product' attribute.");
+}
+
+console.log("Attempting to retrieve the product review...");
+
+var closestProductItemTop = button.closest('.product-item-top');
+
+// Check if closestProductItemTop is not null
+if (closestProductItemTop) {
+    var productReviewElement = closestProductItemTop.querySelector('.yotpo-widget-instance');
+
+    // Check if the product review element exists
+    if (productReviewElement) {
+        var product_review = productReviewElement.outerHTML;
+        console.log("Product review retrieved successfully.");
+    } else {
+        console.error("Failed to retrieve the product review element.");
+    }
+} else {
+    console.error("Failed to find the closest .product-item-top element.");
+}
+
+
+console.log("Attempting to retrieve variant data...");
+
+var variantDataAttribute = button.closest('.collection-product-wrapper').getAttribute('data-variant');
+if (variantDataAttribute) {
+    var variant = JSON.parse(variantDataAttribute);
+    console.log("Variant data retrieved successfully:", variant);
+} else {
+    console.error("Failed to retrieve 'data-variant' attribute.");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Call buildSubscriptionSection and pass the product details
+    var subscriptionSectionHtml = buildSubscriptionSection(product);
+
+    var spectrumImage = '';
+    if (productSpectrum === 'full-spectrum') {
+      spectrumImage = '<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/FULL_SPECTRUM.svg?v=1711141752" alt="Full Spectrum" class="product-spectrum">';
+    } else if (productSpectrum === 'broad-spectrum') {
+      spectrumImage = '<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/BROAD_SPECTRUM.svg?v=1711141752" alt="Broad Spectrum" class="product-spectrum">';
+      } else if (productSpectrum === 'for-pets') {
+      spectrumImage = '<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/BROAD_SPECTRUM.svg?v=1711141752" alt="Broad Spectrum" class="product-spectrum">';
+    } else if (productSpectrum === 'unknown-spectrum') {
+      spectrumImage = '';
+    }
+
+    var imageUrl = '';
+
+    // First check if variantMetaImage has a value
+    if (variantMetaImage) {
+        imageUrl = variantMetaImage;
+    } else if (variantImage) {
+        // If variantMetaImage doesn't have a value, but variantImage does
+        imageUrl = variantImage;
+    } else if (producImage) {
+        imageUrl = productImage;
+    }
+
+    const defaultSellingPlanId = product.selling_plan_groups[0].selling_plans[0].id;
+
+    var flyout = document.getElementById('cartFlyout');
+    flyout.innerHTML = `
+          <span id="flyout-close"><img class="flyout-close-img" src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/X_Small_f87e9498-cf5a-4cea-b315-5ed6b2b36b1d.svg?v=1709743999"></span>
+          <div class="flyout-content">
+
+            <div class="flyout-top">
+
+            <a href="${variantUrl}">
+              <img src="${quickAddImage}" alt="{{productTitle}}" class="product-image">
+            </a>
+
+              <div class="flyout-info">
+              ${spectrumImage}
+
+              <a href="${variantUrl}">
+              <h2 class="header-2">${productTitle}</h2>
+              </a>
+              `+product_review+`
+              <a href="${variantUrl}" class="info-link-flyout">View Product Details</a>
+              </div>
+            </div>
+
+              <!-- Begin form -->
+              <form id="AddToCartForm" action="/cart/add" method="post" enctype="multipart/form-data">
+              <!--
+                  <div class="jc-product-page-form-top-heading-wrapper">		
+                    <p class="jc-product-page-form-top-heading">Select a Potency & Package Below:</p>
+                  </div>
+                -->
+                  <div id="yourFormContainer"></div>
+                  <div class="jc-product-page-form-top-heading-wrapper">		
+                    <p class="jc-product-page-form-top-heading">PURCHASE</p>
+                  </div>
+                  ${subscriptionSectionHtml} <!-- Insert the subscription section here -->
+                  <input type="hidden" name="id" value="${variantId}">
+                  <input type="hidden" name="quantity"value="1">
+                  <input type="hidden" name="selling_plan" value="${defaultSellingPlanId}">
+                  <div class="flyout-atc">
+                    <button type="submit" class="jc-medium-btn no-margin cart w-button add-to-cart-btn">ADD SUBSCRIPTION TO CART</button>
+
+                    <div class="jc-product-page-disclaimer-wrapper cart" id="tab-section">
+                      <p id="disclaimer-text-flyout" class="jc-product-page-disclaimer-text"><span>60-Day Money-Back Guarantee | Free U.S. Shipping</span></p>
+                    </div>
+
+                    <div class="flyout-continue">
+                      <div class="flex-wrapper flyout">
+
+                        <a href="javascript:;" class="continue-wrapper flyout-continue-link">
+                        <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Arrow_f91327d0-2d81-4965-80f8-cea054f6c283.svg?v=1703708692" class="continue-arrow" alt="">
+                          <div class="flyout-continue-link text">KEEP SHOPPING</div>
+                        </a>
+
+                        <div class="success-wrapper">
+                        <img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_29.svg?v=1703720375">
+                          <p class="jc-form-success-text-quick"><i class="fa fa-check"></i> Items Added! <a href="/cart">View Cart</a></p>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+              </form>
+              <!-- End form -->
+
+
+          </div>
+      `;
+
+      
+
+    const formContainer = document.getElementById('yourFormContainer');
+    formContainer.innerHTML = '';
+    const productForm = buildProductOptions(productOptions, productVariants);
+    formContainer.appendChild(productForm);
+
+    var overlay = document.getElementById('flyoutOverlay');
+    overlay.classList.add('active');
+    overlay.onclick = function() {
+      closeFlyout();
+    };
+
+    document.getElementById('flyout-close').onclick = function() {
+      closeFlyout();
+    };
+
+    document.querySelector('.flyout-continue-link').onclick = function() {
+      closeFlyout();
+    };
+
+    flyout.classList.add('open');
+
+    flyout.scrollTop = 0;
+
+    document.body.classList.add('overflow--hidden');
+
+    var variants = variant.title.split(' / ');
+    variants.forEach(value => {
+      document.querySelectorAll('.product-option-input').forEach(input => {
+        if (value == input.value) 
+          input.checked = true;
+        
+
+
+
+      });
+    });
+    productVariants.forEach(productVariant => {
+      if (productVariant.title == variant.title) 
+        changeVariant(productVariant.price);
+      
+
+    });
+
+    attachAjaxSubmitListener();
+  }
+
+
+  function closeFlyout() {
+    var flyout = document.getElementById('cartFlyout');
+    flyout.classList.remove('open');
+
+// Also hide the overlay with a fade-out effect
+    var overlay = document.getElementById('flyoutOverlay');
+    overlay.classList.remove('active');
+    document.body.classList.remove('overflow--hidden');
+  }
+
+
+
+  function changePack() {
+    const pack = $('.jc-custom-rc-radio__input:checked').next().find('.jc-custom-rc-radio__pack-item.active').data('pack');
+    $('.flyout-content').find('[name="quantity"]').val(pack);
+  }
+
+  function changePlan() {
+    const planId = $('.jc-custom-rc-radio__plan-item.active').data('selling-plan-id');
+    $('.flyout-content').find('[name="selling_plan"]').val(planId);
+  }
+
+  function formatPrice(p) {
+    return p.toFixed(2);
+    
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+  function updatePrices() {
+    const subSaveActivePack = $('.jc-custom-subsave .jc-custom-rc-radio__pack-item.active');
+    const subSaveComparePrice = subSaveActivePack.find('.jc-custom-rc__compare-price').text().trim();
+    const subSaveSalePrice = subSaveActivePack.find('.jc-custom-rc__sale-price').text().trim();
+    
+    const oneTimeActivePack = $('.jc-custom-onetime .jc-custom-rc-radio__pack-item.active');
+    const oneTimeComparePrice = oneTimeActivePack.find('.jc-custom-rc__compare-price').text().trim();
+    const oneTimeSalePrice = oneTimeActivePack.find('.jc-custom-rc__sale-price').text().trim();
+    
+    // Update the UI only if elements are found
+    if (subSaveActivePack.length > 0) {
+        $('.jc-custom-subsave .jc-custom-rc__price-box .jc-custom-rc__compare-price').text(subSaveComparePrice);
+        $('.jc-custom-subsave .jc-custom-rc__sale-price').first().text(subSaveSalePrice);
+    }
+
+    if (oneTimeActivePack.length > 0) {
+        $('.jc-custom-onetime .jc-custom-rc__price-box .jc-custom-rc__sale-price').html(`<span class="compare-price">${oneTimeComparePrice}</span> <span class="sale-price">${oneTimeSalePrice}</span>`);
+    }
+}
+*/
+
+function updateSubscriptionPrices() {
+        const subSaveActivePack = $('.jc-custom-subsave .jc-custom-rc-radio__pack-item.active');
+        const subSaveComparePrice = subSaveActivePack.find('.jc-custom-rc__compare-price').text().trim();
+        const subSaveSalePrice = subSaveActivePack.find('.jc-custom-rc__sale-price').text().trim();
+
+        if (subSaveActivePack.length > 0) {
+            $('.jc-custom-subsave .jc-custom-rc__price-box .jc-custom-rc__compare-price').text(subSaveComparePrice);
+            $('.jc-custom-subsave .jc-custom-rc__sale-price').first().text(subSaveSalePrice);
+        }
+    }
+
+    function updateOneTimePrices() {
+        const oneTimeActivePack = $('.jc-custom-onetime .jc-custom-rc-radio__pack-item.active');
+        const oneTimeComparePrice = oneTimeActivePack.find('.jc-custom-rc__compare-price').text().trim();
+        const oneTimeSalePrice = oneTimeActivePack.find('.jc-custom-rc__sale-price').text().trim();
+
+        if (oneTimeActivePack.length > 0) {
+            $('.jc-custom-onetime .jc-custom-rc__price-box .jc-custom-rc__sale-price').html(`<span class="compare-price">${oneTimeComparePrice}</span> <span class="sale-price">${oneTimeSalePrice}</span>`);
+        }
+    }
+
+    
+
+  function changeVariant(price) {
+    price = price / 100;
+    $('.jc-custom-rc__compare-price').text(`$${
+      formatPrice(price)
+    }`.replace('.00', ''));
+    $('[data-pack="2"]').find('.jc-custom-rc__compare-price').text(`$${
+      formatPrice(price * 2)
+    }`.replace('.00', ''));
+    $('[data-pack="3"]').find('.jc-custom-rc__compare-price').text(`$${
+      formatPrice(price * 3)
+    }`.replace('.00', ''));
+    $('.jc-custom-onetime').find('.jc-custom-rc__sale-price').text(`$${
+      formatPrice(price)
+    }`.replace('.00', ''));
+    $('.jc-custom-onetime').find('[data-pack="1"]').find('.jc-custom-rc__sale-price').text(`$${
+      formatPrice(price)
+    }`.replace('.00', ''));
+    $('.jc-custom-onetime').find('[data-pack="2"]').find('.jc-custom-rc__sale-price').text(`$${
+      formatPrice(price * 2 * 0.9)
+    }`.replace('.00', ''));
+    $('.jc-custom-onetime').find('[data-pack="3"]').find('.jc-custom-rc__sale-price').text(`$${
+      formatPrice(price * 3 * 0.85)
+    }`.replace('.00', ''));
+
+    $('.jc-custom-subsave').find('.jc-custom-rc__sale-price').text(`$${
+      formatPrice(price * 0.8)
+    }`.replace('.00', ''));
+    $('.jc-custom-subsave').find('[data-pack="1"]').find('.jc-custom-rc__sale-price').text(`$${
+      formatPrice(price * 0.8)
+    }`.replace('.00', ''));
+    $('.jc-custom-subsave').find('[data-pack="2"]').find('.jc-custom-rc__sale-price').text(`$${
+      formatPrice(price * 2 * 0.8)
+    }`.replace('.00', ''));
+    $('.jc-custom-subsave').find('[data-pack="3"]').find('.jc-custom-rc__sale-price').text(`$${
+      formatPrice(price * 3 * 0.8)
+    }`.replace('.00', ''));
+  }
+
+
+  function updateInitialOneTimePrice() {
+        // Update to the single pack one-time price on page load
+        const singlePack = $('.jc-custom-onetime .jc-custom-rc-radio__pack-item[data-pack="1"]');
+        singlePack.addClass('active');
+        const oneTimeComparePrice = singlePack.find('.jc-custom-rc__compare-price').text().trim();
+        const oneTimeSalePrice = singlePack.find('.jc-custom-rc__sale-price').text().trim();
+
+        if (singlePack.length > 0) {
+            $('.jc-custom-onetime .jc-custom-rc__price-box .jc-custom-rc__sale-price').html(`<span class="compare-price">${oneTimeComparePrice}</span> <span class="sale-price">${oneTimeSalePrice}</span>`);
+        }
+    }
+
+  $(document).on('click', '.jc-custom-rc-radio__pack-item', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if ($(this).closest('.jc-custom-rc-radio').hasClass('jc-custom-subsave')) {
+            $(this).closest('.jc-custom-rc-radio__packs').find('.jc-custom-rc-radio__pack-item').removeClass('active');
+            $(this).addClass('active');
+            changePack();
+            updateSubscriptionPrices();
+        } else if ($(this).closest('.jc-custom-rc-radio').hasClass('jc-custom-onetime')) {
+            $(this).closest('.jc-custom-rc-radio__packs').find('.jc-custom-rc-radio__pack-item').removeClass('active');
+            $(this).addClass('active');
+            changePack();
+            updateOneTimePrices();
+        }
+  });
+
+  $(document).on('click', '.jc-custom-rc-radio__plan-item', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $('.jc-custom-rc-radio__plan-item').removeClass('active');
+    $(this).addClass('active');
+    changePlan();
+    updatePrices();
+  });
+
+  $(document).on('change', '.jc-custom-rc-radio__input', function() {
+        if ($('.jc-custom-rc-radio__input:checked').val() == 'subsave') {
+            $('.rc-radio__input[value="subsave"]').click();
+            $('#subscription-btn').text('Add Subscription to Cart');
+            if ($(window).width() < 768) {
+
+                $('#disclaimer-text').html('60-Day Money-Back Guarantee<br> Free U.S. Shipping');
+            } else {
+
+                $('#disclaimer-text').text('60-Day Money-Back Guarantee | Free U.S. Shipping');
+            }
+        } else {
+            $('.rc-radio__input[value="onetime"]').click();
+            $('#subscription-btn').text('Add to Cart');
+            $('#disclaimer-text').text('60-Day Money-Back Guarantee | Free U.S. Shipping Over $60');
+            if ($(window).width() < 768) {
+                $('#disclaimer-text').html('60-Day Money-Back Guarantee<br>Free U.S. Shipping Over $60');
+                $('body, html').scrollTop($('.jc-custom-onetime').position().top + 540);
+              } else {
+                $('#disclaimer-text').text('60-Day Money-Back Guarantee | Free U.S. Shipping Over $60');
+              }
+        }
+        changePack();
+        if ($('.jc-custom-rc-radio__input:checked').val() == 'subsave') {
+            updateSubscriptionPrices();
+        } else {
+            updateOneTimePrices();
+        }
+    });
+
+
+
+/*
+
+
+    function updatePrices() {
+        const subSaveActivePack = $('.jc-custom-subsave .jc-custom-rc-radio__pack-item.active');
+        const subSaveComparePrice = subSaveActivePack.find('.jc-custom-rc__compare-price').text().trim();
+        const subSaveSalePrice = subSaveActivePack.find('.jc-custom-rc__sale-price').text().trim();
+    
+        const oneTimeActivePack = $('.jc-custom-onetime .jc-custom-rc-radio__pack-item.active');
+        const oneTimeComparePrice = oneTimeActivePack.find('.jc-custom-rc__compare-price').text().trim();
+        const oneTimeSalePrice = oneTimeActivePack.find('.jc-custom-rc__sale-price').text().trim();
+    
+        if (subSaveActivePack.length > 0) {
+            $('.jc-custom-subsave .jc-custom-rc__price-box .jc-custom-rc__compare-price').text(subSaveComparePrice);
+            $('.jc-custom-subsave .jc-custom-rc__sale-price').first().text(subSaveSalePrice);
+        }
+    
+        if (oneTimeActivePack.length > 0) {
+            $('.jc-custom-onetime .jc-custom-rc__price-box .jc-custom-rc__sale-price').html(`<span class="compare-price">${oneTimeComparePrice}</span> <span class="sale-price">${oneTimeSalePrice}</span>`);
+        }
+    }
+
+    function changeVariant(price) {
+        price = price / 100;
+        $('.jc-custom-rc__compare-price').text(`$${formatPrice(price)}`.replace('.00', ''));
+        $('[data-pack="2"]').find('.jc-custom-rc__compare-price').text(`$${formatPrice(price * 2)}`.replace('.00', ''));
+        $('[data-pack="3"]').find('.jc-custom-rc__compare-price').text(`$${formatPrice(price * 3)}`.replace('.00', ''));
+        $('.jc-custom-onetime').find('.jc-custom-rc__sale-price').text(`$${formatPrice(price)}`.replace('.00', ''));
+        $('.jc-custom-onetime').find('[data-pack="1"]').find('.jc-custom-rc__sale-price').text(`$${formatPrice(price)}`.replace('.00', ''));
+        $('.jc-custom-onetime').find('[data-pack="2"]').find('.jc-custom-rc__sale-price').text(`$${formatPrice(price * 2 * 0.9)}`).replace('.00', '');
+        $('.jc-custom-onetime').find('[data-pack="3"]').find('.jc-custom-rc__sale-price').text(`$${formatPrice(price * 3 * 0.85)}`).replace('.00', '');
+
+        $('.jc-custom-subsave').find('.jc-custom-rc__sale-price').text(`$${formatPrice(price * 0.8)}`).replace('.00', '');
+        $('.jc-custom-subsave').find('[data-pack="1"]').find('.jc-custom-rc__sale-price').text(`$${formatPrice(price * 0.8)}`).replace('.00', '');
+        $('.jc-custom-subsave').find('[data-pack="2"]').find('.jc-custom-rc__sale-price').text(`$${formatPrice(price * 2 * 0.8)}`).replace('.00', '');
+        $('.jc-custom-subsave').find('[data-pack="3"]').find('.jc-custom-rc__sale-price').text(`$${formatPrice(price * 3 * 0.8)}`).replace('.00', '');
+    }
+
+    function setInitialOneTimePrice() {
+        // Set the single pack one-time price on page load
+        const singlePack = $('.jc-custom-onetime .jc-custom-rc-radio__pack-item[data-pack="1"]');
+        singlePack.addClass('active');
+        const oneTimeComparePrice = singlePack.find('.jc-custom-rc__compare-price').text().trim();
+        const oneTimeSalePrice = singlePack.find('.jc-custom-rc__sale-price').text().trim();
+
+        if (singlePack.length > 0) {
+            $('.jc-custom-onetime .jc-custom-rc__price-box .jc-custom-rc__sale-price').html(`<span class="compare-price">${oneTimeComparePrice}</span> <span class="sale-price">${oneTimeSalePrice}</span>`);
+        }
+    }
+
+    $(document).on('click', '.jc-custom-rc-radio__pack-item', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if ($(this).closest('.jc-custom-rc-radio').hasClass('jc-custom-subsave')) {
+            $(this).closest('.jc-custom-rc-radio__packs').find('.jc-custom-rc-radio__pack-item').removeClass('active');
+            $(this).addClass('active');
+            changePack();
+            updateSubscriptionPrices();
+        } else if ($(this).closest('.jc-custom-rc-radio').hasClass('jc-custom-onetime')) {
+            $(this).closest('.jc-custom-rc-radio__packs').find('.jc-custom-rc-radio__pack-item').removeClass('active');
+            $(this).addClass('active');
+            changePack();
+            updateOneTimePrices();
+        }
+    });
+
+    $(document).on('click', '.jc-custom-rc-radio__plan-item', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $('.jc-custom-rc-radio__plan-item').removeClass('active');
+        $(this).addClass('active');
+        changePlan();
+        updateSubscriptionPrices();
+    });
+
+    $(document).on('change', '.jc-custom-rc-radio__input', function() {
+        if ($('.jc-custom-rc-radio__input:checked').val() == 'subsave') {
+            $('.add-to-cart-btn').text('Add Subscription to Cart');
+            $('#disclaimer-text-flyout').text('60-Day Money-Back Guarantee | Free U.S. Shipping');
+            changePlan();
+            updateSubscriptionPrices();
+        } else {
+            $('.add-to-cart-btn').text('Add to Cart');
+            $('.flyout-content').find('[name="selling_plan"]').val('');
+            $('#disclaimer-text-flyout').text('60-Day Money-Back Guarantee | Free U.S. Shipping Over $60');
+            if ($(window).width() < 768) {
+                $('body, html').scrollTop($('.jc-custom-onetime').position().top + 540);
+            }
+            // Set to the second pack for one-time purchases
+            const secondPack = $('.jc-custom-onetime .jc-custom-rc-radio__pack-item[data-pack="2"]');
+            $('.jc-custom-onetime .jc-custom-rc-radio__pack-item').removeClass('active');
+            secondPack.addClass('active');
+            changePack();
+            updateOneTimePrices();
+        }
+    });
+
+    // Initial load: set the one-time price for the single pack
+    setInitialOneTimePrice();
+
+    // Ensure prices are updated on page load
+    updatePrices();
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Function to attach the AJAX submit listener to the flyout form
+function attachAjaxSubmitListener() {
+    const addToCartForm = document.querySelector('form[action="/cart/add"]');
+    if (addToCartForm) {
+        addToCartForm.addEventListener('submit', handleAjaxSubmit);
+    }
+}
+
+// AJAX Form Submission Handler
+function handleAjaxSubmit(e) {
+    e.preventDefault();
+
+    const isSubscription = $('.jc-custom-rc-radio__input:checked').val() == 'subsave'; // Adjusted to use jQuery for consistency
+    const config = {
+        addingToCartBtnLabel: 'Adding...',
+        addedToCartBtnLabel: 'Item Added!',
+        soldOutBtnLabel: 'Sold Out',
+        howLongTillBtnReturnsToNormal: 1000,
+        cartCountSelector: '#CartCount',
+        cartTotalSelector: '#cart-price',
+        shopifyAjaxAddURL: '/cart/add.js',
+        shopifyAjaxCartURL: '/cart.js'
+    };
+
+    const addToCartButton = e.target.querySelector('[type="submit"]');
+    addToCartButton.textContent = config.addingToCartBtnLabel;
+    addToCartButton.disabled = true;
+
+    fetch(config.shopifyAjaxAddURL, {
+        method: 'POST',
+        body: new FormData(e.target),
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Upon successful add, show feedback and update cart count and total
+        showFeedback('success', `<p class="jc-form-success-text-quick"><i class="fa fa-check"></i> Item Added! <a href="/cart">View Cart</a></p>`, e.target);
+
+        addToCartButton.textContent = config.addedToCartBtnLabel;
+
+        return fetch(config.shopifyAjaxCartURL); // Fetch updated cart info
+    })
+    .then(response => response.json())
+    .then(cartData => {
+        // Update cart count and total price display
+        updateCartDisplay(cartData, config);
+
+        // Reset button text based on subscription status after timeout
+        setTimeout(() => {
+            resetButtonText(isSubscription, addToCartButton);
+            addToCartButton.disabled = false;
+        }, config.howLongTillBtnReturnsToNormal);
+    })
+    .catch(error => {
+        // Handle error case and reset button text
+        showFeedback('error', `<i class="fa fa-warning"></i> ${error.message}`, e.target);
+        resetButtonText(isSubscription, addToCartButton);
+        addToCartButton.disabled = false;
+    });
+}
+
+function resetButtonText(isSubscription, button) {
+    if (isSubscription) {
+        button.textContent = 'Add Subscription to Cart';
+    } else {
+        button.textContent = 'Add To Cart';
+    }
+}
+
+function updateCartDisplay(cartData, config) {
+    $('.cart-count-number').text(cartData.item_count); // Assuming you're using jQuery elsewhere for consistency
+    if ($(config.cartCountSelector).length) {
+        $(config.cartCountSelector).text(cartData.item_count);
+    }
+    if ($(config.cartTotalSelector).length) {
+        $(config.cartTotalSelector).text(Shopify.formatMoney(cartData.total_price, "{{ shop.money_format | remove: "'" | remove: '"' }}"));
+    }
+}
+
+// Ensure DOM is fully loaded before attaching event listener
+document.addEventListener("DOMContentLoaded", function() {
+    attachAjaxSubmitListener();
+});
+
+</script>
+
+
+<script>
+
+    const config = {
+        addToCartBtnLabel: 'Add To Cart',
+        addedToCartBtnLabel: 'Item Added!',
+        addingToCartBtnLabel: 'Adding...current2',
+        soldOutBtnLabel: 'Sold Out',
+        howLongTillBtnReturnsToNormal: 1000,
+        cartCountSelector: '#CartCount',
+        cartTotalSelector: '#cart-price',
+        feedbackPosition: 'rightCorner',
+        addToCartBtnSelector: '[type="submit"]',
+        addToCartFormSelector: 'form[action="/cart/add"]',
+        shopifyAjaxAddURL: '/cart/add.js',
+        shopifyAjaxCartURL: '/cart.js'
+    };
+
+
+
+    const showFeedback = (success, message, formElement) => {
+        const feedbackElem = document.createElement('p');
+        feedbackElem.className = `ajaxified-cart-feedback ${success}`;
+        feedbackElem.innerHTML = message;
+        if(formElement.querySelector('.ajaxified-cart-feedback')) {
+          formElement.querySelector('.ajaxified-cart-feedback').remove();
+        }
+  
+        switch (config.feedbackPosition) {
+            case 'aboveForm':
+                formElement.insertAdjacentElement('beforebegin', feedbackElem);
+                break;
+            case 'belowForm':
+                formElement.insertAdjacentElement('afterend', feedbackElem);
+                break;
+            case 'rightCorner': 
+                formElement.querySelector('.flyout-continue-link').insertAdjacentElement('afterend', feedbackElem);
+            case 'nextButton':
+            default:
+                //formElement.querySelector(config.addToCartBtnSelector).insertAdjacentElement('afterend', feedbackElem);
+                
+                formElement.querySelector('.flyout-continue-link').insertAdjacentElement('afterend', feedbackElem);
+                break;
+        }
+        feedbackElem.style.display = 'block';
+    };
+    // Call this function when the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function() {
+    // This is to ensure the AJAX listener is attached when the page loads
+    attachAjaxSubmitListener();
+});
+
+    document.querySelector(config.addToCartFormSelector).addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const addToCartButton = e.target.querySelector(config.addToCartBtnSelector);
+        addToCartButton.textContent = config.addingToCartBtnLabel;
+        addToCartButton.disabled = true;
+
+        fetch(config.shopifyAjaxAddURL, {
+            method: 'POST',
+            body: new FormData(e.target),
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            addToCartButton.textContent = config.addedToCartBtnLabel;
+            showFeedback('success', `<p  class="jc-form-success-text-quick"><i class="fa fa-check"></i> Items Added! <a href="/cart">View Cart</a></p>`, e.target);
+
+            fetch(config.shopifyAjaxCartURL)
+            .then(response => response.json())
+            .then(cartData => {
+                $('.cart-count-number').text(cartData.item_count);
+                if (document.querySelector(config.cartCountSelector)) {
+                    document.querySelector(config.cartCountSelector).textContent = cartData.item_count;
+                }
+
+                if (document.querySelector(config.cartTotalSelector)) {
+                    document.querySelector(config.cartTotalSelector).textContent = Shopify.formatMoney(cartData.total_price, "{{ shop.money_format | remove: "'" | remove: '"' }}");
+                }
+
+                setTimeout(() => {
+                    addToCartButton.disabled = false;
+                    addToCartButton.textContent = config.addToCartBtnLabel;
+                }, config.howLongTillBtnReturnsToNormal);
+            });
+        })
+        .catch(error => {
+            showFeedback('error', `<i class="fa fa-warning"></i> ${error.message}`, e.target);
+            addToCartButton.disabled = false;
+            addToCartButton.textContent = config.addToCartBtnLabel;
+        });
+    });
+
+  </script>
+  
+  {% comment %}
+    If you want to animate your feedback message.
+  {% endcomment %}
+  
+  {% comment %}
+  {{ '//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css' | stylesheet_tag }}
+  {% endcomment %}
+  
+  {{ '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' | stylesheet_tag }}
+  
+  <style>
+  .ajaxified-cart-feedback {
+    display: block;
+    line-height: 36px;
+    font-size: 90%;
+    vertical-align: middle;
+  }
+  .ajaxified-cart-feedback.success { 
+    color: #3D9970;
+    margin-bottom: 0;
+  }
+  .ajaxified-cart-feedback.error { 
+    color: #FF4136; 
+  } 
+  .ajaxified-cart-feedback a {
+    border-bottom: none;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  </style>

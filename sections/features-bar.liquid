@@ -1,0 +1,98 @@
+
+
+<style>
+	.feature-bar-mobile{
+		display: none;
+	}
+	@media (max-width: 749px){
+		.feature-bar-mobile{
+			display: block;
+		}
+	}
+</style>
+<div class="collection-feature-bar">
+
+{% comment %}
+{% endcomment %}
+	
+	<img class="feature-bar-mobile" src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Icon-Strip_MOB-Poppins-256.gif?v=1709663153" alt="Collection Feature">
+	
+
+
+			<div class="features-inner">
+
+				<div class="icon-wrapper">
+					<div class="feature-icon-wrapper">
+						<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_1.svg?v=1699295456" alt="" class="feature-icon">
+					</div>
+					<div class="feature-text-wrapper">
+						<div class="feature-title">USDA Organic Certified Hemp</div>
+					</div>
+				</div>
+
+				<div class="icon-wrapper">
+					<div class="feature-icon-wrapper">
+						<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_2.svg?v=1699295456" alt="" class="feature-icon">
+					</div>
+					<div class="feature-text-wrapper">
+						<div class="feature-title">Veteran<br> Owned</div>
+					</div>
+				</div>
+
+				<div class="icon-wrapper">
+					<div class="feature-icon-wrapper">
+						<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_3.svg?v=1699295456" alt="" class="feature-icon">
+					</div>
+					<div class="feature-text-wrapper">
+						<div class="feature-title">Third-Party<br>Lab Tested</div>
+					</div>
+				</div>
+
+				<div class="icon-wrapper">
+					<div class="feature-icon-wrapper">
+						<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_4.svg?v=1699295456" alt="" class="feature-icon smaller">
+					</div>
+					<div class="feature-text-wrapper">
+						<div class="feature-title">All-Natural Ingredients</div>
+					</div>
+				</div>
+
+				<div class="icon-wrapper">
+					<div class="feature-icon-wrapper">
+						<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_5.svg?v=1699295456" alt="" class="feature-icon">
+					</div>
+					<div class="feature-text-wrapper">
+						<div class="feature-title">Made in the<br> USA</div>
+					</div>
+				</div>
+
+				<div class="icon-wrapper">
+					<div class="feature-icon-wrapper">
+						<img src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/Vector_6.svg?v=1699295456" alt="" class="feature-icon smaller">
+					</div>
+					<div class="feature-text-wrapper">
+						<div class="feature-title">60-Day Money-Back Guarantee</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	{% schema %}
+	{
+	"name": "Features Bar",
+	"tag": "section",
+	"class": "section",
+	"disabled_on": {
+	"groups": ["header", "footer"]
+	},
+	"settings": [
+
+	],
+	"presets": [
+	{
+	"name": "Features Bar"
+	}
+	]
+	}
+	{% endschema %}

@@ -1,0 +1,151 @@
+<style>
+    .jc-disclaimer-wrapper-products {
+        overflow: hidden;
+    }
+
+    .left-container {
+        position: relative;
+
+    }
+
+    .left-container.hidden-tablet {
+        max-width: 546px;
+    }
+
+    .left-container img {
+        width: 100%;
+        max-width: 546px;
+
+        position: absolute;
+        top: 0px;
+        right: 0;
+        transform: translate3d(0, 0, 0);
+        /* Enhances performance by promoting the element to its own layer */
+    }
+
+    .jc-disclaimer-wrapper-products p {
+        line-height: 39px;
+        font-weight: 400;
+    }
+
+    .heading-wrapper.margin-b-80 .max-360.h1-new {
+        margin-bottom: 18px;
+        margin-top: 0px;
+    }
+
+    @media (max-width: 749px) {
+        .heading-wrapper.margin-b-80 .max-360.h1-new {
+            margin-bottom: 14px;
+        }
+    }
+
+    /* Additional styles for other elements if needed */
+</style>
+
+<div class="jc-disclaimer-wrapper-products green-bg">
+    <div class="wrapper-outter padded left">
+
+
+        <div class="left-container hidden-tablet">
+            <img style="border-radius: 0px 150px;"
+                src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/991492a272db5cc5e6386ea6f473bf2d.jpg?v=1711985538"
+                alt="">
+        </div>
+
+        <div class="right-container doctor-section">
+
+            <div class="heading-wrapper margin-b-80">
+                <h1 style="font-weight: 700;" class="max-360 h1-new" style="">Doctor-Endorsed Solutions</h1>
+
+                <p style="margin-bottom: 0px;" class="p-smaller">Partnering with trusted medical experts is an important
+                    part of our mission to help people improve the quality of their lives naturally.</p>
+            </div>
+
+
+            <div class="doctor-image-wrapper">
+
+                <img class="show-tablet"
+                    src="https://cdn.shopify.com/s/files/1/0107/7431/5072/files/991492a272db5cc5e6386ea6f473bf2d.jpg?v=1711985538"
+                    alt="">
+            </div>
+
+
+            <div class="green-half-pill home">
+
+                <div class="pill-text-wrapper">
+
+                  
+
+                    <p class="paragraph-smaller">“Throughout my nearly 20 years of clinical experience, I have seen
+                        first-hand how effective CBD can be, especially for those who need alternatives to
+                        pharmaceuticals and over-the-counter medications that can cause harsh side effects. R&R’s
+                        dedication to helping people was immediately clear to me thanks to their highest-quality,
+                        versatile formulations. Not all CBD companies are created equal, but R&R is the real deal which
+                        makes it a pleasure to partner with them.”</p>
+
+
+                    <div style="display: flex; align-items: baseline; column-gap: 10px;" class="flex-paragraph-wrapper">
+
+                        <p style="margin-top: 20px; margin-bottom: 0px; font-size: 26px;" class="expert-heading">
+                            Kimberly Langdon,</p>
+                        <p style="margin-top: 0px;" class="paragraph-smaller">MD</p>
+                    </div>
+                </div>
+
+
+
+
+                <div class="green-pill-inner hidden-tablet"></div>
+                <div class="green-pill-inner-rounded home hidden-tablet"></div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="slider-indicators"></div>
+</div>
+{% comment %}
+<script>
+    document.addEventListener("scroll", function () {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        var img = document.querySelector('.left-container img');
+        if (img) {
+            var imgRect = img.getBoundingClientRect();
+            var imgTop = imgRect.top + scrollTop;
+            var imgHeight = img.offsetHeight;
+            var windowHeight = window.innerHeight;
+
+            if (scrollTop + windowHeight > imgTop && imgTop + imgHeight > scrollTop) {
+                // Image is in the viewport
+                var offset = scrollTop + windowHeight - imgTop;
+                img.style.transform = 'translate3d(0,' + offset * 0.2 + 'px, 0)'; // Adjust the multiplier (0.3) as needed
+            } else {
+                img.style.transform = 'translate3d(0, 0, 0)';
+            }
+        }
+    });
+
+
+</script>
+{% endcomment %}
+
+
+{% schema %}
+{
+"name": "Backed by Experts Home",
+"tag": "section",
+"class": "section",
+"disabled_on": {
+"groups": ["header", "footer"]
+},
+"settings": [
+
+],
+"presets": [
+{
+"name": "Backed by Experts Home"
+}
+]
+}
+{% endschema %}
